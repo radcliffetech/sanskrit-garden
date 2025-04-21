@@ -6,6 +6,7 @@ export function SystemNavbar() {
         <div className="flex space-x-4">
           <a href="/" className="hover:text-gray-300">Home</a>
           <a href="/about" className="hover:text-gray-300">About</a>
+          <a href="/more" className="hover:text-gray-300">More</a>
         </div>
       </div>
     </nav>
