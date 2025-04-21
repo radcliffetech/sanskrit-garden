@@ -9,8 +9,8 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div>
-        <img src="images/om.png" alt="Om" className="mx-auto w-2/5 opacity-50" /> 
+    <div className="flex justify-center">
+      <img src="images/om.png" alt="Om" className="w-3/5 opacity-50" />
     </div>
   );
 }
