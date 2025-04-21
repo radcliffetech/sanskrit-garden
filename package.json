@@ -14,10 +14,8 @@
     "@remix-run/node": "^2.16.5",
     "@remix-run/react": "^2.16.5",
     "@remix-run/serve": "^2.16.5",
-    "bootstrap": "^5.3.5",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-bootstrap": "^2.10.9",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {

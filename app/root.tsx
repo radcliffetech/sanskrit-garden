@@ -1,4 +1,4 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './tailwind.css';
 
 import {
   Links,
@@ -8,7 +8,6 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import Container from 'react-bootstrap/Container';
 import type { LinksFunction } from "@remix-run/node";
 import { SystemNavbar } from './components/SystemNavbar';
 
@@ -36,13 +35,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <SystemNavbar />
-  
-          
-        <Container>
           <div>
             {children }
           </div>
-        </Container>
         <ScrollRestoration />
         <Scripts />
       </body>

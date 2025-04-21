@@ -1,20 +1,13 @@
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
 export function SystemNavbar() {
   return (
-    <Navbar bg="dark" expand="lg" className="mb-4">
-      <Container>
-        <Navbar.Brand href="#" className="text-light">Sanskrit Garden</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="/" className="text-light">Home</Nav.Link>
-            <Nav.Link href="/about" className="text-light">About</Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  )
+    <nav className="bg-gray-900 text-white px-4 py-3 mb-6">
+      <div className="container mx-auto flex flex-wrap items-center justify-between">
+        <a href="#" className="text-xl font-semibold">Sanskrit Garden</a>
+        <div className="flex space-x-4">
+          <a href="/" className="hover:text-gray-300">Home</a>
+          <a href="/about" className="hover:text-gray-300">About</a>
+        </div>
+      </div>
+    </nav>
+  );
 }
