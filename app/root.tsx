@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         <SystemNavbar />
-          <div>
+         <div className="container mx-auto flex flex-wrap items-center justify-between">
             {children }
           </div>
         <ScrollRestoration />

@@ -9,9 +9,14 @@ export const meta: MetaFunction = () => {
 
 export default function About() {
   return (
-    <div>
-        <h1 className="h1">About</h1>
-        <img src="images/om.png" alt="Om" className="w-50 opacity-50" /> 
+    <div className="px-4 py-6">
+      <h1 className="text-3xl font-bold mb-6">About</h1>
+      <p className="text-lg mb-4">
+        Sanskrit Garden is a project dedicated to the exploration and learning of the Sanskrit language, and Computer Science.
+        </p>
+      <p className="text-lg mb-4">
+      This project is coded with respect by Jeffrey Radcliffe.
+        </p>
     </div>
   );
 }
