@@ -1,7 +1,7 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
-
+import { marked } from "marked";
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
   if (!slug) {
@@ -25,7 +25,7 @@ export default function ArticleDetail() {
             <p className="mt-2 text-lg text-gray-600 italic">{article.summary}</p>
           </header>
           <section className="mt-8 text-gray-800 leading-relaxed">
-            {article.content}
+            <div className="space-y-6" dangerouslySetInnerHTML={{ __html: marked(article.content) }} />
           </section>
         </article>
     </div>
