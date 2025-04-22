@@ -33,7 +33,7 @@ export function getRibhuGitaChapter(): GitaChapter {
   return {
     id: "9fa4356a-93ef-4bd8-98d4-58bdf44469d0",
     chapter: 26,
-    title: "Ribhu Gita - Chapter 26",
+    title: "Ribhu Gita - Chapter 26 (Verses 1-8)",
     author: "Ribhu",
     summary:
       "Chapter 26 of the Ribhu Gītā focuses on the direct and uncompromising exposition of non-dual reality (Advaita). It dismantles all constructs of duality, differentiation, and even traditional spiritual practices to reveal the indivisible nature of Brahman. The chapter reiterates that the highest truth is beyond mental formulation and rests in the direct, silent realization of the Self as blissful, formless, and eternal.",

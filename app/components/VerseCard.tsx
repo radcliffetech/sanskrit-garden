@@ -9,9 +9,13 @@ interface VerseProps {
       commentary: string;
     };
     index: number;
+    displayCommentary?: boolean;
   }
   
-export const VerseCard = ({ verse, index }: VerseProps) => (
+export const VerseCard = ({ verse, index, displayCommentary = false }: VerseProps) => {
+
+  return (
+
     <div key={verse.id} className="p-6 border rounded bg-gray-50 space-y-6 shadow-sm">
       <p className="text-lg font-semibold">Verse {index + 1}</p>
       <p
@@ -25,9 +29,12 @@ export const VerseCard = ({ verse, index }: VerseProps) => (
         className="text-base"
         dangerouslySetInnerHTML={{ __html: marked.parse(verse.translation) }}
       />
-      <p
+      {displayCommentary && (
+              <p
         className="text-sm text-gray-600"
         dangerouslySetInnerHTML={{ __html: marked.parse(verse.commentary) }}
       />
+      )}  
     </div>
-  );
+  )
+}

@@ -7,9 +7,9 @@ interface VerseListProps {
 }
 
 export const VerseList = ({ verses }: VerseListProps) => (
-  <>
+  <div className="space-y-4">
     {verses.map((verse, idx) => (
       <VerseCard key={verse.id} verse={verse} index={idx} />
     ))}
-  </>
+  </div>
 );

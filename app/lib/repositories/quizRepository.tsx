@@ -107,8 +107,8 @@ export function getQuizQuestions(): QuizQuestion[] {
       id: "13",
       difficulty: Difficulty.hard,
       question: "Which of these is a compound word (samasa) type in Sanskrit?",
-      options: ["Tataka", "Bahuvrihi", "Avidya", "Jataka"],
-      answer: "Bahuvrihi",
+      options: ["Tataka", "Bhīmasena", "Avidya", "Jataka"],
+      answer: "Bhīmasena",
     },
     {
       id: "14",
