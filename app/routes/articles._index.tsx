@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { getArticlesRepository } from "~/repository/articlesRepository";
+import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
 
 export const meta: MetaFunction = () => {
   return [

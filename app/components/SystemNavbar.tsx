@@ -5,6 +5,7 @@ export function SystemNavbar() {
         <a href="/" className="text-xl font-semibold">Sanskrit Garden</a>
         <div className="flex space-x-4">
           <a href="/alphabet" className="text-white hover:text-gray-300">Alphabet</a>
+          <a href="/quiz" className="text-white hover:text-gray-300">Quiz</a>
           <a href="/articles" className="text-white hover:text-gray-300">Articles</a>
           <a href="/about" className="text-white hover:text-gray-300">About</a>
         </div>

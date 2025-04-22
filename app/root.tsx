@@ -1,4 +1,4 @@
-import './tailwind.css';
+import './styles/tailwind.css';
 
 import {
   Links,
@@ -10,6 +10,7 @@ import {
 
 import type { LinksFunction } from "@remix-run/node";
 import { SystemNavbar } from './components/SystemNavbar';
+import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -30,14 +31,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Sanskrit Garden</title>
         <Meta />
         <Links />
       </head>
       <body>
         <SystemNavbar />
-         <div className="container mx-auto flex flex-wrap items-center justify-between">
-            {children }
-          </div>
+        <main className="mx-auto max-w-7xl p-4">
+          {children}
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
