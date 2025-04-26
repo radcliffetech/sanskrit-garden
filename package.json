@@ -23,7 +23,10 @@
     "openai": "^4.96.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^10.1.0"
+    "react-markdown": "^10.1.0",
+    "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-breaks": "^4.0.0"
   },
   "devDependencies": {
     "@remix-run/dev": "^2.16.5",
