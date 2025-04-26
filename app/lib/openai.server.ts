@@ -1,5 +1,6 @@
+import { defaultStoryProfileJson, sanskritTeacherProfileJson } from "./storyteller-profiles"
+
 import OpenAI from "openai";
-import { defaultStoryProfileJson } from "./storyteller-profiles"
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {
