@@ -1,6 +1,10 @@
+import { Article } from "~/types";
+import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
-
+import { PageFrame } from "~/components/ui/PageFrame";
+import { PageHeader } from "~/components/ui/PageHeader";
+import { getArticles } from "~/loader/articles";
+import { useLoaderData } from "@remix-run/react";
 export const meta: MetaFunction = () => {
   return [
     { title: "Articles" },
@@ -8,14 +12,19 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = ({ request }) => {
+  return getArticles();
+};
+
+
 
 
 export default function Articles() {
-  const repo = getArticlesRepository();
-  const data = repo.getArticles();
+  const data = useLoaderData<Article[]>();
+
   return (
-    <div className="px-4 py-6">
-      <h1 className="text-3xl font-bold mb-6">Articles</h1>
+    <PageFrame>
+      <PageHeader>Articles</PageHeader>
       <ul className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data.map((article) => (
           <li key={article.id} className="bg-white p-6 rounded shadow hover:shadow-md transition-shadow flex flex-col">
@@ -29,6 +38,6 @@ export default function Articles() {
           </li>
         ))}
       </ul>
-    </div>
+    </PageFrame>
   );
 }

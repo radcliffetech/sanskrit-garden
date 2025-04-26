@@ -1,11 +1,4 @@
-type Article = {
-    id: string; // uuid
-    title: string;
-    author: string;
-    summary: string; // One line summary
-    content: string;
-    keywords: string[];
-}
+import type { Article } from "~/types";
 
 // Sample stub data
 export const sampleArticles: Article[] = [
@@ -58,7 +51,7 @@ export const sampleArticles: Article[] = [
     "keywords": ["Sanskrit", "computer science", "AI", "natural language processing", "formal language", "knowledge representation"]
   },
   {
-    "id": "a0e9c62c-2e9f-4dff-bb7e-5f91f0c0a7b1",
+    "id": "a0e9c62c-2e9f-4dff-bb7e-5f91f0c0a7b2",
     "title": "Sanskrit and Music",
     "author": "Jeffrey Radcliffe",
     "summary": "Sanskrit and music share a deep connection through their structured systems of sound, rhythm, and harmony, with both serving as tools for emotional expression and spiritual practice.",

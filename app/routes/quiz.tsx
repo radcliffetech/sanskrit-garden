@@ -1,8 +1,11 @@
+import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import type { Difficulty, QuizQuestion } from "~/types"
+
+import { LoaderFunction } from "@remix-run/node";
+import { PageFrame } from "~/components/ui/PageFrame";
+import { getQuizQuestions } from "~/loader/quiz";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-import type { LoaderFunction } from "@remix-run/node";
-import { getQuizQuestions, type QuizQuestion, type Difficulty } from "~/lib/repositories/quizRepository";
-import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 function QuizNavigation({
   currentIndex,
@@ -305,7 +308,7 @@ const handleSubmit = (e: React.FormEvent) => {
     };
 
   return (
-    <div className="px-4 py-6">
+    <PageFrame>
       <h1 className="text-3xl font-semibold mb-6">Sanskrit Quiz</h1>
       <div className="bg-white shadow rounded p-6">
         {!quizStarted ? (
@@ -332,6 +335,6 @@ const handleSubmit = (e: React.FormEvent) => {
           </>
         )}
       </div>
-    </div>
+    </PageFrame>  
   );
 }
