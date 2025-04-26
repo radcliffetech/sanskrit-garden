@@ -22,5 +22,3 @@ runConfig:
 env:
   - variable: OPENAI_API_KEY
     secret: OPENAI_API_KEY
-  - variable: VITE_OPENAI_API_KEY
-    secret: OPENAI_API_KEY
