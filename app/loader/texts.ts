@@ -8,8 +8,6 @@ export async function getNirvanaShaktamData() {
     return data;
 }
 
-
-
 export async function getRibhuGitaChapterData() {
     const data = getRibhuGitaChapter();
     return data;

@@ -1,12 +1,22 @@
+import type { MetaFunction } from "@remix-run/node";
 import { explainConceptRequest } from "~/loader/explain-concept";
 import { marked } from "marked";
 import { useState } from "react";
+
+export const meta: MetaFunction = () => {
+    return [
+      { title: "Concept Explainer" },
+      { name: "description", content: "Concept Explainer" },
+    ];
+  };
 
 export default function ExplainConcept() {
     const [concept, setConcept] = useState("");
     const [article, setArticle] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+ 
 
     async function handleExplain() {
         if (!concept.trim()) {
@@ -31,11 +41,12 @@ export default function ExplainConcept() {
     }
 
     return (
-        <div className="bg-white min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-                <div className="prose lg:prose-xl">
-                    <h1 className="text-4xl font-bold text-gray-900 mb-6">Sanskrit Concept Explainer</h1>
-                    <div className="mb-6">
+        <div className="px-4 py-6">
+            <h1 className="text-3xl font-bold">Sanskrit Concept Explainer</h1>  
+                <p className="text-gray-700 mt-2">
+                      Enter a Sanskrit concept and click "Explain" to generate a simple article. This feature uses OpenAI to create clear, student-friendly explanations automatically — a creative blend of AI and traditional learning!
+                    </p>
+                    <div className="my-6">
                         <input
                             type="text"
                             value={concept}
@@ -69,7 +80,5 @@ export default function ExplainConcept() {
                         </section>
                     )}
                 </div>
-            </div>
-        </div>
     );
 }
