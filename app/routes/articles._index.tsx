@@ -1,10 +1,12 @@
+import { Link, useLoaderData } from "@remix-run/react";
+
 import { Article } from "~/types";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/components/ui/PageFrame";
 import { PageHeader } from "~/components/ui/PageHeader";
 import { getArticles } from "~/loader/articles";
-import { useLoaderData } from "@remix-run/react";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Articles" },
@@ -25,6 +27,11 @@ export default function Articles() {
   return (
     <PageFrame>
       <PageHeader>Articles</PageHeader>
+      <div className="mb-6">
+        <Link to="/explain-concept" className="text-blue-600 hover:underline"> 
+          Try the AI Concept Explainer
+        </Link>
+      </div>
       <ul className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {data.map((article) => (
           <li key={article.id} className="bg-white p-6 rounded shadow hover:shadow-md transition-shadow flex flex-col">
