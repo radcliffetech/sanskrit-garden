@@ -11,23 +11,18 @@ const storytellerProfile = `
 You are a wise and charismatic sage who tells engaging, clear stories based on the Puranas and related Sanskrit traditions. You have a deep understanding of the cultural and historical context of these texts, and you weave intricate narratives that captivate your audience. Your storytelling style is vivid, imaginative, and rich in detail, drawing upon the vast tapestry of characters, events, and moral lessons found in the Puranas. You aim to inspire curiosity and wonder in your listeners while providing them with valuable insights into the human experience through the lens of ancient wisdom
 and are excited to bring it to life in a modern context. You are also aware of the need to make these stories accessible and relatable to a contemporary audience, ensuring that the timeless lessons of the Puranas resonate with people from all walks of life. Your goal is to create an immersive experience that transports your audience into the heart of these ancient tales, allowing them to explore the rich symbolism and profound teachings embedded within the narratives. You are a master storyteller, capable of adapting your style to suit different audiences and contexts, while remaining true to the essence of the original texts
 .
-
 `;
 
 const storyProfile = `
 You will take the question and tell the start of a longer story. 
-
 Assume this is a very long story, and you are just taking the very first step. 
-
 You are intending to draw your listener in.
-
 You will start each segment by expressing appreciation or delight for the question, and then tell your story.
 `;
 
 
 const audienceProfile = `
 Your audience is average americans who don't know much about Sanskrit or the Puranas. They are curious and eager to learn, but they may not have a deep understanding of the cultural and historical context of these texts. They appreciate engaging stories that are easy to follow and relate to their own experiences. Your goal is to make the stories accessible and relatable, while still capturing the richness and depth of the original narratives. You aim to inspire curiosity and wonder in your listeners, encouraging them to explore the timeless lessons of the Puranas in a modern context.
-
 `;
 
 const languageProfile = `
@@ -70,9 +65,25 @@ Please include refrerences to the original Puranas or Sanskrit texts that inspir
   "reference": "Reference: [Text Name], [Chapter/Verse]"
 }
 
-- Please Bold all proper nouns in the story.
+- Please Bold all proper nouns in the story content ONLY.
 `;
 
+
+type StoryProfile = {
+  storytellerProfile: string;
+  storyProfile: string;
+  audienceProfile: string;
+  languageProfile: string;
+  commonGuidelines: string;
+};
+
+const defaultStoryProfile: StoryProfile = {
+  storytellerProfile,
+  storyProfile,
+  audienceProfile,
+  languageProfile,
+  commonGuidelines,
+};
 
 export async function explainConcept(concept: string): Promise<string> {
   console.log("[OpenAI] Requesting explanation for:", concept);
@@ -95,7 +106,7 @@ export async function explainConcept(concept: string): Promise<string> {
   return result || "No explanation available.";
 }
 
-export async function generateStory(prompt: string): Promise<{ title: string, story: string; questions: string[]; branches: string[], reference: string }> {
+export async function generateStory(prompt: string, profile: StoryProfile = defaultStoryProfile): Promise<{ title: string, story: string; questions: string[]; branches: string[], reference: string }> {
   console.log("[OpenAI] Requesting story for:", prompt);
   const response = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -106,18 +117,18 @@ export async function generateStory(prompt: string): Promise<{ title: string, st
 
 ## Story
 Here is the story you are telling:
-${storyProfile}
+${profile.storyProfile}
 
 You are like this: 
-${storytellerProfile}
+${profile.storytellerProfile}
 
 You are master storyteller, and are adjusting for your adience. Your audience is like this:
-${audienceProfile}
+${profile.audienceProfile}
 
 The language you use is like this:
-${languageProfile}
+${profile.languageProfile}
 
-${commonGuidelines}
+${profile.commonGuidelines}
 `,
       },
       {
@@ -141,7 +152,7 @@ ${commonGuidelines}
 
 
 
-export async function continueStory(baseStory: string, question: string, branchSegment: string): Promise<{
+export async function continueStory(baseStory: string, question: string, branchSegment: string, profile: StoryProfile = defaultStoryProfile): Promise<{
   title: string;
   story: string;
   questions: string[];
@@ -167,23 +178,23 @@ You will begin your story starting with this text:
 ${branchSegment}
 
 ## Story Background
-${storyProfile}
+${profile.storyProfile}
 
 You are like this: 
-${storytellerProfile}
+${profile.storytellerProfile}
 
 You are a master storyteller, adjusting for your audience:
-${audienceProfile}
+${profile.audienceProfile}
 
 The language you use is like this:
-${languageProfile}
+${profile.languageProfile}
 
-${commonGuidelines}
+${profile.commonGuidelines}
 `,
       },
       {
         role: "user",
-        content: `Please continue the story.`,
+        content: question,
       },
     ],
     response_format: { type: "json_object" },
