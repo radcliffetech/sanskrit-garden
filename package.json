@@ -17,6 +17,7 @@
     "@remix-run/node": "^2.16.5",
     "@remix-run/react": "^2.16.5",
     "@remix-run/serve": "^2.16.5",
+    "clsx": "^2.1.1",
     "isbot": "^4.1.0",
     "marked": "^15.0.9",
     "openai": "^4.96.0",

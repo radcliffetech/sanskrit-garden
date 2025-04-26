@@ -1,5 +1,8 @@
+import { Article } from "~/types";
+import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
+import { getArticles } from "~/loader/articles";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,11 +11,16 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+export const loader: LoaderFunction = ({ request }) => {
+    return getArticles();
+  };
+  
+
 
 
 export default function Articles() {
-  const repo = getArticlesRepository();
-  const data = repo.getArticles();
+  const data = useLoaderData<Article[]>(); 
+
   return (
     <div className="px-4 py-6">
       <h1 className="text-3xl font-bold mb-6">Articles</h1>

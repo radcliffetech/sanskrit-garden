@@ -1,8 +1,10 @@
+import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import type { Difficulty, QuizQuestion } from "~/types"
+
+import { LoaderFunction } from "@remix-run/node";
+import { getQuizQuestions } from "~/loader/quiz";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
-import type { LoaderFunction } from "@remix-run/node";
-import { getQuizQuestions, type QuizQuestion, type Difficulty } from "~/lib/repositories/quizRepository";
-import { XMarkIcon, ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 function QuizNavigation({
   currentIndex,

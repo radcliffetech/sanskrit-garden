@@ -1,14 +1,14 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
 import { marked } from "marked";
+import { getArticleById} from "~/loader/articles";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
   if (!slug) {
     throw new Response("Not Found", { status: 404 });
   }
-  const article = await getArticlesRepository().getArticleById(slug);
+  const article = await getArticleById(slug);
   if (!article) {
     throw new Response("Not Found", { status: 404 });
   }

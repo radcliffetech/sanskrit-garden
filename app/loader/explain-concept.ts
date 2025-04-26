@@ -1,24 +1,7 @@
-import OpenAI from "openai";
+import { explainConcept } from "~/lib/openai.server";
 
-const openai = new OpenAI({
-  apiKey: process.env.VITE_OPENAI_API_KEY,
-});
+export async function explainConceptRequest(concept: string): Promise<string> {
 
-export async function explainConcept(concept: string): Promise<string> {
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o",
-    messages: [
-      {
-        role: "system",
-        content: "You are a Sanskrit scholar. Given a Sanskrit concept word, write a clear and short article (100–200 words) explaining its meaning to students. Keep the explanation friendly and simple.",
-      },
-      {
-        role: "user",
-        content: `Explain the concept: ${concept}`,
-      },
-    ],
-  });
-
-  const result = response.choices[0]?.message?.content;
-  return result || "No explanation available.";
+  // for now just return a dummy string
+  return `This is a dummy explanation for the concept: ${concept}.`;
 }

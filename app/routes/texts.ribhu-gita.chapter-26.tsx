@@ -1,6 +1,6 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { getRibhuGitaChapter } from "~/lib/repositories/textsRepository";
+import { getRibhuGitaChapterData } from "~/loader/texts";
 import { useLoaderData } from "@remix-run/react";
 import { VerseList } from "~/components/VerseList";
 
@@ -11,7 +11,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 export async function loader({ }: LoaderFunctionArgs) {
-  return await getRibhuGitaChapter();;
+  return await getRibhuGitaChapterData();;
 }
 
 export default function Gita() {

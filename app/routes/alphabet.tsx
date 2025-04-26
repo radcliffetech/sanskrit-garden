@@ -1,5 +1,8 @@
+import { AlphabetItem } from "~/types";
+import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { getAlphabetRepository } from "~/lib/repositories/alphabetRepository";
+import { getAlphabet } from "~/loader/alphabet";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -10,9 +13,14 @@ export const meta: MetaFunction = () => {
 
 
 
+export const loader: LoaderFunction = ({ request }) => {
+    return getAlphabet();
+  };
+
+
 export default function Alphabet() {
-  const repo = getAlphabetRepository();
-  const data = repo.getAlphabet();
+  const data = useLoaderData<AlphabetItem[]>(); 
+
   return (
     <div className="px-4 py-6">
       <h1 className="text-3xl font-bold mb-6">Alphabet</h1>

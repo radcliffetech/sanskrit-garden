@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getNirvanaShaktam } from "~/lib/repositories/textsRepository";
+import { getNirvanaShaktamData } from "~/loader/texts";
 import { VerseList } from "~/components/VerseList";
 
 export const meta: MetaFunction = () => {
@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export async function loader({ }: LoaderFunctionArgs) {
-    return await getNirvanaShaktam();
+    return await getNirvanaShaktamData();
 }
 
 export default function NirvanaShaktamPage() {

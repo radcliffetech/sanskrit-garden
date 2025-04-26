@@ -1,16 +1,4 @@
-export enum Difficulty {
-    easy = "easy",
-    medium = "medium",
-    hard = "hard",
-}
-
-export type QuizQuestion = {
-  id: string; // UUUID
-  difficulty: Difficulty;
-  question: string;
-  options: string[];
-  answer: string;
-};
+import { Difficulty, QuizQuestion } from "~/types";
 
 export function getQuizQuestions(): QuizQuestion[] {
   const questions: QuizQuestion[] = [
