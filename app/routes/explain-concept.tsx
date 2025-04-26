@@ -30,9 +30,9 @@ export default function ExplainConcept() {
         setError(null);
         setArticle(null);
         try {
-            const result = await explainConceptRequest(concept);
-            console.log("Received article:", result);
-            setArticle(result);
+            const { article } = await explainConceptRequest(concept);
+            console.log("Received article:", article);
+            setArticle(article);
         } catch (err: any) {
             console.error("Error fetching explanation:", err);
             setError(err.message);
