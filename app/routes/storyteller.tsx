@@ -27,7 +27,7 @@ const topics = [
   "OM",
 ];
 
-function generateStoryText(segments: StorySegment[]): string {
+function generateStoryText(segments: StorySegment[], lastStorySection: string = ""): string {
   const parts = segments.map((seg, idx) => {
     const titlePrefix = idx === 0 ? "# " : "## ";
     let text = `${titlePrefix}${seg.title}\n\n`;
@@ -40,6 +40,10 @@ function generateStoryText(segments: StorySegment[]): string {
     }
     return text;
   });
+
+  if (lastStorySection) {
+    parts.push(`\n\nSTORYTELLER:${lastStorySection}\n\n`);
+  }
 
   parts.push("## The End\n\nOm Tat Sat.");
 
@@ -225,15 +229,11 @@ export default function StorytellerPage() {
       ) : (
         // If story has started, show the story page
         <div className="border rounded-lg shadow-md p-6 mb-8">
-
           <DisplayStoryHead segment={segments[0]} />
-
           {segments.slice(1).map((segment, idx) => (
             <DisplayStorySegment key={idx} segment={segment} />
           ))}
-
           <div className="border-t border-gray-200 my-8" />
-
           {!isStoryOver ? (
             <StoryQuestionBox
               questions={questions}
@@ -269,7 +269,11 @@ export default function StorytellerPage() {
 function DisplayStoryHead({ segment }: { segment: StorySegment }) {
   return (
     <div className="prose max-w-none mb-6 proseO-p:mb-6">
-      <h1 className="text-3xl font-semibold mb-6">{segment.title}</h1>
+      <h1 className="text-3xl font-semibold mb-6"><Markdown
+        remarkPlugins={[remarkBreaks]}
+        rehypePlugins={[rehypeRaw]}
+        children={segment.title}
+      /></h1>
       <h3 className="text-lg text-gray-500 my-6">STORYTELLER</h3>
       <Markdown
         remarkPlugins={[remarkBreaks]}

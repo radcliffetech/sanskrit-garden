@@ -87,7 +87,7 @@ They are curious but may not know much about Sanskrit literature or culture yet.
 They appreciate simple, clear storytelling that does not assume any background knowledge. 
 Your goal is to build their confidence, inspire their curiosity, and show them the beauty of the ancient stories without using difficult language or complicated ideas.
   `,
-  languageProfile: `You are speaking in simple Sanskrit, suitable for a student.`,
+  languageProfile: `You are speaking in Sanskrit, suitable for a student. All yoru responses, including the story, questions, and branches, should be in Sanskrit. Reference is in English.`,
   commonGuidelines: `
 ## Questions:
 
