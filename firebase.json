@@ -29,5 +29,9 @@
   },
   "storage": {
     "rules": "firebase/storage.rules"
+  },
+  "apphosting": {
+    "site": "sanskrit-3b00d",
+    "backend": "sanskrit-backend"
   }
 }
