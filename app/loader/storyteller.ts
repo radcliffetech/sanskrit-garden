@@ -1,8 +1,5 @@
-function sleep(ms: number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
-const USE_STUBS = true; // Set to true to use fake data
+const USE_STUBS = false; // Set to true to use fake data
 
 export async function storytellerRequest(prompt: string): Promise<{ title: string; story: string; questions: string[]; branches: string[]; reference: string }> {
   console.log("[Client] Sending prompt to server:", prompt);
@@ -118,4 +115,8 @@ export async function continueStoryRequest(baseStory: string, question: string, 
   const data = await response.json();
   console.log("[Client] Received continuation story:", data);
   return data;
+}
+
+function sleep(ms: number) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
