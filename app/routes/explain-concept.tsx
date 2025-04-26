@@ -49,7 +49,7 @@ export default function ExplainConcept() {
                 Enter a Sanskrit concept and click "Explain" to generate a simple article. This feature uses OpenAI to create clear, student-friendly explanations automatically — a creative blend of AI and traditional learning!
             </p>
             <p className="text-gray-700 mt-2">
-                Some examples: Shiva, Vishnu, Brahma, Ganesha, Devi, Shakti, Karma, Dharma, Moksha, Maya, Atman, Brahman, Tattva.
+                Some examples: Shiva, Vishnu, Brahma, Ganesha, Devi, Shakti, Karma, Dharma, Moksha, Maya, Atman, Brahman, Tattva, Prakriti, Purusha, Gunas, Vedas, Upanishads
             </p>
             <div className="my-6">
                 <input
