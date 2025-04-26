@@ -2,9 +2,9 @@ import { defaultStoryProfileJson, sanskritTeacherProfileJson } from "./storytell
 
 import OpenAI from "openai";
 
-const apiKey = process.env.OPENAI_API_KEY;
+const apiKey = process.env.VITE_OPENAI_API_KEY;
 if (!apiKey) {
-  throw new Error("OPENAI_API_KEY is not set.");
+  throw new Error("VITE_OPENAI_API_KEY is not set.");
 }
 
 const openai = new OpenAI({ apiKey });
