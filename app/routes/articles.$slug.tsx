@@ -1,7 +1,9 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, Link } from "@remix-run/react";
 import { marked } from "marked";
-import { getArticleById} from "~/loader/articles";
+import { PageFrame } from "~/components/ui/PageFrame";
+import { PageHeader } from "~/components/ui/PageHeader";
+import { getArticleById } from "~/loader/articles";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { slug } = params;
@@ -17,20 +19,25 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 export default function ArticleDetail() {
   const article = useLoaderData<typeof loader>();
-  
+
   return (
-    <div className="bg-white min-h-screen py-12 px-4 sm:px-6 lg:px-8">
+    <PageFrame>
+      <Link to="/articles" className="text-muted hover:underline text-lg mb-2 inline-block">
+        ← Back to Articles
+      </Link>
+      <header className="mb-12">
+        <PageHeader>{article.title}</PageHeader>
+      </header>
       <div className="max-w-4xl mx-auto">
-        <article className="prose lg:prose-xl"> 
-          <header className="mb-6">
-          <h1 className="text-4xl font-bold text-gray-900">{article.title}</h1>
-            <p className="mt-2 text-lg text-gray-600 italic">{article.summary}</p>
-          </header>
+        <p className="mt-2 text-lg text-gray-600 italic">{article.summary}</p>
+        <hr className="mt-4 text-sm text-gray-500">
+        </hr>
+        <article className="prose lg:prose-xl">
           <section className="mt-8 text-gray-800 leading-relaxed">
             <div className="space-y-6" dangerouslySetInnerHTML={{ __html: marked(article.content) }} />
           </section>
         </article>
-    </div>
-    </div>
+      </div>
+    </PageFrame>
   );
 }

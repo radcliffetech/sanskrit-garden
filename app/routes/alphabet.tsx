@@ -1,6 +1,8 @@
 import { AlphabetItem } from "~/types";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
+import { PageFrame } from "~/components/ui/PageFrame";
+import { PageHeader } from "~/components/ui/PageHeader";
 import { getAlphabet } from "~/loader/alphabet";
 import { useLoaderData } from "@remix-run/react";
 
@@ -22,8 +24,8 @@ export default function Alphabet() {
   const data = useLoaderData<AlphabetItem[]>(); 
 
   return (
-    <div className="px-4 py-6">
-      <h1 className="text-3xl font-bold mb-6">Alphabet</h1>
+    <PageFrame>
+      <PageHeader>Alphabet</PageHeader>
       <div className="grid grid-cols-8 gap-4">
         {data.map((item, index) => (
           <div key={index} className="p-4 border rounded bg-white shadow">
@@ -33,6 +35,6 @@ export default function Alphabet() {
           </div>
         ))}
       </div>
-    </div>
+    </PageFrame>
   );
 }

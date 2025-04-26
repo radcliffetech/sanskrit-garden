@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
+import { PageFrame } from "~/components/ui/PageFrame";
+import { PageHeader } from "~/components/ui/PageHeader";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,8 +11,8 @@ export const meta: MetaFunction = () => {
 
 export default function About() {
   return (
-    <div className="px-4 py-6">
-      <h1 className="text-3xl font-bold mb-6">About</h1>
+    <PageFrame>
+      <PageHeader>About</PageHeader>
       <p className="text-lg mb-4">
         This project is coded and maintained with respect by Jeffrey Radcliffe.
       </p>
@@ -67,6 +69,6 @@ export default function About() {
           
         </div>
       </div>
-    </div>
+    </PageFrame>
   );
 }

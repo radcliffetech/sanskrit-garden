@@ -3,6 +3,8 @@ import type { MetaFunction } from "@remix-run/node";
 import { getRibhuGitaChapterData } from "~/loader/texts";
 import { useLoaderData } from "@remix-run/react";
 import { VerseList } from "~/components/VerseList";
+import { PageFrame } from "~/components/ui/PageFrame";
+import { PageHeader } from "~/components/ui/PageHeader";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,11 +21,11 @@ export default function Gita() {
 
 
   return (
-    <div className="px-4 py-6">
-      <h1 className="text-3xl font-bold">{title}</h1>
+    <PageFrame>
+      <PageHeader>{title}</PageHeader>
       <h2>{author}</h2>
       <p className="text-gray-700 text-lg py-4">{summary}</p>
       <VerseList verses={verses} />
-    </div>
+    </PageFrame>
   );
 }
