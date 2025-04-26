@@ -1,5 +1,6 @@
 
-const USE_STUBS = false; // Set to true to use fake data
+const USE_STUBS = false;
+
 
 export async function storytellerRequest(prompt: string): Promise<{ title: string; story: string; questions: string[]; branches: string[]; reference: string }> {
   console.log("[Client] Sending prompt to server:", prompt);

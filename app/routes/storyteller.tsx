@@ -2,6 +2,8 @@ import Markdown from 'react-markdown'
 import { PageFrame } from '~/components/ui/PageFrame';
 import { PageHeader } from '~/components/ui/PageHeader';
 import { continueStoryRequest } from "~/loader/storyteller";
+import rehypeRaw from "rehype-raw";
+import remarkBreaks from "remark-breaks";
 import { storytellerRequest } from "~/loader/storyteller";
 import { useState } from "react";
 
@@ -32,6 +34,9 @@ function generateStoryText(segments: StorySegment[]): string {
     text += `STORYTELLER: ${seg.content}\n\n`;
     if (seg.followup) {
       text += `LISTENER: ${seg.followup}\n\n`;
+    }
+    if (seg.reference) {
+      text += `REFERENCES:\n${seg.reference}\n\n`;
     }
     return text;
   });
@@ -193,7 +198,7 @@ export default function StorytellerPage() {
     const a = document.createElement("a");
     a.href = url;
     const safeTitle = segments[0]?.title.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
-    a.download = `Sanskrit-Garden-${safeTitle}.md`;
+    a.download = `Sanskrit-Garden-${safeTitle || "Untitled"}.md`;
     a.click();
     URL.revokeObjectURL(url);
   }
@@ -266,9 +271,11 @@ function DisplayStoryHead({ segment }: { segment: StorySegment }) {
     <div className="prose max-w-none mb-6 proseO-p:mb-6">
       <h1 className="text-3xl font-semibold mb-6">{segment.title}</h1>
       <h3 className="text-lg text-gray-500 my-6">STORYTELLER</h3>
-      <Markdown>
-        {segment.content}
-      </Markdown>
+      <Markdown
+        remarkPlugins={[remarkBreaks]}
+        rehypePlugins={[rehypeRaw]}
+        children={segment.content.replace(/\n/gi, "&nbsp; \n")}
+      />
     </div>
   );
 }
@@ -279,17 +286,21 @@ function DisplayStorySegment({ segment }: { segment: StorySegment }) {
       {segment.followup && (
         <div className="my-8">
           <h3 className="text-lg text-gray-500 my-6">LISTENER</h3>
-          <Markdown>
-            {segment.followup}
-          </Markdown>
+          <Markdown
+            remarkPlugins={[remarkBreaks]}
+            rehypePlugins={[rehypeRaw]}
+            children={segment.followup.replace(/\n/gi, "&nbsp; \n")}
+          />
         </div>
       )}
       {/* <h2 className="text-2xl font-semibold mb-4 text-left">{segment.title}</h2> */}
       <>
         <h3 className="text-lg text-gray-500 my-6">STORYTELLER</h3>
-        <Markdown>
-          {segment.content}
-        </Markdown>
+        <Markdown
+          remarkPlugins={[remarkBreaks]}
+          rehypePlugins={[rehypeRaw]}
+          children={segment.content.replace(/\n/gi, "&nbsp; \n")}
+        />
       </>
     </div>
   );
@@ -356,13 +367,12 @@ function StoryQuestionBox({
               type="button"
               disabled={loading || selectedContinuation !== null}
               onClick={() => handleContinue(idx)}
-              className={`border rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center font-medium transition ${
-                isSelected
-                  ? "bg-indigo-100 border-indigo-400"
-                  : isFaded
+              className={`border rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center font-medium transition ${isSelected
+                ? "bg-indigo-100 border-indigo-400"
+                : isFaded
                   ? "opacity-30"
                   : "hover:bg-gray-100"
-              }`}
+                }`}
             >
               <div className="font-semibold mb-2">{q}</div>
             </button>
