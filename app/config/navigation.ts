@@ -1,12 +1,19 @@
 export const navigationConfig = [
   { label: "Alphabet", href: "/alphabet" },
-  { label: "Quiz", href: "/quiz" },
   // {
-  //   label: "अध्ययनम्",
-  //   dropdown: [
-  //     { label: "अध्ययन-पृष्ठः", href: "/learning/" },
-  //   ],
-  // },
+    //   label: "अध्ययनम्",
+    //   dropdown: [
+      //     { label: "अध्ययन-पृष्ठः", href: "/learning/" },
+      //   ],
+      // },
+      {
+        label: "Learning Tools",
+        dropdown: [
+          { label: "Concept Explainer", href: "/concept-explainer" },
+          { label: "Storyteller", href: "/storyteller" },
+          { label: "Quiz", href: "/quiz" },
+    ],
+  },
   {
     label: "Texts",
     dropdown: [

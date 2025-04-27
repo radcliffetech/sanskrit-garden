@@ -26,6 +26,13 @@ export default function Alphabet() {
   return (
     <PageFrame>
       <PageHeader>Alphabet</PageHeader>
+      <p className="text-gray-600 mb-8">
+      Structured according to the point and manner of articulation, the Sanskrit alphabet exemplifies an unparalleled scientific approach to language, making it foundational for linguistic and philosophical studies.
+      </p>
+      <p className="text-gray-600 mb-8">
+        Panini codified Sanskrit grammar with unmatched precision in his work Astadhyayi, creating a concise and systematic framework that remains a foundational model for linguistic analysis to this day.
+      </p>
+
       <div className="grid grid-cols-8 gap-4">
         {data.map((item, index) => (
           <div key={index} className="p-4 border rounded bg-white shadow">
