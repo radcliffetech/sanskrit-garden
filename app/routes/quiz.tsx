@@ -165,7 +165,7 @@ function QuizStart({ onSelect }: { onSelect: (difficulty: Difficulty) => void })
   return (
     <div className="space-y-8 text-center">
       <div className="space-y-2">
-        <p className="text-gray-600">Test your Sanskrit knowledge. Select a difficulty level.</p>
+        <p className="text-gray-600">Test your Sanskrit knowledge that you have gained from perusing the website. Select a difficulty level.</p>
       </div>
       <div className="flex justify-center gap-6">
         {["Easy", "Medium", "Hard"].map((level) => {
