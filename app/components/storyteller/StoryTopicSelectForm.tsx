@@ -1,5 +1,5 @@
 
-export function StorySelectForm({
+export function StoryTopicSelectForm({
   selectedTopic,
   setSelectedTopic,
   handleStartStory,
