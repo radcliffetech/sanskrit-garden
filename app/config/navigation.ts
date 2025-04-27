@@ -9,7 +9,7 @@ export const navigationConfig = [
       {
         label: "Learning Tools",
         dropdown: [
-          { label: "Concept Explainer", href: "/concept-explainer" },
+          { label: "Concept Explainer", href: "/explain-concept" },
           { label: "Storyteller", href: "/storyteller" },
           { label: "Quiz", href: "/quiz" },
     ],
