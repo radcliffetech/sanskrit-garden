@@ -1,10 +1,8 @@
 
-const USE_STUBS = false;
+const USE_STUBS = true;
 
 
 export async function storytellerRequest(prompt: string): Promise<{ title: string; story: string; questions: string[]; branches: string[]; reference: string }> {
-  console.log("[Client] Sending prompt to server:", prompt);
-
   if (USE_STUBS) {
     await sleep(1000);
     return {
@@ -12,9 +10,9 @@ export async function storytellerRequest(prompt: string): Promise<{ title: strin
       story: `Once upon a time in the realm of ${prompt}, a great adventure began...\nThe hero, a brave soul, set forth on a quest to discover the secrets of the universe. Along the way, they encountered mystical beings and faced formidable challenges that tested their resolve.\n\nAs the sun set over the horizon, casting a golden hue over the land, the hero found themselves at a crossroads, where destiny awaited.`,
       questions: [
         "What obstacle did the hero face next?",
-        "Who offered unexpected aid to the hero?",
+        "Who offered **unexpected aid** to the hero?",
         "What secret was revealed about the hero's past?",
-        "How did the villain respond to the hero's actions?",
+        "How did the **villain** respond to the hero's actions?",
       ],
       branches: [
         "The hero encountered a vast desert with hidden dangers.",
@@ -41,7 +39,6 @@ export async function storytellerRequest(prompt: string): Promise<{ title: strin
   }
 
   const data = await response.json();
-  console.log("[Client] Received story data:", data);
   return data;
 }
 
@@ -74,7 +71,7 @@ export async function continueStoryRequest(baseStory: string, question: string, 
   branches: string[];
   reference: string;
 }> {
-  console.log("[Client] Sending continuation request to server:", question);
+
 
   if (USE_STUBS) {
     await sleep(1000);
@@ -114,7 +111,6 @@ export async function continueStoryRequest(baseStory: string, question: string, 
   }
 
   const data = await response.json();
-  console.log("[Client] Received continuation story:", data);
   return data;
 }
 

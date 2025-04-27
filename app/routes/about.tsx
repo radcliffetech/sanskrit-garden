@@ -17,10 +17,10 @@ export default function About() {
         This project is coded and maintained with respect by Jeffrey Radcliffe.
       </p>
       <p className="text-lg mb-4">
-        Sanskrit Garden is a love poem offered to the Sanskrit language, and and opportunity to explore concepts in Computer Science along the way.
+        Sanskrit Garden is a love poem offered to the Sanskrit language, and and opportunity to explore and test the relation of technology to topics of depth and intensity. Technology can clearly lead us away from the truth, but it can also be a tool to help us find it. This project is an exploration of that idea.
       </p>
       <p className="text-lg mb-4">
-        The intention is to highlight the magical things Jeffrey has found in his exploration of the Sanskrit language, and to share them with the world.
+        The intention is to highlight the magical things Jeffrey has found in his exploration of the Sanskrit language, and to share them with the world. Any errors maade are totally his.
       </p>
       <div className="mt-12">
         <h2 className="text-2xl font-bold mb-6">About Sanskrit</h2>

@@ -177,3 +177,54 @@ export function getNirvanaShaktam(): Shkloka {
     ]
   })
 }
+
+export function getGaneshaPanchratnam(): Shkloka {
+  return ({
+    id: "ganesha-panchratnam",
+    title: "Ganesha Panchratnam",  
+    author: "Sri Adi Shankaracharya",
+    summary: "Ganesha Panchratnam is a celebrated stotra composed by Sri Adi Shankaracharya, glorifying Lord Ganesha, the remover of obstacles and the embodiment of auspiciousness. Each verse is filled with rich imagery and heartfelt devotion, offering praise to Ganesha’s various attributes and inviting blessings of wisdom, prosperity, and success.",
+    verses: [
+      {
+        id: "verse-1",
+        verse: 1,
+        sanskrit: "मुदाकरात्तमोदकम् सदा विमुक्तिसाधकम्।\nकलाधरावतंसकम् विलासिलोकरक्षकम्॥\nअनायकैकनायकम् विनाशितेभदैत्यकम्।\nनताशुभाशुनाशकम् नमामि तं विनायकम्॥१॥",
+        transliteration: "mudākarāttamodakam sadā vimuktisādhakam |\nkalādharāvataṃsakam vilāsilokarakṣakam ||\nanāyakaikanāyakam vināśitebhadaityakam |\nnatāśubhāśunāśakam namāmi taṃ vināyakam ||1||",
+        translation: "I salute that **Vinayaka** who, with joy, holds a modaka (sweet) in His hand, always grants liberation, wears the crescent moon as an ornament, protects the playful world, is the sole leader of leaders, destroys the demons like the elephant demon, and quickly removes the inauspiciousness of those who bow to Him.",
+        commentary: "The verse describes Ganesha as the benevolent, playful deity who holds sweet rewards for devotees and clears their path by removing both spiritual and material obstacles."
+      },
+      {
+        id: "verse-2",
+        verse: 2,
+        sanskrit: "नतेतरातिभीकरम् नवोदितार्कभास्वरम्।\nनमत्सुरारिनिर्जरम् नताधिकापदुद्धरम्॥\nसुरेश्वरम् निधीश्वरम् गजेश्वरम् गणेश्वरम्।\nमहेश्वरम् तमाश्रये परात्परम् निरन्तरम्॥२॥",
+        transliteration: "natetaratibhīkaram navoditārkabhāsvaram |\nnamatsurārinirjaram natādhikāpaduddharam ||\nsureśvaram nidhīśvaram gajeśvaram gaṇeśvaram |\nmaheśvaram tamāśraye parātparam nirantaram ||2||",
+        translation: "I seek refuge in that Supreme, endless **Lord Ganesha**, who is fearsome to the arrogant, radiant like the rising sun, the destroyer of enemies of the gods, the uplifter of those bowed down by difficulties, and who is the Lord of the gods, of wealth, of elephants, of the ganas, and of Shiva himself.",
+        commentary: "This verse praises Ganesha’s supreme leadership and his ability to elevate even those most burdened by challenges, presenting him as the highest refuge."
+      },
+      {
+        id: "verse-3",
+        verse: 3,
+        sanskrit: "समस्तलोकशङ्करं निरस्तदैत्यकुञ्जरम्।\nदरेतरोदरं वरं वरेभवक्त्रमक्षरम्॥\nकृपाकरं क्षमाकरं मुदाकरं यशस्करम्।\nमनस्करं नमस्कृताम् नमस्करोम्यहम् सदा॥३॥",
+        transliteration: "samastalokaśaṅkaraṃ nirasitadaityakuñjaram |\ndaretarodaraṃ varaṃ varebhavaktramakṣaram ||\nkṛpākaraṃ kṣamākaraṃ mudākaraṃ yaśaskaram |\nmanaskaraṃ namaskṛtām namaskaromyahaṃ sadā ||3||",
+        translation: "I forever bow to that **Ganesha**, who is the benefactor of all worlds, the destroyer of the elephant-like demon, whose large belly represents the universe, who is supreme, whose face resembles that of a great elephant, who is the source of compassion, forgiveness, joy, and fame, and who brings focus to the minds of devotees.",
+        commentary: "This verse highlights Ganesha’s qualities of compassion, forgiveness, and ability to bestow mental clarity and fame upon devotees."
+      },
+      {
+        id: "verse-4",
+        verse: 4,
+        sanskrit: "अकिंचनार्तिमार्जनं चिरन्तनोक्तिभाजनम्।\nपुरारिपूर्वनन्दनं सुरारिगर्वचर्वणम्॥\nप्रपञ्चनाशभीषणम् धनञ्जयादिभूषणम्।\nकपोलदानवारणम् भजे पुराणवारणम्॥४॥",
+        transliteration: "akiñcanārtimārjanaṃ cirantanoktipājanam |\npurāripūrvanandanam surārigarvacarvaṇam ||\nprapañcanāśabhīṣaṇam dhanañjayādibhūṣaṇam |\nkapoladānavāraṇam bhaje purāṇavāraṇam ||4||",
+        translation: "I worship that **Ancient Elephant-faced Lord**, the remover of the distress of the destitute, the recipient of ancient praises, the delight of Shiva, the crusher of the pride of the enemies of the gods, the fearful destroyer of the world’s delusions, the ornament of heroes like Arjuna, and the one who bestows wealth.",
+        commentary: "Ganesha is described as a powerful protector who dispels pride, ignorance, and suffering, while bestowing auspiciousness and wealth."
+      },
+      {
+        id: "verse-5",
+        verse: 5,
+        sanskrit: "नमज्जनाङ्कभङ्गिनं स्मरारिजं महेश्वरम्।\nतमेकदन्तमेवमप्लुतं चिन्तयाम्यहम्॥५॥",
+        transliteration: "namajjanāṅkhabhaṅginaṃ smarārjaṃ maheśvaram |\ntamekadantamevamaplutam cintayāmyaham ||5||",
+        translation: "I contemplate that **One-tusked Lord**, the son of Shiva, the remover of obstacles, the destroyer of pride among the enemies of the gods, and the breaker of bonds for those who bow to Him.",
+        commentary: "In this closing verse, Ganesha is meditated upon as the single-tusked Lord who liberates the devoted from all obstacles and worldly attachments."
+      }
+    ]
+  })
+}

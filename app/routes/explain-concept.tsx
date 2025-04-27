@@ -12,6 +12,20 @@ export const meta: MetaFunction = () => {
     ];
 };
 
+function InstructionsBox() {
+  return (
+    <div className="border rounded-lg p-6 my-6 bg-gray-50 text-gray-600 space-y-4 shadow-md">
+      <h2 className="text-lg font-semibold text-gray-700">How to Use</h2>
+      <p>
+        Enter a Sanskrit concept and click "Explain" to generate a simple article. This feature uses OpenAI to create clear, student-friendly explanations automatically — a creative blend of AI and traditional learning!
+      </p>
+      <p>
+        Some examples: Shiva, Vishnu, Brahma, Ganesha, Devi, Shakti, Karma, Dharma, Moksha, Maya, Atman, Brahman, Tattva, Prakriti, Purusha, Gunas, Vedas, Upanishads
+      </p>
+    </div>
+  );
+}
+
 export default function ExplainConcept() {
     const [concept, setConcept] = useState("");
     const [article, setArticle] = useState<string | null>(null);
@@ -22,22 +36,19 @@ export default function ExplainConcept() {
 
     async function handleExplain() {
         if (!concept.trim()) {
-            console.log("No concept entered. Aborting.");
+            console.log("[Client] No concept entered. Aborting.");
             return;
         }
-        console.log("Starting explanation request for:", concept);
         setLoading(true);
         setError(null);
         setArticle(null);
         try {
             const { article } = await explainConceptRequest(concept);
-            console.log("Received article:", article);
             setArticle(article);
         } catch (err: any) {
-            console.error("Error fetching explanation:", err);
+            console.error("[Client] Error fetching explanation:", err);
             setError(err.message);
         } finally {
-            console.log("Explanation request complete.");
             setLoading(false);
         }
     }
@@ -45,23 +56,18 @@ export default function ExplainConcept() {
     return (
         <PageFrame>
             <PageHeader>Concept Explainer</PageHeader>
-            <p className="text-gray-700 mt-2">
-                Enter a Sanskrit concept and click "Explain" to generate a simple article. This feature uses OpenAI to create clear, student-friendly explanations automatically — a creative blend of AI and traditional learning!
-            </p>
-            <p className="text-gray-700 mt-2">
-                Some examples: Shiva, Vishnu, Brahma, Ganesha, Devi, Shakti, Karma, Dharma, Moksha, Maya, Atman, Brahman, Tattva, Prakriti, Purusha, Gunas, Vedas, Upanishads
-            </p>
-            <div className="my-6">
+            <InstructionsBox />
+            <div className="my-6 flex flex-col md:flex-row gap-2">
                 <input
                     type="text"
                     value={concept}
                     onChange={(e) => setConcept(e.target.value)}
                     placeholder="Enter a Sanskrit concept..."
-                    className="border p-2 mr-2 w-full max-w-md"
+                    className="border rounded-lg p-4 w-full text-lg shadow-sm focus:ring-2 focus:ring-indigo-400 focus:outline-none"
                 />
                 <button
                     onClick={handleExplain}
-                    className={`bg-blue-500 text-white p-2 mt-2 ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+                    className={`bg-indigo-400 hover:bg-indigo-500 text-white px-6 py-4 rounded-lg text-lg ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
                     disabled={loading}
                 >
                     {loading ? (
