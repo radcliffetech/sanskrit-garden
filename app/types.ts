@@ -26,3 +26,11 @@ export type Article = {
     content: string;
     keywords: string[];
 }
+
+export type StorySegment = {
+    title: string;
+    content: string;
+    reference?: string;
+    followup?: string;
+  };
+  

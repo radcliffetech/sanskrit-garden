@@ -1,5 +1,6 @@
 import { continueStoryRequest, storytellerRequest } from "~/loader/storyteller";
 
+import type { StorySegment } from "~/types";
 import { useState } from "react";
 
 export function getDefaultTopics(): string[] {
@@ -17,13 +18,6 @@ export function getDefaultTopics(): string[] {
   ];
 }
 
-// Types and Constants
-export type StorySegment = {
-  title: string;
-  content: string;
-  reference?: string;
-  followup?: string;
-};
 
 // Utility Functions
 function generateStoryText(segments: StorySegment[], lastStorySection: string = ""): string {

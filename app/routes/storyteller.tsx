@@ -1,11 +1,11 @@
-import { StorySegment, getDefaultTopics, useStoryteller } from "~/hooks/storyteller";
+import { getDefaultTopics, useStoryteller } from "~/hooks/storyteller";
 
 import { FadeIn } from "~/components/ui/FadeIn";
 import { PageFrame } from '~/components/ui/PageFrame';
 import { PageHeader } from '~/components/ui/PageHeader';
 import RenderMarkdown from "~/components/ui/RenderMarkdown";
 import { SectionLoading } from "~/components/ui/SectionLoading";
-import { useRef } from "react";
+import type { StorySegment } from "~/types";
 
 // UI Components
 function StorytellerStorySegment({ content }: { content: string }) {
@@ -91,6 +91,7 @@ export default function StorytellerPage() {
   const {
     segments,
     questions,
+    branches,
     selectedTopic,
     loading,
     error,
@@ -98,14 +99,13 @@ export default function StorytellerPage() {
     isStoryOver,
     selectedContinuation,
     setSelectedTopic,
+    setSelectedContinuation,
     setIsStoryOver,
     handleStartStory,
     handleContinue,
     handleRestart,
     handleDownload,
   } = useStoryteller();
-
-  const storyEndRef = useRef<HTMLDivElement>(null);
 
   const collectedReferences = Array.from(
     new Set(
@@ -172,7 +172,7 @@ export default function StorytellerPage() {
               />
             </FadeIn>
           )}
-          <div ref={storyEndRef} />
+          <div />
         </div>
       )}
 
