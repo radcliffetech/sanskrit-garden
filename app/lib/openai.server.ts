@@ -44,6 +44,8 @@ export async function explainConcept(concept: string): Promise<string> {
   - Do not offer any follow-up questions or suggestions. 
   - Do not start with "Certainly!" or "Sure!" or "Of course!" etc.
   - Keep the tone friendly and engaging, but not overly casual.
+
+- Use correct transliteration for the Sanskrit terms (eg: Rāma).
   
   Return the results in Markdown format.
   `,

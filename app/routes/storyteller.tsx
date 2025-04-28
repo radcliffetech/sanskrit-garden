@@ -39,7 +39,7 @@ export default function StorytellerPage() {
 
   return (
     <PageFrame>
-      <PageHeader>Sanskrit AI Storyteller</PageHeader>
+      <PageHeader>AI Storyteller</PageHeader>
       {error && <p className="text-red-500 mb-6">{error}</p>}
 
       {!isStoryStarted ? (
@@ -48,7 +48,7 @@ export default function StorytellerPage() {
         ) : (
           <>
             <StoryLanding>
-              <h2 className="text-xl font-semibold mb-4">Welcome, Traveler</h2>
+              <h2 className="text-xl font-light mb-4">Welcome, Traveler</h2>
               <p className="mb-2">
                 Here, stories unfold like petals of a lotus, timeless and boundless.
               </p>
@@ -59,8 +59,11 @@ export default function StorytellerPage() {
                 As all rivers flow toward the sea, so do these stories seek the heart.
                 Yet remember: what you read is but a reflection, not a final truth.
               </p>
-              <p>
-                Read slowly. Wander freely. Let the journey carry you beyond words.
+              <p className="mb-2">
+                Read slowly. Wander freely. Let the journey carry you beyond words. And explore the question...
+              </p>
+              <p className="mb-2">
+                Can an AI tell a good story?
               </p>
             </StoryLanding>
             <StoryTopicSelectForm
@@ -117,7 +120,7 @@ export default function StorytellerPage() {
       {/* References Section */}
       {collectedReferences.length > 0 && (
         <div className="p-6 mb-8">
-          <h2 className="text-2xl font-semibold mb-4">References</h2>
+          <h2 className="text-2xl font-light mb-4">References</h2>
           <ul className="list-disc list-inside text-sm text-gray-600">
             {collectedReferences.map((ref, idx) => (
               <li key={idx} className="mb-2 whitespace-pre-line">

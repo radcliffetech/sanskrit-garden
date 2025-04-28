@@ -31,13 +31,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+
         <title>Sanskrit Garden</title>
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="flex flex-col min-h-screen">
         <SystemNavbar />
-        <main className="mx-auto max-w-7xl p-4">
+        <main className="flex-grow mx-auto  p-4">
           {children}
         </main>
 
@@ -45,8 +46,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           Sanskrit Garden © {new Date().getFullYear()} - Coded with reverence by <a href="http://jeffreyradcliffe.com" className="text-blue-500 hover:underline" target="_blank" >Jeffrey Radcliffe</a>
         </footer>
 
-        <ScrollRestoration />
-        <Scripts />
+<Scripts />
       </body>
     </html>
   );

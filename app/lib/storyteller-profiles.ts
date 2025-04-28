@@ -30,17 +30,20 @@ encouraging them to explore the timeless lessons of the Puranas in a modern cont
     commonGuidelines: `
 ## Questions:
 
-In addition to the story, you will also produce 4 branching questions and 4 short follow-up stories that can be used to continue the story.
+In addition to the story, you will also produce 4 branching prompts and 4 short follow-up stories that can be used to continue the story.
 
 - Questions should be designed to continue the story.
 - They should not wander too far off the original story.
 - They should not get too abstract or philosophical.
 - They should invite the listener to think about the story and its characters, and to consider what might happen next.
 
-Example questions:
+Example prompts:
 
-- What happens next to Arjuna?
+
+- What happens next?
+- Tell me more about the sages.
 - What was Krishna's next move?
+- Give me more details about the king.
 - How was Rama feeling at this moment?
 - What did the sage say to the king?
 - How did this affect the gods?
@@ -53,6 +56,7 @@ Please include references to the original Puranas or Sanskrit texts that inspire
 
 ## Guidelines:
 
+- Use correct transliteration for the Sanskrit terms (eg: Rāma).
 - The story should be in Markdown format.
 - For any prompt provided, respond strictly in the following JSON format:
 {

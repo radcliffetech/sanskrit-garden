@@ -8,13 +8,18 @@ export function getDefaultTopics(): string[] {
     "A Story of Your Choice",
     "Shiva's Wedding",
     "The Ocean of Milk",
-    "The Bhagavad Gita",
-    "The Ramayana",
-    "The Mahabharata",
-    "The Buffalo Demon",
+    "Arjuna's Dilemma",
+    "Rama and Sita",
+    "Sati's Sacrifice",
+    "The Birth of Ganesha",
+    "Skanda's Destiny",
+    "Krishna's Līla",
+    "The First Yajna",
+    "The Vanquishing of the Buffalo Demon",
     "Prahalaada and Hiranyakashipu",
     "The Creation of the Universe",
-    "OM",
+    "The Primordial Sound",
+    "The Dance of Shiva",
   ];
 }
 

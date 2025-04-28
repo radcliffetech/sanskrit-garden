@@ -1,7 +1,7 @@
 export function StoryEnd({ onRestart, onDownload }: { onRestart: () => void; onDownload: () => void }) {
     return (
       <div className="prose max-w-none mb-8 prose-p:mb-6 text-center">
-        <h2 className="text-2xl font-semibold mb-4">The End</h2>
+        <h2 className="text-2xl font-light mb-4">The End</h2>
         <div className="flex justify-center mt-4">
           <img
             src="/images/om.png"

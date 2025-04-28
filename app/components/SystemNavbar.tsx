@@ -25,9 +25,9 @@ export function SystemNavbar() {
   }, []);
 
   return (
-    <nav className="bg-gray-900 text-white px-4 py-3">
+    <nav className="relative bg-gray-900 text-white px-4 py-3">
       <div className="container mx-auto flex justify-between items-center">
-        <a href="/" className="text-xl font-semibold">Sanskrit Garden</a>
+        <a href="/" className="text-xl font-light">Sanskrit Garden</a>
 
         <div className="flex space-x-6 items-center" ref={dropdownRef}>
           {navigationConfig.map((item, idx) => {
@@ -37,7 +37,7 @@ export function SystemNavbar() {
                   <button
                     type="button"
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className="inline-flex justify-center items-center gap-x-1.5 rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white hover:text-gray-300"
+                    className="inline-flex justify-center items-center gap-x-1.5 rounded-md bg-gray-900 text-sm font-light text-white hover:text-gray-300 px-3 py-2"
                   >
                     {item.label}
                     <svg className="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -67,7 +67,11 @@ export function SystemNavbar() {
               );
             } else {
               return (
-                <a key={idx} href={item.href} className="hover:text-gray-300">
+                <a
+                  key={idx}
+                  href={item.href}
+                  className="text-sm font-light text-white hover:text-gray-300 px-3 py-2"
+                >
                   {item.label}
                 </a>
               );
