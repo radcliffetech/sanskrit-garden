@@ -31,7 +31,7 @@ export function StoryQuestionBox({
                   : "hover:bg-gray-100"
                 }`}
             >
-              <div className="font-semibold mb-2 text-center">
+              <div className="font-light mb-2 text-center">
                 <RenderMarkdown>
                   {q}
                 </RenderMarkdown>

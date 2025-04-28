@@ -17,7 +17,7 @@ export const VerseCard = ({ verse, index, displayCommentary = false }: VerseProp
   return (
 
     <div key={verse.id} className="p-6 border rounded bg-gray-50 space-y-6 shadow-sm">
-      <p className="text-lg font-semibold">Verse {index + 1}</p>
+      <p className="text-lg font-light">Verse {index + 1}</p>
       <p
         className="font-sanskrit text-xl whitespace-pre-line"
         dangerouslySetInnerHTML={{ __html: verse.sanskrit.replace(/\n/g, "<br />") }}

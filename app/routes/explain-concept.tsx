@@ -39,7 +39,7 @@ export default function ExplainConcept() {
 
     return (
         <PageFrame>
-            <PageHeader>Concept Explainer</PageHeader>
+            <PageHeader>AI Explainer</PageHeader>
             <InstructionsBox setConcept={(concept: string) => {
                 setConcept(concept);
             }} exampleSet={exampleSet} />

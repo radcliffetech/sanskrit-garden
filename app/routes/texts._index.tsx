@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { FeatureCard } from "~/components/ui/FeatureCard";
 import { PageFrame } from "~/components/ui/PageFrame";
 import { PageHeader } from "~/components/ui/PageHeader";
 
@@ -11,15 +11,9 @@ export default function TextsIndex() {
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <Link to="/texts/nirvana-shaktam" className="block border rounded-lg shadow-md p-6 hover:bg-gray-50 transition">
-                    <h2 className="text-xl font-semibold mb-2">Nirvana Shaktam</h2>
-                </Link>
-                <Link to="/texts/ribhu-gita/chapter-26" className="block border rounded-lg shadow-md p-6 hover:bg-gray-50 transition">
-                    <h2 className="text-xl font-semibold mb-2">Ribhu Gita - Chapter 26, Verses 1-8</h2>
-                </Link>
-                <Link to="/texts/ganesha-panchratnam" className="block border rounded-lg shadow-md p-6 hover:bg-gray-50 transition">
-                    <h2 className="text-xl font-semibold mb-2">Ganesha Panchratnam</h2>
-                </Link>
+                <FeatureCard to="/texts/nirvana-shaktam" label="Nirvana Shaktam" description="A profound text on the nature of reality and consciousness." />
+                <FeatureCard to="/texts/ribhu-gita/chapter-26" label="Ribhu Gita - Chapter 26, Verses 1-8" description="A chapter from the Ribhu Gita, a key text in Advaita Vedanta." />
+                <FeatureCard to="/texts/ganesha-panchratnam" label="Ganesha Panchratnam" description="A devotional text dedicated to Lord Ganesha, the remover of obstacles." />
             </div>
         </PageFrame>
     );

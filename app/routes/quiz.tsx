@@ -64,7 +64,7 @@ function QuestionCard({
 }) {
   return (
     <div className="mb-6 p-6 rounded border border-gray-200 bg-gray-50 shadow-sm">
-      <p className="text-xl font-semibold text-gray-800 mb-4">{question.question}</p>
+      <p className="text-xl font-light text-gray-800 mb-4">{question.question}</p>
       <div className="space-y-2">
         {question.options.map((opt, idx) => (
           <label
@@ -239,13 +239,13 @@ function QuizResult({
           const isCorrect = selected === q.answer;
           return (
             <div key={q.id} className="p-4 border rounded">
-              <p className="font-semibold mb-2">{q.question}</p>
+              <p className="font-light mb-2">{q.question}</p>
               {q.options.map((opt) => {
                 const selectedStyle =
                   opt === selected
                     ? isCorrect
-                      ? "text-green-600 font-semibold"
-                      : "text-red-600 font-semibold"
+                      ? "text-green-600 font-light"
+                      : "text-red-600 font-light"
                     : "text-gray-800";
                 return (
                   <div key={opt} className={selectedStyle}>
@@ -309,7 +309,7 @@ const handleSubmit = (e: React.FormEvent) => {
 
   return (
     <PageFrame>
-      <h1 className="text-3xl font-semibold mb-6">Sanskrit Quiz</h1>
+      <h1 className="text-3xl font-light mb-6">Sanskrit Quiz</h1>
       <div className="bg-white shadow rounded p-6">
         {!quizStarted ? (
           <QuizStart onSelect={startQuiz} />

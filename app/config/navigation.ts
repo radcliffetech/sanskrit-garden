@@ -9,8 +9,8 @@ export const navigationConfig = [
       {
         label: "Learning Tools",
         dropdown: [
-          { label: "Concept Explainer", href: "/explain-concept" },
-          { label: "Storyteller", href: "/storyteller" },
+          { label: "AI Explainer", href: "/explain-concept" },
+          { label: "AI Storyteller", href: "/storyteller" },
           { label: "Quiz", href: "/quiz" },
     ],
   },

@@ -15,12 +15,12 @@ export function StoryTopicSelectForm({
   return (
     <>
       <div className="bg-gray-50 border rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-3xl mx-auto text-sm">
-        <h2 className="text-xl font-semibold text-gray-500 whitespace-nowrap">Tell me a story</h2>
+        <h2 className="text-xl font-light text-gray-500 whitespace-nowrap">Tell me a story</h2>
         <select
           value={selectedTopic ?? ""}
           onChange={(e) => setSelectedTopic(e.target.value)}
           disabled={loading}
-          className="border rounded-lg p-4 w-full md:w-auto text-lg shadow-sm bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+          className="appearance-none border border-gray-300 rounded-lg bg-white px-4 py-3 w-full md:w-auto text-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 transition"
         >
           <option value="" disabled>Select a topic</option>
           {topics.map((topic) => (
@@ -33,7 +33,7 @@ export function StoryTopicSelectForm({
           type="button"
           onClick={handleStartStory}
           disabled={loading || !selectedTopic}
-          className={`bg-indigo-400 hover:bg-indigo-500 text-white px-6 py-4 rounded-lg text-lg transition ${selectedTopic ? "" : "opacity-50 cursor-not-allowed"}`}
+          className={`bg-indigo-400 hover:bg-indigo-500 text-white font-bold py-3 px-8 rounded-lg text-lg transition ${selectedTopic ? "" : "opacity-50 cursor-not-allowed"}`}
         >
           {loading ? "Thinking..." : "Start"}
         </button>

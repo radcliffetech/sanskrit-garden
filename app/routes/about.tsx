@@ -26,7 +26,7 @@ export default function About() {
         <h2 className="text-2xl font-bold mb-6">About Sanskrit</h2>
         <div className="space-y-6 text-gray-800">
           <section>
-            <h3 className="text-xl font-semibold mb-2">History</h3>
+            <h3 className="text-xl font-light mb-2">History</h3>
             <p>
               Sanskrit is an ancient Indo-Aryan language that originated in the Indian subcontinent.
               It is one of the oldest known languages in the world and forms the foundation of many modern Indian languages.
@@ -35,7 +35,7 @@ export default function About() {
           </section>
 
           <section>
-            <h3 className="text-xl font-semibold mb-2">Linguistic Features</h3>
+            <h3 className="text-xl font-light mb-2">Linguistic Features</h3>
             <p>
               Sanskrit has a highly systematic and complex grammar, with features such as inflectional morphology,
               extensive use of compounds, and a rich system of verb conjugations.
@@ -44,7 +44,7 @@ export default function About() {
           </section>
 
           <section>
-            <h3 className="text-xl font-semibold mb-2">Famous Works</h3>
+            <h3 className="text-xl font-light mb-2">Famous Works</h3>
             <p>
               Renowned texts in Sanskrit include the Vedas, Upanishads, Mahabharata, Ramayana, and classical works like
               Kalidasa’s plays and poetry. These texts span a wide range of themes from mythology and philosophy to
@@ -57,7 +57,7 @@ export default function About() {
         <h2 className="text-2xl font-bold mb-6">About Jeffrey</h2>
         <div className="space-y-6 text-gray-800">
           <section>
-            <h3 className="text-xl font-semibold mb-2">Background</h3>
+            <h3 className="text-xl font-light mb-2">Background</h3>
             <p>
               Jeffrey Radcliffe is a passionate programmer and linguist with a deep interest in the Sanskrit language.
               He has spent years exploring the knowlwedge of the world, and is fascinated with Sanskrit's intricacies and applications in modern life.

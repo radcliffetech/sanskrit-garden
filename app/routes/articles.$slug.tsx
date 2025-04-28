@@ -22,8 +22,8 @@ export default function ArticleDetail() {
 
   return (
     <PageFrame>
-      <Link to="/articles" className="text-muted hover:underline text-lg mb-2 inline-block">
-        ← Back to Articles
+      <Link to="/articles" className="text-muted hover:underline text-lg mb-2 inline-block text-gray-500">
+        ← Back
       </Link>
       <header className="mb-12">
         <PageHeader>{article.title}</PageHeader>
