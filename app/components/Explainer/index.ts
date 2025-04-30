@@ -1,3 +1,3 @@
 export *  from './ArticleDisplay';
-export *  from './ConceptForm';
+export *  from './ExplainerForm';
 export *  from './InstructionsBox';

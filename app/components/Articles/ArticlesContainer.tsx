@@ -8,12 +8,9 @@ interface Props {
 
 export default function ArticlesContainer({ data }: Props) {
   return (
-    <>
+    <div>
       <div className="mb-6">
-        <Link
-          to="/explain-concept"
-          className="btn-primary"
-        >
+        <Link to="/explain-concept" className="btn-primary">
           Try the AI Explainer
         </Link>
       </div>
@@ -22,6 +19,6 @@ export default function ArticlesContainer({ data }: Props) {
           <ArticleCard key={article.id} article={article} />
         ))}
       </ul>
-    </>
+    </div>
   );
 }
