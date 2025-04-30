@@ -1,8 +1,8 @@
 import { AlphabetItem } from "~/types";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/ui/PageFrame";
-import { PageHeader } from "~/components/ui/PageHeader";
+import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
 import { getAlphabet } from "~/loader/alphabet";
 import { useLoaderData } from "@remix-run/react";
 

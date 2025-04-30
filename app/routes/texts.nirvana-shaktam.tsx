@@ -4,8 +4,8 @@ import { useLoaderData } from "@remix-run/react";
 import { getNirvanaShaktamData } from "~/loader/texts";
 import { VerseList } from "~/components/VerseList";
 import { Page } from "openai/pagination.mjs";
-import { PageFrame } from "~/components/ui/PageFrame";
-import { PageHeader } from "~/components/ui/PageHeader";
+import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
 
 export const meta: MetaFunction = () => {
     return [

@@ -1,6 +1,6 @@
-import { FeatureCard } from "~/components/ui/FeatureCard";
-import { PageFrame } from "~/components/ui/PageFrame";
-import { PageHeader } from "~/components/ui/PageHeader";
+import { FeatureCard } from "~/components/Shared/FeatureCard";
+import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
 
 export default function TextsIndex() {
     return (

@@ -1,8 +1,8 @@
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData, Link } from "@remix-run/react";
 import { marked } from "marked";
-import { PageFrame } from "~/components/ui/PageFrame";
-import { PageHeader } from "~/components/ui/PageHeader";
+import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
 import { getArticleById } from "~/loader/articles";
 
 export async function loader({ params }: LoaderFunctionArgs) {

@@ -1,4 +1,4 @@
-import { VerseCard } from '../components/VerseCard'; // Adjust the path if necessary
+import { VerseCard } from '../components/Textx/VerseCard'; // Adjust the path if necessary
 import { render } from '@testing-library/react';
 
 let testVerse =       {

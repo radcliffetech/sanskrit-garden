@@ -1,6 +1,6 @@
 // components/VerseList.tsx
 
-import { VerseCard } from "./VerseCard";
+import { VerseCard } from "./Textx/VerseCard";
 
 interface VerseListProps {
   verses: Array<{ id: string, sanskrit: string, transliteration: string, translation: string, commentary: string }>;

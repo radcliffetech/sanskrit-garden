@@ -1,15 +1,15 @@
-import { DisplayStoryHead, DisplayStorySegment, ListenerStorySegment } from "~/components/storyteller/Story";
+import { DisplayStoryHead, DisplayStorySegment, ListenerStorySegment } from "~/components/Storyteller/Story";
 import { getDefaultTopics, useStoryteller } from "~/hooks/storyteller";
 
-import { EndStoryControl } from "~/components/storyteller/EndStoryControl";
-import { FadeIn } from "~/components/ui/FadeIn";
-import { PageFrame } from '~/components/ui/PageFrame';
-import { PageHeader } from '~/components/ui/PageHeader';
-import { SectionLoading } from "~/components/ui/SectionLoading";
-import { StoryEnd } from "~/components/storyteller/StoryEnd";
-import { StoryLanding } from "~/components/storyteller/StoryLanding";
-import { StoryQuestionBox } from "~/components/storyteller/StoryQuestionBox";
-import { StoryTopicSelectForm } from "~/components/storyteller/StoryTopicSelectForm";
+import { EndStoryControl } from "~/components/Storyteller/EndStoryControl";
+import { FadeIn } from "~/components/Shared/FadeIn";
+import { PageFrame } from '~/components/Layout/PageFrame';
+import { PageHeader } from '~/components/Layout/PageHeader';
+import { SectionLoading } from "~/components/Shared/SectionLoading";
+import { StoryEnd } from "~/components/Storyteller/StoryEnd";
+import { StoryLanding } from "~/components/Storyteller/StoryLanding";
+import { StoryQuestionBox } from "~/components/Storyteller/StoryQuestionBox";
+import { StoryTopicSelectForm } from "~/components/Storyteller/StoryTopicSelectForm";
 
 export default function StorytellerPage() {
   const {

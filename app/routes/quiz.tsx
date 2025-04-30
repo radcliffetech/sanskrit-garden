@@ -2,7 +2,7 @@ import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from "@heroicons/react/2
 import type { Difficulty, QuizQuestion } from "~/types"
 
 import { LoaderFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/ui/PageFrame";
+import { PageFrame } from "~/components/Layout/PageFrame";
 import { getQuizQuestions } from "~/loader/quiz";
 import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";

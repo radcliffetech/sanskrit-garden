@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 
-import { ArticleDisplay } from "~/components/concept-explainer/ArticleDisplay";
-import { ConceptForm } from "~/components/concept-explainer/ConceptForm";
-import { InstructionsBox } from "~/components/concept-explainer/InstructionsBox";
-import { PageFrame } from "~/components/ui/PageFrame";
-import { PageHeader } from "~/components/ui/PageHeader";
-import { SectionLoading } from "~/components/ui/SectionLoading";
+import { ArticleDisplay } from "~/components/Explainer/ArticleDisplay";
+import { ConceptForm } from "~/components/Explainer/ConceptForm";
+import { InstructionsBox } from "~/components/Explainer/InstructionsBox";
+import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
+import { SectionLoading } from "~/components/Shared/SectionLoading";
 import { explainConceptRequest } from "~/loader/explain-concept";
 import { useConceptExplainer } from "~/hooks/concept-explainer";
 

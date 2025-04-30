@@ -1,6 +1,6 @@
-import { FeatureCard } from "~/components/ui/FeatureCard";
+import { FeatureCard } from "~/components/Shared/FeatureCard";
 import type { MetaFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/ui/PageFrame";
+import { PageFrame } from "~/components/Layout/PageFrame";
 import { StarIcon } from "@heroicons/react/24/solid";
 
 export const meta: MetaFunction = () => {
