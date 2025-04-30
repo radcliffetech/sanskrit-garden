@@ -1,3 +1,67 @@
+function PhonemeControls({
+  selectedPrimary,
+  selectedSecondary,
+  onSelectPrimary,
+  onSelectSecondary,
+}: {
+  selectedPrimary: string | null;
+  selectedSecondary: string | null;
+  onSelectPrimary: (group: string) => void;
+  onSelectSecondary: (sub: string) => void;
+}) {
+  return (
+    <div className="mb-10">
+      <div className="min-h-[3rem] flex items-center gap-4 mb-0">
+        <div className="flex gap-2">
+          {Object.keys(classificationData.phonetic_classification).map(
+            (group) => (
+              <button
+                key={group}
+                onClick={() => onSelectPrimary(group)}
+                className={`pill-lg border text-sm font-semibold transition ${
+                  selectedPrimary === group
+                    ? "highlight-1"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                }`}
+              >
+                {group.charAt(0).toUpperCase() + group.slice(1)}
+              </button>
+            )
+          )}
+        </div>
+      </div>
+      <div
+        className={`min-h-[3rem] max-h-[5rem] flex items-center gap-4 mb-4 transition-opacity duration-300 ${
+          selectedPrimary ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="flex gap-2 flex-wrap">
+          {selectedPrimary &&
+            Object.keys(
+              classificationData.phonetic_classification[
+                selectedPrimary as keyof typeof classificationData.phonetic_classification
+              ] as Record<string, string[]>
+            ).map((sub) => (
+              <button
+                key={sub}
+                onClick={() => onSelectSecondary(sub)}
+                className={`pill-lg border text-sm font-semibold transition ${
+                  selectedSecondary === sub
+                    ? "highlight-2"
+                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+                }`}
+              >
+                {sub
+                  .replace(/_/g, " ")
+                  .replace(/\b\w/g, (c) => c.toUpperCase())}
+              </button>
+            ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 import { AlphabetItem } from "~/types";
 import { AlphabetLayout } from "./AlphabetLayout";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
@@ -84,57 +148,19 @@ function DisplayGroup({
   return (
     <>
       <DisplayGroupMetadata id={mode} />
-      <div className="mb-10">
-        <div className="min-h-[3rem] flex items-center gap-4 mb-0">
-          <div className="flex gap-2">
-            {Object.keys(classificationData.phonetic_classification).map(
-              (group) => (
-                <button
-                  key={group}
-                  onClick={() => handleSetPrimaryGroup(group)}
-                  className={`pill-lg border text-sm font-semibold transition ${
-                    selectedPrimary === group
-                      ? "highlight-1"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {group.charAt(0).toUpperCase() + group.slice(1)}
-                </button>
-              )
-            )}
-          </div>
-        </div>
-        <div className="min-h-[3rem] max-h-[5rem] overflow-hidden flex items-center gap-4 mb-4">
-          <div className="flex gap-2 flex-wrap">
-            {selectedPrimary &&
-              Object.keys(
-                classificationData.phonetic_classification[
-                  selectedPrimary as keyof typeof classificationData.phonetic_classification
-                ] as Record<string, string[]>
-              ).map((sub) => (
-                <button
-                  key={sub}
-                  onClick={() => handleSetSubGroup(sub)}
-                  className={`pill-lg border text-sm font-semibold transition ${
-                    selectedSecondary === sub
-                      ? "highlight-2"
-                      : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                  }`}
-                >
-                  {sub
-                    .replace(/_/g, " ")
-                    .replace(/\b\w/g, (c) => c.toUpperCase())}
-                </button>
-              ))}
-          </div>
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <PhonemeControls
+          selectedPrimary={selectedPrimary}
+          selectedSecondary={selectedSecondary}
+          onSelectPrimary={handleSetPrimaryGroup}
+          onSelectSecondary={handleSetSubGroup}
+        />
+        <AlphabetLayout
+          data={alphabetData}
+          highlightLevel1={highlightLevel1}
+          highlightLevel2={highlightLevel2}
+        />
       </div>
-
-      <AlphabetLayout
-        data={alphabetData}
-        highlightLevel1={highlightLevel1}
-        highlightLevel2={highlightLevel2}
-      />
     </>
   );
 }
