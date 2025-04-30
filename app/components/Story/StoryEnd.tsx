@@ -1,5 +1,10 @@
 import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
+import { ConfirmModal } from "~/components/Shared/ConfirmModal";
+import { useState } from "react";
+
 export function StoryEnd({ onRestart, onDownload }: { onRestart: () => void; onDownload: () => void }) {
+    const [confirming, setConfirming] = useState(false);
+
     return (
       <div className="prose max-w-none mb-12 prose-p:mb-6 text-center mx-auto">
         <h2 className="text-2xl font-light mb-6">The End</h2>
@@ -25,12 +30,22 @@ export function StoryEnd({ onRestart, onDownload }: { onRestart: () => void; onD
           </button>
           <button
             type="button"
-            onClick={onRestart}
+            onClick={() => setConfirming(true)}
             className="btn-primary"
           >
             Start New Story
           </button>
         </div>
+        <ConfirmModal
+          isOpen={confirming}
+          title="Start New Story?"
+          message="Are you sure you want to start over? Your current story will be lost."
+          onCancel={() => setConfirming(false)}
+          onConfirm={() => {
+            setConfirming(false);
+            onRestart();
+          }}
+        />
       </div>
     );
   }
