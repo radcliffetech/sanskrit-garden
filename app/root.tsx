@@ -9,7 +9,7 @@ import {
 } from "@remix-run/react";
 
 import type { LinksFunction } from "@remix-run/node";
-import { SystemNavbar } from './components/SystemNavbar';
+import { SystemNavbar } from '~/components/Layout/SystemNavbar';
 import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => [
@@ -46,7 +46,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           Sanskrit Garden © {new Date().getFullYear()} - Coded with reverence by <a href="http://jeffreyradcliffe.com" className="text-blue-500 hover:underline" target="_blank" >Jeffrey Radcliffe</a>
         </footer>
 
-<Scripts />
+        <Scripts />
+        <ScrollRestoration />
       </body>
     </html>
   );

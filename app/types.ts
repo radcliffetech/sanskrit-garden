@@ -33,4 +33,32 @@ export type StorySegment = {
     reference?: string;
     followup?: string;
   };
+  export type GitaChapter = {
+    id: string;
+    chapter: number;
+    title: string;
+    author: string;
+    summary: string;
+    commentary: string;
+    analysis: string;
+    verses: Verse[];
+  };
+  
+  export type Shkloka = {
+    id: string;
+    title: string;
+    author: string;
+    summary: string;
+    verses: Verse[];
+   }
+  
+  
+  export type Verse = {
+    id: string;
+    verse: number;
+    sanskrit: string;
+    transliteration: string;
+    translation: string;
+    commentary: string;
+  };
   

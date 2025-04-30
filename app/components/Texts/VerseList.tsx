@@ -1,9 +1,9 @@
 // components/VerseList.tsx
-
-import { VerseCard } from "./Textx/VerseCard";
+import type { Verse } from "~/types"; // Adjust the import path as necessary
+import { VerseCard } from "./VerseCard";
 
 interface VerseListProps {
-  verses: Array<{ id: string, sanskrit: string, transliteration: string, translation: string, commentary: string }>;
+  verses: Verse[]
 }
 
 export const VerseList = ({ verses }: VerseListProps) => (

@@ -1,4 +1,4 @@
-import { VerseList } from '../components/VerseList'; // Adjust the path if necessary
+import { VerseList } from '../VerseList';
 import { render } from '@testing-library/react';
 
 let testVerse = {
