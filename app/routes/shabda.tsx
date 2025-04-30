@@ -7,16 +7,16 @@ import sampleShabdas from "~/data/shabdas/masculine-a-stem.json";
 import { useLoaderData } from "@remix-run/react";
 
 export function loader({}: LoaderFunctionArgs) {
-  const result: Shabda = sampleShabdas[0];
-  return json(result);
+  const shabdas: Shabda[] = sampleShabdas;
+  return { shabdas };
 }
 
 export default function ShabdaLandingPage() {
-  const shabda = useLoaderData<typeof loader>();
+  const { shabdas } = useLoaderData<typeof loader>();
   return (
     <PageFrame>
-      <PageHeader>Śabda: The Word in Sanskrit</PageHeader>
-      <ShabdaContainer shabda={shabda} />
+      <PageHeader>Śabda (शब्द)</PageHeader>
+      <ShabdaContainer shabdas={shabdas} />
     </PageFrame>
   );
 }

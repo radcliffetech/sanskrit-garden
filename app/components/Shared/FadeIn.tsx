@@ -1,8 +1,7 @@
-
 export function FadeIn({ children }: { children: React.ReactNode }) {
-    return (
-      <div className="animate-softFadeIn">
-        {children}
-      </div>
-    );
-  }
+  return (
+    <div className="animate-fade-in">
+      {children}
+    </div>
+  );
+}
