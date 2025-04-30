@@ -16,8 +16,17 @@ export default {
           "Noto Color Emoji",
         ],
       },
+      typography: (theme: any) => ({
+        DEFAULT: {
+          css: {
+            h2: { marginBottom: theme('spacing.4') },
+            h3: { marginBottom: theme('spacing.3') },
+            h4: { marginBottom: theme('spacing.2') },
+          },
+        },
+      }),
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
   
 } satisfies Config;

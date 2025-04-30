@@ -27,6 +27,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @layer utilities {
+  .prose p + p {
+    margin-top: 1.25em; /* increase spacing between adjacent paragraphs */
+  }
+
   .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
     margin-bottom: 0.5em;
   }
