@@ -4,13 +4,14 @@ export const navigationConfig = [
     dropdown: [
 
       { label: "Alphabet (संस्कृतवर्णमाला)", href: "/alphabet" },
-      { label: "Śabda (शब्द)", href: "/shabda" },
-      { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
+      { label: "Nouns (संज्ञाः)", href: "/nouns" },
+      { label: "Verbs (धातवः)", href: "/verbs" },
     ],
   },
   {
     label: "Learning Tools (अध्ययनोपकरणानि)",
     dropdown: [
+      { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
       { label: "AI Explainer (यन्त्रविवचकः)", href: "/explain-concept" },
       { label: "AI Storyteller (यन्त्रकथकः)", href: "/storyteller" },
       { label: "Quiz (प्रश्नमाला)", href: "/quiz" },

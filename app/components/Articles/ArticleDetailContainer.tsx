@@ -10,12 +10,9 @@ interface Props {
 export function ArticleDetailContainer({ article }: Props) {
   return (
     <>
-      <BackLink to="/articles">Back to Articles</BackLink>
       <header className="mb-12">
         <PageHeader>{article.title}</PageHeader>
-        <p className="text-sm text-gray-500 mb-6 italic">
-          By {article.author}
-        </p>
+        <BackLink to="/articles">Back to Articles</BackLink>
       </header>
       <div className="">
         <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-6 text-sm text-gray-700 italic">

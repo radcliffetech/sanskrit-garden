@@ -1,0 +1,64 @@
+
+
+[
+  {
+    "root": "गम्",
+    "baseForm": "गच्छति",
+    "meaning": "to go",
+    "tense": "present",
+    "voice": "active",
+    "conjugation": {
+      "3rd person": ["गच्छति", "गच्छतः", "गच्छन्ति"],
+      "2nd person": ["गच्छसि", "गच्छथः", "गच्छथ"],
+      "1st person": ["गच्छामि", "गच्छावः", "गच्छामः"]
+    }
+  },
+  {
+    "root": "पठ्",
+    "baseForm": "पठति",
+    "meaning": "to read",
+    "tense": "present",
+    "voice": "active",
+    "conjugation": {
+      "3rd person": ["पठति", "पठतः", "पठन्ति"],
+      "2nd person": ["पठसि", "पठथः", "पठथ"],
+      "1st person": ["पठामि", "पठावः", "पठामः"]
+    }
+  },
+  {
+    "root": "लिख्",
+    "baseForm": "लिखति",
+    "meaning": "to write",
+    "tense": "present",
+    "voice": "active",
+    "conjugation": {
+      "3rd person": ["लिखति", "लिखतः", "लिखन्ति"],
+      "2nd person": ["लिखसि", "लिखथः", "लिखथ"],
+      "1st person": ["लिखामि", "लिखावः", "लिखामः"]
+    }
+  },
+  {
+    "root": "भू",
+    "baseForm": "भवति",
+    "meaning": "to be",
+    "tense": "present",
+    "voice": "active",
+    "conjugation": {
+      "3rd person": ["भवति", "भवतः", "भवन्ति"],
+      "2nd person": ["भवसि", "भवथः", "भवथ"],
+      "1st person": ["भवामि", "भवावः", "भवामः"]
+    }
+  },
+  {
+    "root": "वद्",
+    "baseForm": "वदति",
+    "meaning": "to speak",
+    "tense": "present",
+    "voice": "active",
+    "conjugation": {
+      "3rd person": ["वदति", "वदतः", "वदन्ति"],
+      "2nd person": ["वदसि", "वदथः", "वदथ"],
+      "1st person": ["वदामि", "वदावः", "वदामः"]
+    }
+  }
+]

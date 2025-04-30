@@ -1,4 +1,4 @@
-import { DeclensionGrid } from "./DeclensionGrid";
+import { DeclensionGrid } from "../Verbs/DeclensionGrid";
 import { FadeIn } from "../Shared";
 import { SelectShabdaForm } from "./SelectShabdaForm";
 import type { Shabda } from "~/types";
@@ -22,10 +22,7 @@ export function ShabdaContainer({ shabdas }: { shabdas: Shabda[] }) {
   return (
     <>
       <p className="text-gray-700 text-lg leading-relaxed">
-        In Sanskrit, a <strong>śabda</strong> (word or sound unit) is more than
-        a linguistic unit—it is a carrier of meaning, vibration, and
-        metaphysical structure. From the roots known as <em>dhātus</em> emerge a
-        rich network of nouns, verbs, participles, and more.
+      In Sanskrit, nouns (saṃjñā) are words that name people, places, objects, or abstract ideas, and are fully declined based on case, number, and gender. They follow specific stem-based patterns such as a-stem or ā-stem, which determine their grammatical forms.
       </p>
       <div className="py-6">
         <SelectShabdaForm

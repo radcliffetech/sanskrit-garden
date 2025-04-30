@@ -83,3 +83,14 @@ export type StorySegment = {
       vocative: string[];
     };
   };
+
+  export type VerbShabda = {
+    root: string;             // "गम्"
+    baseForm: string;         // "गच्छति"
+    meaning: string;          // "to go"
+    tense: "present" | "past" | "future";
+    voice: "active" | "middle" | "passive";
+    conjugation: {
+      [person: string]: [string, string, string]; // [singular, dual, plural]
+    };
+  };

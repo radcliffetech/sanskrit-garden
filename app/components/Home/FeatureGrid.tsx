@@ -9,7 +9,8 @@ export function FeatureGrid() {
         lenses." />
       <FeatureCard to="/storyteller" label="AI Storyteller" icon={<StarIcon className="h-6 w-6 text-purple-800" />} description="Generate stories based on your input." />
       <FeatureCard to="/explain-concept" label="AI Explainer" icon={<StarIcon className="h-6 w-6 text-purple-800" />} description="Get explanations of Sanskrit concepts." />
-      <FeatureCard to="/shabda" label="Śabda" icon={<StarIcon className="h-6 w-6 text-purple-200" />} description="Explore the concept of śabda (word) in Sanskrit." />
+      <FeatureCard to="/nouns" label="Nouns" icon={<StarIcon className="h-6 w-6 text-purple-200" />} description="Explore the concept of śabda (word) in Sanskrit." />
+      <FeatureCard to="/verbs" label="Verbs" icon={<StarIcon className="h-6 w-6 text-purple-200" />} description="Explore the concept of śabda (word) in Sanskrit." />
       <FeatureCard to="/alphabet" label="Sanskrit Alphabet" description="Learn the basics of the Sanskrit alphabet." />
       <FeatureCard to="/articles" label="Sanskrit Articles" description="Explore articles on various Sanskrit topics." />
       <FeatureCard to="/quiz" label="Quiz Yourself" description="Test your knowledge of Sanskrit (and this site)." />
