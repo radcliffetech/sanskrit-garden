@@ -25,7 +25,7 @@ export default function Articles() {
 
   return (
     <PageFrame>
-      <PageHeader>Articles</PageHeader>
+      <PageHeader>Articles (लेखाः)</PageHeader>
       <ArticlesContainer data={data} />
     </PageFrame>
   );

@@ -5,7 +5,7 @@ import TextsHomeContainer from "~/components/Texts/TextsHomeContainer";
 export default function TextsIndex() {
     return (
         <PageFrame>
-            <PageHeader>Sanskrit Texts</PageHeader>
+            <PageHeader>Texts Home (मुख्यपृष्ठम्)</PageHeader>
             <TextsHomeContainer />
         </PageFrame>
     );

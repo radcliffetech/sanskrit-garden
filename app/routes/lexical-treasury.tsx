@@ -1,9 +1,9 @@
 import { AlphabetItem } from "~/types";
+import LexicalTreasuryContainer from "~/components/Alphabet/LexicalTreasuryContainer";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/components/Layout/PageFrame";
 import { PageHeader } from "~/components/Layout/PageHeader";
-import PhonemeExplorerContainer from "~/components/Alphabet/PhonemeExplorerContainer";
 import { getAlphabet } from "~/loader/alphabet";
 import { useLoaderData } from "@remix-run/react";
 
@@ -20,12 +20,12 @@ export default function Alphabet() {
 
   return (
     <PageFrame>
-      <PageHeader>Mandala of Letters</PageHeader>
+      <PageHeader>Lexical Treasury (अक्षरकोशः)</PageHeader>
       <p className="w-100 text-gray-600 space-y-4 text-lg mb-10">
         Explore the phonetic structure of Sanskrit through various categorical
         lenses.
       </p>
-      <PhonemeExplorerContainer data={data} />
+      <LexicalTreasuryContainer data={data} />
     </PageFrame>
   );
 }

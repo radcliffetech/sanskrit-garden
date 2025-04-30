@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from "react-router-dom";
 
 // === Imports ===
 import { AlphabetItem } from "~/types";
@@ -15,17 +15,28 @@ interface Props {
 type ClassificationKey = keyof typeof classificationData;
 
 // === Main Component ===
-export default function PhonemeExplorer({ data }: Props) {
+export default function LexicalTreasury({ data }: Props) {
   const location = useLocation();
   const navigate = useNavigate();
   const params = new URLSearchParams(location.search);
-  const selectedMode = (params.get("mode") || "phonetic_classification") as ClassificationKey;
+  const selectedMode = (params.get("mode") ||
+    "phonetic_classification") as ClassificationKey;
   const selectedPrimary = params.get("group");
   const selectedSecondary = params.get("subgroup");
-  const [highlightLevel1, setHighlightLevel1] = useState<Set<string>>(new Set());
-  const [highlightLevel2, setHighlightLevel2] = useState<Set<string>>(new Set());
+  const [highlightLevel1, setHighlightLevel1] = useState<Set<string>>(
+    new Set()
+  );
+  const [highlightLevel2, setHighlightLevel2] = useState<Set<string>>(
+    new Set()
+  );
 
-  function updateParams(newParams: Partial<{ mode: string; group: string | null; subgroup: string | null }>) {
+  function updateParams(
+    newParams: Partial<{
+      mode: string;
+      group: string | null;
+      subgroup: string | null;
+    }>
+  ) {
     const params = new URLSearchParams(location.search);
     for (const [key, value] of Object.entries(newParams)) {
       if (value == null) {
@@ -54,7 +65,11 @@ export default function PhonemeExplorer({ data }: Props) {
 
     setHighlightLevel1(new Set(level1Chars));
 
-    if (selectedSecondary && typeof primary === "object" && !Array.isArray(primary)) {
+    if (
+      selectedSecondary &&
+      typeof primary === "object" &&
+      !Array.isArray(primary)
+    ) {
       const secondaryChars = primary[selectedSecondary];
       if (secondaryChars) {
         setHighlightLevel2(new Set(secondaryChars));
@@ -71,8 +86,12 @@ export default function PhonemeExplorer({ data }: Props) {
         selectedSecondary={selectedSecondary}
         highlightLevel1={highlightLevel1}
         highlightLevel2={highlightLevel2}
-        setSelectedPrimary={(key) => updateParams({ group: typeof key === "string" ? key : null })}
-        setSelectedSecondary={(key) => updateParams({ subgroup: typeof key === "string" ? key : null })}
+        setSelectedPrimary={(key) =>
+          updateParams({ group: typeof key === "string" ? key : null })
+        }
+        setSelectedSecondary={(key) =>
+          updateParams({ subgroup: typeof key === "string" ? key : null })
+        }
         setHighlightLevel1={setHighlightLevel1}
         setHighlightLevel2={setHighlightLevel2}
         updateParams={updateParams}
@@ -88,7 +107,9 @@ export default function PhonemeExplorer({ data }: Props) {
       {/* Selection form to choose classification mode */}
       <GroupingSelectForm
         selected={selectedMode}
-        onChange={(value: string) => updateParams({ mode: value, group: null, subgroup: null })}
+        onChange={(value: string) =>
+          updateParams({ mode: value, group: null, subgroup: null })
+        }
       />
 
       {/* Render the selected classification view */}
@@ -121,7 +142,13 @@ function DisplayGroupGeneric({
   setSelectedSecondary: React.Dispatch<React.SetStateAction<string | null>>;
   setHighlightLevel1: React.Dispatch<React.SetStateAction<Set<string>>>;
   setHighlightLevel2: React.Dispatch<React.SetStateAction<Set<string>>>;
-  updateParams: (newParams: Partial<{ mode: string; group: string | null; subgroup: string | null }>) => void;
+  updateParams: (
+    newParams: Partial<{
+      mode: string;
+      group: string | null;
+      subgroup: string | null;
+    }>
+  ) => void;
 }) {
   const selectedValue = selectedPrimary
     ? classification[selectedPrimary]
@@ -177,7 +204,6 @@ function DisplayGroupGeneric({
     </div>
   );
 }
-
 
 // === UI Controls ===
 // === Reusable TreePillControls ===

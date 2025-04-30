@@ -4,6 +4,7 @@ import { navigationConfig } from "~/config/navigation";
 
 export function SystemNavbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,7 +30,18 @@ export function SystemNavbar() {
       <div className="container mx-auto flex justify-between items-center">
         <a href="/" className="text-xl font-light">Sanskrit Garden</a>
 
-        <div className="flex space-x-6 items-center" ref={dropdownRef}>
+        {/* Mobile Hamburger */}
+        <button
+          className="sm:hidden block text-white focus:outline-none"
+          onClick={() => setMobileOpen(true)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        {/* Desktop Nav */}
+        <div className="sm:flex hidden gap-4 sm:gap-6 items-center" ref={dropdownRef}>
           {navigationConfig.map((item, idx) => {
             if (item.dropdown) {
               return (
@@ -79,6 +91,52 @@ export function SystemNavbar() {
           })}
         </div>
       </div>
+
+      {mobileOpen && (
+        <div className="fixed inset-0 z-50 bg-black bg-opacity-50" onClick={() => setMobileOpen(false)}>
+          <div
+            className="bg-gray-800 text-white w-64 h-full p-4"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-center mb-4">
+              <span className="text-xl font-light">Menu</span>
+              <button onClick={() => setMobileOpen(false)} className="text-white text-2xl">&times;</button>
+            </div>
+            <div className="flex flex-col gap-2">
+              {navigationConfig.map((item, idx) => (
+                item.dropdown ? (
+                  <div key={idx}>
+                    <span className="font-semibold">{item.label}</span>
+                    <div className="ml-2 flex flex-col">
+                      {item.dropdown.map((dropItem, subidx) =>
+                        dropItem.separator ? (
+                          <hr key={subidx} className="my-2 border-gray-600" />
+                        ) : (
+                          <a
+                            key={subidx}
+                            href={dropItem.href}
+                            className="py-1 px-2 rounded hover:bg-gray-700 active:bg-gray-600 transition-colors"
+                          >
+                            {dropItem.label}
+                          </a>
+                        )
+                      )}
+                    </div>
+                  </div>
+                ) : (
+                  <a
+                    key={idx}
+                    href={item.href}
+                    className="py-1 px-2 rounded hover:bg-gray-700 active:bg-gray-600 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                )
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

@@ -5,7 +5,7 @@ import { PageHeader } from "~/components/Layout/PageHeader";
 export default function LearningIndex() {
   return (
     <PageFrame>
-      <PageHeader>Sanskrit Language Learning</PageHeader>
+      <PageHeader>Learning Tools (अध्ययनोपकरणानि)</PageHeader>
       <LearningHomeContainer />
     </PageFrame>
   );

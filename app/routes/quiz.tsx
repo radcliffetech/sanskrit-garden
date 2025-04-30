@@ -11,7 +11,7 @@ export const loader: LoaderFunction = ({ request }) => {
 export default function QuizRoute() {
   return (
     <PageFrame>
-      <PageHeader>Quiz</PageHeader>
+      <PageHeader>Quiz (प्रश्नमाला)</PageHeader>
       <QuizContainer />
     </PageFrame>
   );
