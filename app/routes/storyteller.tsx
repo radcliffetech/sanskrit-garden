@@ -5,7 +5,7 @@ import StorytellerContainer from "~/components/Story/StoryContainer";
 export default function StorytellerPage() {
   return (
     <PageFrame>
-      <PageHeader>AI Storyteller</PageHeader>
+      <PageHeader>AI Storyteller (यन्त्रकथकः)</PageHeader>
       <StorytellerContainer />
     </PageFrame>
   );

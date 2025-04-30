@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => {
 export default function About() {
   return (
     <PageFrame>
-      <PageHeader>About</PageHeader>
+      <PageHeader>About (विवरणम्)</PageHeader>
       <AboutContainer />
     </PageFrame>
   );

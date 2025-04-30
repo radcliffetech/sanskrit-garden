@@ -1,4 +1,9 @@
 import classificationData from "~/data/sanskrit-phoneme-groupings.json";
+import groupingMetadata from "~/data/sanskrit-grouping-data.json";
+
+interface Props {
+  id: string;
+}
 
 const classificationKeys = Object.keys(classificationData)
 
@@ -17,9 +22,9 @@ export function GroupingSelectForm({ selected, onChange }: Props) {
           value={selected}
           onChange={(e) => onChange(e.target.value)}
         >
-          {classificationKeys.map((key) => (
-            <option key={key} value={key}>
-              {key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
+          {groupingMetadata.map(({ id, name, translation }) => (
+            <option key={id} value={id}>
+              {name} ({translation})  
             </option>
           ))}
         </select>

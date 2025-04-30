@@ -5,7 +5,7 @@ import { PageHeader } from "~/components/Layout/PageHeader";
 export default function ExplainConcept() {
     return (
         <PageFrame>
-            <PageHeader>AI Explainer</PageHeader>
+            <PageHeader>AI Explainer (यन्त्रविवचकः)</PageHeader>
             <ExplainerContainer />
         </PageFrame>
     );

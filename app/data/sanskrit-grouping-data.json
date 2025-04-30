@@ -1,58 +1,72 @@
-
-
 [
   {
     "id": "phonetic_classification",
-    "name": "Phonetic Classification",
-    "description": "Groups letters by their articulation properties such as vowels, consonants, and Maheshvara Sutras."
+    "name": "शब्दव्यवस्था",
+    "translation": "Phonetic Classification",
+    "description": "Groups the Sanskrit letters based on phonetic articulation—vowels (svara), consonants (vyañjana), and Mahāśvara-sūtras—as understood in traditional grammar.",
+    "commentary": "This classification system is foundational to Sanskrit phonology, reflecting how each letter is articulated in the mouth and throat, and their organization within the śikṣā and vyākaraṇa traditions. It includes the Paninian Mahāśvara-sūtras as a systematic sequence for grammatical operations."
   },
   {
     "id": "tattva_evolution_classification",
-    "name": "36 Tattvas of Kashmir Shaivism",
-    "description": "Organizes letters based on their evolution from basic to complex forms, reflecting their phonetic and metaphysical significance."
+    "name": "षट्त्रिंशत्तत्त्वविकासव्यवस्था",
+    "translation": "Evolution of the 36 Tattvas",
+    "description": "Organizes letters according to their alignment with the 36 tattvas of Kashmir Śaivism, illustrating the movement from pure consciousness to material expression.",
+    "commentary": "This schema reflects the ontological descent from Śiva-tattva to Pṛthvī-tattva, assigning letters to stages in the unfolding of reality. It connects phonemes with metaphysical evolution, aligning language with cosmological structure."
   },
   {
-    "id:": "trisharira_classification",
-    "name": "Trisharira Classification",
-    "description": "Classifies letters based on their association with the three bodies"
+    "id": "trisharira_classification",
+    "name": "त्रिशरीरविभागः",
+    "translation": "Three Bodies Classification",
+    "description": "Classifies letters by their symbolic connection to the three bodies: sthūla (gross), sūkṣma (subtle), and kāraṇa (causal).",
+    "commentary": "This framework maps linguistic elements onto the threefold embodiment model found in Yogic and Vedāntic thought. Letters are seen as reflecting the layers of existence, revealing their multidimensional roles in speech and being."
   },
   {
     "id": "guna_classification",
-    "name": "Guna Classification",
-    "description": "Groups letters based on their qualities or gunas, such as Sattva, Rajas, and Tamas."
+    "name": "गुणव्यवस्था",
+    "translation": "Guṇa Classification",
+    "description": "Groups letters based on the three guṇas—sattva (harmony), rajas (activity), and tamas (inertia)—to reflect their energetic tendencies.",
+    "commentary": "Rooted in Sāṅkhya and Yogic metaphysics, this approach classifies letters by their inherent quality or resonance, offering a dynamic reading of phonemes as expressions of primordial forces."
   },
   {
     "id": "shakti_traya_classification",
-    "name": "Shakti Traya Classification",
-    "description": "Classifies letters based on the three divine energies: Iccha Shakti, Jnana Shakti, and Kriya Shakti."
+    "name": "शक्तित्रयव्यवस्था",
+    "translation": "Three Powers Classification",
+    "description": "Aligns letters with the three divine powers: icchā-śakti (will), jñāna-śakti (knowledge), and kriyā-śakti (action).",
+    "commentary": "This classification derives from Śākta and Śaiva frameworks, mapping sound onto the primary modalities of divine expression. Each letter participates in a triadic energetic dynamic, reflecting its role in creation and articulation."
   },
   {
     "id": "chakra_classification",
-    "name": "Chakra Classification",
-    "description": "Organizes letters according to their association with the seven chakras, reflecting their energetic properties."
+    "name": "चक्रव्यवस्था",
+    "translation": "Chakra Classification",
+    "description": "Places letters within the system of the seven primary chakras, based on their vibrational resonance and subtle body loci.",
+    "commentary": "This model integrates phonetics with Tantric psychophysiology. Letters correspond to specific chakras, suggesting a map of energetic activation and spiritual ascent through sound."
   },
   {
     "id": "nada_bindu_varna_classification",
-    "name": "Nada, Bindu, and Varna Classification",
-    "description": "Classifies letters based on their association with Nada (sound), Bindu (point), and Varna (letter), reflecting their spiritual significance."
+    "name": "नादबिन्दुवर्णव्यवस्था",
+    "translation": "Sound Point Manifestation Classification",
+    "description": "Classifies letters with reference to nāda (sound vibration), bindu (point of origin), and varṇa (manifest phoneme).",
+    "commentary": "Drawing from Tantric and Nāda Yoga traditions, this categorization traces the emanation of letters from unmanifest sound to manifest articulation. It reveals a cosmogenic view of language as arising from subtle principles."
   },
   {
-    "id":"shiva_shakti_bindu_classification",
-    "name": "Shiva, Shakti, and Bindu Classification",
-    "description": "Classifies letters based on their association with the divine principles of Shiva, Shakti, and Bindu, reflecting their spiritual significance."
+    "id": "shiva_shakti_bindu_classification",
+    "name": "शिवशक्तिबिन्दुव्यवस्था",
+    "translation": "Śiva-Śakti-Bindu Classification",
+    "description": "Groups letters based on their identification with Śiva (pure consciousness), Śakti (dynamic energy), and Bindu (causal point).",
+    "commentary": "This classification expresses a triadic cosmology where sound embodies the interplay of static awareness, dynamic power, and undifferentiated source. Letters are understood as crystallizations of metaphysical polarities and unity."
   },
   {
     "id": "shabda_brahman_classification",
-    "name": "Shabda Brahman Classification",
-    "description": "Organizes letters based on their association with the concept of Shabda Brahman, the ultimate reality in sound and vibration."
+    "name": "शब्दब्रह्मव्यवस्था",
+    "translation": "Sound as Brahman Classification",
+    "description": "Organizes letters according to their role in expressing Śabda Brahman—the absolute reality manifesting as sound.",
+    "commentary": "Rooted in Mīmāṃsā and Śaiva doctrines, this classification treats phonemes as direct expressions of Brahman. It emphasizes the sanctity and ontological primacy of sound in the structure of the universe."
   },
   {
-    "id":"mala_japa_classification",
-    "name": "Mala and Japa Classification",
-    "description": "Classifies letters based on their use in mala (prayer beads) and japa (chanting), reflecting their spiritual significance."
+    "id": "mala_japa_classification",
+    "name": "मालाजपव्यवस्था",
+    "translation": "Rosary and Mantra Repetition Classification",
+    "description": "Categorizes letters based on their use in mālā (rosaries) and japa (mantra repetition), reflecting their ritual potency.",
+    "commentary": "This structure links letters to meditative and devotional practice. By mapping phonemes to specific ritual applications, it honors their efficacy in spiritual transformation and mantra sādhana."
   }
-
-
-
-
 ]

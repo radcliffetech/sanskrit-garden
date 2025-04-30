@@ -1,32 +1,32 @@
 export const navigationConfig = [
   {
-    label: "Alphabet",
+    label: "Alphabet (वर्णमाला)",
     dropdown: [
-      { label: "Sanskrit Alphabet", href: "/alphabet" },
-      { label: "Mandala of Letters", href: "/phoneme-explorer" },
+      { label: "Sanskrit Alphabet (संस्कृतवर्णमाला)", href: "/alphabet" },
+      { label: "Lexical Treasury (अक्षरकोशः)", href: "/phoneme-explorer" },
     ],
   },
   {
-    label: "Learning Tools",
+    label: "Learning Tools (अध्ययनोपकरणानि)",
     dropdown: [
-      { label: "AI Explainer", href: "/explain-concept" },
-      { label: "AI Storyteller", href: "/storyteller" },
-      { label: "Quiz", href: "/quiz" },
+      { label: "AI Explainer (यन्त्रविवचकः)", href: "/explain-concept" },
+      { label: "AI Storyteller (यन्त्रकथकः)", href: "/storyteller" },
+      { label: "Quiz (प्रश्नमाला)", href: "/quiz" },
     ],
   },
   {
-    label: "Texts",
+    label: "Texts (ग्रन्थाः)",
     dropdown: [
-      { label: "Texts Home", href: "/texts/" },
+      { label: "Texts Home (मुख्यपृष्ठम्)", href: "/texts/" },
       { separator: true },
-      { label: "Ganesha Panchratnam", href: "/texts/ganesha-panchratnam" },
-      { label: "Nirvana Shaktam", href: "/texts/nirvana-shaktam" },
+      { label: "Ganesha Panchratnam (गणेशपञ्चरत्नम्)", href: "/texts/ganesha-panchratnam" },
+      { label: "Nirvana Shaktam (निर्वाणषट्कम्)", href: "/texts/nirvana-shaktam" },
       {
-        label: "Ribhu Gita – Chapter 26",
+        label: "Ribhu Gita – Chapter 26 (ऋभुगीता – षड्विंशोऽध्यायः)",
         href: "/texts/ribhu-gita/chapter-26",
       },
     ],
   },
-  { label: "Articles", href: "/articles" },
-  { label: "About", href: "/about" },
+  { label: "Articles (लेखाः)", href: "/articles" },
+  { label: "About (विवरणम्)", href: "/about" },
 ];
