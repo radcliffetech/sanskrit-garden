@@ -1,4 +1,4 @@
-import RenderMarkdown from "~/components/Layout/RenderMarkdown";
+import { RenderMarkdown } from "~/components/Shared/RenderMarkdown";
 
 export function StoryQuestionBox({
   questions,
@@ -24,23 +24,21 @@ export function StoryQuestionBox({
               type="button"
               disabled={loading || selectedContinuation !== null}
               onClick={() => handleContinue(idx)}
-              className={`border rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center font-medium transition ${isSelected
-                ? "bg-indigo-100 border-indigo-400"
-                : isFaded
+              className={`border rounded-lg shadow-md p-6 flex flex-col items-center justify-center text-center font-medium transition ${
+                isSelected
+                  ? "bg-indigo-100 border-indigo-400"
+                  : isFaded
                   ? "opacity-30"
                   : "hover:bg-gray-100"
-                }`}
+              }`}
             >
               <div className="font-light mb-2 text-center">
-                <RenderMarkdown>
-                  {q}
-                </RenderMarkdown>
+                <RenderMarkdown>{q}</RenderMarkdown>
               </div>
             </button>
           );
         })}
       </div>
-
     </div>
   );
 }
