@@ -11,7 +11,7 @@ interface Props {
 }
 type ClassificationKey = keyof typeof classificationData;
 
-export default function AlphabetFeature({ data }: Props) {
+export default function PhonemeExplorer({ data }: Props) {
   const [selectedMode, setSelectedMode] = useState<ClassificationKey>(
     "phonetic_classification"
   );
