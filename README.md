@@ -42,9 +42,15 @@ npm start
 
 ## Screenshots
 
-![Dashboard Screenshot 1](./public/images/screenshot-1.png)
-![Dashboard Screenshot 2](./public/images/screenshot-2.png)
-![Dashboard Screenshot 3](./public/images/screenshot-3.png)
+<a href="/images/screenshot-1.png" target="_blank">
+  <img src="/images/screenshot-1.png" alt="Sanskrit Garden screenshot 1" width="300" />
+</a>
+<a href="/images/screenshot-2.png" target="_blank">
+  <img src="/images/screenshot-2.png" alt="Sanskrit Garden screenshot 2" width="300" />
+</a>
+<a href="/images/screenshot-3.png" target="_blank">
+  <img src="/images/screenshot-3.png" alt="Sanskrit Garden screenshot 3" width="300" />
+</a>
 
 ## Styling
 
