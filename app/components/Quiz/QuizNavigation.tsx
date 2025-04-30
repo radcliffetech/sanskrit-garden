@@ -19,7 +19,7 @@ export function QuizNavigation({
         type="button"
         onClick={onPrevious}
         disabled={currentIndex === 0}
-        className="px-4 py-2 bg-gray-300 rounded disabled:opacity-50 flex items-center"
+        className="btn-secondary flex items-center disabled:opacity-50"
       >
         <ChevronLeftIcon className="h-5 w-5 inline-block mr-1" />
         Previous
@@ -28,7 +28,7 @@ export function QuizNavigation({
         <button
           type="button"
           onClick={onNext}
-          className="px-4 py-2 bg-blue-600 text-white rounded flex items-center"
+          className="btn-primary flex items-center"
         >
           Next
           <ChevronRightIcon className="h-5 w-5 inline-block ml-1" />
@@ -37,7 +37,7 @@ export function QuizNavigation({
         <button
           type="submit"
           onClick={onSubmit}
-          className="px-4 py-2 bg-green-600 text-white rounded"
+          className="btn-primary bg-green-600 hover:bg-green-700 flex items-center"
         >
           Complete Quiz
             <ChevronRightIcon className="h-5 w-5 inline-block ml-1" />

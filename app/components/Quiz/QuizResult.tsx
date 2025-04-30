@@ -1,3 +1,5 @@
+import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
+
 import { LoaderFunction } from "@remix-run/node";
 import type { QuizQuestion } from "~/types";
 import { getQuizQuestions } from "~/loader/quiz";
@@ -22,23 +24,16 @@ export function QuizResult({
   return (
     <div>
       <div className="text-center mb-6">
-        <p className="text-xl font-medium">
-          You scored {score} out of {total}.
+        <p className="text-2xl text-gray-700 font-medium mb-10">
+          Total Score &mdash; {score}/{total}
         </p>
-        <button
-          type="button"
-          onClick={onReset}
-          className="mt-4 px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-800"
-        >
-          Try Again
-        </button>
       </div>
-      <div className="space-y-6">
+      <div className="space-y-3">
         {questions.map((q) => {
           const selected = answers[q.id];
           const isCorrect = selected === q.answer;
           return (
-            <div key={q.id} className="p-4 border rounded">
+            <div key={q.id} className="p-4 border rounded-md bg-gray-50">
               <p className="font-light mb-2">{q.question}</p>
               {q.options.map((opt) => {
                 const selectedStyle =
@@ -48,9 +43,15 @@ export function QuizResult({
                       : "text-red-600 font-light"
                     : "text-gray-800";
                 return (
-                  <div key={opt} className={selectedStyle}>
+                  <div key={opt} className={`${selectedStyle} text-sm`}>
                     {opt === selected && (
-                      <span className="mr-2">{isCorrect ? "✅" : "❌"}</span>
+                      <>
+                        {isCorrect ? (
+                          <CheckCircleIcon className="inline-block h-4 w-4 text-green-500 mr-1" />
+                        ) : (
+                          <XCircleIcon className="inline-block h-4 w-4 text-red-500 mr-1" />
+                        )}
+                      </>
                     )}
                     {opt}
                     {opt === q.answer && opt !== selected && (
@@ -62,6 +63,11 @@ export function QuizResult({
             </div>
           );
         })}
+      </div>
+      <div className="text-center mt-8">
+        <button type="button" onClick={onReset} className="btn-primary">
+          Try Again
+        </button>
       </div>
     </div>
   );
