@@ -15,7 +15,7 @@ export default function ShabdaLandingPage() {
   const { shabdas } = useLoaderData<typeof loader>();
   return (
     <PageFrame>
-      <PageHeader>Śabda (शब्द)</PageHeader>
+      <PageHeader>Nouns (संज्ञाः)</PageHeader>
       <ShabdaContainer shabdas={shabdas} />
     </PageFrame>
   );
