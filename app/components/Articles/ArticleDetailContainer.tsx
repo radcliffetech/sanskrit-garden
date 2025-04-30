@@ -17,7 +17,7 @@ export function ArticleDetailContainer({ article }: Props) {
           By {article.author}
         </p>
       </header>
-      <div className="max-w-4xl mx-auto">
+      <div className="">
         <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-6 text-sm text-gray-700 italic">
           {article.summary}
         </div>
