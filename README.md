@@ -1,6 +1,6 @@
 # Sanskrit Garden
 
-![CI](https://github.com/your-username/sanskrit-garden/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/radcliffetech/sanskrit-garden/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 Sanskrit Garden is a creative learning and exploration tool for Sanskrit language, literature, and spiritual philosophy. The app blends modern web technologies with classical Sanskrit sources to provide interactive features, AI-powered tools, and an engaging educational experience.
