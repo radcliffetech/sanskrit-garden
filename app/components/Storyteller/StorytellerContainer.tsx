@@ -2,7 +2,7 @@ import {
   DisplayStoryHead,
   DisplayStorySegment,
   ListenerStorySegment,
-} from "./Story";
+} from "~/components/Storyteller/Story";
 import { getDefaultTopics, useStoryteller } from "~/hooks/storyteller";
 
 import { EndStoryControl } from "~/components/Storyteller/EndStoryControl";
