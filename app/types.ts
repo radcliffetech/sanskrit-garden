@@ -62,3 +62,24 @@ export type StorySegment = {
     commentary: string;
   };
   
+  export type Shabda = {
+    name: string;         // "रामः"
+    stem: string;         // "राम"
+    gender: string;       // "masculine" | "feminine" | "neuter";
+   
+    declensionClass: string; // "a-stem" | "ā-stem" | "i-stem" | etc.
+   
+    baseForm: string;     // "रामः" (nominative singular)
+    meaning: string;      // "Rama"
+  
+    declension: {
+      nominative: string[];
+      accusative: string[];
+      instrumental: string[];
+      dative: string[];
+      ablative: string[];
+      genitive: string[];
+      locative: string[];
+      vocative: string[];
+    };
+  };
