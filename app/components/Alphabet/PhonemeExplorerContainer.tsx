@@ -1,10 +1,11 @@
+import { useEffect, useState } from "react";
+
 // === Imports ===
 import { AlphabetItem } from "~/types";
 import { AlphabetLayout } from "./AlphabetLayout";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
 import { GroupingSelectForm } from "./GroupingSelectForm";
 import classificationData from "~/data/sanskrit-phoneme-groupings.json";
-import { useState } from "react";
 
 // === Type Definitions ===
 interface Props {
@@ -18,24 +19,33 @@ export default function PhonemeExplorer({ data }: Props) {
     "phonetic_classification"
   );
 
-  const modes: ClassificationKey[] = [
-    "phonetic_classification",
-    "tattva_evolution_classification",
-  ];
+  const [selectedPrimary, setSelectedPrimary] = useState<string | null>(null);
+  const [selectedSecondary, setSelectedSecondary] = useState<string | null>(null);
+  const [highlightLevel1, setHighlightLevel1] = useState<Set<string>>(new Set());
+  const [highlightLevel2, setHighlightLevel2] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    setSelectedPrimary(null);
+    setSelectedSecondary(null);
+    setHighlightLevel1(new Set());
+    setHighlightLevel2(new Set());
+  }, [selectedMode]);
 
   const getRenderedMode = () => {
-    switch (selectedMode) {
-      case "phonetic_classification":
-      case "tattva_evolution_classification":
-        return (
-          <DisplayGroupGeneric
-            classification={classificationData[selectedMode]}
-            alphabetData={data}
-          />
-        );
-      default:
-        return <DisplayGroupDefault alphabetData={data} />;
-    }
+    return (
+      <DisplayGroupGeneric
+        classification={classificationData[selectedMode]}
+        alphabetData={data}
+        selectedPrimary={selectedPrimary}
+        selectedSecondary={selectedSecondary}
+        highlightLevel1={highlightLevel1}
+        highlightLevel2={highlightLevel2}
+        setSelectedPrimary={setSelectedPrimary}
+        setSelectedSecondary={setSelectedSecondary}
+        setHighlightLevel1={setHighlightLevel1}
+        setHighlightLevel2={setHighlightLevel2}
+      />
+    );
   };
 
   return (
@@ -61,21 +71,26 @@ export default function PhonemeExplorer({ data }: Props) {
 function DisplayGroupGeneric({
   classification,
   alphabetData,
+  selectedPrimary,
+  selectedSecondary,
+  highlightLevel1,
+  highlightLevel2,
+  setSelectedPrimary,
+  setSelectedSecondary,
+  setHighlightLevel1,
+  setHighlightLevel2,
 }: {
   classification: Record<string, string[] | Record<string, string[]>>;
   alphabetData: AlphabetItem[];
+  selectedPrimary: string | null;
+  selectedSecondary: string | null;
+  highlightLevel1: Set<string>;
+  highlightLevel2: Set<string>;
+  setSelectedPrimary: React.Dispatch<React.SetStateAction<string | null>>;
+  setSelectedSecondary: React.Dispatch<React.SetStateAction<string | null>>;
+  setHighlightLevel1: React.Dispatch<React.SetStateAction<Set<string>>>;
+  setHighlightLevel2: React.Dispatch<React.SetStateAction<Set<string>>>;
 }) {
-  const [selectedPrimary, setSelectedPrimary] = useState<string | null>(null);
-  const [selectedSecondary, setSelectedSecondary] = useState<string | null>(
-    null
-  );
-  const [highlightLevel1, setHighlightLevel1] = useState<Set<string>>(
-    new Set()
-  );
-  const [highlightLevel2, setHighlightLevel2] = useState<Set<string>>(
-    new Set()
-  );
-
   const selectedValue = selectedPrimary
     ? classification[selectedPrimary]
     : null;
@@ -127,23 +142,6 @@ function DisplayGroupGeneric({
   );
 }
 
-function DisplayGroupDefault({
-  alphabetData,
-}: {
-  alphabetData: AlphabetItem[];
-}) {
-  const mode: ClassificationKey = "phonetic_classification";
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-      <div></div>
-      <AlphabetLayout
-        data={alphabetData}
-        highlightLevel1={new Set<string>()}
-        highlightLevel2={new Set<string>()}
-      />
-    </div>
-  );
-}
 
 // === UI Controls ===
 // === Reusable TreePillControls ===

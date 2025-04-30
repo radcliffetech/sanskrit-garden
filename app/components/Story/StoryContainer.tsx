@@ -39,7 +39,7 @@ export default function StorytellerContainer() {
   );
 
   return (
-    <div className="w-full max-w-xl min-w-[60rem] mx-auto">
+    <div className="w-full">
       {error && <p className="text-red-500 mb-6">{error}</p>}
 
       {!isStoryStarted ? (

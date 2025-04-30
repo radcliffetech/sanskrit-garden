@@ -6,7 +6,7 @@ interface Props {
 
 export default function AlphabetContainer({ data }: Props) {
   return (
-    <div className="max-w-6xl mx-auto space-y-12">
+    <div className="space-y-12">
       <div className="prose prose-sm text-gray-600 space-y-4">
         <p>
           Structured according to the point and manner of articulation, Sanskrit
