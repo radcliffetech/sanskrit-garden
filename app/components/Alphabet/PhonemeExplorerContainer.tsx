@@ -1,4 +1,4 @@
-import { AlphabetGrid } from "./AlphabetGrid";
+import { AlphabetGridCompact } from "./AlphabetGridCompact";
 import { AlphabetItem } from "~/types";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
 import GroupingSelectForm from "./GroupingSelectForm";
@@ -94,7 +94,7 @@ function DisplayGroup({
                   onClick={() => handleSetPrimaryGroup(group)}
                   className={`pill-lg border text-sm font-semibold transition ${
                     selectedPrimary === group
-                      ? "bg-primary text-white border-primary"
+                      ? "highlight-1"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                   }`}
                 >
@@ -117,7 +117,7 @@ function DisplayGroup({
                   onClick={() => handleSetSubGroup(sub)}
                   className={`pill-lg border text-sm font-semibold transition ${
                     selectedSecondary === sub
-                      ? "bg-primary text-white border-primary"
+                      ? "highlight-2"
                       : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
                   }`}
                 >
@@ -130,7 +130,7 @@ function DisplayGroup({
         </div>
       </div>
 
-      <AlphabetGrid
+      <AlphabetGridCompact
         data={alphabetData}
         highlightLevel1={highlightLevel1}
         highlightLevel2={highlightLevel2}

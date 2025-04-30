@@ -1,7 +1,7 @@
 import { AlphabetCard } from "./AlphabetCard";
 import { AlphabetItem } from "~/types";
 
-export function AlphabetGrid({
+export function AlphabetGridCompact({
   data,
   highlightLevel1,
   highlightLevel2,
@@ -14,7 +14,7 @@ export function AlphabetGrid({
   console.log("AlphabetGrid", data.length, highlightLevel1, highlightLevel2);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+    <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 xl:grid-cols-14 gap-2">
       {data.map((item, index) => {
         const inLevel2 = highlightLevel2?.has(item.char);
         const inLevel1 = highlightLevel1?.has(item.char) || inLevel2;
@@ -31,6 +31,7 @@ export function AlphabetGrid({
             key={index}
             item={item}
             highlightLevel={highlightLevel}
+            mode="compact"
           />
         );
       })}
