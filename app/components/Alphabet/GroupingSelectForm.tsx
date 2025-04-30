@@ -1,10 +1,6 @@
 import classificationData from "~/data/sanskrit-phoneme-groupings.json";
 
-const allowedModes = ["phonetic_classification", "functional_classification"];
-const classificationKeys = Object.keys(classificationData).filter((key) =>
-  allowedModes.includes(key)
-);
-// const classificationKeys = Object.keys(classificationData)
+const classificationKeys = Object.keys(classificationData)
 
 
 interface Props {

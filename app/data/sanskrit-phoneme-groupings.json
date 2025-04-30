@@ -3,8 +3,7 @@
     "vowels": {
       "short": ["अ", "इ", "उ", "ऋ", "ऌ"],
       "long": ["आ", "ई", "ऊ", "ॠ", "ॡ"],
-      "diphthongs": ["ए", "ऐ", "ओ", "औ"],
-      "specials": ["ं", "ः"]
+      "diphthongs": ["ए", "ऐ", "ओ", "औ"]
     },
     "consonants": {
       "gutturals": ["क", "ख", "ग", "घ", "ङ"],
@@ -14,12 +13,12 @@
       "labials": ["प", "फ", "ब", "भ", "म"],
       "semivowels": ["य", "र", "ल", "व"],
       "sibilants_and_aspirate": ["श", "ष", "स", "ह"]
-    }
+    },
+    "specials": ["ं", "ः"]
   },
-  "functional_classification": {
-    "vowels": [
-      "अ",
-      "आ",
+  "tattva_evolution_classification": {
+    "unmanifest_consciousness": ["अ", "आ", "अं", "अः", "ॐ"],
+    "subtle_conscious_mind": [
       "इ",
       "ई",
       "उ",
@@ -33,330 +32,32 @@
       "ओ",
       "औ"
     ],
-    "specials": ["ं", "ः"],
-    "consonants": {
-      "stops": [
-        "क",
-        "ख",
-        "ग",
-        "घ",
-        "च",
-        "छ",
-        "ज",
-        "झ",
-        "ट",
-        "ठ",
-        "ड",
-        "ढ",
-        "त",
-        "थ",
-        "द",
-        "ध",
-        "ट",
-        "ठ",
-        "ड",
-        "ढ",
-        "प",
-        "फ",
-        "ब",
-        "भ"
-      ],
-      "nasals": ["ङ", "ञ", "ण", "न", "म"],
-      "semivowels": ["य", "र", "ल", "व"],
-      "sibilants": ["श", "ष", "स"],
-      "aspirate": ["ह"]
-    }
-  },
-  "mahesvara_sutras": [
-    { "sutra": "अइउण्", "phonemes": ["अ", "इ", "उ"] },
-    { "sutra": "ऋऌक्", "phonemes": ["ऋ", "ऌ"] },
-    { "sutra": "एओङ्", "phonemes": ["ए", "ओ"] },
-    { "sutra": "ऐऔच्", "phonemes": ["ऐ", "औ"] },
-    { "sutra": "हयवरत्", "phonemes": ["ह", "य", "व", "र"] },
-    { "sutra": "लण्", "phonemes": ["ल"] },
-    { "sutra": "ञमङणनम्", "phonemes": ["ञ", "म", "ङ", "ण", "न"] },
-    { "sutra": "झभञ्", "phonemes": ["झ", "भ"] },
-    { "sutra": "घढधष्", "phonemes": ["घ", "ढ", "ध"] },
-    { "sutra": "जबगडदश्", "phonemes": ["ज", "ब", "ग", "ड", "द"] },
-    {
-      "sutra": "खफछठथचटतव्",
-      "phonemes": ["ख", "फ", "छ", "ठ", "थ", "च", "ट", "त", "व"]
-    },
-    { "sutra": "कपय्", "phonemes": ["क", "प", "य"] },
-    { "sutra": "शषसर्", "phonemes": ["श", "ष", "स"] },
-    { "sutra": "हल्", "phonemes": ["ह", "ल"] }
-  ],
-
-  "phonological_features": {
-    "क": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "velar"
-    },
-    "ख": {
-      "voiced": false,
-      "aspirated": true,
-      "nasal": false,
-      "place": "velar"
-    },
-    "ग": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "velar"
-    },
-    "घ": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "velar"
-    },
-    "ङ": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": true,
-      "place": "velar"
-    },
-
-    "च": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "छ": {
-      "voiced": false,
-      "aspirated": true,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "ज": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "झ": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "ञ": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": true,
-      "place": "palatal"
-    },
-
-    "ट": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "ठ": {
-      "voiced": false,
-      "aspirated": true,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "ड": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "ढ": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "ण": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": true,
-      "place": "retroflex"
-    },
-
-    "त": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "dental"
-    },
-    "थ": {
-      "voiced": false,
-      "aspirated": true,
-      "nasal": false,
-      "place": "dental"
-    },
-    "द": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "dental"
-    },
-    "ध": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "dental"
-    },
-    "न": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": true,
-      "place": "dental"
-    },
-
-    "प": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "labial"
-    },
-    "फ": {
-      "voiced": false,
-      "aspirated": true,
-      "nasal": false,
-      "place": "labial"
-    },
-    "ब": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "labial"
-    },
-    "भ": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "labial"
-    },
-    "म": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": true,
-      "place": "labial"
-    },
-
-    "य": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "र": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "ल": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "dental"
-    },
-    "व": {
-      "voiced": true,
-      "aspirated": false,
-      "nasal": false,
-      "place": "labiodental"
-    },
-
-    "श": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "palatal"
-    },
-    "ष": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "retroflex"
-    },
-    "स": {
-      "voiced": false,
-      "aspirated": false,
-      "nasal": false,
-      "place": "dental"
-    },
-    "ह": {
-      "voiced": true,
-      "aspirated": true,
-      "nasal": false,
-      "place": "glottal"
-    }
-  },
-  "metaphysical_classification": {
-    "vowels_as_kalas": [
-      "अ",
-      "आ",
-      "इ",
-      "ई",
-      "उ",
-      "ऊ",
-      "ऋ",
-      "ॠ",
-      "ऌ",
-      "ॡ",
-      "ए",
-      "ऐ",
-      "ओ",
-      "औ",
-      "ं",
-      "ः"
-    ],
-    "consonants_as_tattvas": [
+    "vital_energy_movement": ["य", "र", "ल", "व"],
+    "differentiated_thought_forms": ["श", "ष", "स", "ह"],
+    "psychic_emergence": ["ङ", "ञ", "ण", "न", "म"],
+    "gross_physical_elements": [
       "क",
       "ख",
       "ग",
       "घ",
-      "ङ",
       "च",
       "छ",
       "ज",
       "झ",
-      "ञ",
       "ट",
       "ठ",
       "ड",
       "ढ",
-      "ण",
       "त",
       "थ",
       "द",
       "ध",
-      "न",
       "प",
       "फ",
       "ब",
-      "भ",
-      "म",
-      "य",
-      "र",
-      "ल",
-      "व",
-      "श",
-      "ष",
-      "स",
-      "ह"
-    ],
-    "additional_tantric_letters": ["ळ", "क्ष"]
+      "भ"
+    ]
   },
-  "visual_grouping": {
-    "symmetrical_shapes": ["म", "न", "ल", "ह", "अ", "आ", "उ", "ऊ", "ए", "ओ"],
-    "looped_shapes": ["घ", "झ", "ओ", "औ", "ल", "क"],
-    "diagonal_strokes": ["क", "य", "स", "प", "व", "त", "र"],
-    "complex_glyphs": ["झ", "ष", "श्र", "क्ष", "ज्ञ", "ऋ", "ॠ"],
-    "simple_glyphs": ["अ", "इ", "उ", "ए", "ओ", "त", "क", "न", "म"]
-  },
-
   "pedagogical_grouping": {
     "simple_vowels": ["अ", "आ", "इ", "ई", "उ", "ऊ"],
     "simple_consonants": ["क", "ग", "त", "न", "प", "म", "ब", "द"],

@@ -7,28 +7,8 @@
     "description": "Groups letters by their articulation properties such as vowels, consonants, and Maheshvara Sutras."
   },
   {
-    "id": "functional_classification",
-    "name": "Functional Classification",
-    "description": "Organizes characters based on their grammatical and linguistic roles like stops, nasals, and semivowels."
-  },
-  {
-    "id": "phonological_features",
-    "name": "Phonological Features",
-    "description": "Defines specific attributes for each character including voicing, aspiration, nasality, and place of articulation."
-  },
-  {
-    "id": "metaphysical_classification",
-    "name": "Metaphysical Classification",
-    "description": "Associates letters with esoteric concepts such as kalās and tattvas from tantric traditions."
-  },
-  {
-    "id": "visual_grouping",
-    "name": "Visual Grouping",
-    "description": "Groups characters based on similarities in visual structure like symmetry, loops, and complexity."
-  },
-  {
-    "id": "pedagogical_grouping",
-    "name": "Pedagogical Grouping",
-    "description": "Sorts characters by learning difficulty levels to aid students in progressive Sanskrit study."
+    "id": "tattva_evolution_classification",
+    "name": "36 Tattvas of Kashmir Shaivism",
+    "description": "Organizes letters based on their evolution from basic to complex forms, reflecting their phonetic and metaphysical significance."
   }
 ]
