@@ -1,6 +1,9 @@
 # Sanskrit Garden
 
-Welcome to the Sanskrit Garden project, a web app designed to help users learn and explore Sanskrit texts.
+![CI](https://github.com/your-username/sanskrit-garden/actions/workflows/ci.yml/badge.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+Sanskrit Garden is a creative learning and exploration tool for Sanskrit language, literature, and spiritual philosophy. The app blends modern web technologies with classical Sanskrit sources to provide interactive features, AI-powered tools, and an engaging educational experience.
 
 ## Development
 
@@ -26,29 +29,16 @@ Then, run the app in production mode:
 npm start
 ```
 
-Make sure to deploy the output of `npm run build`:
+## Features
 
-- `build/server`
-- `build/client`
-
-### Firebase Hosting
-
-The app is deployed using Firebase Hosting. To configure and deploy to Firebase, follow these steps:
-
-1. Install Firebase CLI if you haven't already:
-   ```bash
-   npm install -g firebase-tools
-   ```
-
-2. Log in to Firebase:
-   ```bash
-   firebase login
-   ```
-
-3. Deploy to Firebase:
-   ```bash
-   firebase deploy
-   ```
+- 📚 Explore classic Sanskrit texts such as the Nirvāṇaṣaṭkam, Ribhu Gītā, and Ganesha Pañcharatnam
+- 🤖 Use the AI-powered Concept Explainer to understand spiritual ideas
+- 🧠 Quiz yourself on Sanskrit grammar and philosophy with adaptive difficulty
+- 📖 Learn the Sanskrit alphabet through a scientific layout and phonetic analysis
+- 🗣️ Generate personalized myths using the AI Storyteller
+- ⚙️ Built with Remix, Tailwind CSS, TypeScript, and Firebase
+- ✅ Fully containerized components and routes for maintainable architecture
+- 🔁 Continuous integration with GitHub Actions
 
 ## Styling
 
@@ -58,5 +48,18 @@ To learn more about Tailwind, refer to their [documentation](https://tailwindcss
 
 ## Notes
 
+- The data fetching is very basic, and in a production system would be connected to a data store in the usual way.
 - The app is structured in a way that makes it easy to extend with additional Sanskrit texts, quizzes, and interactive features.
 - For further customizations, feel free to modify the components and routes as needed.
+
+## Feature Roadmap
+
+- Learning tools in Sansksrit
+   - Verb declension patterns
+   - Noun Conjugation pattersn
+   - Grammatical concepts
+   - AI-powered exercises
+- Add more texts
+- Textual analysis toolsw
+- Alphabet enhancements
+   - Filtering by part of mouth, etc.
