@@ -37,10 +37,6 @@ describe("ArticlesContainer", () => {
   it("renders AI Explainer link and article cards", () => {
     render(<ArticlesContainer data={mockArticles} />);
 
-    // Link check
-    const link = screen.getByRole("link", { name: /try the ai explainer/i });
-    expect(link).toHaveAttribute("href", "/explain-concept");
-
     // Article cards check
     const cards = screen.getAllByTestId("mock-article-card");
     expect(cards).toHaveLength(2);

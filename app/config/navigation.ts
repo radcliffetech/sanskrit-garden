@@ -3,7 +3,7 @@ export const navigationConfig = [
     label: "Alphabet (वर्णमाला)",
     dropdown: [
       { label: "Sanskrit Alphabet (संस्कृतवर्णमाला)", href: "/alphabet" },
-      { label: "Lexical Treasury (अक्षरकोशः)", href: "/phoneme-explorer" },
+      { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
     ],
   },
   {

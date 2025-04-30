@@ -1,12 +1,4 @@
-import classificationData from "~/data/sanskrit-phoneme-groupings.json";
 import groupingMetadata from "~/data/sanskrit-grouping-data.json";
-
-interface Props {
-  id: string;
-}
-
-const classificationKeys = Object.keys(classificationData)
-
 
 interface Props {
   selected: string;
