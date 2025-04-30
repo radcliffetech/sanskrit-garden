@@ -1,8 +1,10 @@
 export const navigationConfig = [
   {
-    label: "Alphabet (वर्णमाला)",
+    label: "Sanskrit (संस्कृतम्)",
     dropdown: [
-      { label: "Sanskrit Alphabet (संस्कृतवर्णमाला)", href: "/alphabet" },
+
+      { label: "Alphabet (संस्कृतवर्णमाला)", href: "/alphabet" },
+      { label: "Śabda (शब्द)", href: "/shabda" },
       { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
     ],
   },

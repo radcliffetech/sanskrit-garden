@@ -1,3 +1,7 @@
+import type { Shabda } from "~/types";
+import { Tooltip } from "react-tooltip";
+import { useState } from "react";
+
 const caseMetadata = {
   nominative: { label: "Nominative", description: "Subject of the sentence" },
   accusative: { label: "Accusative", description: "Direct object of the verb" },
@@ -15,10 +19,10 @@ const numberDescriptions = {
   Plural: "Refers to more than two objects",
 };
 
-import type { Shabda } from "~/types";
-import { Tooltip } from "react-tooltip";
-
 export function DeclensionGrid({ shabda }: { shabda: Shabda }) {
+  const [hoveredRow, setHoveredRow] = useState<string | null>(null);
+  const [hoveredCol, setHoveredCol] = useState<number | null>(null);
+
   const cases = [
     ["Nominative", "nominative"],
     ["Accusative", "accusative"],
@@ -40,12 +44,14 @@ export function DeclensionGrid({ shabda }: { shabda: Shabda }) {
         <thead>
           <tr>
             <th className="border px-4 py-2 font-semibold text-left">Case</th>
-            {numbers.map((num) => (
+            {numbers.map((num, i) => (
               <th
                 key={num}
-                className="border px-4 py-2"
+                className={`border px-4 py-2 transition duration-150 ${hoveredCol === i ? "highlight-1" : ""}`}
                 data-tooltip-id="declension-tooltip"
-                data-tooltip-content={numberDescriptions[num] }
+                data-tooltip-content={numberDescriptions[num]}
+                onMouseEnter={() => setHoveredCol(i)}
+                onMouseLeave={() => setHoveredCol(null)}
               >
                 {num}
               </th>
@@ -56,16 +62,34 @@ export function DeclensionGrid({ shabda }: { shabda: Shabda }) {
           {cases.map(([label, key]) => (
             <tr key={key}>
               <td
-                className="border px-4 py-2 text-left font-medium"
+                className={`border px-4 py-2 text-left font-medium transition duration-150 ${
+                  hoveredRow === key ? "highlight-1" : ""
+                }`}
                 data-tooltip-id="declension-tooltip"
                 data-tooltip-content={caseMetadata[key].description}
+                onMouseEnter={() => setHoveredRow(key)}
+                onMouseLeave={() => setHoveredRow(null)}
               >
                 {caseMetadata[key].label}
               </td>
               {declension[key].map((form, i) => (
                 <td
                   key={i}
-                  className="border px-4 py-2"
+                  className={`border px-4 py-2 transition duration-150 ${
+                    hoveredRow === key && hoveredCol === i
+                      ? "highlight-2 ring-2 ring-indigo-300"
+                      : hoveredRow === key || hoveredCol === i
+                      ? "highlight-1"
+                      : ""
+                  }`}
+                  onMouseEnter={() => {
+                    setHoveredRow(key);
+                    setHoveredCol(i);
+                  }}
+                  onMouseLeave={() => {
+                    setHoveredRow(null);
+                    setHoveredCol(null);
+                  }}
                 >
                   {form || "—"}
                 </td>
