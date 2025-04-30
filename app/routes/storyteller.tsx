@@ -1,6 +1,6 @@
 import { PageFrame } from '~/components/Layout/PageFrame';
 import { PageHeader } from '~/components/Layout/PageHeader';
-import StorytellerContainer from "~/components/Story/StorytellerContainer";
+import StorytellerContainer from "~/components/Story/StoryContainer";
 
 export default function StorytellerPage() {
   return (
