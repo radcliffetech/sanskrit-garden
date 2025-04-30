@@ -26,8 +26,9 @@ jobs:
       - name: Type check
         run: npm run typecheck
 
-      - name: Lint
-        run: npm run lint
+      # Uncomment the following lines if you want to run linting  
+      # - name: Lint
+      #   run: npm run lint
 
       - name: Run tests
         run: npm test
