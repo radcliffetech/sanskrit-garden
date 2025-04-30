@@ -40,6 +40,12 @@ npm start
 - ✅ Fully containerized components and routes for maintainable architecture
 - 🔁 Continuous integration with GitHub Actions
 
+## Screenshots
+
+<img src="/images/screenshot-1.png" alt="Sanskrit Garden screenshot 1" width="100%" />
+<img src="/images/screenshot-2.png" alt="Sanskrit Garden screenshot 2" width="100%" />
+<img src="/images/screenshot-3.png" alt="Sanskrit Garden screenshot 3" width="100%" />
+
 ## Styling
 
 This app uses [Tailwind CSS](https://tailwindcss.com/) for styling. You can customize the styling to suit your needs. 
