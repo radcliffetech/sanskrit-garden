@@ -1,13 +1,7 @@
+import type { Verse } from "~/types";
 import { marked } from "marked";
-
 interface VerseProps {
-    verse: {
-      id: string;
-      sanskrit: string;
-      transliteration: string;
-      translation: string;
-      commentary: string;
-    };
+    verse: Verse;
     index: number;
     displayCommentary?: boolean;
   }

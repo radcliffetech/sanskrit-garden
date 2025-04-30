@@ -1,7 +1,7 @@
-import { VerseList } from '../components/VerseList'; // Adjust the path if necessary
+import { VerseCard } from '../VerseCard'; // Adjust the path if necessary
 import { render } from '@testing-library/react';
 
-let testVerse = {
+let testVerse =       {
   id: "verse-1",
   verse: 1,
   sanskrit: "मनोबुद्ध्यहङ्कारचित्तानि नाहं न च श्रोत्रजिह्वे न च घ्राणनेत्रे ।\nन च व्योम भूमिर्न तेजो न वायुश्चिदानन्दरूपः शिवोऽहं शिवोऽहम् ॥१॥",
@@ -10,9 +10,9 @@ let testVerse = {
   commentary: "This verse opens with a sweeping negation of the body-mind complex and sensory apparatus. By asserting 'I am not this', the seeker is led to discern the witness behind all experience. This is neti-neti in action—guiding awareness beyond form to the essence, which is **cidānandarūpaḥ śivaḥ**."
 }
 
-describe('VerseList', () => {
-  it('renders the list content correctly', () => {
-    render(<VerseList verses={[testVerse]} />)
+describe('VerseCard', () => {
+  it('renders the verse content correctly', () => {
+    render(<VerseCard verse={testVerse} index={1} />)
   });
 });
 
