@@ -1,37 +1,32 @@
+import { ArrowDownTrayIcon } from "@heroicons/react/24/solid";
 export function StoryEnd({ onRestart, onDownload }: { onRestart: () => void; onDownload: () => void }) {
     return (
-      <div className="prose max-w-none mb-8 prose-p:mb-6 text-center">
-        <h2 className="text-2xl font-light mb-4">The End</h2>
-        <div className="flex justify-center mt-4">
+      <div className="prose max-w-none mb-12 prose-p:mb-6 text-center mx-auto">
+        <h2 className="text-2xl font-light mb-6">The End</h2>
+        <div className="flex justify-center mt-6">
           <img
             src="/images/om.png"
             alt="Om Symbol"
-            className="h-24 w-24 opacity-70"
+            className="h-28 w-28 opacity-70"
           />
         </div>
-        <div className="mt-8 text-sm text-gray-500">
+        <div className="mt-10 text-sm text-gray-500">
           <p>This story was created using AI, an exploration and celebrating of Sanskrit literature, mythology, and storytelling and it intersection with modern technology.</p>
         </div>
-        <div className="flex justify-center gap-4 mt-8">
+        <div className="flex justify-center gap-6 mt-10">
+
           <button
             type="button"
             onClick={onDownload}
-            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            className="text-sm text-gray-500 hover:text-gray-700 transition flex items-center gap-1"
           >
+            <ArrowDownTrayIcon className="h-4 w-4" />
             Download Story
           </button>
           <button
             type="button"
-            onClick={() => {
-              if (
-                window.confirm(
-                  "Are you sure you want to start a new story? Your current story will be lost."
-                )
-              ) {
-                onRestart();
-              }
-            }}
-            className="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500"
+            onClick={onRestart}
+            className="btn-primary"
           >
             Start New Story
           </button>
@@ -39,4 +34,3 @@ export function StoryEnd({ onRestart, onDownload }: { onRestart: () => void; onD
       </div>
     );
   }
-  

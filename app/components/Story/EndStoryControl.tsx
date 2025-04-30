@@ -1,7 +1,6 @@
-
 export function EndStoryControl({ handleEndStory }: { handleEndStory: () => void }) {
     return (
-      <div className="mt-6 text-center">
+      <div className="pt-10 text-center">
         <button
           type="button"
           onClick={() => {
@@ -13,12 +12,11 @@ export function EndStoryControl({ handleEndStory }: { handleEndStory: () => void
               handleEndStory();
             }
           }}
-          className="text-sm text-gray-600 hover:underline"
+          className="text-base text-gray-700 hover:text-gray-900 font-medium"
         >
           End Story
         </button>
       </div>
     );
   }
-  
   
