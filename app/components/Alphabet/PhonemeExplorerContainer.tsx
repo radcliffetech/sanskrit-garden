@@ -26,9 +26,13 @@ export default function PhonemeExplorer({ data }: Props) {
   const getRenderedMode = () => {
     switch (selectedMode) {
       case "phonetic_classification":
-        return <DisplayGroupPhonetic alphabetData={data} />;
       case "tattva_evolution_classification":
-        return <DisplayGroupTattvaEvolution alphabetData={data} />;
+        return (
+          <DisplayGroupGeneric
+            classification={classificationData[selectedMode]}
+            alphabetData={data}
+          />
+        );
       default:
         return <DisplayGroupDefault alphabetData={data} />;
     }
@@ -54,12 +58,13 @@ export default function PhonemeExplorer({ data }: Props) {
 }
 
 // === Display Groups ===
-function DisplayGroupPhonetic({
+function DisplayGroupGeneric({
+  classification,
   alphabetData,
 }: {
+  classification: Record<string, string[] | Record<string, string[]>>;
   alphabetData: AlphabetItem[];
 }) {
-  const mode: ClassificationKey = "phonetic_classification";
   const [selectedPrimary, setSelectedPrimary] = useState<string | null>(null);
   const [selectedSecondary, setSelectedSecondary] = useState<string | null>(
     null
@@ -71,96 +76,52 @@ function DisplayGroupPhonetic({
     new Set()
   );
 
-  const groupData = selectedPrimary
-    ? (classificationData.phonetic_classification[
-        selectedPrimary as keyof typeof classificationData.phonetic_classification
-      ] as Record<string, string[]>)
+  const selectedValue = selectedPrimary
+    ? classification[selectedPrimary]
+    : null;
+  const isNested =
+    typeof selectedValue === "object" && !Array.isArray(selectedValue);
+  const groupData: Record<string, string[]> = isNested
+    ? (selectedValue as Record<string, string[]>)
     : {};
 
-  function handleSetPrimaryGroup(group: string) {
-    if (group === selectedPrimary) {
+  function handleSetPrimaryGroup(key: string, chars: string[]) {
+    if (selectedPrimary === key) {
       setSelectedPrimary(null);
       setSelectedSecondary(null);
       setHighlightLevel1(new Set());
       setHighlightLevel2(new Set());
-      return;
+    } else {
+      setSelectedPrimary(key);
+      setSelectedSecondary(null);
+      setHighlightLevel1(new Set(chars));
+      setHighlightLevel2(new Set());
     }
-
-    setSelectedPrimary(group);
-    setSelectedSecondary(null);
-    const allChars = Object.values(
-      classificationData.phonetic_classification[
-        group as keyof typeof classificationData.phonetic_classification
-      ] ?? {}
-    ).flat();
-    setHighlightLevel1(new Set(allChars));
-    setHighlightLevel2(new Set());
   }
 
-  function handleSetSubGroup(sub: string) {
-    if (sub === selectedSecondary) {
+  function handleSetSubGroup(key: string, chars: string[]) {
+    if (selectedSecondary === key) {
       setSelectedSecondary(null);
       setHighlightLevel2(new Set());
-      return;
-    }
-
-    setSelectedSecondary(sub);
-    setHighlightLevel2(new Set((groupData[sub] ?? []) as string[]));
-  }
-
-  return (
-    <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-        <NestedPillControls
-          classification={classificationData.phonetic_classification}
-          selectedPrimary={selectedPrimary}
-          selectedSecondary={selectedSecondary}
-          onSelectPrimary={handleSetPrimaryGroup}
-          onSelectSecondary={handleSetSubGroup}
-          groupData={groupData}
-        />
-        <AlphabetLayout
-          data={alphabetData}
-          highlightLevel1={highlightLevel1}
-          highlightLevel2={highlightLevel2}
-        />
-      </div>
-    </>
-  );
-}
-
-// === Group View: Tattva Evolution ===
-function DisplayGroupTattvaEvolution({
-  alphabetData,
-}: {
-  alphabetData: AlphabetItem[];
-}) {
-  const mode: ClassificationKey = "tattva_evolution_classification";
-  const classification = classificationData[mode] as Record<string, string[]>;
-  const [selected, setSelected] = useState<string | null>(null);
-  const [highlightLevel1, setHighlightLevel1] = useState<Set<string>>(new Set());
-
-  function handleSelect(group: string) {
-    if (group === selected) {
-      setSelected(null);
-      setHighlightLevel1(new Set());
     } else {
-      setSelected(group);
-      setHighlightLevel1(new Set(classification[group]));
+      setSelectedSecondary(key);
+      setHighlightLevel2(new Set(chars));
     }
   }
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
-      <FlatPillControls
+      <TreePillControls
         classification={classification}
-        selected={selected}
-        onSelect={handleSelect}
+        selectedPrimary={selectedPrimary}
+        selectedSecondary={selectedSecondary}
+        onSelectPrimary={handleSetPrimaryGroup}
+        onSelectSecondary={handleSetSubGroup}
       />
       <AlphabetLayout
         data={alphabetData}
         highlightLevel1={highlightLevel1}
-        highlightLevel2={new Set<string>()}
+        highlightLevel2={highlightLevel2}
       />
     </div>
   );
@@ -203,11 +164,13 @@ function TreePillControls({
     typeof val === "object" && !Array.isArray(val);
 
   return (
-    <div className="space-y-6">
-      <div className="min-h-[3rem] flex items-center gap-4">
+    <div className="space-y-4">
+      <div className="flex items-center gap-4">
         <div className="flex gap-2 flex-wrap">
           {Object.entries(classification).map(([key, value]) => {
-            const label = key.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+            const label = key
+              .replace(/_/g, " ")
+              .replace(/\b\w/g, (c) => c.toUpperCase());
             const selected = selectedPrimary === key;
             return (
               <button
@@ -229,136 +192,27 @@ function TreePillControls({
         </div>
       </div>
 
-      {selectedPrimary &&
-        isNested(classification[selectedPrimary]) && (
-          <div className="min-h-[3rem] flex items-center gap-4">
-            <div className="flex gap-2 flex-wrap">
-              {Object.entries(
-                classification[selectedPrimary] as Record<string, string[]>
-              ).map(([subKey, chars]) => (
-                <button
-                  key={subKey}
-                  onClick={() => onSelectSecondary(subKey, chars)}
-                  className={`pill-lg border text-sm font-semibold transition ${
-                    selectedSecondary === subKey ? "highlight-2" : "pill-inactive"
-                  }`}
-                >
-                  {subKey.replace(/_/g, " ").replace(/\b\w/g, (c) => c.toUpperCase())}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-    </div>
-  );
-}
-
-function FlatPillControls({
-  classification,
-  selected,
-  onSelect,
-}: {
-  classification: Record<string, string[] | Record<string, string[]>>;
-  selected: string | null;
-  onSelect: (group: string) => void;
-}) {
-  return (
-    <div className="transition-opacity duration-300 opacity-100">
-      <div className="min-h-[3rem] flex items-center gap-4">
-        <div className="flex gap-2 flex-wrap">
-          {Object.entries(classification).map(([group]) => {
-            return (
+      {selectedPrimary && isNested(classification[selectedPrimary]) && (
+        <div className="flex items-center gap-4">
+          <div className="flex gap-2 flex-wrap">
+            {Object.entries(
+              classification[selectedPrimary] as Record<string, string[]>
+            ).map(([subKey, chars]) => (
               <button
-                key={group}
-                onClick={() => onSelect(group === selected ? "" : group)}
+                key={subKey}
+                onClick={() => onSelectSecondary(subKey, chars)}
                 className={`pill-lg border text-sm font-semibold transition ${
-                  selected === group ? "highlight-1" : "pill-inactive"
+                  selectedSecondary === subKey ? "highlight-2" : "pill-inactive"
                 }`}
               >
-                {group
-                  .replace(/_/g, " ")
-                  .replace(/\b\w/g, (c) => c.toUpperCase())}
-              </button>
-            );
-          })}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function NestedPillControls({
-  selectedPrimary,
-  selectedSecondary,
-  onSelectPrimary,
-  onSelectSecondary,
-  classification,
-  groupData,
-}: {
-  selectedPrimary: string | null;
-  selectedSecondary: string | null;
-  onSelectPrimary: (group: string) => void;
-  onSelectSecondary: (sub: string) => void;
-  classification?: Record<string, any>;
-  groupData?: Record<string, string[]>;
-}) {
-  if (!classification) return null;
-
-  const groups = classification
-    ? Object.keys(classification)
-    : Object.keys(classificationData.phonetic_classification);
-  return (
-    <div
-      className={`transition-opacity duration-300 ${
-        selectedPrimary === null ? "opacity-50" : "opacity-100"
-      } mb-10`}
-    >
-      <div className="min-h-[3rem] flex items-center gap-4 mb-0">
-        <div className="flex gap-2">
-          {groups.map((group) => (
-            <button
-              key={group}
-              onClick={() => onSelectPrimary(group)}
-              className={`pill-lg border text-sm font-semibold transition ${
-                selectedPrimary === group
-                  ? "highlight-1"
-                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-              }`}
-            >
-              {group.charAt(0).toUpperCase() + group.slice(1)}
-            </button>
-          ))}
-        </div>
-      </div>
-      <div
-        className={`min-h-[3rem] max-h-[5rem] flex items-center gap-4 mb-4 transition-opacity duration-300 ${
-          selectedPrimary ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="flex gap-2 flex-wrap">
-          {selectedPrimary &&
-            Object.keys(
-              groupData ??
-                (classificationData.phonetic_classification[
-                  selectedPrimary as keyof typeof classificationData.phonetic_classification
-                ] as Record<string, string[]>)
-            ).map((sub) => (
-              <button
-                key={sub}
-                onClick={() => onSelectSecondary(sub)}
-                className={`pill-lg border text-sm font-semibold transition ${
-                  selectedSecondary === sub
-                    ? "highlight-2"
-                    : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
-                }`}
-              >
-                {sub
+                {subKey
                   .replace(/_/g, " ")
                   .replace(/\b\w/g, (c) => c.toUpperCase())}
               </button>
             ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
