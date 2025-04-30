@@ -12,7 +12,7 @@ export default function ArticlesContainer({ data }: Props) {
       <div className="mb-6">
         <Link
           to="/explain-concept"
-          className="inline-block bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg text-lg transition"
+          className="btn-primary"
         >
           Try the AI Explainer
         </Link>

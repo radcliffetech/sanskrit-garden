@@ -10,7 +10,7 @@ export const VerseCard = ({ verse, index, displayCommentary = false }: VerseProp
 
   return (
 
-    <div className="p-6 border rounded bg-gray-50 space-y-6 shadow-sm">
+    <div className="p-6 border rounded bg-gray-50 space-y-6 shadow-md hover:shadow-lg transition-shadow">
       <p className="text-lg font-semibold text-gray-600">Verse {index + 1}</p>
       <p
         className="font-sanskrit text-xl whitespace-pre-line"
