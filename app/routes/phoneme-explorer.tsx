@@ -3,7 +3,7 @@ import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/components/Layout/PageFrame";
 import { PageHeader } from "~/components/Layout/PageHeader";
-import { PhonemeExplorer } from "~/components/Alphabet/PhonemeExplorer"
+import  PhonemeExplorer from "~/components/Alphabet/PhonemeExplorer"
 import { getAlphabet } from "~/loader/alphabet";
 import { useLoaderData } from "@remix-run/react";
 

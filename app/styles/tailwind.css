@@ -33,6 +33,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 @layer components {
+  .pill-lg {
+    @apply text-xs px-3 py-1 rounded-full bg-gray-200 bg-gray-900 hover:bg-gray-200 transition;
+  }
+}
+
+
+@layer components {
   .nav-link {
     @apply text-sm font-light text-white hover:text-gray-300 transition;
   }
