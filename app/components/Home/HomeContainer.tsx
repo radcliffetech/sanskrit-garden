@@ -1,11 +1,10 @@
-import { FeatureCard } from "~/components/Shared/FeatureCard";
-import { PageFrame } from "~/components/Layout/PageFrame";
+import { FeatureCard } from "~/components/Home/FeatureCard";
+import { HomeShloka } from "./HomeShloka";
 import { StarIcon } from "@heroicons/react/24/solid";
-
 export function HomeContainer() {
   return (
     <>
-      <Shloka />
+      <HomeShloka />
       <div className="flex justify-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-4xl">
           <FeatureCard to="/storyteller" label="AI Storyteller" icon={<StarIcon className="h-6 w-6 text-indigo-500" />} description="Generate stories based on your input." />
@@ -20,12 +19,3 @@ export function HomeContainer() {
   );
 }
 
-function Shloka() {
-  return <div className="text-center mb-16">
-    <img src="/images/om.png" alt="Sanskrit Garden" className="mx-auto mb-4 h-14" />
-    <p className="text-xl text-gray-700 mb-2">सह नाववतु। सह नौ भुनक्तु। सह वीर्यं करवावहै।</p>
-    <p className="text-xl text-gray-700 mb-2">तेजस्विनावधीतमस्तु मा विद्विषावहै। ॐ शान्तिः शान्तिः शान्तिः॥</p>
-    <p className="text-xs text-gray-500 italic">May we be protected together, may we be nourished together, may we work together with great energy</p>
-    <p className="text-xs text-gray-500 italic">May our studies be enlightening. Let us not hate each other. Om, peace, peace, peace.</p>
-  </div>;
-}

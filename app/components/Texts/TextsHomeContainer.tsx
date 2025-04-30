@@ -1,4 +1,4 @@
-import { FeatureCard } from "~/components/Shared/FeatureCard";
+import { FeatureCard } from "~/components/Home/FeatureCard";
 
 export default function TextsHomeContainer() {
   return (

@@ -10,8 +10,8 @@ export const VerseCard = ({ verse, index, displayCommentary = false }: VerseProp
 
   return (
 
-    <div key={verse.id} className="p-6 border rounded bg-gray-50 space-y-6 shadow-sm">
-      <p className="text-lg font-light">Verse {index + 1}</p>
+    <div className="p-6 border rounded bg-gray-50 space-y-6 shadow-sm">
+      <p className="text-lg font-semibold text-gray-600">Verse {index + 1}</p>
       <p
         className="font-sanskrit text-xl whitespace-pre-line"
         dangerouslySetInnerHTML={{ __html: verse.sanskrit.replace(/\n/g, "<br />") }}
@@ -19,13 +19,13 @@ export const VerseCard = ({ verse, index, displayCommentary = false }: VerseProp
       <p className="italic text-sm text-gray-500"
         dangerouslySetInnerHTML={{ __html: verse.transliteration.replace(/\n/g, "<br />") }}
       />
-      <p
-        className="text-base"
+      <div
+        className="prose prose-sm max-w-none"
         dangerouslySetInnerHTML={{ __html: marked.parse(verse.translation) }}
       />
       {displayCommentary && (
-              <p
-        className="text-sm text-gray-600"
+              <div
+        className="prose prose-sm max-w-none text-gray-600"
         dangerouslySetInnerHTML={{ __html: marked.parse(verse.commentary) }}
       />
       )}  
