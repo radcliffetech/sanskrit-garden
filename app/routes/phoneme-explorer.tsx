@@ -24,8 +24,8 @@ export default function Alphabet() {
 
   return (
     <PageFrame>
-      <PageHeader>Alphabet Explorer</PageHeader>
-      <AlphabetFeature  />
+      <PageHeader>Phoneme Explorer</PageHeader>
+      <AlphabetFeature data={data} />
     </PageFrame>
   );
 }
