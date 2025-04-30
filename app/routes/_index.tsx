@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <PageFrame>
-        <HomeContainer />
-      </PageFrame>
-    );
-} 
+      <HomeContainer />
+    </PageFrame>
+  );
+}

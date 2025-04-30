@@ -23,7 +23,7 @@ export default function Alphabet() {
 
   return (
     <PageFrame>
-      <PageHeader>Alphabet</PageHeader>
+      <PageHeader>Sanskrit Alphabet</PageHeader>
       <AlphabetContainer data={data} />
     </PageFrame>
   );

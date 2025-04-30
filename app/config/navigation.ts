@@ -1,17 +1,17 @@
 export const navigationConfig = [
-  { label: "Alphabet", href: "/alphabet" },
-  // {
-    //   label: "अध्ययनम्",
-    //   dropdown: [
-      //     { label: "अध्ययन-पृष्ठः", href: "/learning/" },
-      //   ],
-      // },
-      {
-        label: "Learning Tools",
-        dropdown: [
-          { label: "AI Explainer", href: "/explain-concept" },
-          { label: "AI Storyteller", href: "/storyteller" },
-          { label: "Quiz", href: "/quiz" },
+  {
+    label: "Alphabet",
+    dropdown: [
+      { label: "Sanskrit Alphabet", href: "/alphabet" },
+      { label: "Mandala of Letters", href: "/phoneme-explorer" },
+    ],
+  },
+  {
+    label: "Learning Tools",
+    dropdown: [
+      { label: "AI Explainer", href: "/explain-concept" },
+      { label: "AI Storyteller", href: "/storyteller" },
+      { label: "Quiz", href: "/quiz" },
     ],
   },
   {
@@ -21,7 +21,10 @@ export const navigationConfig = [
       { separator: true },
       { label: "Ganesha Panchratnam", href: "/texts/ganesha-panchratnam" },
       { label: "Nirvana Shaktam", href: "/texts/nirvana-shaktam" },
-      { label: "Ribhu Gita – Chapter 26", href: "/texts/ribhu-gita/chapter-26" },
+      {
+        label: "Ribhu Gita – Chapter 26",
+        href: "/texts/ribhu-gita/chapter-26",
+      },
     ],
   },
   { label: "Articles", href: "/articles" },
