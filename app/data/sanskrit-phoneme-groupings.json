@@ -16,25 +16,6 @@
       "sibilants_and_aspirate": ["श", "ष", "स", "ह"]
     }
   },
-  "mahesvara_sutras": [
-    { "sutra": "अइउण्", "phonemes": ["अ", "इ", "उ"] },
-    { "sutra": "ऋऌक्", "phonemes": ["ऋ", "ऌ"] },
-    { "sutra": "एओङ्", "phonemes": ["ए", "ओ"] },
-    { "sutra": "ऐऔच्", "phonemes": ["ऐ", "औ"] },
-    { "sutra": "हयवरत्", "phonemes": ["ह", "य", "व", "र"] },
-    { "sutra": "लण्", "phonemes": ["ल"] },
-    { "sutra": "ञमङणनम्", "phonemes": ["ञ", "म", "ङ", "ण", "न"] },
-    { "sutra": "झभञ्", "phonemes": ["झ", "भ"] },
-    { "sutra": "घढधष्", "phonemes": ["घ", "ढ", "ध"] },
-    { "sutra": "जबगडदश्", "phonemes": ["ज", "ब", "ग", "ड", "द"] },
-    {
-      "sutra": "खफछठथचटतव्",
-      "phonemes": ["ख", "फ", "छ", "ठ", "थ", "च", "ट", "त", "व"]
-    },
-    { "sutra": "कपय्", "phonemes": ["क", "प", "य"] },
-    { "sutra": "शषसर्", "phonemes": ["श", "ष", "स"] },
-    { "sutra": "हल्", "phonemes": ["ह", "ल"] }
-  ],
   "functional_classification": {
     "vowels": [
       "अ",
@@ -86,6 +67,26 @@
       "aspirate": ["ह"]
     }
   },
+  "mahesvara_sutras": [
+    { "sutra": "अइउण्", "phonemes": ["अ", "इ", "उ"] },
+    { "sutra": "ऋऌक्", "phonemes": ["ऋ", "ऌ"] },
+    { "sutra": "एओङ्", "phonemes": ["ए", "ओ"] },
+    { "sutra": "ऐऔच्", "phonemes": ["ऐ", "औ"] },
+    { "sutra": "हयवरत्", "phonemes": ["ह", "य", "व", "र"] },
+    { "sutra": "लण्", "phonemes": ["ल"] },
+    { "sutra": "ञमङणनम्", "phonemes": ["ञ", "म", "ङ", "ण", "न"] },
+    { "sutra": "झभञ्", "phonemes": ["झ", "भ"] },
+    { "sutra": "घढधष्", "phonemes": ["घ", "ढ", "ध"] },
+    { "sutra": "जबगडदश्", "phonemes": ["ज", "ब", "ग", "ड", "द"] },
+    {
+      "sutra": "खफछठथचटतव्",
+      "phonemes": ["ख", "फ", "छ", "ठ", "थ", "च", "ट", "त", "व"]
+    },
+    { "sutra": "कपय्", "phonemes": ["क", "प", "य"] },
+    { "sutra": "शषसर्", "phonemes": ["श", "ष", "स"] },
+    { "sutra": "हल्", "phonemes": ["ह", "ल"] }
+  ],
+
   "phonological_features": {
     "क": {
       "voiced": false,
