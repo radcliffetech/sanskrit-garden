@@ -76,7 +76,7 @@ const groupings = {
       "short": ["अ", "इ", "उ", "ऋ", "ऌ"],
       "long": ["आ", "ई", "ऊ", "ॠ", "ॡ"],
       "diphthongs": ["ए", "ऐ", "ओ", "औ"],
-      "specials": ["अं", "अः"]
+      "specials": ["ं", "ः"]
     },
     "consonants": {
       "gutturals": ["क", "ख", "ग", "घ", "ङ"],
@@ -124,7 +124,7 @@ const groupings = {
       "ओ",
       "औ"
     ],
-    "specials": ["अं", "अः"],
+    "specials": ["ं", "ः"],
     "consonants": {
       "stops": [
         "क",
@@ -380,8 +380,8 @@ const groupings = {
       "ऐ",
       "ओ",
       "औ",
-      "अं",
-      "अः"
+      "ं",
+      "ः"
     ],
     "consonants_as_tattvas": [
       "क",
@@ -464,8 +464,8 @@ const groupings = {
       "ॡ",
       "ऐ",
       "औ",
-      "अं",
-      "अः",
+      "ं",
+      "ः",
       "क्ष",
       "ज्ञ"
     ]

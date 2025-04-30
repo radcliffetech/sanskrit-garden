@@ -1,5 +1,5 @@
-import { AlphabetGridCompact } from "./AlphabetGridCompact";
 import { AlphabetItem } from "~/types";
+import { AlphabetLayout } from "./AlphabetLayout";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
 import GroupingSelectForm from "./GroupingSelectForm";
 import classificationData from "~/data/sanskrit-phoneme-groupings.json";
@@ -130,7 +130,7 @@ function DisplayGroup({
         </div>
       </div>
 
-      <AlphabetGridCompact
+      <AlphabetLayout
         data={alphabetData}
         highlightLevel1={highlightLevel1}
         highlightLevel2={highlightLevel2}
