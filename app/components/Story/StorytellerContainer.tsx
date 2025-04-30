@@ -2,16 +2,16 @@ import {
   DisplayStoryHead,
   DisplayStorySegment,
   ListenerStorySegment,
-} from "~/components/Storyteller/Story";
+} from "~/components/Story/Story";
 import { getDefaultTopics, useStoryteller } from "~/hooks/storyteller";
 
-import { EndStoryControl } from "~/components/Storyteller/EndStoryControl";
+import { EndStoryControl } from "~/components/Story/EndStoryControl";
 import { FadeIn } from "~/components/Shared/FadeIn";
 import { SectionLoading } from "~/components/Shared/SectionLoading";
-import { StoryEnd } from "~/components/Storyteller/StoryEnd";
-import { StoryLanding } from "~/components/Storyteller/StoryLanding";
-import { StoryQuestionBox } from "~/components/Storyteller/StoryQuestionBox";
-import { StoryTopicSelectForm } from "~/components/Storyteller/StoryTopicSelectForm";
+import { StoryEnd } from "~/components/Story/StoryEnd";
+import { StoryLanding } from "~/components/Story/StoryLanding";
+import { StoryQuestionBox } from "~/components/Story/StoryQuestionBox";
+import { StoryTopicSelectForm } from "~/components/Story/StoryTopicSelectForm";
 
 export default function StorytellerContainer() {
 const {
