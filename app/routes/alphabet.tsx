@@ -15,7 +15,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = ({ request }) => {
-  return getAlphabet();
+  return getAlphabet().filter((item) => item.char !== "ॐ");
 };
 
 export default function Alphabet() {

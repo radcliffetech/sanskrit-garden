@@ -10,5 +10,49 @@
     "id": "tattva_evolution_classification",
     "name": "36 Tattvas of Kashmir Shaivism",
     "description": "Organizes letters based on their evolution from basic to complex forms, reflecting their phonetic and metaphysical significance."
+  },
+  {
+    "id:": "trisharira_classification",
+    "name": "Trisharira Classification",
+    "description": "Classifies letters based on their association with the three bodies"
+  },
+  {
+    "id": "guna_classification",
+    "name": "Guna Classification",
+    "description": "Groups letters based on their qualities or gunas, such as Sattva, Rajas, and Tamas."
+  },
+  {
+    "id": "shakti_traya_classification",
+    "name": "Shakti Traya Classification",
+    "description": "Classifies letters based on the three divine energies: Iccha Shakti, Jnana Shakti, and Kriya Shakti."
+  },
+  {
+    "id": "chakra_classification",
+    "name": "Chakra Classification",
+    "description": "Organizes letters according to their association with the seven chakras, reflecting their energetic properties."
+  },
+  {
+    "id": "nada_bindu_varna_classification",
+    "name": "Nada, Bindu, and Varna Classification",
+    "description": "Classifies letters based on their association with Nada (sound), Bindu (point), and Varna (letter), reflecting their spiritual significance."
+  },
+  {
+    "id":"shiva_shakti_bindu_classification",
+    "name": "Shiva, Shakti, and Bindu Classification",
+    "description": "Classifies letters based on their association with the divine principles of Shiva, Shakti, and Bindu, reflecting their spiritual significance."
+  },
+  {
+    "id": "shabda_brahman_classification",
+    "name": "Shabda Brahman Classification",
+    "description": "Organizes letters based on their association with the concept of Shabda Brahman, the ultimate reality in sound and vibration."
+  },
+  {
+    "id":"mala_japa_classification",
+    "name": "Mala and Japa Classification",
+    "description": "Classifies letters based on their use in mala (prayer beads) and japa (chanting), reflecting their spiritual significance."
   }
+
+
+
+
 ]
