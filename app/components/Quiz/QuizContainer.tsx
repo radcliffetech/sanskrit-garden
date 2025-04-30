@@ -4,11 +4,11 @@ import { PageFrame } from "~/components/Layout/PageFrame";
 import { QuizForm } from "./QuizForm";
 import { QuizResult } from "./QuizResult";
 import { QuizStart } from "./QuizStart";
+import { useLoaderData } from "@remix-run/react";
 import { useState } from "react";
 
-export default function QuizContainer(
-    { questions }: { questions: QuizQuestion[] }
-) {
+export function QuizContainer() {
+  const questions = useLoaderData<QuizQuestion[]>();
   const [quizQuestions, setQuizQuestions] = useState<QuizQuestion[]>([]); //questions based on difficulty
   const [quizStarted, setQuizStarted] = useState(false);
   const [answers, setAnswers] = useState<Record<string, string>>({});
