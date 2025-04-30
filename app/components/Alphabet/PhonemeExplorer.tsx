@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-
 import { AlphabetItem } from "~/types";
+import { DisplayGroup } from "./DisplayGroup";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
-import GroupDisplay from "./DisplayGroup";
 import GroupingSelectForm from "./GroupingSelectForm";
 import classificationData from "~/data/sanskrit-phoneme-groupings.json";
 import groupingMetadata from "~/data/sanskrit-grouping-data.json";
+import { useState } from "react";
 
 interface Props {
   data: AlphabetItem[];
@@ -23,11 +22,11 @@ export default function PhonemeExplorer({ data }: Props) {
 
   return (
     <div>
-      <GroupingSelectForm
+      {/* <GroupingSelectForm
         options={groupingMetadata}
         selected={selectedMode}
         onChange={(val) => setSelectedMode(val as ClassificationKey)}
-      />
+      /> */}
 
       {(() => {
         const meta = groupingMetadata.find((m) => m.id === selectedMode);
@@ -41,7 +40,7 @@ export default function PhonemeExplorer({ data }: Props) {
           </div>
         ) : null;
       })()}
-      <GroupDisplay mode={selectedMode} alphabetData={data} />
+      <DisplayGroup mode={selectedMode} alphabetData={data} />
     </div>
   );
 }
