@@ -9,8 +9,8 @@ import {
 } from "@remix-run/react";
 
 import type { LinksFunction } from "@remix-run/node";
+import { SystemFooter } from './components/Layout/SystemFooter';
 import { SystemNavbar } from '~/components/Layout/SystemNavbar';
-import tailwindStylesheetUrl from "./styles/tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -38,14 +38,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body className="flex flex-col min-h-screen">
         <SystemNavbar />
-        <main className="flex-grow mx-auto  p-4">
           {children}
-        </main>
-
-        <footer className="text-center text-gray-400 text-xs mt-8 mb-4">
-          Sanskrit Garden © {new Date().getFullYear()} - Coded with reverence by <a href="http://jeffreyradcliffe.com" className="text-blue-500 hover:underline" target="_blank" >Jeffrey Radcliffe</a>
-        </footer>
-
+        <SystemFooter />
         <Scripts />
         <ScrollRestoration />
       </body>

@@ -1,6 +1,6 @@
 import type { Difficulty, QuizQuestion } from "~/types";
 
-import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageHeader } from "~/components/Layout/PageHeader";
 import { QuizForm } from "./QuizForm";
 import { QuizResult } from "./QuizResult";
 import { QuizStart } from "./QuizStart";
@@ -46,9 +46,8 @@ export function QuizContainer() {
   };
 
   return (
-    <PageFrame>
-      <h1 className="text-3xl font-light mb-6">Sanskrit Quiz</h1>
-      <div className="bg-white shadow rounded p-6">
+    <>
+      <div className="bg-white border border-gray-200 shadow-md rounded-md p-6 space-y-4 w-full max-w-xl min-w-[50rem] mx-auto">
         {!quizStarted ? (
           <QuizStart onSelect={startQuiz} />
         ) : (
@@ -73,6 +72,6 @@ export function QuizContainer() {
           </>
         )}
       </div>
-    </PageFrame>
+    </>
   );
 }

@@ -1,3 +1,4 @@
+import { ConfirmModal } from "~/components/Shared/ConfirmModal";
 import { LoaderFunction } from "@remix-run/node";
 import { QuestionCard } from "~/components/Quiz/QuestionCard";
 import { QuizNavigation } from "~/components/Quiz/QuizNavigation";
@@ -25,9 +26,11 @@ export function QuizForm({
   onExit: () => void;
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [confirmingExit, setConfirmingExit] = useState(false);
   const currentQuestion = questions[currentIndex];
 
   return (
+    <>
     <form onSubmit={onSubmit}>
       <div className="flex justify-between items-center mb-4">
         <p className="text-lg font-medium">
@@ -35,7 +38,7 @@ export function QuizForm({
         </p>
         <button
           type="button"
-          onClick={onExit}
+          onClick={() => setConfirmingExit(true)}
           className=""
           aria-label="Exit Quiz"
         >
@@ -64,5 +67,16 @@ export function QuizForm({
         }}
       />
     </form>
+    <ConfirmModal
+      isOpen={confirmingExit}
+      title="Exit Quiz?"
+      message="Are you sure you want to exit the quiz? Your answers will not be saved."
+      onCancel={() => setConfirmingExit(false)}
+      onConfirm={() => {
+        setConfirmingExit(false);
+        onExit();
+      }}
+    />
+    </>
   );
 }

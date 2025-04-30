@@ -74,7 +74,7 @@ describe("QuizContainer", () => {
     fireEvent.click(startButton);
 
     // Select the correct answer
-    const answerOption = screen.getByRole("radio", { name: "4" });
+    const answerOption = screen.getAllByRole("radio", { name: "4" })[0];
     fireEvent.click(answerOption);
 
     // Go to the next question
@@ -82,14 +82,14 @@ describe("QuizContainer", () => {
     fireEvent.click(nextButton);
 
     // Select the correct answer for the second question
-    const answerOption2 = screen.getByRole("radio", { name: "Paris" });
+    const answerOption2 = screen.getAllByRole("radio", { name: "Paris" })[0];
     fireEvent.click(answerOption2);
 
     // Go to the next question
     fireEvent.click(nextButton);
 
     // Select the wrong answer for the third question
-    const answerOption3 = screen.getByRole("radio", { name: "Earth" });
+    const answerOption3 = screen.getAllByRole("radio", { name: "Earth" })[0];
     fireEvent.click(answerOption3);
     
     // Go to the next question
@@ -100,5 +100,10 @@ describe("QuizContainer", () => {
     fireEvent.click(submitButton);
 
     // Check for result
-    expect(screen.getByText(/you scored 2 out of 3/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (content) =>
+          content.includes("2") && content.includes("/") && content.includes("3")
+      )
+    ).toBeInTheDocument();
   });

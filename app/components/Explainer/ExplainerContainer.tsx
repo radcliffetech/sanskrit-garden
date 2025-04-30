@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { ArticleDisplay } from "~/components/Explainer/ArticleDisplay";
-import { ConceptForm } from "~/components/Explainer/ConceptForm";
+import { ExplainerForm } from "~/components/Explainer/ExplainerForm";
 import { InstructionsBox } from "~/components/Explainer/InstructionsBox";
 import { SectionLoading } from "~/components/Shared/SectionLoading";
 import { explainConceptRequest } from "~/loader/explain-concept";
@@ -38,7 +38,7 @@ export default function ExplainerContainer() {
   return (
     <>
       <InstructionsBox setConcept={setConcept} exampleSet={exampleSet} />
-      <ConceptForm
+      <ExplainerForm
         concept={concept}
         setConcept={setConcept}
         handleExplain={handleExplain}

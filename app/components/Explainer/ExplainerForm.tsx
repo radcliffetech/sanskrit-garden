@@ -1,4 +1,4 @@
-export function ConceptForm({
+export function ExplainerForm({
     concept,
     setConcept,
     handleExplain,
@@ -21,7 +21,7 @@ export function ConceptForm({
         <button
           onClick={handleExplain}
           disabled={loading}
-          className={`bg-indigo-400 hover:bg-indigo-500 text-white px-6 py-4 rounded-lg text-lg ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
+          className={`btn-primary ${loading ? "opacity-50 cursor-not-allowed" : ""}`}
         >
           {loading ? (
             <svg className="animate-spin h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

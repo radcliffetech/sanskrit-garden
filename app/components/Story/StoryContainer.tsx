@@ -9,12 +9,11 @@ import { EndStoryControl } from "~/components/Story/EndStoryControl";
 import { FadeIn } from "~/components/Shared/FadeIn";
 import { SectionLoading } from "~/components/Shared/SectionLoading";
 import { StoryEnd } from "~/components/Story/StoryEnd";
-import { StoryLanding } from "~/components/Story/StoryLanding";
 import { StoryQuestionBox } from "~/components/Story/StoryQuestionBox";
 import { StoryTopicSelectForm } from "~/components/Story/StoryTopicSelectForm";
 
 export default function StorytellerContainer() {
-const {
+  const {
     segments,
     questions,
     selectedTopic,
@@ -40,7 +39,7 @@ const {
   );
 
   return (
-    <>
+    <div className="w-full max-w-xl min-w-[60rem] mx-auto">
       {error && <p className="text-red-500 mb-6">{error}</p>}
 
       {!isStoryStarted ? (
@@ -48,25 +47,30 @@ const {
           <SectionLoading />
         ) : (
           <>
-            <StoryLanding>
-              <h2 className="text-xl font-light mb-4">Welcome, Traveler</h2>
-              <p className="mb-2">
-                Here, stories unfold like petals of a lotus, timeless and boundless.
-              </p>
-              <p className="mb-2">
-                The tales you encounter are born from tradition and carried on the winds of modern imagination.
-              </p>
-              <p className="mb-2">
-                As all rivers flow toward the sea, so do these stories seek the heart.
-                Yet remember: what you read is but a reflection, not a final truth.
-              </p>
-              <p className="mb-2">
-                Read slowly. Wander freely. Let the journey carry you beyond words. And explore the question...
-              </p>
-              <p className="mb-2">
-                Can an AI tell a good story?
-              </p>
-            </StoryLanding>
+              <div className="bg-gray-50 border-l-4 border-gray-300 p-4 text-sm text-gray-700 italic">
+                <div className="prose prose-sm max-w-none text-gray-700 mb-12">
+                  <p>Welcome, Traveler!</p>
+                  <p>
+                    Here, stories unfold like petals of a lotus, timeless and
+                    boundless.
+                  </p>
+                  <p>
+                    The tales you encounter are born from tradition and carried
+                    on the winds of modern imagination.
+                  </p>
+                  <p>
+                    As all rivers flow toward the sea, so do these stories seek
+                    the heart. Yet remember: what you read is but a reflection,
+                    not a final truth.
+                  </p>
+                  <p>
+                    Read slowly. Wander freely. Let the journey carry you beyond
+                    words. And explore perhaps the most mysterious question of
+                    them all...
+                  </p>
+                  <p>Can an AI tell a good story?</p>
+                </div>
+              </div>
             <StoryTopicSelectForm
               selectedTopic={selectedTopic}
               setSelectedTopic={setSelectedTopic}
@@ -77,7 +81,7 @@ const {
           </>
         )
       ) : (
-        <div className="border rounded-lg shadow-md p-6 mb-8 bg-white">
+        <div className="">
           <DisplayStoryHead segment={segments[0]} />
           {segments.slice(1).map((segment, idx) => (
             <FadeIn key={idx}>
@@ -97,7 +101,9 @@ const {
           )}
           {loading && (
             <FadeIn>
-              <ListenerStorySegment text={questions[selectedContinuation ?? 0]} />
+              <ListenerStorySegment
+                text={questions[selectedContinuation ?? 0]}
+              />
               <div className="prose max-w-none proseO-p:mb-6">
                 <h3 className="text-lg text-gray-500">STORYTELLER</h3>
                 <SectionLoading />
@@ -127,6 +133,6 @@ const {
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -1,3 +1,3 @@
 export * from './FadeIn';
-export * from './FeatureCard';
+export * from '../Home/FeatureCard';
 export * from './SectionLoading';

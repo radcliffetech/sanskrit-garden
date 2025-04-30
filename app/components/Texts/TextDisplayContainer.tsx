@@ -13,8 +13,10 @@ export default function TextDisplayContainer({ title, author, summary, verses }:
   return (
     <PageFrame>
       <PageHeader>{title}</PageHeader>
-      <h2>{author}</h2>
-      <p className="text-gray-700 text-lg py-4">{summary}</p>
+      <h2 className="text-xl text-gray-500 font-light mt-2 mb-4">{author}</h2>
+      <div className="prose prose-sm text-gray-700 mb-8">
+        <p>{summary}</p>
+      </div>
       <VerseList verses={verses} />
     </PageFrame>
   );

@@ -1,18 +1,20 @@
 export default function AboutContainer() {
   return (
     <>
-      <p className="text-lg mb-4">
-        This project is coded and maintained with respect by Jeffrey Radcliffe.
-      </p>
-      <p className="text-lg mb-4">
-        Sanskrit Garden is a love poem offered to the Sanskrit language, and and opportunity to explore and test the relation of technology to topics of depth and intensity. Technology can clearly lead us away from the truth, but it can also be a tool to help us find it. This project is an exploration of that idea.
-      </p>
-      <p className="text-lg mb-4">
-        The intention is to highlight the magical things Jeffrey has found in his exploration of the Sanskrit language, and to share them with the world. Any errors maade are totally his.
-      </p>
+      <div className="prose prose-sm max-w-none text-gray-700 mb-12">
+        <p>
+          This project is coded and maintained with respect by Jeffrey Radcliffe.
+        </p>
+        <p>
+          Sanskrit Garden is a love poem offered to the Sanskrit language, and and opportunity to explore and test the relation of technology to topics of depth and intensity. Technology can clearly lead us away from the truth, but it can also be a tool to help us find it. This project is an exploration of that idea.
+        </p>
+        <p>
+          The intention is to highlight the magical things Jeffrey has found in his exploration of the Sanskrit language, and to share them with the world. Any errors maade are totally his.
+        </p>
+      </div>
       <div className="mt-12">
         <h2 className="text-2xl font-bold mb-6">About Sanskrit</h2>
-        <div className="space-y-6 text-gray-800">
+        <div className="prose prose-sm max-w-none text-gray-800">
           <section>
             <h3 className="text-xl font-light mb-2">History</h3>
             <p>
@@ -43,7 +45,7 @@ export default function AboutContainer() {
       </div>
       <div className="mt-12">
         <h2 className="text-2xl font-bold mb-6">About Jeffrey</h2>
-        <div className="space-y-6 text-gray-800">
+        <div className="prose prose-sm max-w-none text-gray-800">
           <section>
             <h3 className="text-xl font-light mb-2">Background</h3>
             <p>
