@@ -1,11 +1,10 @@
 import { useState } from "react";
-
-const EXAMPLES = [
+const EXAMPLES = Array.from(new Set([
     "Shiva", "Vishnu", "Brahma", "Ganesha", "Devi", "Shakti",
     "Karma", "Dharma", "Moksha", "Maya", "Atman", "Brahman",
     "Samsara", "Nirvana", "Kundalini", "Chakra", "Mantra", "Yantra",
     "Mudra", "Sutra", "Tantra", "Puja", "Yajna", "Homa",
-    "Prana", "Shakti", "Shanti", "Sutra", "Veda", "Upanishad",
+    "Prana", "Shanti", "Veda", "Upanishad",
     "Bhagavad Gita", "Ramayana", "Mahabharata", "Puranas", "Smriti",
     "Shruti", "Sanskrit", "Manusmriti", "Bhakti", "Yoga",
     "Meditation", "Ayurveda", "Astrology", "Vastu", "Vaastu",
@@ -13,8 +12,8 @@ const EXAMPLES = [
     "Pilgrimage", "Ashram", "Guru", "Sadhu", "Sannyasa",
     "Sadhana", "Bhajan", "Kirtan", "Aarti", "Prasad",
     "Sankalpa", "Vrat", "Upavasa", "Tapasya", "Dhyana",
-    "Sutra", "Shloka", "Chanting", "Recitation", "Mantra",
-];
+    "Shloka", "Chanting", "Recitation",
+]));
 
 function getRandomExamples() {
     return EXAMPLES

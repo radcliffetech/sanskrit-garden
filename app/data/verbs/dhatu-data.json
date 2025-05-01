@@ -1,0 +1,783 @@
+[
+  {
+    "root": "गम्",
+    "meaning": "to go",
+    "class": 1,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "गच्छति",
+            "transliteration": "gacchati",
+            "path": ["गम्",  "छ",  "ति"],
+            "pathIAST": ["gam",  "cha",  "ti"],
+            "meaning": "he/she/it goes",
+            "meanings": ["he/she/it goes"]
+          },
+          {
+            "form": "गच्छसि",
+            "transliteration": "gacchasi",
+            "path": ["गम्",  "छ",  "सि"],
+            "pathIAST": ["gam",  "cha",  "si"],
+            "meanings": ["you go"]
+          },
+          {
+            "form": "गच्छामि",
+            "transliteration": "gacchāmi",
+            "path": ["गम्",  "छ",  "आमि"],
+            "pathIAST": ["gam",  "cha",  "āmi"],
+            "meanings": ["I go"]
+          }
+        ]
+      },
+      {
+        "label": "Imperative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "गच्छ",
+            "transliteration": "gaccha",
+            "path": ["गम्",  "छ"],
+            "pathIAST": ["gam",  "cha"],
+            "meanings": ["go!", "you go (imperative)"]
+          },
+          {
+            "form": "गच्छतु",
+            "transliteration": "gacchatu",
+            "path": ["गम्",  "छ",  "तु"],
+            "pathIAST": ["gam",  "cha",  "tu"],
+            "meanings": ["let him/her go"]
+          },
+          {
+            "form": "गच्छाव",
+            "transliteration": "gacchāva",
+            "path": ["गम्",  "छ",  "आव"],
+            "pathIAST": ["gam",  "cha",  "āv"],
+            "meanings": ["let us go"]
+          }
+        ]
+      },
+      {
+        "label": "Participles (Present)",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "गच्छन्",
+            "transliteration": "gacchan",
+            "path": ["गम्",  "छ",  "न्"],
+            "pathIAST": ["gam",  "cha",  "n"],
+            "meanings": ["going (masc. sing.)"]
+          },
+          {
+            "form": "गच्छन्ती",
+            "transliteration": "gacchantī",
+            "path": ["गम्",  "छ",  "न्ती"],
+            "pathIAST": ["gam",  "cha",  "ntī"],
+            "meanings": ["going (fem. sing.)"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "गत्वा",
+            "transliteration": "gatvā",
+            "path": ["गम्",  "त्वा"],
+            "pathIAST": ["gam",  "tvā"],
+            "meanings": ["having gone"]
+          },
+          {
+            "form": "गमित्वा",
+            "transliteration": "gamitvā",
+            "path": ["गम्",  "इ",  "त्वा"],
+            "pathIAST": ["gam",  "i",  "tvā"],
+            "meanings": ["having gone (alternate form)"]
+          }
+        ]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "derivations": [
+          {
+            "form": "गमनम्",
+            "transliteration": "gamanaṁ",
+            "path": ["गम्",  "अन",  "म्"],
+            "pathIAST": ["gam",  "ana",  "m"],
+            "meanings": ["act of going", "movement"]
+          },
+          {
+            "form": "गतिः",
+            "transliteration": "gatiḥ",
+            "path": ["गम्",  "ति",  "ः"],
+            "pathIAST": ["gam",  "ti",  "ḥ"],
+            "meanings": ["way", "path", "motion"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "जगाम",
+            "transliteration": "jagāma",
+            "path": ["गम्",  "ज",  "आ",  "म"],
+            "pathIAST": ["gam",  "ja",  "ā",  "ma"],
+            "meanings": ["he/she/it has gone"]
+          },
+          {
+            "form": "जग्मिव",
+            "transliteration": "jagmiva",
+            "path": ["गम्",  "ज",  "मि",  "व"],
+            "pathIAST": ["gam",  "ja",  "mi",  "va"],
+            "meanings": ["you have gone"]
+          }
+        ]
+      },
+      {
+        "label": "Conjunctive Participle",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "गतवान्",
+            "transliteration": "gatavān",
+            "path": ["गम्",  "त",  "व",  "आन्"],
+            "pathIAST": ["gam",  "ta",  "va",  "ān"],
+            "meanings": ["he who has gone"]
+          },
+          {
+            "form": "गता",
+            "transliteration": "gatā",
+            "path": ["गम्",  "त",  "आ"],
+            "pathIAST": ["gam",  "ta",  "ā"],
+            "meanings": ["she who has gone"]
+          }
+        ]
+      },
+      {
+        "label": "Passive Present",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "गम्यते",
+            "transliteration": "gamyate",
+            "path": ["गम्",  "य",  "ते"],
+            "pathIAST": ["gam",  "ya",  "te"],
+            "meanings": ["he/she/it is gone"]
+          }
+        ]
+      },
+      {
+        "label": "Causative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "गमयति",
+            "transliteration": "gamayati",
+            "path": ["गम्",  "य",  "य",  "ति"],
+            "pathIAST": ["gam",  "ya",  "ya",  "ti"],
+            "meanings": ["he/she/it causes to go"]
+          }
+        ]
+      },
+      {
+        "label": "Future Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "गमिष्यति",
+            "transliteration": "gamiṣyati",
+            "path": ["गम्",  "इष्य",  "ति"],
+            "pathIAST": ["gam",  "iṣya",  "ti"],
+            "meanings": ["he/she/it will go"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "root": "दृश्",
+    "meaning": "to see",
+    "class": 4,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "पश्यति",
+            "transliteration": "paśyati",
+            "path": ["दृश्",  "श्य",  "ति"],
+            "pathIAST": ["dṛś",  "śya",  "ti"],
+            "meanings": ["he/she/it sees"]
+          },
+          {
+            "form": "पश्यसि",
+            "transliteration": "paśyasi",
+            "path": ["दृश्",  "श्य",  "सि"],
+            "pathIAST": ["dṛś",  "śya",  "si"],
+            "meanings": ["you see"]
+          },
+          {
+            "form": "पश्यामि",
+            "transliteration": "paśyāmi",
+            "path": ["दृश्",  "श्य",  "आमि"],
+            "pathIAST": ["dṛś",  "śya",  "āmi"],
+            "meanings": ["I see"]
+          }
+        ]
+      },
+      {
+        "label": "Participles (Present)",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "पश्यन्",
+            "transliteration": "paśyan",
+            "path": ["दृश्",  "श्य",  "न्"],
+            "pathIAST": ["dṛś",  "śya",  "n"],
+            "meanings": ["seeing (masc. sing.)"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "दृष्ट्वा",
+            "transliteration": "dṛṣṭvā",
+            "path": ["दृश्",  "क्त",  "वा"],
+            "pathIAST": ["dṛś",  "kta",  "vā"],
+            "meanings": ["having seen"]
+          }
+        ]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "derivations": [
+          {
+            "form": "दर्शनम्",
+            "transliteration": "darśanam",
+            "path": ["दृश्",  "अ",  "न",  "म्"],
+            "pathIAST": ["dṛś",  "a",  "na",  "m"],
+            "meanings": ["sight", "vision"]
+          },
+          {
+            "form": "दृष्टिः",
+            "transliteration": "dṛṣṭiḥ",
+            "path": ["दृश्",  "क्त",  "इ",  "ः"],
+            "pathIAST": ["dṛś",  "kta",  "i",  "ḥ"],
+            "meanings": ["sight", "perception"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "ददर्श",
+            "transliteration": "dadarśa",
+            "path": ["दृश्",  "द",  "अ",  "र्श"],
+            "pathIAST": ["dṛś",  "da",  "a",  "rśa"],
+            "meanings": ["he/she/it saw"]
+          }
+        ]
+      },
+      {
+        "label": "Conjunctive Participle",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "दृष्टवान्",
+            "transliteration": "dṛṣṭavān",
+            "path": ["दृश्",  "क्त",  "व",  "आन्"],
+            "pathIAST": ["dṛś",  "kta",  "va",  "ān"],
+            "meanings": ["he who has seen"]
+          },
+          {
+            "form": "दृष्टा",
+            "transliteration": "dṛṣṭā",
+            "path": ["दृश्",  "क्त",  "आ"],
+            "pathIAST": ["dṛś",  "kta",  "ā"],
+            "meanings": ["she who has seen"]
+          }
+        ]
+      },
+      {
+        "label": "Passive Present",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "दृश्यते",
+            "transliteration": "dṛśyate",
+            "path": ["दृश्",  "य",  "ते"],
+            "pathIAST": ["dṛś",  "ya",  "te"],
+            "meanings": ["he/she/it is seen"]
+          }
+        ]
+      },
+      {
+        "label": "Causative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "दर्शयति",
+            "transliteration": "darśayati",
+            "path": ["दृश्",  "अ",  "य",  "ति"],
+            "pathIAST": ["dṛś",  "a",  "ya",  "ti"],
+            "meanings": ["he/she/it causes to see", "shows"]
+          }
+        ]
+      },
+      {
+        "label": "Future Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "द्रक्ष्यति",
+            "transliteration": "drakṣyati",
+            "path": ["दृश्",  "र",  "क्ष्य",  "ति"],
+            "pathIAST": ["dṛś",  "ra",  "kṣya",  "ti"],
+            "meanings": ["he/she/it will see"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "root": "स्था",
+    "meaning": "to stand",
+    "class": 1,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "तिष्ठति",
+            "transliteration": "tiṣṭhati",
+            "path": ["स्था",  "ष्ठ",  "ति"],
+            "pathIAST": ["sthā",  "ṣṭha",  "ti"],
+            "meanings": ["he/she/it stands"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "स्थित्वा",
+            "transliteration": "sthitvā",
+            "path": ["स्था",  "त",  "त्वा"],
+            "pathIAST": ["sthā",  "ta",  "tvā"],
+            "meanings": ["having stood"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "तस्थौ",
+            "transliteration": "tasthau",
+            "path": ["स्था",  "त",  "स्थ",  "औ"],
+            "pathIAST": ["sthā",  "ta",  "stha",  "au"],
+            "meanings": ["he/she/it stood"]
+          }
+        ]
+      },
+      {
+        "label": "Conjunctive Participle",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "स्थितवान्",
+            "transliteration": "sthitavān",
+            "path": ["स्था",  "त",  "व",  "आन्"],
+            "pathIAST": ["sthā",  "ta",  "va",  "ān"],
+            "meanings": ["he who has stood"]
+          },
+          {
+            "form": "स्था",
+            "transliteration": "sthitā",
+            "path": ["स्था",  "त",  "आ"],
+            "pathIAST": ["sthā",  "ta",  "ā"],
+            "meanings": ["she who has stood"]
+          }
+        ]
+      },
+      {
+        "label": "Passive Present",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "स्थित्यते",
+            "transliteration": "sthyate",
+            "path": ["स्था",  "य",  "ते"],
+            "pathIAST": ["sthā",  "ya",  "te"],
+            "meanings": ["he/she/it is stood"]
+          }
+        ]
+      },
+      {
+        "label": "Causative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "स्थापयति",
+            "transliteration": "sthāpayati",
+            "path": ["स्था",  "प",  "य",  "ति"],
+            "pathIAST": ["sthā",  "pa",  "ya",  "ti"],
+            "meanings": ["he/she/it causes to stand"]
+          }
+        ]
+      },
+      {
+        "label": "Future Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "स्थास्यति",
+            "transliteration": "sthāsyati",
+            "path": ["स्था",  "स्य",  "ति"],
+            "pathIAST": ["sthā",  "sya",  "ti"],
+            "meanings": ["he/she/it will stand"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "root": "नी",
+    "meaning": "to lead",
+    "class": 1,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "नयति",
+            "transliteration": "nayati",
+            "path": ["नी",  "य",  "ति"],
+            "pathIAST": ["nī",  "ya",  "ti"],
+            "meanings": ["he/she/it leads"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "नीत्वा",
+            "transliteration": "nītvā",
+            "path": ["नी",  "त्वा"],
+            "pathIAST": ["nī",  "tvā"],
+            "meanings": ["having led"]
+          }
+        ]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "derivations": [
+          {
+            "form": "नयनम्",
+            "transliteration": "nayanam",
+            "path": ["नी",  "अ",  "न",  "म्"],
+            "pathIAST": ["nī",  "a",  "na",  "m"],
+            "meanings": ["act of leading"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "निनेथ",
+            "transliteration": "ninetha",
+            "path": ["नी",  "नि",  "ए",  "थ"],
+            "pathIAST": ["nī",  "ni",  "e",  "tha"],
+            "meanings": ["you led"]
+          }
+        ]
+      },
+      {
+        "label": "Conjunctive Participle",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "नीतवान्",
+            "transliteration": "nītavān",
+            "path": ["नी",  "त",  "व",  "आन्"],
+            "pathIAST": ["nī",  "ta",  "va",  "ān"],
+            "meanings": ["he who has led"]
+          },
+          {
+            "form": "नीता",
+            "transliteration": "nītā",
+            "path": ["नी",  "त",  "आ"],
+            "pathIAST": ["nī",  "ta",  "ā"],
+            "meanings": ["she who has led"]
+          }
+        ]
+      },
+      {
+        "label": "Passive Present",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "नीयते",
+            "transliteration": "nīyate",
+            "path": ["नी",  "य",  "ते"],
+            "pathIAST": ["nī",  "ya",  "te"],
+            "meanings": ["he/she/it is led"]
+          }
+        ]
+      },
+      {
+        "label": "Causative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "नाययति",
+            "transliteration": "nāyayati",
+            "path": ["नी",  "आ",  "य",  "य",  "ति"],
+            "pathIAST": ["nī",  "ā",  "ya",  "ya",  "ti"],
+            "meanings": ["he/she/it causes to lead"]
+          }
+        ]
+      },
+      {
+        "label": "Future Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "नेष्यति",
+            "transliteration": "neṣyati",
+            "path": ["नी",  "ए",  "ष्य",  "ति"],
+            "pathIAST": ["nī",  "e",  "ṣya",  "ti"],
+            "meanings": ["he/she/it will lead"]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "root": "कृ",
+    "meaning": "to do, to make",
+    "class": 8,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "करोति",
+            "transliteration": "karoti",
+            "path": ["कृ",  "रो",  "ति"],
+            "pathIAST": ["kṛ",  "ro",  "ti"],
+            "meanings": ["he/she/it does"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "कृत्वा",
+            "transliteration": "kṛtvā",
+            "path": ["कृ",  "त्वा"],
+            "pathIAST": ["kṛ",  "tvā"],
+            "meanings": ["having done"]
+          }
+        ]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "derivations": [
+          {
+            "form": "कर्म",
+            "transliteration": "karma",
+            "path": ["कृ",  "म"],
+            "pathIAST": ["kṛ",  "ma"],
+            "meanings": ["action", "deed"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "चकार",
+            "transliteration": "cakāra",
+            "path": ["कृ",  "च",  "आ",  "र"],
+            "pathIAST": ["kṛ",  "ca",  "ā",  "ra"],
+            "meanings": ["he/she/it did"]
+          }
+        ]
+      },
+      {
+        "label": "Conjunctive Participle",
+        "type": "participle",
+        "derivations": [
+          {
+            "form": "कृतवान्",
+            "transliteration": "kṛtavān",
+            "path": ["कृ",  "त",  "व",  "आन्"],
+            "pathIAST": ["kṛ",  "ta",  "va",  "ān"],
+            "meanings": ["he who has done"]
+          },
+          {
+            "form": "कृता",
+            "transliteration": "kṛtā",
+            "path": ["कृ",  "त",  "आ"],
+            "pathIAST": ["kṛ",  "ta",  "ā"],
+            "meanings": ["she who has done"]
+          }
+        ]
+      },
+      {
+        "label": "Passive Present",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "क्रियते",
+            "transliteration": "kriyate",
+            "path": ["कृ",  "य",  "ते"],
+            "pathIAST": ["kṛ",  "ya",  "te"],
+            "meanings": ["he/she/it is done"]
+          }
+        ]
+      },
+      {
+        "label": "Causative",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "कारयति",
+            "transliteration": "kārayati",
+            "path": ["कृ",  "आ",  "र",  "य",  "ति"],
+            "pathIAST": ["kṛ",  "ā",  "ra",  "ya",  "ti"],
+            "meanings": ["he/she/it causes to do/make"]
+          }
+        ]
+      },
+      {
+        "label": "Future Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "करिष्यति",
+            "transliteration": "kariṣyati",
+            "path": ["कृ",  "इ",  "ष्य",  "ति"],
+            "pathIAST": ["kṛ",  "i",  "ṣya",  "ti"],
+            "meanings": ["he/she/it will do"]
+          }
+        ]
+      }
+    ]
+  }
+,
+  {
+    "root": "भू",
+    "meaning": "to be, to become",
+    "class": 1,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "भवति",
+            "transliteration": "bhavati",
+            "path": ["भू",  "व",  "ति"],
+            "pathIAST": ["bhū",  "va",  "ti"],
+            "meanings": ["he/she/it is", "he/she/it becomes"]
+          },
+          {
+            "form": "भवसि",
+            "transliteration": "bhavasi",
+            "path": ["भू",  "व",  "सि"],
+            "pathIAST": ["bhū",  "va",  "si"],
+            "meanings": ["you are"]
+          },
+          {
+            "form": "भवामि",
+            "transliteration": "bhavāmi",
+            "path": ["भू",  "व",  "आमि"],
+            "pathIAST": ["bhū",  "va",  "āmi"],
+            "meanings": ["I am"]
+          }
+        ]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "derivations": [
+          {
+            "form": "भूत्वा",
+            "transliteration": "bhūtvā",
+            "path": ["भू",  "त्वा"],
+            "pathIAST": ["bhū",  "tvā"],
+            "meanings": ["having become"]
+          }
+        ]
+      },
+      {
+        "label": "Perfect Tense",
+        "type": "verb",
+        "derivations": [
+          {
+            "form": "बभूव",
+            "transliteration": "babhūva",
+            "path": ["भू",  "ब",  "भू",  "व"],
+            "pathIAST": ["bhū",  "ba",  "bhū",  "va"],
+            "meanings": ["he/she/it became"]
+          }
+        ]
+      },
+      {
+        "label": "Infinitive",
+        "type": "infinitive",
+        "derivations": [
+          {
+            "form": "भावितुम्",
+            "transliteration": "bhāvitum",
+            "path": ["भू",  "अ",  "वि",  "तुम्"],
+            "pathIAST": ["bhū",  "a",  "vi",  "tum"],
+            "meanings": ["to become"]
+          }
+        ]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "derivations": [
+          {
+            "form": "भावः",
+            "transliteration": "bhāvaḥ",
+            "path": ["भू",  "अ",  "व",  "ः"],
+            "pathIAST": ["bhū",  "a",  "va",  "ḥ"],
+            "meanings": ["state of being", "existence", "emotion"]
+          }
+        ]
+      }
+    ]
+  }
+]
