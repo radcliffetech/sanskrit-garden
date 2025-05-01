@@ -112,3 +112,11 @@ export type DhatuTree = {
     }[];
   }[];
 };
+export type DhatuCatalogEntry = {
+  root: string; // e.g. "गम्"
+  transliteration: string; // e.g. "gam"
+  meaning: string; // e.g. "to go"
+  class: number; // Paninian verb class (1–10)
+  voice: "P" | "A" | "U"; // Parasmaipada, Atmanepada, Ubhayapadi
+  transitivity?: "transitive" | "intransitive" | "both";
+};
