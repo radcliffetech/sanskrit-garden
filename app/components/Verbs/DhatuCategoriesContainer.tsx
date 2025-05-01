@@ -253,6 +253,9 @@ export function DhatuCatalogContainer({
     <div className="space-y-6">
       <div className="md:flex md:items-center md:justify-between max-w-screen-xl mx-auto gap-8">
         <div className="md:w-1/2 text-gray-500 space-y-4">
+          <p className="text-xs text-red-500 font-medium uppercase tracking-wide">
+            ⚠️ This feature is in alpha. Not all dhātus are complete or fully verified.
+          </p>
           <p>
             Traditionally, dhātus are classified into 10 classes (gaṇas) based
             on their phonetic and morphological properties.

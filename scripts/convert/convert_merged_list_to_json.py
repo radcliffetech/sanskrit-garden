@@ -2,7 +2,7 @@ import csv
 import json
 
 # File paths
-input_csv_path = "data/dhatupatha_merged.csv"
+input_csv_path = "data/dhatupatha_merged_corrected.csv"
 output_json_path = "tmp/dhatu_catalog.json"
 
 # Output list
@@ -12,7 +12,8 @@ dhatu_catalog = []
 with open(input_csv_path, newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile)
     for row in reader:
-        root = row["Root"].strip()
+        # print(row)
+        root = row["Root_x"].strip()
         translit = row["Transliteration"].strip()
         meaning = row["Meaning"].strip()
         voice = row["Voice"].strip()
@@ -21,21 +22,20 @@ with open(input_csv_path, newline='', encoding='utf-8') as csvfile:
         # Skip if Class or Voice is missing
         if not class_ or not voice:
             continue
-
-        try:
-            class_num = int(class_)
-        except ValueError:
-            continue  # Skip malformed class numbers
+        
+        class_num = str(class_)
+        if not class_num: 
+            continue # Skip if class number is emptyp
 
         # Construct the dictionary
         entry = {
             "root": root,
             "transliteration": translit,
             "meaning": meaning,
-            "class": class_num,
-            "voice": voice
+            "voice": voice,
+            "class": int(class_num.replace(".0", "")),
         }
-
+        print(entry)
         dhatu_catalog.append(entry)
 
 # Save to JSON file
