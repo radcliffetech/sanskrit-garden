@@ -12,6 +12,7 @@ export const navigationConfig = [
     label: "Learning Tools (अध्ययनोपकरणानि)",
     dropdown: [
       { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
+      { label: "Dhatu Evolution (धातवः)", href: "/dhatu-tree" },
       { label: "AI Explainer (यन्त्रविवचकः)", href: "/explain-concept" },
       { label: "AI Storyteller (यन्त्रकथकः)", href: "/storyteller" },
       { label: "Quiz (प्रश्नमाला)", href: "/quiz" },

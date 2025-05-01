@@ -14,15 +14,17 @@ export function MorphPathDisplay({ derivation }: { derivation: MorphDerivation }
       )}
       <div className="flex flex-wrap items-center gap-1 mt-2 text-lg">
         {derivation.path.map((part, i) => (
-          <span key={i} className="bg-gray-100 rounded px-2 py-1 text-gray-800">
-            {part}
+          <span key={i} className="flex items-center">
+            {i > 0 && <span className="mx-1 text-gray-400">+</span>}
+            <span className="bg-gray-100 rounded px-2 py-1 text-gray-800">{part}</span>
           </span>
         ))}
       </div>
       <div className="flex flex-wrap items-center gap-1 text-sm text-gray-500">
         {derivation.pathIAST.map((part, i) => (
-          <span key={i} className="bg-gray-50 rounded px-2 py-0.5">
-            {part}
+          <span key={i} className="flex items-center">
+            {i > 0 && <span className="mx-1 text-gray-400">+</span>}
+            <span className="bg-gray-50 rounded px-2 py-0.5">{part}</span>
           </span>
         ))}
       </div>
