@@ -9,13 +9,17 @@ export const navigationConfig = [
     ],
   },
   {
-    label: "Learning Tools (अध्ययनोपकरणानि)",
+    label: "Explore (अन्वेषणम्)",
     dropdown: [
-      { label: "Lexical Treasury (अक्षरकोशः)", href: "/lexical-treasury" },
+      { label: "Phonetic Groupings (ध्वनिवर्गाः)", href: "/phonetic-groupings" },
       { label: "Dhatu Evolution (धातवः)", href: "/dhatu-tree" },
+      { label: "Dhatu Categories (धातुगणाः)", href: "/dhatu-categories" },
+      { separator: true },
       { label: "AI Explainer (यन्त्रविवचकः)", href: "/explain-concept" },
       { label: "AI Storyteller (यन्त्रकथकः)", href: "/storyteller" },
+      { separator: true },
       { label: "Quiz (प्रश्नमाला)", href: "/quiz" },
+
     ],
   },
   {

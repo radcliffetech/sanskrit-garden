@@ -1,0 +1,2746 @@
+[
+  {
+    "root": "अभ्र्",
+    "transliteration": "abhr",
+    "meaning": "to go, \\nto wander about",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अच्",
+    "transliteration": "ach",
+    "meaning": "to distinguish, \\nto particularise\\nto go\\nto request\\nto speak indistinctly\\nto go\\nto request\\nto bend\\nto worship\\nto honour or \\nto revere",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "आछ्",
+    "transliteration": "achh",
+    "meaning": "to lengthen, \\nto stretch, \\nto make straight",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अड्",
+    "transliteration": "ad",
+    "meaning": "to exert\\nto try",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अद्",
+    "transliteration": "ad",
+    "meaning": "to eat",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अड्ड्",
+    "transliteration": "add",
+    "meaning": "to join\\nto attack\\nto explain the sense of\\nto sue, \\nto exert",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अग्",
+    "transliteration": "ag",
+    "meaning": "to wind, \\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अघ्",
+    "transliteration": "agh",
+    "meaning": "to sin",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "अह्",
+    "transliteration": "ah",
+    "meaning": "to pervade",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अज्",
+    "transliteration": "aj",
+    "meaning": "to go\\nto drive\\nto throw\\nto make clear, \\nto anoint, \\nto be beautiful, \\nto go\\nto speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अक्",
+    "transliteration": "ak",
+    "meaning": "to move \\ntortuously",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अक्ष्",
+    "transliteration": "aksh",
+    "meaning": "to pervade\\nto reach\\nto accumulate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अल्",
+    "transliteration": "al",
+    "meaning": "to adorn\\nto be competent or able",
+    "voice": "U",
+    "class": 1
+  },
+  {
+    "root": "अम्",
+    "transliteration": "am",
+    "meaning": "to be ill, \\nto afflict with sickness\\nto go\\nto sound, \\nto wait upon",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अम्ब्",
+    "transliteration": "amb",
+    "meaning": "to sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अम्बर्",
+    "transliteration": "ambar",
+    "meaning": "to bring \\ntogether",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अण्",
+    "transliteration": "an",
+    "meaning": "to breathe\\nto utter a voice, \\nto sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अन्",
+    "transliteration": "an",
+    "meaning": "to breath\\nto breathe",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अन्ध्",
+    "transliteration": "andh",
+    "meaning": "to become blind, \\nto shut eyes",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "आन्द्Oल्",
+    "transliteration": "andol",
+    "meaning": "to swing",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अङ्ग्",
+    "transliteration": "ang",
+    "meaning": "to go\\nto go, \\nto mark",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अङ्घ्",
+    "transliteration": "angh",
+    "meaning": "to go\\nto hasten\\nto begin\\nto blame\\nto gamble",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अंह्",
+    "transliteration": "anh",
+    "meaning": "to go\\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अङ्क्",
+    "transliteration": "ank",
+    "meaning": "to go, \\nto mark\\nto mark",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अंस्",
+    "transliteration": "ans",
+    "meaning": "to distribute\\nto speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अंश्",
+    "transliteration": "ansh",
+    "meaning": "to distribute",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अन्त्",
+    "transliteration": "ant",
+    "meaning": "to bind",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अण्ठ्",
+    "transliteration": "anth",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अण्ट्ट",
+    "transliteration": "antta",
+    "meaning": "to despise",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "आप्",
+    "transliteration": "ap",
+    "meaning": "to obtain\\nto pervade, \\nto obtain, \\nto occupy, \\nto reach",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्ब्",
+    "transliteration": "arb",
+    "meaning": "to go, \\nto injure, \\nto kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्च्",
+    "transliteration": "arch",
+    "meaning": "to worship\\nto worship\\nto honour\\nto shine\\nto praise",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्द्",
+    "transliteration": "ard",
+    "meaning": "to go\\nto beg or request\\nto kill, \\nto hurt",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "अर्घ्",
+    "transliteration": "argh",
+    "meaning": "to be worth\\nto be worth\\nto cost",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्ह्",
+    "transliteration": "arh",
+    "meaning": "to worship",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "अर्ज्",
+    "transliteration": "arj",
+    "meaning": "to procure\\nto procure\\nto earn",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्ज्",
+    "transliteration": "arj",
+    "meaning": "to procure\\nto procure\\nto earn",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "अर्क्",
+    "transliteration": "ark",
+    "meaning": "to praise, \\nto heat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्थ्",
+    "transliteration": "arth",
+    "meaning": "to request, \\nto beg",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अर्व्",
+    "transliteration": "arv",
+    "meaning": "to kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अस्",
+    "transliteration": "as",
+    "meaning": "to be\\nto throw",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अस्",
+    "transliteration": "as",
+    "meaning": "to be\\nto throw",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अस्",
+    "transliteration": "as",
+    "meaning": "to be\\nto throw",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अस्",
+    "transliteration": "as",
+    "meaning": "to be\\nto throw",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "आस्",
+    "transliteration": "as",
+    "meaning": "to sit, \\nto be",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "आस्",
+    "transliteration": "as",
+    "meaning": "to sit, \\nto be",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "आस्",
+    "transliteration": "as",
+    "meaning": "to sit, \\nto be",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "आस्",
+    "transliteration": "as",
+    "meaning": "to sit, \\nto be",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "अश्",
+    "transliteration": "ash",
+    "meaning": "to eat,\\nto pervade, \\nto heap, \\nto obtain, \\nto go \\nto",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अष्",
+    "transliteration": "ash",
+    "meaning": "to go, \\nto shine, \\nto receive",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अट्",
+    "transliteration": "at",
+    "meaning": "to wander",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अत्",
+    "transliteration": "at",
+    "meaning": "to go constantly\\nto obtain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अठ्",
+    "transliteration": "ath",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अट्ट्",
+    "transliteration": "att",
+    "meaning": "to transgress\\nto kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अव्",
+    "transliteration": "av",
+    "meaning": "to protect, \\nto move, \\nto be lovely, \\nto please, \\nto satisfy, \\nto know, \\nto enter, \\nto hear, \\nto own, \\nto beg, \\nto act, \\nto desire, \\nto shine, \\nto obtain, \\nto embrace, \\nto kill, \\nto take, \\nto be, \\nto grow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अवधीर्",
+    "transliteration": "avadhir",
+    "meaning": "avādhīr to despise, \\nto disregard",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "अय्",
+    "transliteration": "ay",
+    "meaning": "to go",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "बद्",
+    "transliteration": "bad",
+    "meaning": "to be steady or firm",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बाड्",
+    "transliteration": "bad",
+    "meaning": "to bathe\\nto dive",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बध्",
+    "transliteration": "badh",
+    "meaning": "to bind, \\nto restrain\\nto loathe\\nto be disgusted with, \\nto shrink from",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बाध्",
+    "transliteration": "badh",
+    "meaning": "to oppress, \\nto \\ntorment",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बाह्",
+    "transliteration": "bah",
+    "meaning": "to endeavour",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बल्",
+    "transliteration": "bal",
+    "meaning": "to breath\\nto hoard grain\\nto breathe",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बल्ह्",
+    "transliteration": "balh",
+    "meaning": "to be pre-eminent\\nto speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बण्",
+    "transliteration": "ban",
+    "meaning": "to sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बन्ध्",
+    "transliteration": "bandh",
+    "meaning": "to bind, \\nto attract, \\nto catch, \\nto imprison, \\nto wear, \\nto form, \\nto compose, \\nto fix on, \\nto bear fruit",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बंह्",
+    "transliteration": "banh",
+    "meaning": "to grow, \\nto increase",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बर्ह्",
+    "transliteration": "barh",
+    "meaning": "to be pre-eminent\\nto speak: \\nto kill\\nto give\\nto kill, \\nto speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बर्व्",
+    "transliteration": "barv",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बस्",
+    "transliteration": "bas",
+    "meaning": "to s\\ntop",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बस्त्",
+    "transliteration": "bast",
+    "meaning": "to injure, \\nto ask, \\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बेह्",
+    "transliteration": "beh",
+    "meaning": "to endeavour",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भज्",
+    "transliteration": "bhaj",
+    "meaning": "to break, \\nto split, \\nto interrupt, \\nto frustrate, \\nto disappoint\\nto give, \\nto cook\\nto speak, \\nto shine\\nto worship\\nto honour, \\nto divide\\nto be attached \\nto, \\nto serve",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भाज्",
+    "transliteration": "bhaj",
+    "meaning": "to divide, \\nto distribute",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भक्ष्",
+    "transliteration": "bhaksh",
+    "meaning": "to eat\\nto eat, \\nto devour",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भल्",
+    "transliteration": "bhal",
+    "meaning": "to speak, \\nto kill, \\nto give\\nto see, \\nto behold",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भाम्",
+    "transliteration": "bham",
+    "meaning": "to be angry\\nto be angry",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भण्",
+    "transliteration": "bhan",
+    "meaning": "to speak, \\nto call",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भण्ड्",
+    "transliteration": "bhand",
+    "meaning": "to be fortunate, \\nto be happy, \\nto cheat\\nto speak, \\nto jest, \\nto chide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भन्द्",
+    "transliteration": "bhand",
+    "meaning": "to be prosperous or glad",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भर्त्स्",
+    "transliteration": "bharts",
+    "meaning": "to menace, \\nto reprove, \\nto beride",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भर्व्",
+    "transliteration": "bharv",
+    "meaning": "to kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भस्",
+    "transliteration": "bhas",
+    "meaning": "to censure, \\nto blame, o shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भास्",
+    "transliteration": "bhas",
+    "meaning": "to shine, \\nto appear, \\nto become evident",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भष्",
+    "transliteration": "bhash",
+    "meaning": "to bark, \\nto revile",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भाष्",
+    "transliteration": "bhash",
+    "meaning": "to speak, \\nto say\\nto call, \\nto describe",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भट्",
+    "transliteration": "bhat",
+    "meaning": "to hire, \\nto nourish\\nto speak, \\nto call",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भेष्",
+    "transliteration": "bhesh",
+    "meaning": "to fear, \\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भी",
+    "transliteration": "bhi",
+    "meaning": "to fear, \\nto be afraid of, \\nto be anxious about",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भिद्",
+    "transliteration": "bhid",
+    "meaning": "to break, \\nto cut asunder, \\nto transgress, \\nto divide, \\nto open, \\nto cause \\nto expand, \\nto change, \\nto perplex, \\nto distinguish, \\nto disturb, \\nto betray, \\nto set at variance",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भिक्ष्",
+    "transliteration": "bhiksh",
+    "meaning": "to ask\\nto beg for without obtaining, \\nto be weary or distressed, \\nto obtain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भिन्द्",
+    "transliteration": "bhind",
+    "meaning": "to split, \\nto divide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्लक्ष्",
+    "transliteration": "bhlaksh",
+    "meaning": "to eat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्लाश्",
+    "transliteration": "bhlash",
+    "meaning": "to shine, \\nto glitter",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्लेष्",
+    "transliteration": "bhlesh",
+    "meaning": "to shine, \\nto glitter",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रक्ष्",
+    "transliteration": "bhraksh",
+    "meaning": "to eat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रम्",
+    "transliteration": "bhram",
+    "meaning": "to be unsteady, \\nto wander, \\nto \\ntotter\\nto roam about",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रण्",
+    "transliteration": "bhran",
+    "meaning": "to speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रंश्",
+    "transliteration": "bhransh",
+    "meaning": "to fall, \\nto drop down\\nto fall down, \\nto decrease, \\nto escape",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रश्",
+    "transliteration": "bhrash",
+    "meaning": "to fall, \\nto drop down",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्राश्",
+    "transliteration": "bhrash",
+    "meaning": "to shine, \\nto glitter",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रस्ज्",
+    "transliteration": "bhrasj",
+    "meaning": "to fry, \\nto roast, \\nto parch",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रेज्",
+    "transliteration": "bhrej",
+    "meaning": "to shine, \\nto glitter",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रेष्",
+    "transliteration": "bhresh",
+    "meaning": "to fear, \\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भृ",
+    "transliteration": "bhri",
+    "meaning": "to bear, \\nto support, \\nto nourish, \\nto protect, \\nto produce, \\nto bes\\ntow, \\nto hire\\nto blame, \\nto censure, \\nto nourish, \\nto maintain\\nto support, \\nto bear, \\nto have, \\nto fill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्री",
+    "transliteration": "bhri",
+    "meaning": "to fear, \\nto support",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भृज्",
+    "transliteration": "bhrij",
+    "meaning": "to parch, \\nto fry",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भृंश्",
+    "transliteration": "bhrinsh",
+    "meaning": "to speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भृश्",
+    "transliteration": "bhrish",
+    "meaning": "to fall down",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रुड्",
+    "transliteration": "bhrud",
+    "meaning": "to cover, \\nto collect, \\nto plunge",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्रूण्",
+    "transliteration": "bhrun",
+    "meaning": "to hope, \\nto fear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भू",
+    "transliteration": "bhu",
+    "meaning": "to be purified, \\nto consider, \\nto mix\\nto be\\nto obtain, \\nto attend",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भुज्",
+    "transliteration": "bhuj",
+    "meaning": "to bend, \\nto curve, \\nto be crooked\\nto protect, \\nto govern, \\nto rule",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भूंष्",
+    "transliteration": "bhunsh",
+    "meaning": "to adorn",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भूष्",
+    "transliteration": "bhush",
+    "meaning": "to adorn, \\nto decorate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "भ्यस्",
+    "transliteration": "bhyas",
+    "meaning": "to fear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बिल्",
+    "transliteration": "bil",
+    "meaning": "to break\\nto break, \\nto split, \\nto divide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बिन्द्",
+    "transliteration": "bind",
+    "meaning": "to split, \\nto cleave, \\nto divide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बिस्",
+    "transliteration": "bis",
+    "meaning": "to throw, \\nto instigate, \\nto go, \\nto split, \\nto grow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बिट्",
+    "transliteration": "bit",
+    "meaning": "to swear, \\nto curse, \\nto shout",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बृह्",
+    "transliteration": "brih",
+    "meaning": "to work, \\nto labour",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बृंह्",
+    "transliteration": "brinh",
+    "meaning": "to increase, \\nto sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बृन्न्",
+    "transliteration": "brinn",
+    "meaning": "to grow, \\nto increase",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ब्रू",
+    "transliteration": "bru",
+    "meaning": "to speak\\nto say\\nto tell",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ब्रूस्",
+    "transliteration": "brus",
+    "meaning": "to kill, \\nto hurt",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुड्",
+    "transliteration": "bud",
+    "meaning": "to discharge, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुध्",
+    "transliteration": "budh",
+    "meaning": "to know, \\nto understand, \\nto awake, \\nto be res\\ntored \\nto one’s senses\\nto know\\nto understand\\nto think\\nto make known\\nto inform\\nto teach",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुक्क्",
+    "transliteration": "bukk",
+    "meaning": "to bark, \\nto speak\\nto bark\\nto sound\\nto yelp\\nto speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुन्द्",
+    "transliteration": "bund",
+    "meaning": "to perceive\\nto apprehend",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुस्",
+    "transliteration": "bus",
+    "meaning": "to discharge, \\nto emit",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "बुस्त्",
+    "transliteration": "bust",
+    "meaning": "to respect, \\nto disrespect",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ब्युस्",
+    "transliteration": "byus",
+    "meaning": "to divide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चच्",
+    "transliteration": "chach",
+    "meaning": "to go\\nto shake\\nto leap",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चह्",
+    "transliteration": "chah",
+    "meaning": "to be wicked, \\nto be proud, \\nto cheat\\nto be wicked\\nto be proud\\nto cheat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चक्",
+    "transliteration": "chak",
+    "meaning": "to be satisfied\\nto be satisfied, \\nto repel\\nto resist, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चकास्",
+    "transliteration": "chakas",
+    "meaning": "to shine, \\nto be bright or prosperous",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चक्क्",
+    "transliteration": "chakk",
+    "meaning": "to suffer, \\nto give pain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चक्ष्",
+    "transliteration": "chaksh",
+    "meaning": "to speak, \\nto tell, \\nto see",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चल्",
+    "transliteration": "chal",
+    "meaning": "to foster, \\nto cherish\\nto play\\nto amuse oneself",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चम्",
+    "transliteration": "cham",
+    "meaning": "to eat\\nto eat\\nto drink",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चम्ब्",
+    "transliteration": "chamb",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चम्प्",
+    "transliteration": "champ",
+    "meaning": "to go\\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चण्",
+    "transliteration": "chan",
+    "meaning": "to go, \\nto sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चन्",
+    "transliteration": "chan",
+    "meaning": "to believe, \\nto kill\\nto kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चण्ड्",
+    "transliteration": "chand",
+    "meaning": "to be angry\\nto be angry",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चन्द्",
+    "transliteration": "chand",
+    "meaning": "to be glad\\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चङ्क्",
+    "transliteration": "chank",
+    "meaning": "to reel\\nto roll",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चप्",
+    "transliteration": "chap",
+    "meaning": "to console\\nto sooth\\nto grind",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चर्",
+    "transliteration": "char",
+    "meaning": "to doubt\\nto go\\nto walk, \\nto graze\\nto eat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चर्ब्",
+    "transliteration": "charb",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चर्च्",
+    "transliteration": "charch",
+    "meaning": "to discuss, \\nto condemn\\nto censure\\nto peruse, \\nto study",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चर्व्",
+    "transliteration": "charv",
+    "meaning": "to chew, \\nto eat\\nto browse\\nto chop\\nto bite\\nto eat, \\nto chew",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चष्",
+    "transliteration": "chash",
+    "meaning": "to eat",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चट्",
+    "transliteration": "chat",
+    "meaning": "to break, \\nto rain, \\nto cover\\nto kill, \\nto injure\\nto break",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चत्",
+    "transliteration": "chat",
+    "meaning": "to beg, \\nto request",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चय्",
+    "transliteration": "chay",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चाय्",
+    "transliteration": "chay",
+    "meaning": "to worship, \\nto discern",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चेल्",
+    "transliteration": "chel",
+    "meaning": "to shake\\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चेष्ट्",
+    "transliteration": "chesht",
+    "meaning": "to act",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छद्",
+    "transliteration": "chhad",
+    "meaning": "to close, \\nto conceal, \\nto cover\\nto conceal, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छम्",
+    "transliteration": "chham",
+    "meaning": "to eat, \\nto consume",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छन्द्",
+    "transliteration": "chhand",
+    "meaning": "to cover\\nto cover, \\nto please, \\nto persuade",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छर्द्",
+    "transliteration": "chhard",
+    "meaning": "to vomit",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छष्",
+    "transliteration": "chhash",
+    "meaning": "to hurt\\nto injure, \\nto kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छट्",
+    "transliteration": "chhat",
+    "meaning": "to cover\\nto veil\\nto hide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छेद्",
+    "transliteration": "chhed",
+    "meaning": "to divide, \\nto cut",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिद्",
+    "transliteration": "chhid",
+    "meaning": "to cut, \\nto interrupt, \\nto destroy",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिद्र्",
+    "transliteration": "chhidr",
+    "meaning": "to perforate, \\nto bore",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छीक्",
+    "transliteration": "chhik",
+    "meaning": "to endure",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिल्ल्",
+    "transliteration": "chhill",
+    "meaning": "to become loose\\nto act wan\\ntonly\\nto sport",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिन्ह्",
+    "transliteration": "chhinh",
+    "meaning": "to mark",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छ्O",
+    "transliteration": "chho",
+    "meaning": "to cut, \\nto mow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृद्",
+    "transliteration": "chhrid",
+    "meaning": "to kindle\\nto kindle\\nto shine, \\nto play",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृप्",
+    "transliteration": "chhrip",
+    "meaning": "to kindle, \\nto beg",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृष्",
+    "transliteration": "chhrish",
+    "meaning": "to beg or request",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुड्",
+    "transliteration": "chhud",
+    "meaning": "to cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुप्",
+    "transliteration": "chhup",
+    "meaning": "to \\ntouch",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुर्",
+    "transliteration": "chhur",
+    "meaning": "to cut\\nto engrave\\nto envelop",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुट्",
+    "transliteration": "chhut",
+    "meaning": "to cut",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चि",
+    "transliteration": "chi",
+    "meaning": "to collect\\nto collect, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीब्",
+    "transliteration": "chib",
+    "meaning": "to take, \\nto wear, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीभ्",
+    "transliteration": "chibh",
+    "meaning": "to coax, \\nto boast",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छीक्",
+    "transliteration": "chhik",
+    "meaning": "to endure",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिल्ल्",
+    "transliteration": "chhill",
+    "meaning": "to become loose\\nto act wan\\ntonly\\nto sport",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छिन्ह्",
+    "transliteration": "chhinh",
+    "meaning": "to mark",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छ्O",
+    "transliteration": "chho",
+    "meaning": "to cut, \\nto mow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृद्",
+    "transliteration": "chhrid",
+    "meaning": "to kindle\\nto kindle\\nto shine, \\nto play",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृप्",
+    "transliteration": "chhrip",
+    "meaning": "to kindle, \\nto beg",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छृष्",
+    "transliteration": "chhrish",
+    "meaning": "to beg or request",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुड्",
+    "transliteration": "chhud",
+    "meaning": "to cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुप्",
+    "transliteration": "chhup",
+    "meaning": "to \\ntouch",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुर्",
+    "transliteration": "chhur",
+    "meaning": "to cut\\nto engrave\\nto envelop",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "छुट्",
+    "transliteration": "chhut",
+    "meaning": "to cut",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चि",
+    "transliteration": "chi",
+    "meaning": "to collect\\nto collect, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीब्",
+    "transliteration": "chib",
+    "meaning": "to take, \\nto wear, \\nto cover",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीभ्",
+    "transliteration": "chibh",
+    "meaning": "to coax, \\nto boast",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीक्",
+    "transliteration": "chik",
+    "meaning": "to suffer",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चिक्क्",
+    "transliteration": "chikk",
+    "meaning": "to give pain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चिल्",
+    "transliteration": "chil",
+    "meaning": "to dress",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चिन्त्",
+    "transliteration": "chint",
+    "meaning": "to contemplate, \\nto think, \\nto discuss\\nto remember",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चिरि",
+    "transliteration": "chiri",
+    "meaning": "to kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चिट्",
+    "transliteration": "chit",
+    "meaning": "to send out\\nto send out",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चित्",
+    "transliteration": "chit",
+    "meaning": "to perceive\\nto think\\nto recover consciousness\\nto think, \\nto perceive, \\nto see, \\nto regain consciousness",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चित्र्",
+    "transliteration": "chitr",
+    "meaning": "to paint, \\nto make variegated, \\nto see or regard anything as wonderful",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चीव्",
+    "transliteration": "chiv",
+    "meaning": "to speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चृप्",
+    "transliteration": "chrip",
+    "meaning": "to excite, \\nto light\\nto excite\\nto light",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चृत्",
+    "transliteration": "chrit",
+    "meaning": "to kill\\nto hurt\\nto connect \\ntogether",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुच्य",
+    "transliteration": "chuchya",
+    "meaning": "to bathe, \\nto churn, \\nto press",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुड्",
+    "transliteration": "chud",
+    "meaning": "to conceal",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुद्",
+    "transliteration": "chud",
+    "meaning": "to become small\\nto drive, \\nto put forward, \\nto press, \\nto push on",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुड्ड्",
+    "transliteration": "chudd",
+    "meaning": "to sport, \\nto hint one’s meaning",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुक्क्",
+    "transliteration": "chukk",
+    "meaning": "to suffer pain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुल्",
+    "transliteration": "chul",
+    "meaning": "to raise, \\nto elevate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुल्ल्",
+    "transliteration": "chull",
+    "meaning": "to sport, \\nto make amorous gestures",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुलुम्प्",
+    "transliteration": "chulump",
+    "meaning": "to swing, \\nto rock\\nto agitate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुम्ब्",
+    "transliteration": "chumb",
+    "meaning": "to kill\\nto kiss",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुण्ड्",
+    "transliteration": "chund",
+    "meaning": "to become small, \\nto cut off",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुण्ट्",
+    "transliteration": "chunt",
+    "meaning": "to cut off",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुप्",
+    "transliteration": "chup",
+    "meaning": "to move slowly",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुर्",
+    "transliteration": "chur",
+    "meaning": "to steal, \\nto assume",
+    "voice": "P",
+    "class": 10
+  },
+  {
+    "root": "चूर्",
+    "transliteration": "chur",
+    "meaning": "to burn",
+    "voice": "P",
+    "class": 10
+  },
+  {
+    "root": "चूर्ण्",
+    "transliteration": "churn",
+    "meaning": "to pulverize, \\nto crush, \\nto drive, \\nto contract",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चूष्",
+    "transliteration": "chush",
+    "meaning": "to drink",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "चुट्",
+    "transliteration": "chut",
+    "meaning": "cuṅḍ to cut\\nto cut",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "च्यु",
+    "transliteration": "chyu",
+    "meaning": "to endure, \\nto laugh\\nto go\\nto drop down\\nto fall, \\nto swerve",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "च्युस्",
+    "transliteration": "chyus",
+    "meaning": "to endure, \\nto laugh",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "च्युत्",
+    "transliteration": "chyut",
+    "meaning": "to flow\\nto trickle",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दा",
+    "transliteration": "da",
+    "meaning": "to cut\\nto give\\nto give",
+    "voice": "P",
+    "class": 3
+  },
+  {
+    "root": "डब्",
+    "transliteration": "dab",
+    "meaning": "to throw, \\nto send",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दद्",
+    "transliteration": "dad",
+    "meaning": "to give\\nto offer\\nto present",
+    "voice": "P",
+    "class": 3
+  },
+  {
+    "root": "दध्",
+    "transliteration": "dadh",
+    "meaning": "to hold: \\nto possess",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दघ्",
+    "transliteration": "dagh",
+    "meaning": "to destroy, \\nto protect",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दह्",
+    "transliteration": "dah",
+    "meaning": "to reduce \\nto ashed\\nto burn\\nto scorch\\nto \\ntorment",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दै",
+    "transliteration": "dai",
+    "meaning": "to purify\\nto cleanse, \\nto be purified",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दक्ष्",
+    "transliteration": "daksh",
+    "meaning": "to go\\nto kill\\nto increase, \\nto do or act quickly",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दल्",
+    "transliteration": "dal",
+    "meaning": "to break\\nto split\\nto expand, \\nto open\\nto cut, \\nto tear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दम्",
+    "transliteration": "dam",
+    "meaning": "to be quiet, \\nto restrain, \\nto tame, \\nto subdue",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दम्भ्",
+    "transliteration": "dambh",
+    "meaning": "to deceive, \\nto injure\\nto send, \\nto propel",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दान्",
+    "transliteration": "dan",
+    "meaning": "to cut off, \\nto straighten",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दण्ड्",
+    "transliteration": "dand",
+    "meaning": "to punish, \\nto fine, \\nto be subdued",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दंस्",
+    "transliteration": "dans",
+    "meaning": "to speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दंश्",
+    "transliteration": "dansh",
+    "meaning": "to bite, \\nto sting\\nto bite\\nto sting\\nto see, \\nto bite\\nto speak",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "डप्",
+    "transliteration": "dap",
+    "meaning": "to collect",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दरिद्रा",
+    "transliteration": "daridra",
+    "meaning": "to be poor\\nto be distressed",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दस्",
+    "transliteration": "das",
+    "meaning": "to perish\\nto see, \\nto bite",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दास्",
+    "transliteration": "das",
+    "meaning": "to give",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दाश्",
+    "transliteration": "dash",
+    "meaning": "to kill\\nto give\\nto offer an oblation",
+    "voice": "P",
+    "class": 10
+  },
+  {
+    "root": "दात्",
+    "transliteration": "dat",
+    "meaning": "to cut, \\nto divide",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दय्",
+    "transliteration": "day",
+    "meaning": "to pity, \\nto give\\nto go\\nto protect\\nto kill\\nto take",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दाय्",
+    "transliteration": "day",
+    "meaning": "to give",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दे",
+    "transliteration": "de",
+    "meaning": "to protect",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "देव्",
+    "transliteration": "dev",
+    "meaning": "to play, \\nto sport\\nto lament",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धा",
+    "transliteration": "dha",
+    "meaning": "to hold, \\nto put, \\nto maintain, \\nto give, \\nto grant, \\nto bear, \\nto assume, \\nto have",
+    "voice": "P",
+    "class": 3
+  },
+  {
+    "root": "धाख्",
+    "transliteration": "dhakh",
+    "meaning": "to be dry, \\nto be able",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धक्क्",
+    "transliteration": "dhakk",
+    "meaning": "to kill, \\nto destroy",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धण्",
+    "transliteration": "dhan",
+    "meaning": "to sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धन्",
+    "transliteration": "dhan",
+    "meaning": "to bear fruit, \\nto produce crops of grain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धंस्",
+    "transliteration": "dhans",
+    "meaning": "to fall down\\nto perish\\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धन्व्",
+    "transliteration": "dhanv",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ढौक्",
+    "transliteration": "dhauk",
+    "meaning": "to go, \\nto approach",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धाव्",
+    "transliteration": "dhav",
+    "meaning": "to run\\nto flow, \\nto cleanse, \\nto wash",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धे",
+    "transliteration": "dhe",
+    "meaning": "to suck, \\nto drink, \\nto draw",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धेक्",
+    "transliteration": "dhek",
+    "meaning": "to see",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धि",
+    "transliteration": "dhi",
+    "meaning": "to hold\\nto possess",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धी",
+    "transliteration": "dhi",
+    "meaning": "to support, \\nto hold, \\nto despise",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धिक्ष्",
+    "transliteration": "dhiksh",
+    "meaning": "to kindle, \\nto be harassed or weary, \\nto live",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धिन्व्",
+    "transliteration": "dhinv",
+    "meaning": "to please, \\nto delight",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धिष्",
+    "transliteration": "dhish",
+    "meaning": "to sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्मा",
+    "transliteration": "dhma",
+    "meaning": "to blow\\nto breathe out, \\nto produce sound by blowing, \\nto blow a fire, \\nto manufacture by blowing",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्Oर्",
+    "transliteration": "dhor",
+    "meaning": "to go quickly, \\nto run, \\nto trot\\nto be skilful",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्राड्",
+    "transliteration": "dhrad",
+    "meaning": "to divide\\nto split",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्राध्",
+    "transliteration": "dhradh",
+    "meaning": "to be able or competent",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रै",
+    "transliteration": "dhrai",
+    "meaning": "to be pleased",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रज्",
+    "transliteration": "dhraj",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रण्",
+    "transliteration": "dhran",
+    "meaning": "to sound as a drum or other instrument",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रण्ज्",
+    "transliteration": "dhranj",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रांक्ष्",
+    "transliteration": "dhranksh",
+    "meaning": "to desire\\nto caw\\nto crow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रस्",
+    "transliteration": "dhras",
+    "meaning": "to glean\\nto glean\\nto glean",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रेक्",
+    "transliteration": "dhrek",
+    "meaning": "to sound\\nto be filled with joy",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धृ",
+    "transliteration": "dhri",
+    "meaning": "to be\\nto exist\\nto grow old\\nto hold, \\nto owe\\nto hold, \\nto support, \\nto possess, \\nto keep, \\nto seize, \\nto place",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रिज्",
+    "transliteration": "dhrij",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धृज्",
+    "transliteration": "dhrij",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धृष्",
+    "transliteration": "dhrish",
+    "meaning": "to be bold, confident, impudent or impatient\\nto challenge\\nto come \\ntogether, \\nto hurt or injure, \\nto offend\\nto offend, \\nto overcome",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रु",
+    "transliteration": "dhru",
+    "meaning": "to be firm\\nto go\\nto be fixed",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्रुव्",
+    "transliteration": "dhruv",
+    "meaning": "to go\\nto stand firm",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धु",
+    "transliteration": "dhu",
+    "meaning": "to shake\\nto tremble",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धू",
+    "transliteration": "dhu",
+    "meaning": "to shake, \\nto agitate\\nto shake, \\nto excite\\nto shake, \\nto excite\\nto shake\\nto cause \\nto tremble\\nto shake\\nto tremble",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धुक्ष्",
+    "transliteration": "dhuksh",
+    "meaning": "to kindle\\nto be harassed or weary, \\nto live",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धूप्",
+    "transliteration": "dhup",
+    "meaning": "to heat, \\nto fumigate, \\nto perfume, \\nto be heated\\nto speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धूर्",
+    "transliteration": "dhur",
+    "meaning": "to kill, \\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धुर्व्",
+    "transliteration": "dhurv",
+    "meaning": "to injure, hurt or kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "धूश्",
+    "transliteration": "dhush",
+    "meaning": "dhūs to make splendid",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्वज्",
+    "transliteration": "dhvaj",
+    "meaning": "to go\\nto go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्वण्",
+    "transliteration": "dhvan",
+    "meaning": "to sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्वन्",
+    "transliteration": "dhvan",
+    "meaning": "to sound\\nto sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्वांक्ष्",
+    "transliteration": "dhvanksh",
+    "meaning": "to desire\\nto caw\\nto crow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्वृ",
+    "transliteration": "dhvri",
+    "meaning": "to bend\\nto kill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ध्यै",
+    "transliteration": "dhyai",
+    "meaning": "to think of, \\nto meditate, \\nto recollect",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "डी",
+    "transliteration": "di",
+    "meaning": "to fly\\nto fly\\nto pass through the air",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दी",
+    "transliteration": "di",
+    "meaning": "to perish, \\nto decay",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दिधी",
+    "transliteration": "didhi",
+    "meaning": "to shine\\nto appear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दिक्ष्",
+    "transliteration": "diksh",
+    "meaning": "to increase\\nto anoint\\nto soil",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दीक्ष्",
+    "transliteration": "diksh",
+    "meaning": "to be shaved\\nto perform a sacrifice, \\nto invest with a sacred thread\\nto practise self-restraint\\nto teach religious observances\\nto prepare oneself for the performance of a sacred rite\\nto dedicate oneself \\nto",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दिन्व्",
+    "transliteration": "dinv",
+    "meaning": "to be glad or pleased, \\nto gladden, \\nto please",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "डिप्",
+    "transliteration": "dip",
+    "meaning": "to collect, \\nto heap \\ntogether\\nto throw\\nto throw, \\nto send",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दीप्",
+    "transliteration": "dip",
+    "meaning": "to shine, \\nto burn, \\nto be illustrious",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दिश्",
+    "transliteration": "dish",
+    "meaning": "to give\\nto order\\nto tell\\nto show\\nto grant",
+    "voice": "P",
+    "class": 6
+  },
+  {
+    "root": "दिव्",
+    "transliteration": "div",
+    "meaning": "to cause \\nto lament\\nto lament\\nto play with dice or gamble, \\nto desire\\nto overcome, \\nto traffic, \\nto shine, \\nto praise, \\nto be glad, \\nto be mad or drunk, \\nto be sleepy, \\nto wish for, \\nto go\\nto rub",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "द्O",
+    "transliteration": "do",
+    "meaning": "to cut, \\nto mow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "द्रा",
+    "transliteration": "dra",
+    "meaning": "to run, \\nto fly, \\nto be spoiled, \\nto sleep",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "द्राड्",
+    "transliteration": "drad",
+    "meaning": "to cut, \\nto split",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दृश्",
+    "transliteration": "drish",
+    "meaning": "to see\\nto behold\\nto visit\\nto learn\\nto investigate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "दृश्",
+    "transliteration": "drish",
+    "meaning": "to see\\nto behold\\nto visit\\nto learn\\nto investigate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "एज्",
+    "transliteration": "ej",
+    "meaning": "to shine\\nto tremble or shake",
+    "voice": "U",
+    "class": 1
+  },
+  {
+    "root": "गड्",
+    "transliteration": "gad",
+    "meaning": "to distil",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "गद्",
+    "transliteration": "gad",
+    "meaning": "to speak, \\nto say\\nto thunder",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "गम्",
+    "transliteration": "gam",
+    "meaning": "to go",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ग्लै",
+    "transliteration": "glai",
+    "meaning": "to despond, \\nto wane\\nto be fatigued",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ग्रस्",
+    "transliteration": "gras",
+    "meaning": "to eat\\nto devour, \\nto swallow\\nto consume\\nto seize\\nto eclipse\\nto destroy\\nto take, \\nto devour",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "गुह्",
+    "transliteration": "guh",
+    "meaning": "to cover\\nto hide",
+    "voice": "U",
+    "class": 1
+  },
+  {
+    "root": "गुज्",
+    "transliteration": "guj",
+    "meaning": "to hum or buzz\\nto hum or buzz, \\nto sound inarticulately\\nto sound",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "गुप्",
+    "transliteration": "gup",
+    "meaning": "to be confused or disturbed\\nto censure\\nto despise, \\nto hide\\nto protect, \\nto conceal\\nto speak, \\nto conceal, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "हन्",
+    "transliteration": "han",
+    "meaning": "to kill, \\nto go",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "हु",
+    "transliteration": "hu",
+    "meaning": "to sacrifice, \\nto eat, \\nto please",
+    "voice": "P",
+    "class": 3
+  },
+  {
+    "root": "जल्",
+    "transliteration": "jal",
+    "meaning": "to cover\\nto strike, \\nto be rich, \\nto hide\\nto encircle, \\nto be sharp\\nto be cold, stiff, dull, or dumb",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "जल्प्",
+    "transliteration": "jalp",
+    "meaning": "to speak, \\nto prattle, \\nto babble, \\nto murmur, \\nto chatter, \\nto praise",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "जन्",
+    "transliteration": "jan",
+    "meaning": "to be born\\nto be born, \\nto grow, \\nto become",
+    "voice": "A",
+    "class": 4
+  },
+  {
+    "root": "जप्",
+    "transliteration": "jap",
+    "meaning": "to know, \\nto cause \\nto know, \\nto see, \\nto please\\nto mutter, \\nto mediate",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "जि",
+    "transliteration": "ji",
+    "meaning": "to conquer\\nto overcome\\nto surpass, \\nto win, \\nto restrain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ज्वल्",
+    "transliteration": "jval",
+    "meaning": "to blaze\\nto glow\\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "ज्वर्",
+    "transliteration": "jvar",
+    "meaning": "to be hot with fever or passion\\nto be ill",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "कल्",
+    "transliteration": "kal",
+    "meaning": "to go, \\nto count, \\nto hold, \\nto know, \\nto regard\\nto sound\\nto count\\nto throw",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "काल्",
+    "transliteration": "kal",
+    "meaning": "to count the time",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "कम्प्",
+    "transliteration": "kamp",
+    "meaning": "to shake or tremble",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "कठ्",
+    "transliteration": "kath",
+    "meaning": "to drag on the days of life, \\nto live in distress",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "कथ्",
+    "transliteration": "kath",
+    "meaning": "to tell",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "कत्थ्",
+    "transliteration": "katth",
+    "meaning": "to praise\\nto boast\\nto flatter",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "खन्",
+    "transliteration": "khan",
+    "meaning": "to dig up",
+    "voice": "U",
+    "class": 1
+  },
+  {
+    "root": "खेल्",
+    "transliteration": "khel",
+    "meaning": "to shake\\nto tremble\\nto play",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "खिद्",
+    "transliteration": "khid",
+    "meaning": "to be displeased or distressed\\nto be distresed\\nto strike\\nto afflict\\nto be displeased",
+    "voice": "A",
+    "class": 8
+  },
+  {
+    "root": "खिद्",
+    "transliteration": "khid",
+    "meaning": "to be displeased or distressed\\nto be distresed\\nto strike\\nto afflict\\nto be displeased",
+    "voice": "A",
+    "class": 4
+  },
+  {
+    "root": "खिद्",
+    "transliteration": "khid",
+    "meaning": "to be displeased or distressed\\nto be distresed\\nto strike\\nto afflict\\nto be displeased",
+    "voice": "P",
+    "class": 6
+  },
+  {
+    "root": "क्रम्",
+    "transliteration": "kram",
+    "meaning": "to walk\\nto step\\nto go, \\nto cross\\nto leap\\nto ascend",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "क्रन्द्",
+    "transliteration": "krand",
+    "meaning": "to call out\\nto cry\\nto cry out continually\\nto lament\\nto grieve",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "क्रन्द्",
+    "transliteration": "krand",
+    "meaning": "to call out\\nto cry\\nto cry out continually\\nto lament\\nto grieve",
+    "voice": "U",
+    "class": 1
+  },
+  {
+    "root": "कृ",
+    "transliteration": "kri",
+    "meaning": "to do, \\nto make\\nto kill, \\nto hurt\\nto kill\\nto scatter\\nto throw",
+    "voice": "P",
+    "class": 8
+  },
+  {
+    "root": "कृ",
+    "transliteration": "kri",
+    "meaning": "to do, \\nto make\\nto kill, \\nto hurt\\nto kill\\nto scatter\\nto throw",
+    "voice": "P",
+    "class": 8
+  },
+  {
+    "root": "क्री",
+    "transliteration": "kri",
+    "meaning": "to buy",
+    "voice": "P",
+    "class": 8
+  },
+  {
+    "root": "क्री",
+    "transliteration": "kri",
+    "meaning": "to buy",
+    "voice": "P",
+    "class": 8
+  },
+  {
+    "root": "क्रुध्",
+    "transliteration": "krudh",
+    "meaning": "to be angry",
+    "voice": "P",
+    "class": 4
+  },
+  {
+    "root": "कु",
+    "transliteration": "ku",
+    "meaning": "to hum\\nto moan\\nto sound",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "कू",
+    "transliteration": "ku",
+    "meaning": "to sound\\nto sound\\nto groan",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "कुप्",
+    "transliteration": "kup",
+    "meaning": "to be angry\\nto speak, \\nto shine",
+    "voice": "P",
+    "class": 4
+  },
+  {
+    "root": "लभ्",
+    "transliteration": "labh",
+    "meaning": "to get, \\nto obtain, \\nto take, \\nto have \\nto find, \\nto be able, \\nto know",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "लाभ्",
+    "transliteration": "labh",
+    "meaning": "to throw, \\nto direct",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "नम्",
+    "transliteration": "nam",
+    "meaning": "to salute\\nto sink\\nto bend",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "नन्द्",
+    "transliteration": "nand",
+    "meaning": "to be glad or satisfied",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "पच्",
+    "transliteration": "pach",
+    "meaning": "to cook\\nto bake, \\nto burn\\nto digest, \\nto ripen, \\nto develop\\nto make clear\\nto spread, \\nto make clear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "पच्",
+    "transliteration": "pach",
+    "meaning": "to cook\\nto bake, \\nto burn\\nto digest, \\nto ripen, \\nto develop\\nto make clear\\nto spread, \\nto make clear",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "रस्",
+    "transliteration": "ras",
+    "meaning": "to roar, \\nto cry, \\nto make noise, \\nto praise\\nto taste, \\nto relish, \\nto love",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "रुच्",
+    "transliteration": "ruch",
+    "meaning": "to shine, \\nto please, \\nto like, \\nto appear good",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "सह्",
+    "transliteration": "sah",
+    "meaning": "to forbear, \\nto be able\\nto satisfy, \\nto be plesed\\nto suffer, \\nto forbear, \\nto be patient, \\nto wait, \\nto be able \\nto resist, \\nto conquer, \\nto s\\ntop",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "सेव्",
+    "transliteration": "sev",
+    "meaning": "to serve, \\nto honour, \\nto follow, \\nto use, \\nto enjoy, \\nto cultivate, \\nto practise, \\nto devote oneself \\nto, \\nto inhabit, \\nto frequent, \\nto guard, \\nto protect",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "श्रु",
+    "transliteration": "shru",
+    "meaning": "to go, \\nto move",
+    "voice": "P",
+    "class": 5
+  },
+  {
+    "root": "स्खल्",
+    "transliteration": "skhal",
+    "meaning": "to stumble, \\nto \\ntotter, \\nto deviate, \\nto blunder, \\nto err, \\nto stammer, \\nto drop",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्ना",
+    "transliteration": "sna",
+    "meaning": "to bathe",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "स्ना",
+    "transliteration": "sna",
+    "meaning": "to bathe",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "स्निह्",
+    "transliteration": "snih",
+    "meaning": "to feel affection for, \\nto love, \\nto be kind \\nto\\nto love, \\nto account, \\nto dissolve",
+    "voice": "P",
+    "class": 4
+  },
+  {
+    "root": "स्फुर्",
+    "transliteration": "sphur",
+    "meaning": "to throb, \\nto palpitate, \\nto become agitated, \\nto start, \\nto appear clearly, \\nto flash",
+    "voice": "P",
+    "class": 6
+  },
+  {
+    "root": "स्रंस्",
+    "transliteration": "srans",
+    "meaning": "to fall down, \\nto drop, \\nto slip off\\nto hang down",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "सृज्",
+    "transliteration": "srij",
+    "meaning": "to be abandoned, \\nto drop\\nto leave, \\nto create, \\nto let loose, \\nto let off, \\nto throw, \\nto produce, \\nto put on",
+    "voice": "P",
+    "class": 6
+  },
+  {
+    "root": "स्रु",
+    "transliteration": "sru",
+    "meaning": "to go, \\nto flow",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्तन्",
+    "transliteration": "stan",
+    "meaning": "to sound, \\nto thunder\\nto thunder",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्था",
+    "transliteration": "stha",
+    "meaning": "to stand, \\nto stay, \\nto be",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्था",
+    "transliteration": "stha",
+    "meaning": "to stand, \\nto stay, \\nto be",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्तु",
+    "transliteration": "stu",
+    "meaning": "to cover\\nto praise, \\nto glorify, \\nto worship by hymns",
+    "voice": "U",
+    "class": 2
+  },
+  {
+    "root": "सुख्",
+    "transliteration": "sukh",
+    "meaning": "to make happy",
+    "voice": "U",
+    "class": 10
+  },
+  {
+    "root": "स्वन्",
+    "transliteration": "svan",
+    "meaning": "to deck, \\nto adorn\\nto sound, \\nto sing",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "स्वप्",
+    "transliteration": "svap",
+    "meaning": "to sleep, \\nto lie down",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "स्विद्",
+    "transliteration": "svid",
+    "meaning": "to be greedy, \\nto perspire, \\nto be disturbed, \\nto quit\\nto perspire",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "स्विद्",
+    "transliteration": "svid",
+    "meaning": "to be greedy, \\nto perspire, \\nto be disturbed, \\nto quit\\nto perspire",
+    "voice": "P",
+    "class": 4
+  },
+  {
+    "root": "स्यन्द्",
+    "transliteration": "syand",
+    "meaning": "to ooze, \\nto feel\\nto throb, \\nto quiver",
+    "voice": "A",
+    "class": 1
+  },
+  {
+    "root": "उज्झ्",
+    "transliteration": "ujjh",
+    "meaning": "to abandon\\nto leave",
+    "voice": "P",
+    "class": 6
+  },
+  {
+    "root": "वच्",
+    "transliteration": "vach",
+    "meaning": "to deceive\\nto go\\nto speak, \\nto tell, \\nto read\\nto speak\\nto read\\nto name\\nto call\\nto announce",
+    "voice": "P",
+    "class": 2
+  },
+  {
+    "root": "वृ",
+    "transliteration": "vri",
+    "meaning": "to choose\\nto select\\nto choose\\nto solicit\\nto cover\\nto surround\\nto restrain\\nto cover, \\nto conceal\\nto cover\\nto conceal\\nto serve\\nto worship",
+    "voice": "P",
+    "class": 5
+  },
+  {
+    "root": "व्री",
+    "transliteration": "vri",
+    "meaning": "to choose\\nto choose, \\nto select, \\nto hold, \\nto go",
+    "voice": "P",
+    "class": 5
+  },
+  {
+    "root": "वृध्",
+    "transliteration": "vridh",
+    "meaning": "to incrase, \\nto grow, \\nto continue, \\nto become joyful",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "वृश्",
+    "transliteration": "vrish",
+    "meaning": "to choose, \\nto like",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "वृष्",
+    "transliteration": "vrish",
+    "meaning": "to have the power of production\\nto rain, \\nto sprinkle, \\nto kill, \\nto afflict, \\nto give pain",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "वृत्",
+    "transliteration": "vrit",
+    "meaning": "to be\\nto happen\\nto be presen\\nto act\\nto tend \\nto\\nto choose, \\nto like\\nto speak, \\nto shine",
+    "voice": "P",
+    "class": 1
+  },
+  {
+    "root": "युध्",
+    "transliteration": "yudh",
+    "meaning": "to fight, \\nto contend with",
+    "voice": "A",
+    "class": 4
+  },
+  {
+    "root": "युध्",
+    "transliteration": "yudh",
+    "meaning": "to fight, \\nto contend with",
+    "voice": "A",
+    "class": 4
+  }
+]

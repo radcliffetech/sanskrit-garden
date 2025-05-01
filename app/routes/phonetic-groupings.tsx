@@ -20,7 +20,7 @@ export default function Alphabet() {
 
   return (
     <PageFrame>
-      <PageHeader>Lexical Treasury (अक्षरकोशः)</PageHeader>
+      <PageHeader>Phonetic Groupings (ध्वनिवर्गाः)</PageHeader>
       <p className="w-100 text-gray-600 space-y-4 text-lg mb-10">
         Explore the phonetic structure of Sanskrit through various categorical
         lenses.

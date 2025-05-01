@@ -75,7 +75,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 @layer utilities {
   .animate-fade-in {
-    animation: fadeIn 0.4s ease-out forwards;
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in-still {
+    animation: fadeInStill 0.5s ease-out forwards;
   }
 
   @keyframes fadeIn {
@@ -86,6 +90,15 @@ h1, h2, h3, h4, h5, h6 {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInStill {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 }
