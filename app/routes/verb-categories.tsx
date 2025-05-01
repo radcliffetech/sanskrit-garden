@@ -16,11 +16,7 @@ export default function DhatuCatalogRoute() {
 
   return (
     <PageFrame>
-      <PageHeader>Dhātu Catalog</PageHeader>
-      <p className="w-100 text-gray-600 space-y-4 text-lg mb-10">
-        Explore an indexed list of Sanskrit verb roots (dhātus), grouped by
-        class, voice, and transitivity.
-      </p>
+      <PageHeader>Dhatu Categories (धातुगणाः)</PageHeader>
       <DhatuCatalogContainer entries={entries} />
     </PageFrame>
   );

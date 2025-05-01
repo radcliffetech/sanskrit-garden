@@ -12,8 +12,8 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    to: "/lexical-treasury",
-    label: "Lexical Treasury",
+    to: "/phonetic-groupings",
+    label: "Phonetic Groupings",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description:
       "Explore the phonetic structure of Sanskrit through various categorical lenses.",
@@ -61,9 +61,16 @@ const features: Feature[] = [
   },
   {
     to: "/dhatu-tree",
-    label: "Dhatu Tree",
+    label: "Dhatu Evolution",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the evolution of dhatus (roots) in Sanskrit.",
+    category: "explore",
+  },
+  {
+    "to": "/verb-categories",
+    label: "Dhatu Categories",
+    icon: <StarIcon className="h-6 w-6 text-purple-200" />,
+    description: "Explore the categories of verbs in Sanskrit.",
     category: "explore",
   },
   {
