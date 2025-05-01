@@ -16,6 +16,11 @@ export default function DhatuTreePage() {
   return (
     <PageFrame>
       <PageHeader>Dhātu Evolution (धातवः)</PageHeader>
+      <p className="w-100 text-gray-600 space-y-4 text-lg mb-10">
+        Sanskrit verb roots evolve into a wide variety of forms. Select a root
+        to view examples -present tense, participles, gerunds, and related noun
+        forms—each broken down into their morphological components.
+      </p>
       <DhatuTreesContainer trees={trees} />
     </PageFrame>
   );

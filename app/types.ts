@@ -108,7 +108,7 @@ export type DhatuTree = {
       transliteration: string; // e.g. "gacchati"
       path: string[]; // e.g. ["गम्", "+", "छ", "+", "ति"]
       pathIAST: string[]; // e.g. ["gam", "+", "cha", "+", "ti"]
-      meaning?: string;
+      meanings?: string[];
     }[];
   }[];
 };

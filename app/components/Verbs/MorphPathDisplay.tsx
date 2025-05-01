@@ -7,8 +7,10 @@ export function MorphPathDisplay({ derivation }: { derivation: MorphDerivation }
     <div className="space-y-2 mb-4">
       <div className="text-2xl font-bold text-gray-900">{derivation.form}</div>
       <div className="text-gray-500 italic text-sm">{derivation.transliteration}</div>
-      {derivation.meaning && (
-        <div className="text-sm text-gray-600">{derivation.meaning}</div>
+      {derivation.meanings && derivation.meanings.length > 0 && (
+        <div className="text-sm text-gray-600">
+          {derivation.meanings.join(", ")}
+        </div>
       )}
       <div className="flex flex-wrap items-center gap-1 mt-2 text-lg">
         {derivation.path.map((part, i) => (

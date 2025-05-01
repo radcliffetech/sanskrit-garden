@@ -1,22 +1,48 @@
 import type { DhatuTree } from "~/types";
+import { FadeIn } from "../Shared";
 import { MorphPathDisplay } from "./MorphPathDisplay";
+import { useState } from "react";
 
 export function DhatuTreeDisplay({ dhatu }: { dhatu: DhatuTree }) {
+  const [activeLabel, setActiveLabel] = useState<string | null>(null);
+
   return (
     <div className="space-y-6">
       <div className="text-4xl font-bold text-gray-800">{dhatu.root}</div>
-      <div className="text-lg text-gray-600 italic">({dhatu.meaning}) • Class {dhatu.class}</div>
+      <div className="text-lg text-gray-600 italic">
+        ({dhatu.meaning}) • Class {dhatu.class}
+      </div>
 
-      {dhatu.forms.map((form) => (
-  <div key={form.label} className="space-y-3">
-    <h3 className="text-xl font-semibold text-gray-700">{form.label}</h3>
-    <div className="space-y-4">
-      {form.derivations.map((d) => (
-        <MorphPathDisplay key={d.form} derivation={d} />
-      ))}
-    </div>
-  </div>
-))}
+      <div className="flex flex-wrap gap-2 mb-6">
+        {dhatu.forms.map((form) => (
+          <button
+            key={form.label}
+            onClick={() =>
+              setActiveLabel(activeLabel === form.label ? null : form.label)
+            }
+            className={`pill-lg ${
+              activeLabel === form.label ? "highlight-1" : "pill-inactive"
+            }`}
+          >
+            {form.label}
+          </button>
+        ))}
+      </div>
+
+      {dhatu.forms
+        .filter((form) => form.label === activeLabel)
+        .map((form) => (
+          <div
+            key={form.label}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {form.derivations.map((d) => (
+              <FadeIn key={d.form}>
+                <MorphPathDisplay key={d.form} derivation={d} />
+              </FadeIn>
+            ))}
+          </div>
+        ))}
     </div>
   );
 }
