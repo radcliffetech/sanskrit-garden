@@ -67,7 +67,7 @@ const features: Feature[] = [
     category: "explore",
   },
   {
-    "to": "/verb-categories",
+    "to": "/dhatu-categories",
     label: "Dhatu Categories",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the categories of verbs in Sanskrit.",

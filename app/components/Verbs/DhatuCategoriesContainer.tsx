@@ -7,14 +7,8 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { isFiltered } from "~/utils/dhatuFilters";
 import { useState } from "react";
 
-const dhatuCardBase =
-  "w-20 h-20 rounded border shadow-sm transition cursor-pointer flex items-center justify-center hover:highlight-1 active:scale-95";
-const dhatuCardFiltered = `${dhatuCardBase} bg-white hover:shadow-md`;
-const dhatuCardOther = `${dhatuCardBase} bg-white hover:shadow-md`;
-
-const dhatuRootFiltered = "text-lg";
+const dhatuCardOther = `w-20 h-20 rounded border shadow-sm transition cursor-pointer flex items-center justify-center hover:highlight-1 active:scale-95 bg-white hover:shadow-md`;
 const dhatuRootDefault = "text-lg";
-
 const dhatuGrid =
   "grid grid-cols-[repeat(auto-fit,minmax(5rem,1fr))] gap-1 justify-center";
 
@@ -145,119 +139,6 @@ function DhatuCatalogFilterPanel({
           </FadeIn>
         )}
       </div>
-
-      {/* <div>
-        <div className="flex items-start justify-between min-h-[2.5rem]">
-          <div className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-3">
-            Voice
-            <span
-              data-tooltip-id="dhatu-filter-tooltip"
-              data-tooltip-content="Voice: P = Parasmaipada, A = Atmanepada, U = Ubhayapadi"
-              className="text-gray-400 cursor-pointer"
-            >
-              <InformationCircleIcon className="h-4 w-4" />
-            </span>
-          </div>
-          {filters.voice && (
-            <div className="text-right text-xs text-gray-500 space-y-1 max-w-[30rem] transition-opacity duration-500 opacity-100">
-              {filters.voice === "P" && (
-                <p>
-                  Parasmaipada (P): action affects something external (active
-                  voice).
-                </p>
-              )}
-              {filters.voice === "A" && (
-                <p>
-                  Atmanepada (A): action reflects back on the subject (middle
-                  voice).
-                </p>
-              )}
-              {filters.voice === "U" && (
-                <p>
-                  Ubhayapadi (U): can conjugate in both Parasmaipada and
-                  Atmanepada voices.
-                </p>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {["P", "A", "U"].map((v) => (
-            <button
-              key={v}
-              className={`pill-lg ${
-                filters.voice === v ? "highlight-1" : "pill-inactive"
-              }`}
-              onClick={() =>
-                setFilters((f) => ({
-                  ...f,
-                  voice: f.voice === v ? null : (v as "P" | "A" | "U"),
-                }))
-              }
-            >
-              {v}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <div className="flex items-start justify-between min-h-[2.5rem]">
-          <div className="text-sm font-medium text-gray-700 mb-2 flex items-center gap-3">
-            Transitivity
-            <span
-              data-tooltip-id="dhatu-filter-tooltip"
-              data-tooltip-content="Grammatical transitivity of the verb"
-              className="text-gray-400 cursor-pointer"
-            >
-              <InformationCircleIcon className="h-4 w-4" />
-            </span>
-          </div>
-          {filters.transitivity && (
-            <div className="text-right text-xs text-gray-500 space-y-1 max-w-[30rem] transition-opacity duration-500 opacity-100">
-              {filters.transitivity === "transitive" && (
-                <p>
-                  Transitive verbs take a direct object (e.g. 'He sees a tree').
-                </p>
-              )}
-              {filters.transitivity === "intransitive" && (
-                <p>
-                  Intransitive verbs do not require a direct object (e.g. 'He
-                  runs').
-                </p>
-              )}
-              {filters.transitivity === "both" && (
-                <p>
-                  These verbs may be used transitively or intransitively
-                  depending on context.
-                </p>
-              )}
-            </div>
-          )}
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {["transitive", "intransitive", "both"].map((t) => (
-            <button
-              key={t}
-              className={`pill-lg ${
-                filters.transitivity === t ? "highlight-1" : "pill-inactive"
-              }`}
-              onClick={() =>
-                setFilters((f) => ({
-                  ...f,
-                  transitivity:
-                    f.transitivity === t
-                      ? null
-                      : (t as "transitive" | "intransitive" | "both"),
-                }))
-              }
-            >
-              {t}
-            </button>
-          ))}
-        </div>
-      </div> */}
-
       <Tooltip id="dhatu-filter-tooltip" place="right" />
     </div>
   );
@@ -279,7 +160,7 @@ function DhatuGridAll({
   return (
     <div className="max-w-screen-xl mx-auto">
       <h3 className="text-sm font-semibold text-gray-600 mb-2">
-      Dhātus ({entries.length.toLocaleString("en-IN")})
+        Dhātus ({entries.length.toLocaleString("en-IN")})
       </h3>
       <div className={dhatuGrid}>
         {entries.map((dhatu, i) => (
@@ -287,7 +168,10 @@ function DhatuGridAll({
             key={`${dhatu.root}-${dhatu.class}-all-${i}`}
             onClick={() => setSelected(dhatu)}
             className={
-              dhatuCardOther + (selected?.root === dhatu.root ? " highlight-1 ring-1 ring-purple-400" : "")
+              dhatuCardOther +
+              (selected?.root === dhatu.root
+                ? " highlight-1 ring-1 ring-purple-400"
+                : "")
             }
           >
             <div className={dhatuRootDefault}>{dhatu.root}</div>
@@ -327,7 +211,10 @@ function DhatuGridFiltered({
             key={`${dhatu.root}-${dhatu.class}-match-${i}`}
             onClick={() => setSelected(dhatu)}
             className={
-              dhatuCardOther + (selected?.root === dhatu.root ? " highlight-1 ring-1 ring-purple-400" : "")
+              dhatuCardOther +
+              (selected?.root === dhatu.root
+                ? " highlight-1 ring-1 ring-purple-400"
+                : "")
             }
           >
             <div className={dhatuRootDefault}>{dhatu.root}</div>
@@ -393,11 +280,19 @@ export function DhatuCatalogContainer({
 
       {!hasFilters ? (
         <FadeIn key="all">
-          <DhatuGridAll entries={entries} setSelected={setSelected} selected={selected} />
+          <DhatuGridAll
+            entries={entries}
+            setSelected={setSelected}
+            selected={selected}
+          />
         </FadeIn>
       ) : (
         <FadeIn key="filtered">
-          <DhatuGridFiltered filtered={filtered} setSelected={setSelected} selected={selected} />
+          <DhatuGridFiltered
+            filtered={filtered}
+            setSelected={setSelected}
+            selected={selected}
+          />
         </FadeIn>
       )}
 

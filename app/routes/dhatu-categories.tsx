@@ -1,6 +1,6 @@
 import { PageFrame, PageHeader } from "~/components/Layout";
 
-import { DhatuCatalogContainer } from "~/components/Verbs/DhatuCatalogContainer";
+import { DhatuCatalogContainer } from "~/components/Verbs/DhatuCategoriesContainer";
 import type { DhatuCatalogEntry } from "~/types";
 import type { LoaderFunctionArgs } from "@remix-run/node";
 import dhatuIndex from "~/data/verbs/dhatu-index.json";

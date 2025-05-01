@@ -13,7 +13,7 @@ export const navigationConfig = [
     dropdown: [
       { label: "Phonetic Groupings (ध्वनिवर्गाः)", href: "/phonetic-groupings" },
       { label: "Dhatu Evolution (धातवः)", href: "/dhatu-tree" },
-      { label: "Dhatu Categories (धातुगणाः)", href: "/verb-categories" },
+      { label: "Dhatu Categories (धातुगणाः)", href: "/dhatu-categories" },
       { separator: true },
       { label: "AI Explainer (यन्त्रविवचकः)", href: "/explain-concept" },
       { label: "AI Storyteller (यन्त्रकथकः)", href: "/storyteller" },

@@ -1,12 +1,16 @@
+
+
 import csv
+
 import json
 import indic_transliteration
 from indic_transliteration import sanscript
 from indic_transliteration.sanscript import transliterate
 from indic_transliteration.sanscript import transliterate, SLP1, IAST
 
-csv_path = 'dhatupatha.csv'
-json_path = 'dhatupatha.json'
+
+csv_path = 'data/dhatupatha.csv'
+json_path = 'tmp/dhatupatha.json'
 
 dhatus = []
 
@@ -31,8 +35,8 @@ with open(csv_path, newline='', encoding='utf-8') as csvfile:
         
         def slp1_to_normalized_iast(slp1):
             iast = transliterate(slp1, SLP1, IAST)
-            if iast.endswith("~"):
-                iast = iast[:-1] + "ṁ"
+            # if iast.endswith("~"):
+            #     iast = iast[:-1] + "ṁ"
             return iast
         
 
