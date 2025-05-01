@@ -1,0 +1,36 @@
+
+
+[
+  {
+    "root": "गम्",
+    "meaning": "to go",
+    "class": 1,
+    "forms": [
+      {
+        "label": "Present Tense",
+        "type": "verb",
+        "items": ["गच्छति", "गच्छसि", "गच्छामि"]
+      },
+      {
+        "label": "Imperative",
+        "type": "verb",
+        "items": ["गच्छ", "गच्छतु", "गच्छाव"]
+      },
+      {
+        "label": "Participles (Present)",
+        "type": "participle",
+        "items": ["गच्छन्", "गच्छन्ती"]
+      },
+      {
+        "label": "Gerund",
+        "type": "gerund",
+        "items": ["गत्वा", "गमित्वा"]
+      },
+      {
+        "label": "Nouns",
+        "type": "noun",
+        "items": ["गमनम्", "गतिः"]
+      }
+    ]
+  }
+]

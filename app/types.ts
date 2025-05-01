@@ -94,3 +94,15 @@ export type StorySegment = {
       [person: string]: [string, string, string]; // [singular, dual, plural]
     };
   };
+
+
+export type DhatuTree = {
+  root: string; // "गम्"
+  meaning: string; // "to go"
+  class: number; // verb class, e.g., 1
+  forms: {
+    label: string; // e.g., "Present Tense"
+    type: "verb" | "participle" | "noun" | "gerund";
+    items: string[];
+  }[];
+};
