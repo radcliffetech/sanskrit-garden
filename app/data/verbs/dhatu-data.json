@@ -9,27 +9,105 @@
       {
         "label": "Present Tense",
         "type": "verb",
-        "items": ["गच्छति", "गच्छसि", "गच्छामि"]
+        "derivations": [
+          {
+            "form": "गच्छति",
+            "transliteration": "gacchati",
+            "path": ["गम्", "+", "छ", "+", "ति"],
+            "pathIAST": ["gam", "+", "cha", "+", "ti"],
+            "meaning": "he/she/it goes"
+          },
+          {
+            "form": "गच्छसि",
+            "transliteration": "gacchasi",
+            "path": ["गम्", "+", "छ", "+", "सि"],
+            "pathIAST": ["gam", "+", "cha", "+", "si"]
+          },
+          {
+            "form": "गच्छामि",
+            "transliteration": "gacchāmi",
+            "path": ["गम्", "+", "छ", "+", "आमि"],
+            "pathIAST": ["gam", "+", "cha", "+", "āmi"]
+          }
+        ]
       },
       {
         "label": "Imperative",
         "type": "verb",
-        "items": ["गच्छ", "गच्छतु", "गच्छाव"]
+        "derivations": [
+          {
+            "form": "गच्छ",
+            "transliteration": "gaccha",
+            "path": ["गम्", "+", "छ"],
+            "pathIAST": ["gam", "+", "cha"]
+          },
+          {
+            "form": "गच्छतु",
+            "transliteration": "gacchatu",
+            "path": ["गम्", "+", "छ", "+", "तु"],
+            "pathIAST": ["gam", "+", "cha", "+", "tu"]
+          },
+          {
+            "form": "गच्छाव",
+            "transliteration": "gacchāva",
+            "path": ["गम्", "+", "छ", "+", "आव"],
+            "pathIAST": ["gam", "+", "cha", "+", "āv"]
+          }
+        ]
       },
       {
         "label": "Participles (Present)",
         "type": "participle",
-        "items": ["गच्छन्", "गच्छन्ती"]
+        "derivations": [
+          {
+            "form": "गच्छन्",
+            "transliteration": "gacchan",
+            "path": ["गम्", "+", "छ", "+", "न्"],
+            "pathIAST": ["gam", "+", "cha", "+", "n"]
+          },
+          {
+            "form": "गच्छन्ती",
+            "transliteration": "gacchantī",
+            "path": ["गम्", "+", "छ", "+", "न्ती"],
+            "pathIAST": ["gam", "+", "cha", "+", "ntī"]
+          }
+        ]
       },
       {
         "label": "Gerund",
         "type": "gerund",
-        "items": ["गत्वा", "गमित्वा"]
+        "derivations": [
+          {
+            "form": "गत्वा",
+            "transliteration": "gatvā",
+            "path": ["गम्", "+", "त्वा"],
+            "pathIAST": ["gam", "+", "tvā"]
+          },
+          {
+            "form": "गमित्वा",
+            "transliteration": "gamitvā",
+            "path": ["गम्", "+", "इ", "+", "त्वा"],
+            "pathIAST": ["gam", "+", "i", "+", "tvā"]
+          }
+        ]
       },
       {
         "label": "Nouns",
         "type": "noun",
-        "items": ["गमनम्", "गतिः"]
+        "derivations": [
+          {
+            "form": "गमनम्",
+            "transliteration": "gamanaṁ",
+            "path": ["गम्", "+", "अन", "+", "म्"],
+            "pathIAST": ["gam", "+", "ana", "+", "m"]
+          },
+          {
+            "form": "गतिः",
+            "transliteration": "gatiḥ",
+            "path": ["गम्", "+", "ति", "+", "ः"],
+            "pathIAST": ["gam", "+", "ti", "+", "ḥ"]
+          }
+        ]
       }
     ]
   }

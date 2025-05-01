@@ -101,8 +101,14 @@ export type DhatuTree = {
   meaning: string; // "to go"
   class: number; // verb class, e.g., 1
   forms: {
-    label: string; // e.g., "Present Tense"
+    label: string;
     type: "verb" | "participle" | "noun" | "gerund";
-    items: string[];
+    derivations: {
+      form: string; // e.g. "गच्छति"
+      transliteration: string; // e.g. "gacchati"
+      path: string[]; // e.g. ["गम्", "+", "छ", "+", "ति"]
+      pathIAST: string[]; // e.g. ["gam", "+", "cha", "+", "ti"]
+      meaning?: string;
+    }[];
   }[];
 };

@@ -15,7 +15,7 @@ export default function DhatuTreePage() {
   const trees = useLoaderData<typeof loader>();
   return (
     <PageFrame>
-      <PageHeader>धातवः — Dhātu Evolution</PageHeader>
+      <PageHeader>Dhātu Evolution (धातवः)</PageHeader>
       <DhatuTreesContainer trees={trees} />
     </PageFrame>
   );
