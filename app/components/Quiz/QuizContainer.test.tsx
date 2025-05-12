@@ -2,7 +2,7 @@ import * as remix from "@remix-run/react";
 
 import { fireEvent, render, screen } from "@testing-library/react";
 
-import { QuizContainer } from "../QuizContainer";
+import { QuizContainer } from "./QuizContainer";
 
 jest.mock("@remix-run/react", () => ({
   useLoaderData: jest.fn(),

@@ -1,5 +1,5 @@
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
 import TextsHomeContainer from "~/components/Texts/TextsHomeContainer";
 
 export default function TextsIndex() {

@@ -1,8 +1,8 @@
-import { PageFrame, PageHeader } from "~/components/Layout";
-
 import type { DhatuTree } from "~/types";
 import { DhatuTreesContainer } from "~/components/Verbs/DhatuTreesContainer";
 import type { LoaderFunctionArgs } from "@remix-run/node";
+import { PageFrame } from '~/ui/layout/PageFrame';
+import { PageHeader } from '~/ui/layout/PageHeader';
 import dhatuData from "~/data/verbs/dhatu-data.json";
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";

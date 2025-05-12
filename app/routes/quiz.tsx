@@ -1,6 +1,6 @@
 import { LoaderFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout";
+import { PageFrame } from '~/ui/layout/PageFrame';
+import { PageHeader } from '~/ui/layout/PageHeader';
 import {QuizContainer} from "~/components/Quiz/QuizContainer";
 import { getQuizQuestions } from "~/lib/loader/quiz";
 

@@ -1,4 +1,4 @@
-import { defaultStoryProfileJson, sanskritTeacherProfileJson } from "./storyteller-profiles"
+import { defaultStoryProfileJson, sanskritTeacherProfileJson } from "../data/storyteller-profiles"
 
 import OpenAI from "openai";
 

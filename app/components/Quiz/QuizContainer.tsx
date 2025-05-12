@@ -1,6 +1,6 @@
 import type { Difficulty, QuizQuestion } from "~/types";
 
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageHeader } from "~/ui/layout/PageHeader";
 import { QuizForm } from "./QuizForm";
 import { QuizResult } from "./QuizResult";
 import { QuizStart } from "./QuizStart";

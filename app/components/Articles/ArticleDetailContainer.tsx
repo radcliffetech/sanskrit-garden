@@ -1,6 +1,6 @@
 import type { Article } from "~/types";
 import { BackLink } from "../Shared/BackLink";
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageHeader } from "~/ui/layout/PageHeader";
 import { RenderMarkdown } from "~/components/Shared/RenderMarkdown";
 
 interface Props {

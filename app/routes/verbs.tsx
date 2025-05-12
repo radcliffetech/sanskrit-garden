@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { PageFrame, PageHeader } from "~/components/Layout";
 
+import { PageFrame } from '~/ui/layout/PageFrame';
+import { PageHeader } from '~/ui/layout/PageHeader';
 import type { VerbShabda } from "~/types";
 import { VerbsContainer } from "~/components/Verbs/VerbsContainer";
 import sampleShabdas from "~/data/verbs/verb-data.json";

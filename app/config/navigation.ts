@@ -1,4 +1,15 @@
-export const navigationConfig = [
+type NavigationItem = (
+  | {
+      label: string;
+      dropdown: { label?: string; href?: string; separator?: boolean }[];
+    }
+  | {
+      label: string;
+      href: string;
+    }
+)[];
+
+export const navigationConfig: NavigationItem = [
   {
     label: "Sanskrit (संस्कृतम्)",
     dropdown: [

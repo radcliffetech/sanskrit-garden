@@ -1,6 +1,6 @@
 import ExplainerContainer from "~/components/Explainer/ExplainerContainer";
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
 
 export default function ExplainConcept() {
     return (

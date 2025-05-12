@@ -1,5 +1,5 @@
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
 import type { Verse } from "~/types";
 import { VerseList } from "~/components/Texts/VerseList";
 interface Props {

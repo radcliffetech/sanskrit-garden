@@ -1,6 +1,7 @@
 import { LoaderFunctionArgs, json } from "@remix-run/node";
-import { PageFrame, PageHeader } from "~/components/Layout";
 
+import { PageFrame } from '~/ui/layout/PageFrame';
+import { PageHeader } from '~/ui/layout/PageHeader';
 import type { Shabda } from "~/types";
 import { ShabdaContainer } from "~/components/Shabda/ShabdaContainer";
 import sampleShabdas from "~/data/shabdas/masculine-a-stem.json";

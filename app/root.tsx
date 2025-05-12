@@ -1,4 +1,4 @@
-import './styles/tailwind.css';
+import "~/styles/tailwind.css";
 
 import {
   Links,
@@ -8,47 +8,43 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
-import type { LinksFunction } from "@remix-run/node";
-import { SystemFooter } from './components/Layout/SystemFooter';
-import { SystemNavbar } from '~/components/Layout/SystemNavbar';
-
-export const links: LinksFunction = () => [
-  { rel: "preconnect", href: "https://fonts.googleapis.com" },
-  {
-    rel: "preconnect",
-    href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
-  },
-  {
-    rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
-];
+import { AppFooter } from "~/ui/layout/AppFooter";
+import { AuthProvider } from "~/ui/auth/AuthProvider";
+import { ConfirmDialogProvider } from "~/ui/feedback/ConfirmDialogProvider";
+import { SystemNavbar } from "~/ui/layout/SystemNavbar";
+import { Toaster } from "react-hot-toast";
+import nexusConfig from "./config/nexus.config";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
         <meta charSet="utf-8" />
+        <title>{nexusConfig.siteTitle}</title>
+        <meta name="description" content={nexusConfig.siteDescription} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <title>Sanskrit Garden</title>
         <Meta />
         <Links />
       </head>
       <body className="flex flex-col min-h-screen">
-        <SystemNavbar />
-        <div className="flex-grow">
-          {children}
-        </div>
-        <SystemFooter />
-        <Scripts />
-        <ScrollRestoration />
+        <Toaster position="top-right" />
+        <AuthProvider>
+          <SystemNavbar />
+          <div className="banner-strip"></div> {/* Added banner strip */}
+          <main className="flex-1">{children}</main>
+          <AppFooter />
+          <ScrollRestoration />
+          <Scripts />
+        </AuthProvider>
       </body>
     </html>
   );
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <ConfirmDialogProvider>
+      <Outlet />
+    </ConfirmDialogProvider>
+  );
 }
