@@ -3,63 +3,74 @@
 ![CI](https://github.com/radcliffetech/sanskrit-garden/actions/workflows/ci.yml/badge.svg)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Sanskrit Garden is a creative learning and exploration tool for Sanskrit language, literature, and spiritual philosophy. The app blends modern web technologies with classical Sanskrit sources to provide interactive features, AI-powered tools, and an engaging educational experience.
+**Sanskrit Garden** is an interactive web application for learning Sanskrit language, engaging with classic texts, and exploring spiritual philosophy. It combines modern web technologies with classical knowledge to create a compelling educational experience.
 
-## Development
+---
 
-To start the development server, run the following command:
+## 🛠 Getting Started
 
-```bash
-npm run dev
-```
-
-This will start the app locally and you can begin editing the source files.
-
-## Deployment
-
-To deploy your app, first build it for production:
+Install dependencies:
 
 ```bash
-npm run build
+pnpm install
 ```
 
-Then, run the app in production mode:
+Start the development server:
 
 ```bash
-npm start
+pnpm dev
 ```
 
-## Features
+---
 
-- 📚 Explore classic Sanskrit texts such as the Nirvāṇaṣaṭkam, Ribhu Gītā, and Ganesha Pañcharatnam
-- 🤖 Use the AI-powered Concept Explainer to understand spiritual ideas
-- 🧠 Quiz yourself on Sanskrit grammar and philosophy with adaptive difficulty
-- 📖 Learn the Sanskrit alphabet through a scientific layout and phonetic analysis
-- 🗣️ Generate personalized myths using the AI Storyteller
-- ⚙️ Built with Remix, Tailwind CSS, TypeScript, and Firebase
-- ✅ Fully containerized components and routes for maintainable architecture
+## 🚀 Deployment
+
+To build and run the app in production mode:
+
+```bash
+pnpm build
+pnpm start
+```
+
+Firebase Hosting is configured via `apphosting.yaml`.
+
+---
+
+## ✨ Features
+
+- 📚 Read and explore Sanskrit texts like the _Nirvāṇaṣaṭkam_, _Ribhu Gītā_, and _Ganesha Pañcharatnam_
+- 🧠 Quiz yourself on grammar and philosophical topics with adaptive difficulty
+- 🤖 Use AI tools like the Concept Explainer and Storyteller
+- 🗣️ Study the Sanskrit alphabet through a scientific and phonetic lens
+- ⚙️ Built with Remix, TypeScript, Tailwind CSS, Firebase, and OpenAI
+- 🧩 Modular components and route structure for scalability
 - 🔁 Continuous integration with GitHub Actions
 
-## Styling
+---
 
-This app uses [Tailwind CSS](https://tailwindcss.com/) for styling. You can customize the styling to suit your needs. 
+## 🎨 Styling
 
-To learn more about Tailwind, refer to their [documentation](https://tailwindcss.com/docs).
+Sanskrit Garden uses [Tailwind CSS](https://tailwindcss.com/) for utility-first styling.
 
-## Notes
+You can customize the design by editing `tailwind.config.ts` and the class names within components.
 
-- The data fetching is very basic, and in a production system would be connected to a data store in the usual way.
-- The app is structured in a way that makes it easy to extend with additional Sanskrit texts, quizzes, and interactive features.
-- For further customizations, feel free to modify the components and routes as needed.
+---
 
-## Feature Roadmap
+## 🧭 Feature Roadmap
 
-- Learning tools in Sansksrit
-   - Verb declension patterns
-   - Noun Conjugation pattersn
-   - Grammatical concepts
-   - AI-powered exercises
-- Add more texts
-- Textual analysis toolsw
-- Alphabet enhancements
-   - Filtering by part of mouth, etc.
+- Learning tools:
+  - Verb conjugation patterns
+  - Noun declension patterns
+  - Grammatical concept explanations
+  - AI-powered drills and exercises
+- Expanded text library
+- Textual analysis tools (e.g., metrics, frequencies)
+- Enhanced alphabet tools (e.g., filter by articulation)
+
+---
+
+## 📝 Notes
+
+- This is a personal project in active development.
+- Data fetching is currently mocked or static but can be connected to Firestore or another backend.
+- Contributions, feedback, and suggestions are welcome!

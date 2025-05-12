@@ -48,3 +48,21 @@ export default function App() {
     </ConfirmDialogProvider>
   );
 }
+
+export function ErrorBoundary({ error }: { error: Error }) {
+  console.error("App ErrorBoundary:", error);
+
+  return (
+    <Layout>
+      <div className="max-w-2xl mx-auto mt-20 text-center px-4">
+        <h1 className="text-2xl font-semibold text-red-600">
+          Something went wrong
+        </h1>
+        <p className="mt-4 text-gray-700">{error.message}</p>
+        <a href="/" className="mt-6 inline-block text-blue-600 underline">
+          Return to home
+        </a>
+      </div>
+    </Layout>
+  );
+}
