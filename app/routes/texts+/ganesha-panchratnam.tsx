@@ -13,13 +13,13 @@ export async function loader({}: LoaderFunctionArgs) {
 }
 
 export default function Gita() {
-  const { verses, title, summary, author } = useLoaderData<typeof loader>();
+  const { verses, title, description, author } = useLoaderData<typeof loader>();
 
   return (
     <TextDisplayContainer
       title={title}
       author={author}
-      summary={summary}
+      description={description}
       verses={verses}
     />
   );

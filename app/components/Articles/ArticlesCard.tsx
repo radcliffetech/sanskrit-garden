@@ -8,9 +8,13 @@ export function ArticleCard({ article }: { article: Article }) {
         to={`/articles/${article.id}`}
         className="flex flex-col h-full text-gray-900 no-underline hover:no-underline"
       >
-        <h2 className="text-lg font-light text-gray-800 mb-4">{article.title}</h2>
+        <h2 className="text-lg font-light text-gray-800 mb-4">
+          {article.title}
+        </h2>
         <p className="text-sm text-gray-600">
-          {article.summary.length > 200 ? `${article.summary.slice(0, 200)}...` : article.summary}
+          {article.description.length > 200
+            ? `${article.description.slice(0, 200)}...`
+            : article.description}
         </p>
         <div className="mt-auto text-right text-sm text-gray-500 hover:text-gray-700">
           More →

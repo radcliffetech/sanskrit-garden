@@ -6,7 +6,7 @@ export function getRibhuGitaChapter(): GitaChapter {
     chapter: 26,
     title: "Ribhu Gita - Chapter 26 (Verses 1-8)",
     author: "Ribhu",
-    summary:
+    description:
       "Chapter 26 of the Ribhu Gītā focuses on the direct and uncompromising exposition of non-dual reality (Advaita). It dismantles all constructs of duality, differentiation, and even traditional spiritual practices to reveal the indivisible nature of Brahman. The chapter reiterates that the highest truth is beyond mental formulation and rests in the direct, silent realization of the Self as blissful, formless, and eternal.",
     commentary:
       "The chapter employs a deeply poetic and negating style to guide the seeker away from conceptual entanglements and toward Self-realization. Rather than describing what Brahman is, it repeatedly declares what it is not—thus inviting the aspirant to go beyond mental definitions. This approach aligns with the 'neti-neti' (not this, not this) methodology of the Upanishads, making it a powerful meditative tool.",
@@ -125,7 +125,7 @@ export function getNirvanaShaktam(): Shkloka {
     id: "nirvana-shaktam",
     title: "Nirvana Shaktam",
     author: "Sri Adi Shankaracharya",
-    summary:
+    description:
       "Nirvana Shaktam is a profound philosophical text attributed to Sri Adi Shankaracharya, a revered sage and philosopher of Advaita Vedanta. This text encapsulates the essence of non-duality, emphasizing the realization of the Self as the ultimate reality, transcending all dualities and distinctions. It serves as a guide for seekers on the path to liberation, urging them to recognize their true nature as pure consciousness, free from the limitations of the physical world.",
     verses: [
       {
@@ -209,7 +209,7 @@ export function getGaneshaPanchratnam(): Shkloka {
     id: "ganesha-panchratnam",
     title: "Ganesha Panchratnam",
     author: "Sri Adi Shankaracharya",
-    summary:
+    description:
       "Ganesha Panchratnam is a celebrated stotra composed by Sri Adi Shankaracharya, glorifying Lord Ganesha, the remover of obstacles and the embodiment of auspiciousness. Each verse is filled with rich imagery and heartfelt devotion, offering praise to Ganesha’s various attributes and inviting blessings of wisdom, prosperity, and success.",
     verses: [
       {

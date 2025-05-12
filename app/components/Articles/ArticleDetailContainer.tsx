@@ -16,7 +16,7 @@ export function ArticleDetailContainer({ article }: Props) {
       </header>
       <div className="">
         <div className="bg-gray-50 border-l-4 border-gray-300 p-4 mb-6 text-sm text-gray-700 italic">
-          {article.summary}
+          {article.description}
         </div>
         <article className="prose lg:prose-xl">
           <section className="mt-8 text-gray-800 leading-relaxed">

@@ -17,17 +17,19 @@ jest.mock("./ArticlesCard", () => ({
 const mockArticles: Article[] = [
   {
     id: "1",
+    slug: "article-one",
     title: "Article One",
     author: "Author A",
-    summary: "First summary",
+    description: "First description",
     content: "Content 1",
     keywords: ["philosophy", "sanskrit"],
   },
   {
     id: "2",
+    slug: "article-two",
     title: "Article Two",
     author: "Author B",
-    summary: "Second summary",
+    description: "Second description",
     content: "Content 2",
     keywords: ["language", "grammar"],
   },

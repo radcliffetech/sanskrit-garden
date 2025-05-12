@@ -16,13 +16,13 @@ export async function loader({}: LoaderFunctionArgs) {
 }
 
 export default function NirvanaShaktamPage() {
-  const { verses, title, author, summary } = useLoaderData<typeof loader>();
+  const { verses, title, author, description } = useLoaderData<typeof loader>();
 
   return (
     <TextDisplayContainer
       title={title}
       author={author}
-      summary={summary}
+      description={description}
       verses={verses}
     />
   );
