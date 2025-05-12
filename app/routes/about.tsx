@@ -1,13 +1,10 @@
-import AboutContainer from "~/components/Home/AboutContainer";
+import AboutContainer from "~/components/About/AboutContainer";
 import type { MetaFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout/PageHeader";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "About" },
-    { name: "description", content: "About!" },
-  ];
+  return [{ title: "About" }, { name: "description", content: "About!" }];
 };
 
 export default function About() {

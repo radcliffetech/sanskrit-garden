@@ -2,7 +2,7 @@ import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
 import { LoaderFunction } from "@remix-run/node";
 import type { QuizQuestion } from "~/types";
-import { getQuizQuestions } from "~/loader/quiz";
+import { getQuizQuestions } from "~/lib/repositories/quizRepository";
 
 export const loader: LoaderFunction = ({ request }) => {
   return getQuizQuestions();

@@ -2,9 +2,9 @@ import { AlphabetItem } from "~/types";
 import LexicalTreasuryContainer from "~/components/Alphabet/LexicalTreasuryContainer";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout/PageHeader";
-import { getAlphabet } from "~/loader/alphabet";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
+import { getAlphabetRepository } from "~/lib/repositories/alphabetRepository";
 import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = ({ request }) => {
-  return getAlphabet();
+  return getAlphabetRepository().getAlphabet();
 };
 
 export default function Alphabet() {

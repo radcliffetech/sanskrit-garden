@@ -1,5 +1,5 @@
 import { DeclensionGrid } from "../Verbs/DeclensionGrid";
-import { FadeIn } from "../Shared";
+import { FadeIn } from "~/ui/core/FadeIn";
 import { SelectShabdaForm } from "./SelectShabdaForm";
 import type { Shabda } from "~/types";
 import { ShabdaInfo } from "./ShabdaInfo";
@@ -22,7 +22,10 @@ export function ShabdaContainer({ shabdas }: { shabdas: Shabda[] }) {
   return (
     <>
       <p className="text-gray-700 text-lg leading-relaxed">
-      In Sanskrit, nouns (saṃjñā) are words that name people, places, objects, or abstract ideas, and are fully declined based on case, number, and gender. They follow specific stem-based patterns such as a-stem or ā-stem, which determine their grammatical forms.
+        In Sanskrit, nouns (saṃjñā) are words that name people, places, objects,
+        or abstract ideas, and are fully declined based on case, number, and
+        gender. They follow specific stem-based patterns such as a-stem or
+        ā-stem, which determine their grammatical forms.
       </p>
       <div className="py-6">
         <SelectShabdaForm

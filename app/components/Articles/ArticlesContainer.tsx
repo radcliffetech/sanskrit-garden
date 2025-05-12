@@ -1,6 +1,5 @@
 import { Article } from "~/types";
 import { ArticleCard } from "./ArticlesCard";
-import { Link } from "@remix-run/react";
 
 interface Props {
   data: Article[];

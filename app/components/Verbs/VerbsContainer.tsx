@@ -1,4 +1,4 @@
-import { FadeIn } from "../Shared";
+import { FadeIn } from "~/ui/core/FadeIn";
 import { SelectVerbForm } from "./SelectVerbForm";
 import { VerbConjugationGrid } from "./VerbConjugationGrid";
 import type { VerbShabda } from "~/types";

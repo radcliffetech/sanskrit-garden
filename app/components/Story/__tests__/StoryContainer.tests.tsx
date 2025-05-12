@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 
 import StorytellerContainer from "../StoryContainer";
 
-jest.mock("~/hooks/storyteller", () => ({
+jest.mock("~/hooks/useStoryteller", () => ({
   useStoryteller: () => ({
     segments: [],
     questions: [],

@@ -1,8 +1,8 @@
 import { LoaderFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/Layout/PageFrame";
-import { PageHeader } from "~/components/Layout";
-import {QuizContainer} from "~/components/Quiz/QuizContainer";
-import { getQuizQuestions } from "~/loader/quiz";
+import { PageFrame } from "~/ui/layout/PageFrame";
+import { PageHeader } from "~/ui/layout/PageHeader";
+import { QuizContainer } from "~/components/Quiz/QuizContainer";
+import { getQuizQuestions } from "~/lib/repositories/quizRepository";
 
 export const loader: LoaderFunction = ({ request }) => {
   return getQuizQuestions();

@@ -1,6 +1,4 @@
 import type { Difficulty } from "~/types";
-import { LoaderFunction } from "@remix-run/node";
-import { getQuizQuestions } from "~/loader/quiz";
 import { useState } from "react";
 
 export function QuizStart({
@@ -22,7 +20,11 @@ export function QuizStart({
         Test your Sanskrit knowledge that you have gained from perusing the
         website. Select a difficulty level.
       </p>
-      <div className="flex justify-center gap-0" role="radiogroup" aria-label="Select quiz difficulty">
+      <div
+        className="flex justify-center gap-0"
+        role="radiogroup"
+        aria-label="Select quiz difficulty"
+      >
         {["Easy", "Medium", "Hard"].map((level) => {
           const value = level.toLowerCase() as Difficulty;
           const isSelected = selected === value;

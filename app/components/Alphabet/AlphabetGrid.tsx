@@ -11,7 +11,6 @@ export function AlphabetGrid({
   highlightLevel2?: Set<string>;
 }) {
   if (!data) return null;
-  console.log("AlphabetGrid", data.length, highlightLevel1, highlightLevel2);
 
   return (
     <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">

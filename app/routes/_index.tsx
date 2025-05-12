@@ -1,6 +1,6 @@
 import { HomeContainer } from "~/components/Home/HomeContainer";
 import type { MetaFunction } from "@remix-run/node";
-import { PageFrame } from "~/components/Layout/PageFrame";
+import { PageFrame } from "~/ui/layout/PageFrame";
 
 export const meta: MetaFunction = () => {
   return [
