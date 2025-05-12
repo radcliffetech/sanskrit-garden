@@ -6,7 +6,7 @@ import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/components/Layout/PageFrame";
 import { PageHeader } from "~/components/Layout/PageHeader";
-import { getArticles } from "~/loader/articles";
+import { getArticles } from "~/lib/loader/articles";
 
 export const meta: MetaFunction = () => {
   return [

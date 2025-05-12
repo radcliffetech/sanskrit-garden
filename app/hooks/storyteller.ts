@@ -1,4 +1,4 @@
-import { continueStoryRequest, storytellerRequest } from "~/loader/storyteller";
+import { continueStoryRequest, storytellerRequest } from "~/lib/loader/storyteller";
 
 import type { StorySegment } from "~/types";
 import { useState } from "react";

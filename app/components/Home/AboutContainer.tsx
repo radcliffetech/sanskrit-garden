@@ -6,7 +6,7 @@ export default function AboutContainer() {
           This project is coded and maintained with respect by Jeffrey Radcliffe.
         </p>
         <p>
-          Sanskrit Garden is a love poem offered to the Sanskrit language, and and opportunity to explore and test the relation of technology to topics of depth and intensity. Technology can clearly lead us away from the truth, but it can also be a tool to help us find it. This project is an exploration of that idea.
+          Sanskrit Garden is a love poem offered to the Sanskrit language, and an opportunity to explore and test the relation of technology to topics of depth and intensity. Technology can clearly lead us away from the truth, but it can also be a tool to help us find it. This project is an exploration of that idea.
         </p>
         <p>
           The intention is to highlight the magical things Jeffrey has found in his exploration of the Sanskrit language, and to share them with the world. Any errors maade are totally his.

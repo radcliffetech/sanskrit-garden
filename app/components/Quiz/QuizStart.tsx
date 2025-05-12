@@ -1,6 +1,6 @@
 import type { Difficulty } from "~/types";
 import { LoaderFunction } from "@remix-run/node";
-import { getQuizQuestions } from "~/loader/quiz";
+import { getQuizQuestions } from "~/lib/loader/quiz";
 import { useState } from "react";
 
 export function QuizStart({

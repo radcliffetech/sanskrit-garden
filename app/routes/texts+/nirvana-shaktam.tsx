@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { getNirvanaShaktamData } from "~/loader/texts";
+import { getNirvanaShaktamData } from "~/lib/loader/texts";
 import TextDisplayContainer from "~/components/Texts/TextDisplayContainer";
 
 export const meta: MetaFunction = () => {

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import ExplainerContainer from "../ExplainerContainer";
-import { explainConceptRequest } from "~/loader/explain-concept";
+import { explainConceptRequest } from "~/lib/loader/explain-concept";
 
 jest.mock("~/hooks/concept-explainer", () => ({
   useConceptExplainer: () => ({

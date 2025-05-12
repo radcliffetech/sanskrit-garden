@@ -4,7 +4,7 @@ import { QuestionCard } from "~/components/Quiz/QuestionCard";
 import { QuizNavigation } from "~/components/Quiz/QuizNavigation";
 import type { QuizQuestion } from "~/types";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { getQuizQuestions } from "~/loader/quiz";
+import { getQuizQuestions } from "~/lib/loader/quiz";
 import { useState } from "react";
 
 export const loader: LoaderFunction = ({ request }) => {
