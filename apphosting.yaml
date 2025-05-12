@@ -28,11 +28,6 @@ env:
     availability:
       - BUILD
       - RUNTIME
-  - variable: VITE_FIREBASE_PROJECT_ID
-    secret: FB_PROJECT_ID
-    availability:
-      - BUILD
-      - RUNTIME
   - variable: VITE_FIREBASE_STORAGE_BUCKET
     secret: FB_STORAGE_BUCKET
     availability:
