@@ -120,3 +120,21 @@ export type DhatuCatalogEntry = {
   voice: "P" | "A" | "U"; // Parasmaipada, Atmanepada, Ubhayapadi
   transitivity?: "transitive" | "intransitive" | "both";
 };
+
+export interface FeatureBase {
+  id: string; // Unique identifier for the item
+  title: string;
+  description: string;
+  screenshots?: string[]; // Screenshots or gallery images
+  keywords?: string[]; // Keywords for search and filtering
+  commentary?: string; // Longer-form Markdown commentary
+}
+
+export interface Feature extends FeatureBase {
+  live?: string;
+  adminUrl?: string; // URL for admin controls, if applicable
+  dashboardFeature?: boolean; // Whether this is a dashboard feature
+  isActive?: boolean; // Whether the feature is active or inactive
+  isPublic?: boolean; // Whether the feature is public or private
+  parentFeature?: Feature; // ID of the parent feature, if applicable
+}

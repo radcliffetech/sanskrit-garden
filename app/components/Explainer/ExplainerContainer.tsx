@@ -5,7 +5,7 @@ import { ExplainerForm } from "~/components/Explainer/ExplainerForm";
 import { InstructionsBox } from "~/components/Explainer/InstructionsBox";
 import { SectionLoading } from "~/components/Shared/SectionLoading";
 import { explainConceptRequest } from "~/lib/loader/explain-concept";
-import { useConceptExplainer } from "~/hooks/concept-explainer";
+import { useConceptExplainer } from "~/hooks/useConceptExplainer";
 
 export default function ExplainerContainer() {
   const explainer = useConceptExplainer();

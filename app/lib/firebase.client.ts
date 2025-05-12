@@ -1,10 +1,9 @@
-import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 // app/lib/firebase.client.ts
 import { getApps, initializeApp } from "firebase/app";
 
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { signOut } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -16,16 +15,13 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
+
 const app = getApps().length ? getApps()[0] : initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
 
-export async function signInWithGoogle() {
-  const result = await signInWithPopup(auth, provider);
-  return result.user.getIdToken();
-}
+
 
 export async function getFreshIdToken(): Promise<string | null> {
   const user = auth.currentUser;
@@ -33,9 +29,5 @@ export async function getFreshIdToken(): Promise<string | null> {
   return await user.getIdToken(true); // `true` forces refresh
 }
 
-
-export async function signOutUser() {
-  return signOut(auth);
-}
 
 export { app, auth, storage };

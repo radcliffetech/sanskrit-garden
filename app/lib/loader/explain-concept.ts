@@ -1,4 +1,6 @@
-export async function explainConceptRequest(concept: string): Promise<{ article: string }> {
+export async function explainConceptRequest(
+  concept: string
+): Promise<{ article: string }> {
   const formData = new FormData();
   formData.append("concept", concept);
 

@@ -8,7 +8,7 @@
 const nexusConfig = {
   firestore: {
     collections: {
-      // actorGroups: "actor_groups_v1",
+      articles: "articles_v1",
     },
   },
   adminEmail: "jeffrey.radcliffe@gmail.com",

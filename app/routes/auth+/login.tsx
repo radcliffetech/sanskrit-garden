@@ -32,7 +32,7 @@ export default function LoginRoute() {
     const authUser = getAuth().currentUser;
     if (!authUser) return;
 
-    const idToken = await authUser.getIdToken();
+    const idToken = await authUser.getIdToken(true); // force fresh token
     const sessionForm = new FormData();
     sessionForm.append("idToken", idToken);
     submit(sessionForm, { method: "post" });
@@ -41,6 +41,21 @@ export default function LoginRoute() {
   return (
     <PageFrame>
       <PageHeader>Login</PageHeader>
+      <button
+        onClick={() => {
+          localStorage.clear();
+          indexedDB.databases?.().then((dbs) => {
+            dbs.forEach((db) => indexedDB.deleteDatabase(db.name!));
+          });
+          document.cookie.split(";").forEach((c) => {
+            document.cookie =
+              c.trim().split("=")[0] + "=;expires=" + new Date(0).toUTCString();
+          });
+          location.reload();
+        }}
+      >
+        Hard Reset Auth
+      </button>
       <form
         onSubmit={handleSubmit}
         className="space-y-4 max-w-sm mx-auto bg-white p-6 rounded shadow"

@@ -80,7 +80,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     // Replace persistent session with in-memory session before signing out
     await setPersistence(auth, inMemoryPersistence);
+    await signOut(auth);
 
+    // Wait for sign-out confirmation
     await new Promise<void>((resolve) => {
       const unsubscribe = onIdTokenChanged(auth, (user) => {
         if (!user) {
@@ -88,7 +90,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           resolve();
         }
       });
-      signOut(auth);
     });
   };
 

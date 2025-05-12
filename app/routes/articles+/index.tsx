@@ -1,24 +1,19 @@
-import { Link, useLoaderData } from "@remix-run/react";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 
 import { Article } from "~/types";
 import ArticlesContainer from "~/components/Articles/ArticlesContainer";
-import type { LoaderFunction } from "@remix-run/node";
-import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
-import { getArticles } from "~/lib/loader/articles";
+import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
-  return [
-    { title: "Articles" },
-    { name: "description", content: "Articles!" },
-  ];
+  return [{ title: "Articles" }, { name: "description", content: "Articles!" }];
 };
 
 export const loader: LoaderFunction = ({ request }) => {
-  return getArticles();
+  return getArticlesRepository().getAll();
 };
-
 
 export default function Articles() {
   const data = useLoaderData<Article[]>();
