@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { app } from "~/lib/firebase.client";
+import { app } from "~/lib/firebase/firebase.client";
 import { useSyncAuthToken } from "~/hooks/useSyncAuthToken";
 
 type AuthContextType = {

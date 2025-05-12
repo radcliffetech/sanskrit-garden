@@ -1,4 +1,7 @@
-import { defaultStoryProfileJson, sanskritTeacherProfileJson } from "../data/storyteller-profiles"
+import {
+  defaultStoryProfileJson,
+  sanskritTeacherProfileJson,
+} from "../../data/storyteller-profiles";
 
 import OpenAI from "openai";
 
@@ -31,7 +34,7 @@ export async function explainConcept(concept: string): Promise<string> {
     messages: [
       {
         role: "system",
-        content:  `
+        content: `
   You are a Sanskrit scholar. Given a Sanskrit concept word, you are to deliver a clear and short lecture (200–300 words) explaining its meaning to your audience. 
   
   Keep the explanation friendly and simple. Offer orignal sanskrt spelling of the topic concept in sanskrit. 
@@ -62,7 +65,16 @@ export async function explainConcept(concept: string): Promise<string> {
   return result || "No explanation available.";
 }
 
-export async function generateStory(prompt: string, profile: StorytellerProfile = defaultStoryProfile): Promise<{ title: string, story: string; questions: string[]; branches: string[], reference: string }> {
+export async function generateStory(
+  prompt: string,
+  profile: StorytellerProfile = defaultStoryProfile
+): Promise<{
+  title: string;
+  story: string;
+  questions: string[];
+  branches: string[];
+  reference: string;
+}> {
   if (USE_STUBS === "true") {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return {
@@ -71,14 +83,14 @@ export async function generateStory(prompt: string, profile: StorytellerProfile 
       questions: [
         "What happened next?",
         "Who was the hero?",
-        "What was the lesson learned?"
+        "What was the lesson learned?",
       ],
       branches: [
         "The hero faced a mighty challenge.",
         "A mysterious stranger offered help.",
-        "The journey led to unexpected places."
+        "The journey led to unexpected places.",
       ],
-      reference: "Inspired by tales from the Mahabharata and local folklore."
+      reference: "Inspired by tales from the Mahabharata and local folklore.",
     };
   }
 
@@ -111,7 +123,7 @@ ${profile.commonGuidelines}
         content: `Tell me a story about: ${prompt}`,
       },
     ],
-    response_format: { type: "json_object" }, 
+    response_format: { type: "json_object" },
   });
 
   const result = response.choices[0]?.message?.content;
@@ -121,13 +133,15 @@ ${profile.commonGuidelines}
 
   console.log("[OpenAI] Received storyteller response:", result);
 
-
   return JSON.parse(result);
 }
 
-
-
-export async function continueStory(baseStory: string, question: string, branchSegment: string, profile: StorytellerProfile = defaultStoryProfile): Promise<{
+export async function continueStory(
+  baseStory: string,
+  question: string,
+  branchSegment: string,
+  profile: StorytellerProfile = defaultStoryProfile
+): Promise<{
   title: string;
   story: string;
   questions: string[];
@@ -142,14 +156,14 @@ export async function continueStory(baseStory: string, question: string, branchS
       questions: [
         "What new challenges arise?",
         "How does the hero respond?",
-        "What wisdom is gained?"
+        "What wisdom is gained?",
       ],
       branches: [
         "The hero discovers a hidden truth.",
         "An ally reveals their true intentions.",
-        "The journey takes a mystical turn."
+        "The journey takes a mystical turn.",
       ],
-      reference: "Inspired by tales from the Mahabharata and local folklore."
+      reference: "Inspired by tales from the Mahabharata and local folklore.",
     };
   }
 

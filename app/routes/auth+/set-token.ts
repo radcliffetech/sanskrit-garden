@@ -1,6 +1,6 @@
 import { json, type ActionFunctionArgs } from "@remix-run/node";
 import { getAuth } from "firebase-admin/auth";
-import { adminApp } from "~/lib/firebase.server";
+import { adminApp } from "~/lib/firebase/firebase.server";
 import { createUserSession } from "~/lib/session.server";
 
 export const action = async ({ request }: ActionFunctionArgs) => {

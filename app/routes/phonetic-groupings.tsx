@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = ({ request }) => {
-  return getAlphabetRepository().getAlphabet;
+  return getAlphabetRepository().getAlphabet();
 };
 
 export default function Alphabet() {

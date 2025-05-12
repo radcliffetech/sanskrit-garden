@@ -1,9 +1,11 @@
+import { LoginForm } from "~/ui/auth/LoginForm";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 import { createUserSession } from "~/lib/session.server";
 import { getAuth } from "firebase/auth";
 import { json } from "@remix-run/node";
 import { useAuth } from "~/ui/auth/AuthProvider";
+import { useState } from "react";
 import { useSubmit } from "@remix-run/react";
 
 export const action = async ({ request }: { request: Request }) => {
@@ -20,67 +22,34 @@ export const action = async ({ request }: { request: Request }) => {
 export default function LoginRoute() {
   const { emailLogin } = useAuth();
   const submit = useSubmit();
+  const [error, setError] = useState<string | null>(null);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
     const form = event.currentTarget;
     const formData = new FormData(form);
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
-    await emailLogin(email, password);
-    const authUser = getAuth().currentUser;
-    if (!authUser) return;
+    try {
+      await emailLogin(email, password);
+      const authUser = getAuth().currentUser;
+      if (!authUser) return;
 
-    const idToken = await authUser.getIdToken(true); // force fresh token
-    const sessionForm = new FormData();
-    sessionForm.append("idToken", idToken);
-    submit(sessionForm, { method: "post" });
+      const idToken = await authUser.getIdToken(true); // force fresh token
+      const sessionForm = new FormData();
+      sessionForm.append("idToken", idToken);
+      submit(sessionForm, { method: "post" });
+    } catch (error: any) {
+      setError(error.message);
+    }
   }
 
   return (
     <PageFrame>
       <PageHeader>Login</PageHeader>
-      <button
-        onClick={() => {
-          localStorage.clear();
-          indexedDB.databases?.().then((dbs) => {
-            dbs.forEach((db) => indexedDB.deleteDatabase(db.name!));
-          });
-          document.cookie.split(";").forEach((c) => {
-            document.cookie =
-              c.trim().split("=")[0] + "=;expires=" + new Date(0).toUTCString();
-          });
-          location.reload();
-        }}
-      >
-        Hard Reset Auth
-      </button>
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4 max-w-sm mx-auto bg-white p-6 rounded shadow"
-      >
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          required
-          className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-        />
-        <button
-          type="submit"
-          className="w-full bg-blue-600 text-white font-semibold rounded px-4 py-2 hover:bg-blue-700 transition"
-        >
-          Sign in
-        </button>
-      </form>
+      <LoginForm onSubmit={handleSubmit} error={error || ""} />
     </PageFrame>
   );
 }

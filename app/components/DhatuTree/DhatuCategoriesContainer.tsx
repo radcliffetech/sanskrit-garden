@@ -127,7 +127,7 @@ function DhatuCatalogFilterPanel({
         </div>
 
         {filters.class && (
-          <FadeIn key={filterIndex} variant="still">
+          <FadeIn key={filterIndex}>
             <div className="space-y-3 mt-5">
               <p className="text-xl3 font-semibold">
                 {classGrammar[filters.class]}

@@ -12,7 +12,6 @@ export function AlphabetLayout({
   highlightLevel2?: Set<string>;
 }) {
   if (!data) return null;
-  console.log("AlphabetGrid", data.length, highlightLevel1, highlightLevel2);
 
   return (
     <div className="space-y-2">

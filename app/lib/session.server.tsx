@@ -2,10 +2,10 @@ import { createCookieSessionStorage, redirect } from "@remix-run/node";
 
 const sessionStorage = createCookieSessionStorage({
   cookie: {
-    name: "firebase_session_sanskrit_garden",
+    name: "firebase_session",
     secrets: [process.env.SESSION_SECRET || "supersecret"],
     secure: process.env.NODE_ENV === "production",
-    sameSite: "lax",
+    sameSite: "strict",
     path: "/",
     httpOnly: true,
   },

@@ -1,6 +1,6 @@
 import type { DhatuTree } from "~/types";
 import { FadeIn } from "~/ui/core/FadeIn";
-import { MorphPathDisplay } from "./MorphPathDisplay";
+import { MorphPathDisplay } from "../Verbs/MorphPathDisplay";
 import { useState } from "react";
 
 export function DhatuTreeDisplay({ dhatu }: { dhatu: DhatuTree }) {

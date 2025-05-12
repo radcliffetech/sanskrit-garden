@@ -1,4 +1,4 @@
-import { getFreshIdToken } from "~/lib/firebase.client";
+import { getFreshIdToken } from "~/lib/firebase/firebase.client";
 import { useEffect } from "react";
 
 export function useSyncAuthToken() {

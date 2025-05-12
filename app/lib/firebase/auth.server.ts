@@ -1,6 +1,6 @@
 import { destroyUserSession, getUserSession } from "~/lib/session.server";
 
-import { adminAuth } from "~/lib/firebase.server";
+import { adminAuth } from "~/lib/firebase/firebase.server";
 import { redirect } from "@remix-run/node";
 
 export async function requireAdminUser(request: Request) {

@@ -1,5 +1,5 @@
 import { json, type ActionFunction } from "@remix-run/node";
-import { continueStory } from "~/lib/openai.server";
+import { continueStory } from "~/lib/openai/openai.server";
 
 export const action: ActionFunction = async ({ request }) => {
   try {
@@ -13,10 +13,14 @@ export const action: ActionFunction = async ({ request }) => {
       typeof question !== "string" ||
       typeof branchSegment !== "string"
     ) {
-      return json({ error: "Invalid input provided for story continuation." }, { status: 400 });
+      return json(
+        { error: "Invalid input provided for story continuation." },
+        { status: 400 }
+      );
     }
 
-    const { title, story, questions, branches, reference } = await continueStory(baseStory, question, branchSegment);
+    const { title, story, questions, branches, reference } =
+      await continueStory(baseStory, question, branchSegment);
 
     return json({ title, story, questions, branches, reference });
   } catch (error) {
