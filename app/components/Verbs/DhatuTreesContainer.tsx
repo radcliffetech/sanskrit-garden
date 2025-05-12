@@ -1,6 +1,6 @@
 import type { DhatuTree } from "~/types";
 import { DhatuTreeDisplay } from "./DhatuTreeDisplay";
-import { FadeIn } from "../Shared";
+import { FadeIn } from "~/ui/core/FadeIn";
 import { SelectDhatuForm } from "./SelectDhatuForm";
 import { useState } from "react";
 

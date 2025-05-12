@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { FadeIn } from "~/ui/core/FadeIn";
 
 export interface SectionLoadingProps {
-  quotes: string[];
+  quotes?: string[];
   heading?: string;
   preMessage?: string;
   className?: string;
 }
 
 export function SectionLoading({
-  quotes,
+  quotes = [],
   heading,
   preMessage,
   className = "",

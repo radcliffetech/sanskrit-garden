@@ -1,14 +1,14 @@
 import { render, screen } from "@testing-library/react";
 
 import { Article } from "~/types";
-import ArticlesContainer from "../ArticlesContainer";
+import ArticlesContainer from "./ArticlesContainer";
 
 // Mock Remix Link to avoid ESM import errors in tests
 jest.mock("@remix-run/react", () => ({
   Link: ({ to, children }: any) => <a href={to}>{children}</a>,
 }));
 
-jest.mock("../ArticlesCard", () => ({
+jest.mock("./ArticlesCard", () => ({
   ArticleCard: ({ article }: { article: Article }) => (
     <div data-testid="mock-article-card">{article.title}</div>
   ),

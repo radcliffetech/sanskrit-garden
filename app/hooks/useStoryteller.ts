@@ -1,5 +1,3 @@
-import { continueStoryRequest, storytellerRequest } from "~/lib/loader/storyteller";
-
 import type { StorySegment } from "~/types";
 import { useState } from "react";
 
@@ -23,9 +21,11 @@ export function getDefaultTopics(): string[] {
   ];
 }
 
-
 // Utility Functions
-function generateStoryText(segments: StorySegment[], lastStorySection: string = ""): string {
+function generateStoryText(
+  segments: StorySegment[],
+  lastStorySection: string = ""
+): string {
   const parts = segments.map((seg, idx) => {
     const titlePrefix = idx === 0 ? "# " : "## ";
     let text = `${titlePrefix}${seg.title}\n\n`;
@@ -95,16 +95,19 @@ async function handleContinue(
 
   try {
     const story = await continueStoryRequest(
-      segments.map(s => s.content).join('\n\n'),
+      segments.map((s) => s.content).join("\n\n"),
       questions[index],
       branches[index]
     );
-    setSegments(prev => [...prev, {
-      title: story.title,
-      content: story.story,
-      reference: story.reference,
-      followup: questions[index],
-    }]);
+    setSegments((prev) => [
+      ...prev,
+      {
+        title: story.title,
+        content: story.story,
+        reference: story.reference,
+        followup: questions[index],
+      },
+    ]);
     setQuestions(story.questions || []);
     setBranches(story.branches || []);
     setIsStoryOver((story.questions || []).length === 0);
@@ -145,7 +148,9 @@ function handleDownload(segments: StorySegment[]) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  const safeTitle = segments[0]?.title.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9\-]/g, '');
+  const safeTitle = segments[0]?.title
+    .replace(/\s+/g, "-")
+    .replace(/[^a-zA-Z0-9\-]/g, "");
   a.download = `Sanskrit-Garden-${safeTitle || "Untitled"}.md`;
   a.click();
   URL.revokeObjectURL(url);
@@ -163,7 +168,9 @@ export function useStoryteller() {
   const [error, setError] = useState<string | null>(null);
   const [isStoryStarted, setIsStoryStarted] = useState(false);
   const [isStoryOver, setIsStoryOver] = useState(false);
-  const [selectedContinuation, setSelectedContinuation] = useState<number | null>(null);
+  const [selectedContinuation, setSelectedContinuation] = useState<
+    number | null
+  >(null);
 
   return {
     segments,
@@ -178,40 +185,101 @@ export function useStoryteller() {
     setSelectedTopic,
     setSelectedContinuation,
     setIsStoryOver,
-    handleStartStory: () => handleStartStory(
-      selectedTopic,
-      setSegments,
-      setQuestions,
-      setBranches,
-      setIsStoryStarted,
-      setIsStoryOver,
-      setLoading,
-      setError
-    ),
-    handleContinue: (index: number) => handleContinue(
-      index,
-      segments,
-      branches,
-      questions,
-      setSelectedContinuation,
-      setLoading,
-      setSegments,
-      setQuestions,
-      setBranches,
-      setIsStoryOver,
-      setError
-    ),
-    handleRestart: () => handleRestart(
-      setSegments,
-      setQuestions,
-      setBranches,
-      setSelectedTopic,
-      setLoading,
-      setError,
-      setIsStoryStarted,
-      setIsStoryOver,
-      setSelectedContinuation
-    ),
+    handleStartStory: () =>
+      handleStartStory(
+        selectedTopic,
+        setSegments,
+        setQuestions,
+        setBranches,
+        setIsStoryStarted,
+        setIsStoryOver,
+        setLoading,
+        setError
+      ),
+    handleContinue: (index: number) =>
+      handleContinue(
+        index,
+        segments,
+        branches,
+        questions,
+        setSelectedContinuation,
+        setLoading,
+        setSegments,
+        setQuestions,
+        setBranches,
+        setIsStoryOver,
+        setError
+      ),
+    handleRestart: () =>
+      handleRestart(
+        setSegments,
+        setQuestions,
+        setBranches,
+        setSelectedTopic,
+        setLoading,
+        setError,
+        setIsStoryStarted,
+        setIsStoryOver,
+        setSelectedContinuation
+      ),
     handleDownload: () => handleDownload(segments),
   };
+}
+
+export async function storytellerRequest(
+  prompt: string
+): Promise<{
+  title: string;
+  story: string;
+  questions: string[];
+  branches: string[];
+  reference: string;
+}> {
+  const formData = new FormData();
+  formData.append("prompt", prompt);
+
+  const response = await fetch("/api/ai-storyteller", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    console.error("[Client] Server error:", text);
+    throw new Error(`Server error: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+export async function continueStoryRequest(
+  baseStory: string,
+  question: string,
+  branchSegment: string
+): Promise<{
+  title: string;
+  story: string;
+  questions: string[];
+  branches: string[];
+  reference: string;
+}> {
+  const formData = new FormData();
+  formData.append("baseStory", baseStory);
+  formData.append("question", question);
+  formData.append("branchSegment", branchSegment);
+
+  const response = await fetch("/api/ai-storyteller-continue", {
+    method: "POST",
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const text = await response.text();
+    console.error("[Client] Server error during continuation:", text);
+    throw new Error(`Server error: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
 }

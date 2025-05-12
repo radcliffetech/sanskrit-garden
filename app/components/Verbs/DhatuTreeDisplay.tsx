@@ -1,5 +1,5 @@
 import type { DhatuTree } from "~/types";
-import { FadeIn } from "../Shared";
+import { FadeIn } from "~/ui/core/FadeIn";
 import { MorphPathDisplay } from "./MorphPathDisplay";
 import { useState } from "react";
 

@@ -1,6 +1,6 @@
 import { ClassPieChart } from "./ClassPieChart";
 import type { DhatuCatalogEntry } from "~/types";
-import { FadeIn } from "../Shared";
+import { FadeIn } from "~/ui/core/FadeIn";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { Tooltip } from "react-tooltip";
 import { XMarkIcon } from "@heroicons/react/24/solid";
@@ -254,7 +254,8 @@ export function DhatuCatalogContainer({
       <div className="md:flex md:items-center md:justify-between max-w-screen-xl mx-auto gap-8">
         <div className="md:w-1/2 text-gray-500 space-y-4">
           <p className="text-xs text-red-500 font-medium uppercase tracking-wide">
-            ⚠️ This feature is in alpha. Not all dhātus are complete or fully verified.
+            ⚠️ This feature is in alpha. Not all dhātus are complete or fully
+            verified.
           </p>
           <p>
             Traditionally, dhātus are classified into 10 classes (gaṇas) based

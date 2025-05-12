@@ -1,4 +1,4 @@
-import { RenderMarkdown } from "~/components/Shared/RenderMarkdown";
+import { RenderMarkdown } from "~/ui/display/RenderMarkdown";
 
 export function StoryQuestionBox({
   questions,

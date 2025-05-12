@@ -1,26 +1,19 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
-import ExplainerContainer from "../ExplainerContainer";
-import { explainConceptRequest } from "~/lib/loader/explain-concept";
+import ExplainerContainer from "./ExplainerContainer";
 
-jest.mock("~/hooks/concept-explainer", () => ({
+jest.mock("~/hooks/useConceptExplainer", () => ({
   useConceptExplainer: () => ({
     exampleSet: ["karma", "dharma", "moksha"],
+    explainConceptRequest: jest.fn(() => {
+      return Promise.resolve({
+        article: "This is an explanation of the concept.",
+      });
+    }),
   }),
 }));
 
-jest.mock("~/loader/explain-concept", () => ({
-  explainConceptRequest: jest.fn(),
-}));
-
-
 describe("ExplainerContainer", () => {
-  beforeEach(() => {
-    (explainConceptRequest as jest.Mock).mockResolvedValue({
-      article: "This is an explanation of the concept.",
-    });
-  });
-
   it("submits a concept and shows the article", async () => {
     render(<ExplainerContainer />);
 
@@ -31,7 +24,9 @@ describe("ExplainerContainer", () => {
     fireEvent.click(button);
 
     await waitFor(() => {
-      expect(screen.getByText("This is an explanation of the concept.")).toBeInTheDocument();
+      expect(
+        screen.getByText("This is an explanation of the concept.")
+      ).toBeInTheDocument();
     });
   });
 });

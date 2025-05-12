@@ -1,7 +1,11 @@
-import { ConfirmModal } from "~/components/Shared/ConfirmModal";
+import { ConfirmModal } from "~/ui/feedback/ConfirmModal";
 import { useState } from "react";
 
-export function EndStoryControl({ handleEndStory }: { handleEndStory: () => void }) {
+export function EndStoryControl({
+  handleEndStory,
+}: {
+  handleEndStory: () => void;
+}) {
   const [confirming, setConfirming] = useState(false);
 
   return (

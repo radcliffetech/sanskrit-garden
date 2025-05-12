@@ -6,8 +6,8 @@ import {
 import { getDefaultTopics, useStoryteller } from "~/hooks/useStoryteller";
 
 import { EndStoryControl } from "~/components/Story/EndStoryControl";
-import { FadeIn } from "~/components/Shared/FadeIn";
-import { SectionLoading } from "~/components/Shared/SectionLoading";
+import { FadeIn } from "~/ui/core/FadeIn";
+import { SectionLoading } from "~/ui/core/SectionLoading";
 import { StoryEnd } from "~/components/Story/StoryEnd";
 import { StoryQuestionBox } from "~/components/Story/StoryQuestionBox";
 import { StoryTopicSelectForm } from "~/components/Story/StoryTopicSelectForm";

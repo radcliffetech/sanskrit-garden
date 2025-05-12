@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { ArticleDisplay } from "~/components/Explainer/ArticleDisplay";
 import { ExplainerForm } from "~/components/Explainer/ExplainerForm";
 import { InstructionsBox } from "~/components/Explainer/InstructionsBox";
-import { SectionLoading } from "~/components/Shared/SectionLoading";
-import { explainConceptRequest } from "~/lib/loader/explain-concept";
+import { SectionLoading } from "~/ui/core/SectionLoading";
 import { useConceptExplainer } from "~/hooks/useConceptExplainer";
 
 export default function ExplainerContainer() {
@@ -21,7 +20,7 @@ export default function ExplainerContainer() {
     setError(null);
     setArticle(null);
     try {
-      const { article } = await explainConceptRequest(concept);
+      const { article } = await explainer.explainConceptRequest(concept);
       setArticle(article);
     } catch (err: any) {
       console.error(err);

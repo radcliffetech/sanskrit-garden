@@ -1,4 +1,4 @@
-import { RenderMarkdown } from "~/components/Shared/RenderMarkdown";
+import { RenderMarkdown } from "~/ui/display/RenderMarkdown";
 import type { StorySegment } from "~/types";
 
 export function DisplayStoryHead({ segment }: { segment: StorySegment }) {

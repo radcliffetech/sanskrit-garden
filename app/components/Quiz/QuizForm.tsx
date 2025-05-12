@@ -1,4 +1,4 @@
-import { ConfirmModal } from "~/components/Shared/ConfirmModal";
+import { ConfirmModal } from "~/ui/feedback/ConfirmModal";
 import { LoaderFunction } from "@remix-run/node";
 import { QuestionCard } from "~/components/Quiz/QuestionCard";
 import { QuizNavigation } from "~/components/Quiz/QuizNavigation";
