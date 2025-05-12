@@ -28,6 +28,7 @@ const remixPlugin =
       return flatRoutes("routes", defineRoutes);
     },
   });
+// console.log("🔧 Remix plugin created:", remixPlugin);
 
 export default defineConfig({
   plugins: [remixPlugin, tsconfigPaths()].filter(Boolean),

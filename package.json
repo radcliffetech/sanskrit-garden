@@ -15,7 +15,8 @@
     "test:coverage": "jest --coverage",
     "storybook": "STORYBOOK=true storybook dev -p 6006",
     "storybook:build": "STORYBOOK=true storybook build",
-    "storybook:preview": "npx serve storybook-static"
+    "storybook:preview": "npx serve storybook-static",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
