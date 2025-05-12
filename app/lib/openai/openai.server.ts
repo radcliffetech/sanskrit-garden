@@ -1,13 +1,9 @@
-import {
-  defaultStoryProfileJson,
-  sanskritTeacherProfileJson,
-} from "../../data/storyteller-profiles";
-
 import OpenAI from "openai";
+import { defaultStoryProfileJson } from "~/data/storyteller-profiles";
 
-const apiKey = process.env.VITE_OPENAI_API_KEY;
+const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {
-  throw new Error("VITE_OPENAI_API_KEY is not set.");
+  throw new Error("OPENAI_API_KEY is not set.");
 }
 const USE_STUBS = process.env.VITE_USE_STUBS;
 

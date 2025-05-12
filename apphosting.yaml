@@ -2,17 +2,20 @@
 # See https://firebase.google.com/docs/app-hosting/configure#cloud-run
 runConfig:
   minInstances: 0
-  # maxInstances: 100
+  maxInstances: 10
   # concurrency: 80
   # cpu: 1
   # memoryMiB: 512
 
 env:
-  - variable: VITE_OPENAI_API_KEY
+  # 🔐 OpenAI API (server)
+  - variable: OPENAI_API_KEY
     secret: OPENAI_API_KEY
     availability:
       - BUILD
       - RUNTIME
+
+  # 🔥 Firebase (client)
   - variable: VITE_FIREBASE_PROJECT_ID
     secret: FB_PROJECT_ID
     availability:
@@ -58,11 +61,8 @@ env:
     availability:
       - BUILD
       - RUNTIME
-  - variable: OPENAI_API_KEY
-    secret: OPENAI_API_KEY
-    availability:
-      - BUILD
-      - RUNTIME
+
+  # 🔥 Firebase (server)
   - variable: FIREBASE_PROJECT_ID
     secret: FB_PROJECT_ID
     availability:
