@@ -1,4 +1,4 @@
-import { CommandDefinition } from "./meta";
+import type { CommandDefinition } from "~/types";
 import { commandHandlers } from "./actions";
 import { commandMeta } from "./meta";
 

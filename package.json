@@ -16,7 +16,10 @@
     "storybook": "STORYBOOK=true storybook dev -p 6006",
     "storybook:build": "STORYBOOK=true storybook build",
     "storybook:preview": "STORYBOOK=true npx serve storybook-static",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "shabda": "tsx scripts/shabda/shabda-cli.ts",
+    "shabda:review": "tsx scripts/shabda/shabda-cli.ts review-all",
+    "shabda:deploy": "tsx scripts/shabda/shabda-cli.ts deploy-all"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

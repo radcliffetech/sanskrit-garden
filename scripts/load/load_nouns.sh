@@ -3,11 +3,11 @@
 # List of 25 noun stems with their gender and class
 # Feel free to edit or expand this
 shabdas+=(
-  "vṛkṣa masculine a-stem"        # tree  
-  "dhenu feminine ū-stem"         # cow  
-  "tejas neuter consonant-stem"   # brilliance  
-  "rati feminine i-stem"          # love, pleasure  
-  "śakti feminine ī-stem"         # power, energy  
+  "kaṭa masculine a-stem"          # mat
+  "vāc feminine consonant-stem"    # speech
+  "nayana neuter a-stem"           # eye
+  "śānti feminine ī-stem"          # peace
+  "putrikā feminine ā-stem"        # daughter
 )
 # Loop over each noun and generate/upload it
 for entry in "${shabdas[@]}"; do
@@ -17,7 +17,7 @@ for entry in "${shabdas[@]}"; do
   class=$3
 
   echo "⚙️ Generating: $stem ($gender, $class)"
-  pnpm tsx scripts/review/review-cli.ts generate-shabda $stem $gender $class
+  pnpm tsx scripts/shabda/shabda-cli.ts generate-shabda $stem $gender $class
   echo
 done
 

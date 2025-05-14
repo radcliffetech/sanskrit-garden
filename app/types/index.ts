@@ -154,7 +154,7 @@ export type ShabdaEntry = {
   meaning: string;
 
   source?: "openai" | "manual" | "imported";
-  status?: "candidate" | "approved" | "rejected" | "deleted";
+  status?: "candidate" | "staged" | "approved" | "rejected" | "deleted";
   validatedAt?: string;
   notes?: string;
 
@@ -184,4 +184,69 @@ export type ShabdaReviewResult = {
   suggestions?: string[];
   patch?: Partial<ShabdaEntry>;
   justification?: string; // Justification for the patch
+};
+
+export type ShabdaAuditEntry = {
+  id: string; // UUID
+  shabdaId: string;
+  timestamp: string;
+  action:
+    | "approved"
+    | "patch-staged"
+    | "patch-applied"
+    | "rejected"
+    | "deleted"
+    | "manual-edit";
+  performedBy: string; // user ID, email, or "cli", "openai"
+  reviewId?: string;
+  patch?: Partial<ShabdaEntry>;
+  reason?: string;
+};
+
+export type CommandParam = {
+  name: string;
+  label: string;
+  type: "string" | "number" | "boolean";
+  required?: boolean;
+  inputHint?: "text" | "textarea" | "select";
+};
+export type CommandGroup =
+  | "Shabdas"
+  | "Reviews"
+  | "Audits"
+  | "Requests"
+  | "General";
+
+export type CommandDefinition = {
+  id: string;
+
+  meta: {
+    label: string;
+    description: string;
+    group?: CommandGroup;
+    icon?: string;
+    kind?: "single" | "batch" | "data";
+    params?: CommandParam[];
+    visibleTo?: string[];
+    returns?: "json" | "table" | "text";
+  };
+
+  /** CLI-friendly function for stdout-style behavior */
+  action?: (args: Record<string, string>) => Promise<void>;
+
+  /** React/server-friendly handler that returns data */
+  handler?: (args: Record<string, string>) => Promise<any>;
+};
+
+export type ShabdaGenerationRequest = {
+  id: string;
+  root: string;
+  gender: "masculine" | "feminine" | "neuter";
+  nounClass: string;
+  requestedBy?: string; // "cli", user email, or "import-batch"
+  reason?: string; // e.g. "missing from known texts"
+  createdAt: string;
+  status: "pending" | "started" | "generated" | "error" | "skipped";
+  errorMessage?: string;
+  generatedShabdaId?: string; // when done, points to the resulting shabda
 };
