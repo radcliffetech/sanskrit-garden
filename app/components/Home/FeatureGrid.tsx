@@ -12,7 +12,7 @@ type Feature = {
 
 const features: Feature[] = [
   {
-    to: "/phonetic-groupings",
+    to: "/learn/phonetic-groupings",
     label: "Phonetic Groupings",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description:
@@ -20,54 +20,54 @@ const features: Feature[] = [
     category: "explore",
   },
   {
-    to: "/nouns",
+    to: "/learn/nouns",
     label: "Nouns",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the concept of śabda (word) in Sanskrit.",
     category: "learning",
   },
   {
-    to: "/verbs",
+    to: "/learn/verbs",
     label: "Verbs",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the concept of śabda (word) in Sanskrit.",
     category: "learning",
   },
   {
-    to: "/alphabet",
+    to: "/learn/alphabet",
     label: "Sanskrit Alphabet",
     description: "Learn the basics of the Sanskrit alphabet.",
     category: "learning",
   },
   {
-    to: "/quiz",
+    to: "/learn/quiz",
     label: "Quiz Yourself",
     description: "Test your knowledge of Sanskrit (and this site).",
     category: "learning",
   },
   {
-    to: "/storyteller",
+    to: "/gen/storyteller",
     label: "AI Storyteller",
     icon: <StarIcon className="h-6 w-6 text-purple-800" />,
     description: "Generate stories based on your input.",
     category: "ai",
   },
   {
-    to: "/explain-concept",
+    to: "/gen/explain-concept",
     label: "AI Explainer",
     icon: <StarIcon className="h-6 w-6 text-purple-800" />,
     description: "Get explanations of Sanskrit concepts.",
     category: "ai",
   },
   {
-    to: "/dhatu-tree",
+    to: "/learn/dhatu-tree",
     label: "Dhatu Evolution",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the evolution of dhatus (roots) in Sanskrit.",
     category: "explore",
   },
   {
-    "to": "/dhatu-categories",
+    to: "/learn/dhatu-categories",
     label: "Dhatu Categories",
     icon: <StarIcon className="h-6 w-6 text-purple-200" />,
     description: "Explore the categories of verbs in Sanskrit.",

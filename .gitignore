@@ -11,6 +11,9 @@ node_modules
 # macOS system files
 *.DS_Store
 
+# Firebase local state
+.firebase/
+
 tmp/
 storybook-static/
 *storybook.log
