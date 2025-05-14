@@ -23,6 +23,8 @@ const mockArticles: Article[] = [
     description: "First description",
     content: "Content 1",
     keywords: ["philosophy", "sanskrit"],
+    createdAt: "2023-01-01T00:00:00Z",
+    updatedAt: "2023-01-02T00:00:00Z",
   },
   {
     id: "2",
@@ -32,6 +34,8 @@ const mockArticles: Article[] = [
     description: "Second description",
     content: "Content 2",
     keywords: ["language", "grammar"],
+    createdAt: "2023-01-01T00:00:00Z",
+    updatedAt: "2023-01-02T00:00:00Z",
   },
 ];
 
