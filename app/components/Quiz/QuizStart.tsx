@@ -34,10 +34,8 @@ export function QuizStart({
               role="radio"
               aria-checked={isSelected}
               tabIndex={0}
-              className={`cursor-pointer rounded px-5 py-3 border text-base font-medium shadow-sm transition focus:outline-none focus:ring-2 focus:ring-indigo-400 ${
-                isSelected
-                  ? "bg-gray-900 text-white border-gray-900"
-                  : "bg-white text-gray-700 border-gray-300 hover:border-gray-400"
+              className={`mx-2 pill-lg ${
+                isSelected ? "pill-active" : "pill-inactive"
               }`}
               onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {

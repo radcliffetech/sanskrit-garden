@@ -170,7 +170,7 @@ function DhatuGridAll({
             className={
               dhatuCardOther +
               (selected?.root === dhatu.root
-                ? " highlight-1 ring-1 ring-purple-400"
+                ? " highlight-1 ring-1 ring-[theme('colors.brand.light')]"
                 : "")
             }
           >
@@ -213,7 +213,7 @@ function DhatuGridFiltered({
             className={
               dhatuCardOther +
               (selected?.root === dhatu.root
-                ? " highlight-1 ring-1 ring-purple-400"
+                ? " highlight-1 ring-1 ring-[theme('colors.brand.light')]"
                 : "")
             }
           >

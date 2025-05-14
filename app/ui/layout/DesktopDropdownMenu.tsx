@@ -42,7 +42,7 @@ export function DesktopDropdownMenu({
         </span>
       </button>
       {openDropdown === dropdownLabel && (
-        <div className="absolute z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-800 shadow-lg ring-1 ring-black/5 focus:outline-none">
+        <div className="dropdown-dark absolute z-10 mt-2 w-64 origin-top-left rounded-md shadow-lg ring-1 ring-black/5 focus:outline-none">
           <div className="py-1">
             {dropdown.map((dropItem, subidx) =>
               dropItem.separator ? (
@@ -51,7 +51,7 @@ export function DesktopDropdownMenu({
                 <Link
                   key={subidx}
                   to={dropItem.href || "#"}
-                  className="block px-4 py-2 text-sm text-white hover:bg-gray-700 no-underline"
+                  className="dropdown-link block w-full text-left no-underline"
                   onClick={() => setOpenDropdown(null)}
                 >
                   {dropItem.label}

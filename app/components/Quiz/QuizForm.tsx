@@ -1,15 +1,9 @@
 import { ConfirmModal } from "~/ui/feedback/ConfirmModal";
-import { LoaderFunction } from "@remix-run/node";
 import { QuestionCard } from "~/components/Quiz/QuestionCard";
 import { QuizNavigation } from "~/components/Quiz/QuizNavigation";
 import type { QuizQuestion } from "~/types";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { getQuizQuestions } from "~/core/lib/repositories/quizRepository";
 import { useState } from "react";
-
-export const loader: LoaderFunction = ({ request }) => {
-  return getQuizQuestions();
-};
 
 export function QuizForm({
   questions,
@@ -44,13 +38,20 @@ export function QuizForm({
             <XMarkIcon className="h-7 w-7 text-gray-500 hover:text-gray-700" />
           </button>
         </div>
-        {currentQuestion && (
-          <QuestionCard
-            question={currentQuestion}
-            selectedAnswer={answers[currentQuestion.id]}
-            onSelect={(value) => onChange(currentQuestion.id, value)}
-          />
-        )}
+        {currentQuestion &&
+          (() => {
+            console.log("Rendering QuestionCard", {
+              question: currentQuestion,
+              selectedAnswer: answers[currentQuestion.id],
+            });
+            return (
+              <QuestionCard
+                question={currentQuestion}
+                selectedAnswer={answers[currentQuestion.id]}
+                onSelect={(id, value) => onChange(id, value)}
+              />
+            );
+          })()}
         <QuizNavigation
           currentIndex={currentIndex}
           total={questions.length}

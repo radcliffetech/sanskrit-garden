@@ -32,14 +32,14 @@ export function SystemNavbar() {
   }, []);
 
   return (
-    <nav className="relative bg-surface-dark text-on-dark px-4 py-3">
+    <nav className="relative navbar-dark px-4 py-3">
       <div className="mx-auto flex justify-between items-center">
-        <Link to="/" className="text-2xl text-on-dark no-underline">
+        <Link to="/" className="text-2xl no-underline">
           {nexusConfig.siteTitle}
         </Link>
         {/* Mobile Hamburger */}
         <button
-          className="sm:hidden block text-on-dark focus:outline-none"
+          className="sm:hidden block focus:outline-none"
           onClick={() => setMobileOpen(true)}
         >
           <svg
@@ -59,7 +59,7 @@ export function SystemNavbar() {
 
         {/* Desktop Nav */}
         <div
-          className="sm:flex hidden gap-4 sm:gap-6 items-center"
+          className="sm:flex hidden gap-4 sm:gap-6 items-center dropdown-dark"
           ref={dropdownRef}
         >
           {navigationConfig.map((item, idx) => {
@@ -76,32 +76,29 @@ export function SystemNavbar() {
               );
             } else {
               return (
-                <Link key={idx} to={item.href} className="nav-link">
+                <Link key={idx} to={item.href} className="dropdown-link">
                   {item.label}
                 </Link>
               );
             }
           })}
-          {/* <AdminOnlyGate>
-            <AdminDropdownMenu />
-          </AdminOnlyGate> */}
         </div>
       </div>
 
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-50 bg-overlay-dark"
+          className="fixed inset-0 z-50 bg-[theme('colors.surface.dark')]/90"
           onClick={() => setMobileOpen(false)}
         >
           <div
-            className="bg-surface-dark text-on-dark w-64 h-full p-4"
+            className="bg-[theme('colors.surface.dark')] w-64 h-full p-4"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center mb-4">
               <span className="text-xl font-light">Menu</span>
               <button
                 onClick={() => setMobileOpen(false)}
-                className="text-on-dark text-2xl"
+                className="text-[theme('colors.brand.dark')] text-2xl"
               >
                 &times;
               </button>
@@ -119,7 +116,7 @@ export function SystemNavbar() {
                           <Link
                             key={subidx}
                             to={dropItem.href || "#"}
-                            className="py-1 px-2 rounded hover:bg-hover-dark active:bg-active-dark transition-colors text-on-dark no-underline"
+                            className="py-1 px-2 rounded dropdown-link  transition-colors no-underline"
                             onClick={() => setMobileOpen(false)}
                           >
                             {dropItem.label}
@@ -132,7 +129,7 @@ export function SystemNavbar() {
                   <Link
                     key={idx}
                     to={item.href}
-                    className="py-1 px-2 rounded hover:bg-hover-dark active:bg-active-dark transition-colors text-on-dark no-underline"
+                    className="py-1 px-2 rounded hover:bg-[theme('colors.surface-muted')] active:bg-[theme('colors.brand.primary')] transition-colors no-underline"
                     onClick={() => setMobileOpen(false)}
                   >
                     {item.label}

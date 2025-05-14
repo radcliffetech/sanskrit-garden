@@ -1,12 +1,6 @@
 import { CheckCircleIcon, XCircleIcon } from "@heroicons/react/24/solid";
 
-import { LoaderFunction } from "@remix-run/node";
 import type { QuizQuestion } from "~/types";
-import { getQuizQuestions } from "~/core/lib/repositories/quizRepository";
-
-export const loader: LoaderFunction = ({ request }) => {
-  return getQuizQuestions();
-};
 
 export function QuizResult({
   score,
@@ -39,11 +33,11 @@ export function QuizResult({
                 const selectedStyle =
                   opt === selected
                     ? isCorrect
-                      ? "text-green-600 font-light"
-                      : "text-red-600 font-light"
-                    : "text-gray-800";
+                      ? "quiz-answer quiz-answer-correct"
+                      : "quiz-answer quiz-answer-incorrect"
+                    : "quiz-answer quiz-answer-neutral";
                 return (
-                  <div key={opt} className={`${selectedStyle} text-sm`}>
+                  <div key={opt} className={selectedStyle}>
                     {opt === selected && (
                       <>
                         {isCorrect ? (

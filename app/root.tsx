@@ -1,4 +1,5 @@
-import "~/styles/tailwind.css";
+import "~/styles/shared.css";
+import "~/styles/app.css";
 
 import {
   Links,
