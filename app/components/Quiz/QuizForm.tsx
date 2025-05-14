@@ -40,10 +40,6 @@ export function QuizForm({
         </div>
         {currentQuestion &&
           (() => {
-            console.log("Rendering QuestionCard", {
-              question: currentQuestion,
-              selectedAnswer: answers[currentQuestion.id],
-            });
             return (
               <QuestionCard
                 question={currentQuestion}

@@ -8,10 +8,6 @@ export function QuestionCard({
   selectedAnswer: string | undefined;
   onSelect: (questionId: string, value: string) => void;
 }) {
-  console.log("Rendering QuestionCard", {
-    question: question,
-    selectedAnswer: selectedAnswer,
-  });
   return (
     <div className="mb-10">
       <p className="text-xl font-light text-gray-800 mb-4">
@@ -38,12 +34,6 @@ export function QuestionCard({
                 className="sr-only"
                 checked={isSelected}
                 onChange={(e) => {
-                  console.log(
-                    "Selected option:",
-                    e.target.value,
-                    "for question:",
-                    question.id
-                  );
                   onSelect(question.id, e.target.value);
                 }}
               />

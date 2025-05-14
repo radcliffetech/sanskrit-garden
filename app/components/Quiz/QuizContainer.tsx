@@ -17,18 +17,12 @@ export function QuizContainer({ questions }: QuizContainerProps) {
   const [score, setScore] = useState<number | null>(null);
   const [answers, setAnswers] = useState<Record<string, string>>({});
 
-  useEffect(() => {
-    console.log("Updated answers:", answers);
-  }, [answers]);
-
   const handleChange = (questionId: string, value: string) => {
-    console.log("Answering question:", questionId, "with:", value);
     setAnswers((prev) => ({ ...prev, [questionId]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Scoring quiz with answers:", answers);
     const quizQuestions = quizRef.current.getQuestions();
     const result = quizQuestions.reduce((acc, q) => {
       const userAnswer = answers[q.id]?.trim();
@@ -38,9 +32,7 @@ export function QuizContainer({ questions }: QuizContainerProps) {
   };
 
   const startQuiz = (difficulty: Difficulty) => {
-    console.log("Starting quiz with difficulty:", difficulty);
     quizRef.current.start(difficulty);
-    console.log("Filtered questions:", quizRef.current.getQuestions());
     setAnswers({});
     setQuizStarted(true);
   };
