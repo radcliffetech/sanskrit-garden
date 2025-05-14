@@ -139,3 +139,49 @@ export interface Feature extends FeatureBase {
   isPublic?: boolean; // Whether the feature is public or private
   parentFeature?: Feature; // ID of the parent feature, if applicable
 }
+
+export type ShabdaEntry = {
+  id: string;
+  createdAt: string;
+  updatedAt: string;
+
+  root: string;
+  gender: "masculine" | "feminine" | "neuter";
+  nounClass: string;
+
+  iast: string;
+  devanagari: string;
+  meaning: string;
+
+  source?: "openai" | "manual" | "imported";
+  status?: "candidate" | "approved" | "rejected" | "deleted";
+  validatedAt?: string;
+  notes?: string;
+
+  forms: {
+    [key: string]: {
+      devanagari: string;
+      iast: string;
+      meaning: string;
+    };
+  };
+};
+
+export type ShabdaReviewResult = {
+  id: string; // UUID
+  shabdaId: string; // UUID of the shabda being reviewed
+  createdAt: string; // ISO date
+  updatedAt?: string;
+
+  confidence: number;
+  summary: string;
+  approved: boolean;
+
+  status?: "new" | "reviewed" | "applied" | "rejected";
+  reviewedBy?: string;
+  notes?: string;
+
+  suggestions?: string[];
+  patch?: Partial<ShabdaEntry>;
+  justification?: string; // Justification for the patch
+};

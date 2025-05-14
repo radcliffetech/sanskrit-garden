@@ -3,8 +3,8 @@ import { cert, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { writeFile } from "fs/promises";
 import path from "path";
-import serviceAccount from "../serviceAccountKey.json" assert { type: "json" };
-import nexusConfig from "../app/config/nexus.config.js";
+import serviceAccount from "../../serviceAccountKey.json" assert { type: "json" };
+import nexusConfig from "../../app/core/config/nexus.config.js";
 
 const { firestore } = nexusConfig;
 

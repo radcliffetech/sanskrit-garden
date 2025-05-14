@@ -30,7 +30,6 @@ if (!getApps().length) {
       privateKey,
     }),
   });
-  console.log("[Firebase] Admin initialized with project:", projectId);
 }
 
 export const db = getFirestore();

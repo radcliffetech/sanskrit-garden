@@ -1,6 +1,6 @@
 import { initializeApp, cert } from "firebase-admin/app";
 import { getAuth } from "firebase-admin/auth";
-import serviceAccount from "../serviceAccountKey.json" assert { type: "json" };
+import serviceAccount from "../../serviceAccountKey.json" assert { type: "json" };
 import nexusConfig from "../app/config/nexus.config.js";
 
 initializeApp({
