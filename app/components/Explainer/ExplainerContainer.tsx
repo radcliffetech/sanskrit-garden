@@ -4,7 +4,7 @@ import { ArticleDisplay } from "~/components/Explainer/ArticleDisplay";
 import { ExplainerForm } from "~/components/Explainer/ExplainerForm";
 import { InstructionsBox } from "~/components/Explainer/InstructionsBox";
 import { SectionLoading } from "~/ui/core/SectionLoading";
-import { useConceptExplainer } from "~/hooks/useConceptExplainer";
+import { useConceptExplainer } from "~/core/hooks/useConceptExplainer";
 
 export default function ExplainerContainer() {
   const explainer = useConceptExplainer();

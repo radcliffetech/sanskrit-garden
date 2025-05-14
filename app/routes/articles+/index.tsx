@@ -4,7 +4,7 @@ import { Article } from "~/types";
 import ArticlesContainer from "~/components/Articles/ArticlesContainer";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
-import { getAllArticles } from "~/lib/repositories/articlesRepository";
+import { getAllArticles } from "~/core/lib/repositories/articlesRepository";
 import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {

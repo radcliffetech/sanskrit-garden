@@ -13,7 +13,7 @@ import { AuthProvider } from "~/ui/auth/AuthProvider";
 import { ConfirmDialogProvider } from "~/ui/feedback/ConfirmDialogProvider";
 import { SystemNavbar } from "~/ui/layout/SystemNavbar";
 import { Toaster } from "react-hot-toast";
-import nexusConfig from "./config/nexus.config";
+import nexusConfig from "./core/config/nexus.config";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

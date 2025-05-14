@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-import { AdminDropdownMenu } from "./AdminDropdownMenu";
-// import { AdminOnlyGate } from "../auth/FeatureGates";
 import { DesktopDropdownMenu } from "./DesktopDropdownMenu";
 import { Link } from "~/ui/remix";
-import { navigationConfig } from "~/config/navigation";
-import nexusConfig from "~/config/nexus.config";
+import { navigationConfig } from "~/core/config/navigation";
+import nexusConfig from "~/core/config/nexus.config";
 
 export function SystemNavbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);

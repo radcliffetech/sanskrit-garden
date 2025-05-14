@@ -1,6 +1,6 @@
 import type { Article } from "~/types";
-import { db } from "~/lib/firebase/firebase.server";
-import nexusConfig from "~/config/nexus.config";
+import { db } from "~/core/lib/firebase/firebase.server";
+import nexusConfig from "~/core/config/nexus.config";
 
 const collectionId = nexusConfig.firestore.collections.articles;
 

@@ -4,7 +4,7 @@ import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
-import { getAlphabetRepository } from "~/lib/repositories/alphabetRepository";
+import { getAlphabetRepository } from "~/core/lib/repositories/alphabetRepository";
 import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {

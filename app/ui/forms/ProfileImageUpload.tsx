@@ -1,6 +1,6 @@
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-import { storage } from "~/lib/firebase/firebase.client";
+import { storage } from "~/core/lib/firebase/firebase.client";
 import { useState } from "react";
 
 const fallbackImageUrl = "/img/actors/profile-unknown.png";

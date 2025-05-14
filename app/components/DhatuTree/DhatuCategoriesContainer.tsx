@@ -4,7 +4,7 @@ import { FadeIn } from "~/ui/core/FadeIn";
 import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { Tooltip } from "react-tooltip";
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import { isFiltered } from "~/utils/dhatuFilters";
+import { isFiltered } from "~/core/utils/dhatuFilters";
 import { useState } from "react";
 
 const dhatuCardOther = `w-20 h-20 rounded border shadow-sm transition cursor-pointer flex items-center justify-center hover:highlight-1 active:scale-95 bg-white hover:shadow-md`;

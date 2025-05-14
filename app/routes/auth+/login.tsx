@@ -1,7 +1,7 @@
 import { LoginForm } from "~/ui/auth/LoginForm";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
-import { createUserSession } from "~/lib/session.server";
+import { createUserSession } from "~/core/lib/session.server";
 import { getAuth } from "firebase/auth";
 import { json } from "@remix-run/node";
 import { useAuth } from "~/ui/auth/AuthProvider";

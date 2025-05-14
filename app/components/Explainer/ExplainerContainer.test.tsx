@@ -2,7 +2,7 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import ExplainerContainer from "./ExplainerContainer";
 
-jest.mock("~/hooks/useConceptExplainer", () => ({
+jest.mock("~/core/hooks/useConceptExplainer", () => ({
   useConceptExplainer: () => ({
     exampleSet: ["karma", "dharma", "moksha"],
     explainConceptRequest: jest.fn(() => {

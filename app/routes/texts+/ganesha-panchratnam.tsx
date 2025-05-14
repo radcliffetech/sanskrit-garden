@@ -2,7 +2,7 @@ import { type LoaderFunctionArgs } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import TextDisplayContainer from "~/components/Texts/TextDisplayContainer";
-import { getTextsRepository } from "~/lib/repositories/textsRepository";
+import { getTextsRepository } from "~/core/lib/repositories/textsRepository";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Gita" }, { name: "description", content: "Gita!" }];
