@@ -1,5 +1,3 @@
-import * as remix from "@remix-run/react";
-
 import { Difficulty, QuizQuestion } from "~/types";
 import { fireEvent, render, screen } from "@testing-library/react";
 
@@ -30,10 +28,6 @@ const mockQuestions: QuizQuestion[] = [
 ];
 
 describe("QuizContainer", () => {
-  beforeEach(() => {
-    (remix.useLoaderData as jest.Mock).mockReturnValue(mockQuestions);
-  });
-
   it("renders start screen with difficulty options", () => {
     render(<QuizContainer questions={mockQuestions} />);
     expect(screen.getByText(/select a difficulty level/i)).toBeInTheDocument();
