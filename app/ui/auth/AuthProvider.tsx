@@ -9,8 +9,8 @@ import {
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
 
-import { app } from "~/lib/firebase/firebase.client";
-import { useSyncAuthToken } from "~/hooks/useSyncAuthToken";
+import { app } from "~/core/lib/firebase/firebase.client";
+import { useSyncAuthToken } from "~/core/hooks/useSyncAuthToken";
 
 type AuthContextType = {
   user: User | null;

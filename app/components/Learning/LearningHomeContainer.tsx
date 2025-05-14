@@ -11,19 +11,19 @@ export default function LearningHomeContainer() {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto mt-8">
         <a
-          href="/learning/vocabulary"
+          href="/learn/vocabulary"
           className="block border border-indigo-400 rounded-lg shadow-md p-6 text-center text-lg font-light text-indigo-700 hover:bg-indigo-50 transition"
         >
           शब्दसंग्रहः (Vocabulary)
         </a>
         <a
-          href="/learning/verbs"
+          href="/learn/verbs"
           className="block border border-indigo-400 rounded-lg shadow-md p-6 text-center text-lg font-light text-indigo-700 hover:bg-indigo-50 transition"
         >
           धातवः (Verbs)
         </a>
         <a
-          href="/learning/nouns"
+          href="/learn/nouns"
           className="block border border-indigo-400 rounded-lg shadow-md p-6 text-center text-lg font-light text-indigo-700 hover:bg-indigo-50 transition"
         >
           नामानि (Nouns)

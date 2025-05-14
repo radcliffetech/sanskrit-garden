@@ -26,6 +26,8 @@ export type Article = {
   description: string; // One line description
   content: string;
   keywords: string[];
+  createdAt: string; // ISO date
+  updatedAt: string; // ISO date
 };
 
 export type StorySegment = {

@@ -49,8 +49,7 @@ async function loadCollection() {
       const collectionRef = db.collection(collectionName);
       records.forEach((doc) => {
         const docRef = doc.id ? collectionRef.doc(doc.id) : collectionRef.doc();
-        const { id, ...rest } = doc;
-        batch.set(docRef, rest);
+        batch.set(docRef, doc);
       });
       await batch.commit();
       console.log(`✅ Loaded ${records.length} records into ${collectionName}`);

@@ -2,14 +2,14 @@ import { type LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { ArticleDetailContainer } from "~/components/Articles/ArticleDetailContainer";
 import { PageFrame } from "~/ui/layout/PageFrame";
-import { getArticlesRepository } from "~/lib/repositories/articlesRepository";
+import { getArticleById } from "~/core/lib/repositories/articlesRepository";
 
 export async function loader({ params }: LoaderFunctionArgs) {
   const { id } = params;
   if (!id) {
     throw new Response("Not Found", { status: 404 });
   }
-  const article = await getArticlesRepository().getById(id);
+  const article = await getArticleById(id);
   if (!article) {
     throw new Response("Not Found", { status: 404 });
   }

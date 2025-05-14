@@ -1,10 +1,10 @@
-import AlphabetContainer from "~/components/Alphabet/AlphabetContainer";
 import { AlphabetItem } from "~/types";
+import LexicalTreasuryContainer from "~/components/Alphabet/LexicalTreasuryContainer";
 import type { LoaderFunction } from "@remix-run/node";
 import type { MetaFunction } from "@remix-run/node";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
-import { getAlphabetRepository } from "~/lib/repositories/alphabetRepository";
+import { getAlphabetRepository } from "~/core/lib/repositories/alphabetRepository";
 import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
@@ -12,9 +12,7 @@ export const meta: MetaFunction = () => {
 };
 
 export const loader: LoaderFunction = ({ request }) => {
-  return getAlphabetRepository()
-    .getAlphabet()
-    .filter((item) => item.char !== "ॐ");
+  return getAlphabetRepository().getAlphabet();
 };
 
 export default function Alphabet() {
@@ -22,8 +20,12 @@ export default function Alphabet() {
 
   return (
     <PageFrame>
-      <PageHeader>Sanskrit Alphabet (संस्कृतवर्णमाला)</PageHeader>
-      <AlphabetContainer data={data} />
+      <PageHeader>Phonetic Groupings (ध्वनिवर्गाः)</PageHeader>
+      <p className="w-100 text-gray-600 space-y-4 text-lg mb-10">
+        Explore the phonetic structure of Sanskrit through various categorical
+        lenses.
+      </p>
+      <LexicalTreasuryContainer data={data} />
     </PageFrame>
   );
 }

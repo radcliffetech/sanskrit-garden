@@ -14,7 +14,7 @@ export function FeatureCard({
   return (
     <Link
       to={to}
-      className="group border rounded-lg shadow-md text-black text-center flex items-center justify-center transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] hover:bg-gray-50 active:bg-gray-100 hover:ring-1 hover:ring-purple-300 h-50"
+      className="group border rounded-lg shadow-md text-black text-center flex items-center justify-center transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-[0.98] hover:bg-gray-50 active:bg-gray-100 hover:ring-1 hover:ring-[theme('colors.brand.light')] h-50"
     >
       <div className="w-full h-full flex flex-col justify-between items-center">
         <img
@@ -25,7 +25,9 @@ export function FeatureCard({
         <div className="px-3 sm:px-4 py-4 sm:py-6 flex-1 flex flex-col items-center justify-center space-y-2 text-center">
           <div className="flex items-center justify-center space-x-2">
             <span className="text-lg font-semibold">{label}</span>
-            {icon && <div className="text-purple-600">{icon}</div>}
+            {icon && (
+              <div className="text-[theme('colors.brand.primary')]">{icon}</div>
+            )}
           </div>
           {description && (
             <p className="text-xs text-gray-500">{description}</p>

@@ -1,5 +1,5 @@
 import { json, type ActionFunction } from "@remix-run/node";
-import { explainConcept } from "~/lib/openai/openai.server"; // assuming your OpenAI server function is here
+import { explainConcept } from "~/core/lib/openai/openai.server"; // assuming your OpenAI server function is here
 
 export const action: ActionFunction = async ({ request }) => {
   try {

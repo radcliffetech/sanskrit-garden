@@ -24,6 +24,10 @@ const config: StorybookConfig = {
         "~": path.resolve(__dirname, "../app"),
       },
     };
+    config.optimizeDeps = {
+      ...(config.optimizeDeps || {}),
+      exclude: ["@remix-run/react", "@remix-run/router"],
+    };
     config.plugins = [tsconfigPaths(), ...(config.plugins || [])];
     return config;
   },

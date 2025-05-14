@@ -2,28 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-50;
-
-  @media (prefers-color-scheme: light) {
-    color-scheme: light;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 300; /* Tailwind's font-light corresponds to font-weight: 300 */
-}
-
 @layer components {
   .btn-primary {
-    @apply bg-gray-900 hover:bg-gray-800 text-white py-2 px-6 rounded-lg text-lg transition;
+    @apply bg-[theme('colors.brand.dark')] hover:bg-[theme('colors.brand.primary')] text-white py-2 px-6 rounded-lg text-lg transition;
   }
 }
 
 @layer components {
   .btn-secondary {
-    @apply bg-gray-400 hover:bg-gray-600 text-white py-2 px-6 rounded-lg text-lg transition;
+    @apply bg-[theme('colors.brand.light')] hover:bg-[theme('colors.brand.primary')] text-brand-dark py-2 px-6 rounded-lg text-lg transition;
   }
 }
 
@@ -38,14 +25,13 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .pill-active {
-    @apply bg-purple-200 text-purple-900 shadow-md border-purple-300;
+    @apply bg-[theme('colors.brand.light')] text-[theme('colors.brand.dark')] shadow-md border-[theme('colors.brand.primary')];
   }
 
   .pill-inactive {
     @apply bg-white text-gray-700 hover:bg-gray-100 border-gray-300;
   }
 }
-
 
 @layer components {
   .nav-link {
@@ -55,24 +41,31 @@ h1, h2, h3, h4, h5, h6 {
 
 @layer components {
   .highlight-1 {
-    @apply bg-purple-200 text-purple-900 shadow-lg border-purple-200;
+    @apply bg-[theme('colors.brand.light')] text-[theme('colors.brand.dark')] shadow-lg border-[theme('colors.brand.light')];
   }
 }
 @layer components {
   .highlight-2 {
-    @apply bg-purple-800 text-white shadow-xl border-purple-800;
+    @apply bg-[theme('colors.brand.dark')] text-white shadow-xl border-[theme('colors.brand.dark')];
+  }
+}
+
+@layer components {
+  .text-highlight {
+    @apply text-[theme('colors.brand.dark')];
   }
 }
 
 @layer utilities {
   .prose p + p {
-    margin-top: 1.25em; /* increase spacing between adjacent paragraphs */
+    margin-top: 1.25em;
   }
 
   .prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
     margin-bottom: 0.5em;
   }
 }
+
 @layer utilities {
   .animate-fade-in {
     animation: fadeIn 0.8s ease-out forwards;
@@ -100,5 +93,20 @@ h1, h2, h3, h4, h5, h6 {
     to {
       opacity: 1;
     }
+  }
+}
+
+@layer components {
+  .navbar-dark {
+    @apply bg-[theme('colors.surface.dark')] text-[theme('colors.brand.light')] border-b border-divider;
+  }
+}
+@layer components {
+  .dropdown-dark {
+    @apply bg-[theme('colors.surface.dark')] text-[theme('colors.brand.light')] rounded shadow-lg;
+  }
+}@layer components {
+  .dropdown-link {
+    @apply px-3 py-2 rounded hover:bg-[theme('colors.brand.primary')] hover:text-white transition;
   }
 }

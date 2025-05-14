@@ -3,7 +3,7 @@ import {
   DisplayStorySegment,
   ListenerStorySegment,
 } from "~/components/Story/Story";
-import { getDefaultTopics, useStoryteller } from "~/hooks/useStoryteller";
+import { getDefaultTopics, useStoryteller } from "~/core/hooks/useStoryteller";
 
 import { EndStoryControl } from "~/components/Story/EndStoryControl";
 import { FadeIn } from "~/ui/core/FadeIn";

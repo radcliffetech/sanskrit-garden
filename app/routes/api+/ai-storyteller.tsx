@@ -1,5 +1,5 @@
 import { json, type ActionFunction } from "@remix-run/node";
-import { generateStory } from "~/lib/openai/openai.server";
+import { generateStory } from "~/core/lib/openai/openai.server";
 
 export const action: ActionFunction = async ({ request }) => {
   try {

@@ -1,5 +1,5 @@
 import type { ActionFunction } from "@remix-run/node";
-import { createUserSession } from "~/lib/session.server";
+import { createUserSession } from "~/core/lib/session.server";
 import { json } from "@remix-run/node";
 
 export const action: ActionFunction = async ({ request }) => {
