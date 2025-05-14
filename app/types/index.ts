@@ -175,7 +175,7 @@ export type CommandParam = {
   inputHint?: "text" | "textarea" | "select";
 };
 export type CommandGroup =
-  | "Shabdas"
+  | "Objects"
   | "Reviews"
   | "Audits"
   | "Requests"

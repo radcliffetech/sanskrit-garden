@@ -1,8 +1,13 @@
-import { commandBus } from "~/core/lib/review/commands/registry";
+import { commandBus } from "~/core/lib/curations/commandBus";
 
-const [, , command, ...rest] = process.argv;
+const [, , namespace, command, ...rest] = process.argv;
 
 async function run() {
+  if (namespace !== "nouns") {
+    console.log("❌ Please specify a valid namespace: nouns");
+    return;
+  }
+
   if (!command) {
     console.log("🛠 Available Commands:\n");
 
@@ -32,7 +37,10 @@ async function run() {
     return;
   }
 
-  const action = commandBus.find((a) => a.id === command);
+  const fullCommand = command.includes(":")
+    ? command
+    : `${namespace}:${command}`;
+  const action = commandBus.find((a) => a.id === fullCommand);
   if (!action) {
     console.log(`❌ Unknown command: ${command}`);
     return;

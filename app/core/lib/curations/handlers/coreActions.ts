@@ -1,93 +1,38 @@
-import {
-  flushReviews,
-  getAllReviews,
-  shabdaRepo,
-} from "~/core/lib/repositories/shabdaRepository";
+import { confirmPrompt, promptUser } from "../utils";
 
-import type { CurationRequest } from "~/types/curation";
-import type { ShabdaEntry } from "~/types";
 import chalk from "chalk";
-import { generateShabda } from "~/core/lib/openai/generateShabda";
 import { match } from "ts-pattern";
-import readline from "readline";
-import { reviewShabda } from "~/core/lib/openai/reviewShabda";
+import { shabdaRepo } from "~/core/lib/repositories/shabdaRepository";
 
-type ShabdaRequest = CurationRequest<ShabdaEntry>;
-
-function confirmPrompt(msg: string): Promise<boolean> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-  return new Promise((resolve) =>
-    rl.question(msg + " (y/N) ", (ans) => {
-      rl.close();
-      resolve(ans.trim().toLowerCase() === "y");
-    })
-  );
-}
-
-function promptUser(query: string): Promise<string> {
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-  return new Promise((resolve) =>
-    rl.question(query, (answer) => {
-      rl.close();
-      resolve(answer.trim().toLowerCase());
-    })
-  );
-}
-
-// ───────────────────────────────────────
-// 🔵 Shabda Management
-// ───────────────────────────────────────
-export const commandHandlers = [
+export const coreActions = [
   {
-    id: "generate-shabda",
-    action: async ({
-      stem,
-      gender,
-      nounClass,
-    }: {
-      stem: string;
-      gender: string;
-      nounClass: string;
-    }) => {
-      const entry = await generateShabda({ stem, gender, nounClass }); // wrapped function
-      await shabdaRepo.objects.add(entry);
-      console.log(chalk.green(`✅ Shabda generated and stored: ${entry.id}`));
-    },
-  },
-  {
-    id: "delete-shabda",
-    action: async (args: { shabdaId: string }) => {
-      const shabdaId = args.shabdaId;
+    id: "objects:delete",
+    action: async (args: { objectId: string }) => {
+      const objectId = args.objectId;
       const confirmed = await confirmPrompt(
-        `Are you sure you want to delete shabda ${shabdaId}?`
+        `Are you sure you want to delete object ${objectId}?`
       );
       if (!confirmed) {
         console.log("❌ Deletion cancelled.");
         return;
       }
-      await shabdaRepo.objects.delete(shabdaId);
+      await shabdaRepo.objects.delete(objectId);
 
-      console.log(chalk.green(`🗑️ Shabda deleted: ${shabdaId}`));
+      console.log(chalk.green(`🗑️ Object deleted: ${objectId}`));
     },
   },
   {
-    id: "list-all",
+    id: "objects:list-all",
     action: async () => {
-      const shabdas = await shabdaRepo.objects.getAll();
-      if (!shabdas.length) {
-        console.log("No shabdas found.");
+      const objects = await shabdaRepo.objects.getAll();
+      if (!objects.length) {
+        console.log("No objects found.");
         return;
       }
 
-      console.log(chalk.bold("Approved Shabdas:\n"));
+      console.log(chalk.bold("Approved Objects:\n"));
 
-      for (const s of shabdas) {
+      for (const s of objects) {
         const line = [
           chalk.gray(s.id || "").padEnd(12),
           chalk.gray(s.status || "").padEnd(12),
@@ -101,14 +46,14 @@ export const commandHandlers = [
     },
   },
   {
-    id: "deploy",
-    action: async ({ shabdaId }: { shabdaId: string }) => {
+    id: "objects:deploy",
+    action: async ({ objectId }: { objectId: string }) => {
       const entry = (await shabdaRepo.objects.getAll()).find(
-        (s) => s.id === shabdaId
+        (s) => s.id === objectId
       );
 
       if (!entry) {
-        console.log(`❌ Shabda not found: ${shabdaId}`);
+        console.log(`❌ Object not found: ${objectId}`);
         return;
       }
 
@@ -120,13 +65,13 @@ export const commandHandlers = [
       }
 
       if (entry.status === "approved") {
-        console.log("✅ Shabda is already approved.");
+        console.log("✅ Object is already approved.");
         return;
       }
 
       if (entry.status !== "staged") {
         console.log(
-          `⚠️ Shabda must be staged before deployment. Current status: ${entry.status}`
+          `⚠️ Object must be staged before deployment. Current status: ${entry.status}`
         );
         return;
       }
@@ -144,24 +89,24 @@ export const commandHandlers = [
         performedBy: "cli",
       });
 
-      console.log(`🚀 Shabda deployed: ${shabdaId}`);
+      console.log(`🚀 Object deployed: ${objectId}`);
     },
   },
   {
-    id: "deploy-all",
+    id: "objects:deploy-all",
     action: async () => {
       const entries = await shabdaRepo.objects.getAll();
       const stagedEntries = entries.filter((s) => s.status === "staged");
       if (stagedEntries.length === 0) {
-        console.log("No staged shabdas found.");
+        console.log("No staged objects found.");
         return;
       }
 
-      console.log("Staged shabdas to deploy:");
+      console.log("Staged objects to deploy:");
       stagedEntries.forEach((s) => console.log(`  - ${s.id}`));
 
       const confirmed = await confirmPrompt(
-        "Are you sure you want to deploy all staged shabdas?"
+        "Are you sure you want to deploy all staged objects?"
       );
       if (!confirmed) {
         console.log("🚫 Deployment cancelled.");
@@ -183,79 +128,26 @@ export const commandHandlers = [
         });
       }
 
-      console.log(`🚀 All staged shabdas deployed.`);
+      console.log(`🚀 All staged objects deployed.`);
     },
   },
 
   // ───────────────────────────────────────
   // 🟡 Review Management
   // ───────────────────────────────────────
+
   {
-    id: "generate-reviews",
-    action: async () => {
-      const candidates = await shabdaRepo.reviews.filter({
-        status: "new",
-      });
-
-      console.log("📦 Candidates to review:");
-      candidates.slice(0, 10).forEach((c, i) => {
-        console.log(`  ${i + 1}. ${c.id}`);
-      });
-      if (candidates.length > 10) {
-        console.log(`  ...and ${candidates.length - 10} more`);
-      }
-
-      const confirmStart = await promptUser("Start reviewing? (y/N) ");
-      if (confirmStart !== "y") {
-        console.log("❌ Aborted by user.");
-        return;
-      }
-
-      const reviews = await shabdaRepo.reviews.getAll();
-      const reviewedIds = new Set(reviews.map((r) => r.objectId));
-      const pending = candidates.filter((entry) => !reviewedIds.has(entry.id));
-
-      if (!pending.length) {
-        console.log(
-          chalk.green("✅ All candidate shabdas already have reviews.")
-        );
-        return;
-      }
-
-      console.log(
-        chalk.gray(`🧠 Reviewing ${pending.length} unreviewed shabdas...\n`)
-      );
-
-      for (const entry of pending) {
-        console.log(chalk.gray(`→ ${entry.id}`));
-        try {
-          const shabda = await shabdaRepo.objects.getById(entry.objectId);
-          if (!shabda) {
-            throw new Error(`Shabda not found: ${entry.objectId}`);
-          }
-          const review = await reviewShabda(shabda);
-          await shabdaRepo.reviews.addReview(review);
-          console.log(chalk.green(`✅ Reviewed: ${shabda.id}`));
-        } catch (err) {
-          console.error(chalk.red(`❌ Error reviewing ${entry.id}:`), err);
-        }
-      }
-
-      console.log(chalk.green("\n🎉 Done."));
-    },
-  },
-  {
-    id: "review-all",
+    id: "reviews:review-all",
     action: async () => {
       const allReviews = await shabdaRepo.reviews.getAll();
       const pending = allReviews.filter((r) => r.status === "new");
 
       if (pending.length === 0) {
-        console.log("No unreviewed shabdas found.");
+        console.log("No unreviewed objects found.");
         return;
       }
 
-      console.log(`📥 Loaded ${pending.length} unreviewed reviews`);
+      console.log(`📥 Loaded ${pending.length} unreviewed objects`);
 
       console.log("📦 Reviews to process:");
       pending.slice(0, 10).forEach((r, i) => {
@@ -378,7 +270,7 @@ export const commandHandlers = [
               performedBy: "cli",
               reviewId: review.id,
             });
-            console.log("✅ Approved and moved to validated shabdas");
+            console.log("✅ Approved and moved to staging");
           })
           .with("r", async () => {
             await shabdaRepo.reviews.updateReview(review.id, {
@@ -429,10 +321,10 @@ export const commandHandlers = [
     },
   },
   {
-    id: "list-reviews-for-shabda",
-    action: async (args: { shabdaId: string }) => {
-      const shabdaId = args.shabdaId;
-      const reviews = await shabdaRepo.reviews.getReviewsFor(shabdaId);
+    id: "reviews:list-for-object",
+    action: async (args: { objectId: string }) => {
+      const objectId = args.objectId;
+      const reviews = await shabdaRepo.reviews.getReviewsFor(objectId);
       if (!reviews.length) {
         console.log(chalk.gray("No reviews found."));
         return;
@@ -449,7 +341,7 @@ export const commandHandlers = [
     },
   },
   {
-    id: "get-review",
+    id: "reviews:get",
     action: async (args: { reviewId: string }) => {
       const reviewId = args.reviewId;
       const r = await shabdaRepo.reviews.getReviewById(reviewId);
@@ -458,7 +350,7 @@ export const commandHandlers = [
         return;
       }
       console.log(chalk.bold(`\n🔍 Review ID: ${r.id}`));
-      console.log(`${chalk.gray("Shabda ID:")} ${r.objectId}`);
+      console.log(`${chalk.gray("Object ID:")} ${r.objectId}`);
       console.log(
         `${chalk.gray("Confidence:")} ${chalk.greenBright(
           `${(r.confidence * 100).toFixed(1)}%`
@@ -483,7 +375,7 @@ export const commandHandlers = [
     },
   },
   {
-    id: "delete-review",
+    id: "reviews:delete",
     action: async (args: { reviewId: string }) => {
       const reviewId = args.reviewId;
       await shabdaRepo.reviews.deleteReviewById(reviewId);
@@ -491,7 +383,7 @@ export const commandHandlers = [
     },
   },
   {
-    id: "flush-reviews",
+    id: "reviews:flush",
     action: async () => {
       const confirmed = await confirmPrompt(
         "Are you sure you want to delete all reviews?"
@@ -500,14 +392,19 @@ export const commandHandlers = [
         console.log("Flush cancelled.");
         return;
       }
-      await flushReviews();
+      // Temporary batch delete using shabdaRepo
+      await Promise.all(
+        (
+          await shabdaRepo.reviews.getAll()
+        ).map((r) => shabdaRepo.reviews.deleteReviewById(r.id))
+      );
       console.log(chalk.red("🗑️ All reviews flushed."));
     },
   },
   {
-    id: "list-reviews",
+    id: "reviews:list-by-status",
     action: async ({ status = "all" }) => {
-      const reviews = await getAllReviews();
+      const reviews = await shabdaRepo.reviews.getAll();
       const filtered = match(status)
         .with("new", () => reviews.filter((r) => r.status === "new"))
         .with("reviewed", () => reviews.filter((r) => r.status === "skipped"))
@@ -520,36 +417,14 @@ export const commandHandlers = [
       }
     },
   },
-  {
-    id: "re-review",
-    action: async ({ shabdaId }: { shabdaId: string }) => {
-      const { getAllApprovedShabdas } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const shabda = (await getAllApprovedShabdas()).find(
-        (s) => s.id === shabdaId
-      );
-      if (!shabda) {
-        console.log(`❌ Shabda not found: ${shabdaId}`);
-        return;
-      }
-
-      const review = await reviewShabda(shabda);
-      await shabdaRepo.reviews.addReview(review);
-      console.log("🔁 Re-reviewed:", shabda.id);
-    },
-  },
 
   // ───────────────────────────────────────
   // 🟢 Audit Logging
   // ───────────────────────────────────────
   {
-    id: "list-audits",
-    action: async ({ shabdaId }: { shabdaId: string }) => {
-      const { getAuditLogsForShabda } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const logs = await getAuditLogsForShabda(shabdaId);
+    id: "audits:list",
+    action: async ({ objectId }: { objectId: string }) => {
+      const logs = await shabdaRepo.audits.getFor(objectId);
       if (!logs.length) {
         console.log(chalk.gray("No audit logs found."));
         return;
@@ -566,11 +441,8 @@ export const commandHandlers = [
     },
   },
   {
-    id: "flush-audits",
+    id: "audits:flush",
     action: async () => {
-      const { flushAuditLogs } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
       const confirm = await confirmPrompt(
         "Are you sure you want to delete all audit logs?"
       );
@@ -578,17 +450,15 @@ export const commandHandlers = [
         console.log("Flush cancelled.");
         return;
       }
-      await flushAuditLogs();
+      await shabdaRepo.audits.flush();
       console.log(chalk.red("🧹 All audit logs deleted."));
     },
   },
   {
-    id: "list-all-audits",
+    id: "audits:list-all",
     action: async () => {
-      const { getAuditLogs } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const logs = await getAuditLogs();
+      // Use getFor(undefined) or implement getAll if available
+      const logs = await shabdaRepo.audits.getFor(undefined as any);
       if (!logs.length) {
         console.log(chalk.gray("No audit logs found."));
         return;
@@ -605,44 +475,10 @@ export const commandHandlers = [
     },
   },
 
-  // ───────────────────────────────────────
-  // 🟣 Generation Requests
-  // ───────────────────────────────────────
   {
-    id: "request-shabda",
-    action: async (args: {
-      stem: string;
-      gender: string;
-      nounClass: string;
-      requestedBy?: string;
-      reason?: string;
-    }) => {
-      const now = new Date().toISOString();
-      const request: ShabdaRequest = {
-        id: `${args.stem}-${args.gender}-${args.nounClass}`.toLowerCase(),
-        data: {
-          root: args.stem,
-          gender: args.gender as "masculine" | "feminine" | "neuter",
-          nounClass: args.nounClass,
-        },
-        reason: args.reason ?? "",
-        requestedBy: args.requestedBy ?? "cli",
-        status: "pending",
-        createdAt: now,
-      };
-      await shabdaRepo.requests.add(request);
-      console.log(
-        chalk.green(`📥 Generation request submitted: ${request.id}`)
-      );
-    },
-  },
-  {
-    id: "list-requests",
+    id: "requests:list",
     action: async () => {
-      const { getAllShabdaGenerationRequests } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const requests = await getAllShabdaGenerationRequests();
+      const requests = await shabdaRepo.requests.getByStatus("pending");
       if (!requests.length) {
         console.log("No generation requests found.");
         return;
@@ -663,59 +499,6 @@ export const commandHandlers = [
         chalk.gray("Pending requests: "),
         requests.filter((r) => r.status === "pending").length
       );
-    },
-  },
-  {
-    id: "generate-from-requests",
-    action: async () => {
-      const { getShabdaRequestsByStatus, updateShabdaRequest } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-
-      const requests: ShabdaRequest[] = await shabdaRepo.requests.getByStatus(
-        "pending"
-      );
-      if (!requests.length) {
-        console.log("No pending generation requests.");
-        return;
-      }
-
-      console.log(`📥 Found ${requests.length} pending requests`);
-
-      for (const req of requests) {
-        console.log(`🧠 Generating: ${req.id}`);
-        try {
-          const root = req.data.root || "";
-          const gender = req.data.gender || "";
-          const nounClass = req.data.nounClass || "";
-
-          if (!root || !gender || !nounClass) {
-            console.log(chalk.red(`❌ Invalid request: ${req.id}`));
-            await shabdaRepo.requests.update(req.id, {
-              status: "error",
-              errorMessage: "Invalid request data",
-            });
-            continue;
-          }
-          const entry = await generateShabda({
-            stem: root,
-            gender,
-            nounClass,
-          });
-          await shabdaRepo.objects.add(entry);
-          await shabdaRepo.requests.update(req.id, {
-            status: "generated",
-            generatedObjectId: entry.id,
-          });
-          console.log(chalk.green(`✅ Generated: ${entry.id}`));
-        } catch (err) {
-          await shabdaRepo.requests.update(req.id, {
-            status: "error",
-            errorMessage: (err as Error).message,
-          });
-          console.log(chalk.red(`❌ Error for ${req.id}:`), err);
-        }
-      }
     },
   },
 ];

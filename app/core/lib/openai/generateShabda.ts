@@ -1,3 +1,4 @@
+import type { ContentGenerator } from "~/core/lib/curations/interfaces";
 import OpenAI from "openai";
 import type { ShabdaEntry } from "~/types";
 
@@ -137,52 +138,49 @@ const exampleOutput = {
     },
   },
 };
-interface GenerateShabdaParams {
-  stem: string;
-  gender: string;
-  nounClass: string;
-}
 
-export async function generateShabda({
-  stem,
-  gender,
-  nounClass,
-}: GenerateShabdaParams): Promise<ShabdaEntry> {
-  const prompt = generatePrompt({ stem, gender, nounClass });
-  const result = await openai.chat.completions.create({
-    model: "gpt-4o",
-    messages: [{ role: "user", content: prompt }],
-    response_format: { type: "json_object" },
-  });
-
-  if (result.choices.length === 0) {
-    throw new Error("No response from OpenAI");
-  }
-  const content = result.choices[0].message?.content?.trim();
-  if (!content) {
-    throw new Error("No content returned from OpenAI");
-  }
-  const json = JSON.parse(content);
-  console.log("Generated JSON:", json);
-  const now = new Date().toISOString();
-  const semanticId = `${json.root}-${gender}-${nounClass}`
-    .toLowerCase()
-    .replace(/\s+/g, "-");
-  const fullEntry: ShabdaEntry = {
-    ...json,
-    id: semanticId,
+export const shabdaGenerator: ContentGenerator<ShabdaEntry> = {
+  async generate({
+    root,
     gender,
     nounClass,
-    createdAt: now,
-    updatedAt: now,
-    source: "openai",
-    status: "candidate",
-  };
+  }: Partial<ShabdaEntry>): Promise<ShabdaEntry> {
+    const prompt = generatePrompt({ root, gender, nounClass });
+    const result = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" },
+    });
 
-  return fullEntry;
-}
+    if (result.choices.length === 0) {
+      throw new Error("No response from OpenAI");
+    }
+    const content = result.choices[0].message?.content?.trim();
+    if (!content) {
+      throw new Error("No content returned from OpenAI");
+    }
+    const json = JSON.parse(content);
+    console.log("Generated JSON:", json);
+    const now = new Date().toISOString();
+    const semanticId = `${json.root}-${gender}-${nounClass}`
+      .toLowerCase()
+      .replace(/\s+/g, "-");
+    const fullEntry: ShabdaEntry = {
+      ...json,
+      id: semanticId,
+      gender,
+      nounClass,
+      createdAt: now,
+      updatedAt: now,
+      source: "openai",
+      status: "candidate",
+    };
 
-function generatePrompt({ stem, gender, nounClass }: GenerateShabdaParams) {
+    return fullEntry;
+  },
+};
+
+function generatePrompt({ root, gender, nounClass }: Partial<ShabdaEntry>) {
   const prompt = `You are a Sanskrit grammar engine trained to generate full noun declension tables based on classical grammar rules.
 
 Task:
@@ -211,7 +209,7 @@ Example output:
 ${JSON.stringify(exampleOutput, null, 2)}
 
 Input:
-Stem: "${stem}"  
+Stem: "${root}"  
 Gender: "${gender}"  
 Class: "${nounClass}"
 `;

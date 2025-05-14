@@ -1,10 +1,6 @@
-import type {
-  CurationAudit,
-  CurationRequest,
-  CurationReview,
-} from "~/types/curation";
-
+import type { CurationReview } from "~/types/curation";
 import OpenAI from "openai";
+import type { ReviewGenerator } from "~/core/lib/curations/interfaces";
 import type { ShabdaEntry } from "~/types";
 
 const apiKey = process.env.OPENAI_API_KEY;
@@ -14,39 +10,40 @@ if (!apiKey) {
 
 const openai = new OpenAI({ apiKey });
 
-export async function reviewShabda(
-  entry: ShabdaEntry
-): Promise<CurationReview<ShabdaEntry>> {
-  const prompt = generateReviewPrompt(entry);
-  const result = await openai.chat.completions.create({
-    model: "gpt-4o",
-    messages: [{ role: "user", content: prompt }],
-    response_format: { type: "json_object" },
-  });
+export const shabdaReviewer: ReviewGenerator<ShabdaEntry> = {
+  async review(entry) {
+    const prompt = generateReviewPrompt(entry);
+    const result = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ role: "user", content: prompt }],
+      response_format: { type: "json_object" },
+    });
 
-  if (!result.choices.length) {
-    throw new Error("No review response from OpenAI");
-  }
+    if (!result.choices.length) {
+      throw new Error("No review response from OpenAI");
+    }
 
-  const content = result.choices[0].message?.content?.trim();
-  if (!content) {
-    throw new Error("No review content returned from OpenAI");
-  }
+    const content = result.choices[0].message?.content?.trim();
+    if (!content) {
+      throw new Error("No review content returned from OpenAI");
+    }
 
-  const review: CurationReview<ShabdaEntry> = JSON.parse(content);
-  if (Array.isArray(review.suggestions)) {
-    review.suggestions = review.suggestions.map((s) =>
-      typeof s === "string" ? s : JSON.stringify(s)
-    );
-  }
-  return {
-    ...review,
-    id: crypto.randomUUID(),
-    objectId: entry.id,
-    createdAt: new Date().toISOString(),
-    status: "new",
-  };
-}
+    const review: CurationReview<ShabdaEntry> = JSON.parse(content);
+    if (Array.isArray(review.suggestions)) {
+      review.suggestions = review.suggestions.map((s) =>
+        typeof s === "string" ? s : JSON.stringify(s)
+      );
+    }
+
+    return {
+      ...review,
+      id: crypto.randomUUID(),
+      objectId: entry.id,
+      createdAt: new Date().toISOString(),
+      status: "new",
+    };
+  },
+};
 
 function generateReviewPrompt(entry: ShabdaEntry): string {
   return `You are a Sanskrit grammar assistant reviewing a declined noun entry.
