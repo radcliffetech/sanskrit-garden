@@ -1,6 +1,11 @@
-import type { ShabdaEntry, ShabdaReviewResult } from "~/types";
+import type {
+  CurationAudit,
+  CurationRequest,
+  CurationReview,
+} from "~/types/curation";
 
 import OpenAI from "openai";
+import type { ShabdaEntry } from "~/types";
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {
@@ -11,7 +16,7 @@ const openai = new OpenAI({ apiKey });
 
 export async function reviewShabda(
   entry: ShabdaEntry
-): Promise<ShabdaReviewResult> {
+): Promise<CurationReview<ShabdaEntry>> {
   const prompt = generateReviewPrompt(entry);
   const result = await openai.chat.completions.create({
     model: "gpt-4o",
@@ -28,7 +33,7 @@ export async function reviewShabda(
     throw new Error("No review content returned from OpenAI");
   }
 
-  const review: ShabdaReviewResult = JSON.parse(content);
+  const review: CurationReview<ShabdaEntry> = JSON.parse(content);
   if (Array.isArray(review.suggestions)) {
     review.suggestions = review.suggestions.map((s) =>
       typeof s === "string" ? s : JSON.stringify(s)
@@ -37,7 +42,7 @@ export async function reviewShabda(
   return {
     ...review,
     id: crypto.randomUUID(),
-    shabdaId: entry.id,
+    objectId: entry.id,
     createdAt: new Date().toISOString(),
     status: "new",
   };

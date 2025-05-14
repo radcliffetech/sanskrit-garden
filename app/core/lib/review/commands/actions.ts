@@ -1,22 +1,18 @@
 import {
-  addCandidateShabda,
-  addShabdaGenerationRequest,
-  approveCandidate,
-  deleteReviewById,
-  deleteShabdaById,
-  getReviewById,
-  getReviewsByShabdaId,
-  storeShabdaAuditLog,
-  storeShabdaReview,
-  updateReviewStatus,
+  flushReviews,
+  getAllReviews,
+  shabdaRepo,
 } from "~/core/lib/repositories/shabdaRepository";
 
-import type { ShabdaGenerationRequest } from "~/types";
+import type { CurationRequest } from "~/types/curation";
+import type { ShabdaEntry } from "~/types";
 import chalk from "chalk";
 import { generateShabda } from "~/core/lib/openai/generateShabda";
 import { match } from "ts-pattern";
 import readline from "readline";
 import { reviewShabda } from "~/core/lib/openai/reviewShabda";
+
+type ShabdaRequest = CurationRequest<ShabdaEntry>;
 
 function confirmPrompt(msg: string): Promise<boolean> {
   const rl = readline.createInterface({
@@ -60,7 +56,7 @@ export const commandHandlers = [
       nounClass: string;
     }) => {
       const entry = await generateShabda({ stem, gender, nounClass }); // wrapped function
-      await addCandidateShabda(entry);
+      await shabdaRepo.objects.add(entry);
       console.log(chalk.green(`✅ Shabda generated and stored: ${entry.id}`));
     },
   },
@@ -75,7 +71,7 @@ export const commandHandlers = [
         console.log("❌ Deletion cancelled.");
         return;
       }
-      await deleteShabdaById(shabdaId);
+      await shabdaRepo.objects.delete(shabdaId);
 
       console.log(chalk.green(`🗑️ Shabda deleted: ${shabdaId}`));
     },
@@ -83,10 +79,7 @@ export const commandHandlers = [
   {
     id: "list-all",
     action: async () => {
-      const { getAllShabdas } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const shabdas = await getAllShabdas();
+      const shabdas = await shabdaRepo.objects.getAll();
       if (!shabdas.length) {
         console.log("No shabdas found.");
         return;
@@ -110,10 +103,9 @@ export const commandHandlers = [
   {
     id: "deploy",
     action: async ({ shabdaId }: { shabdaId: string }) => {
-      const { getAllShabdas } = await import(
-        "~/core/lib/repositories/shabdaRepository"
+      const entry = (await shabdaRepo.objects.getAll()).find(
+        (s) => s.id === shabdaId
       );
-      const entry = (await getAllShabdas()).find((s) => s.id === shabdaId);
 
       if (!entry) {
         console.log(`❌ Shabda not found: ${shabdaId}`);
@@ -139,17 +131,14 @@ export const commandHandlers = [
         return;
       }
 
-      const approved = {
-        ...entry,
-        status: "approved" as const,
+      await shabdaRepo.objects.update(entry.id, {
+        status: "approved",
         validatedAt: new Date().toISOString(),
         updatedAt: new Date().toISOString(),
-      };
-      await approveCandidate(approved);
-
-      await storeShabdaAuditLog({
+      });
+      await shabdaRepo.audits.add({
         id: crypto.randomUUID(),
-        shabdaId: entry.id,
+        objectId: entry.id,
         timestamp: new Date().toISOString(),
         action: "approved",
         performedBy: "cli",
@@ -161,11 +150,7 @@ export const commandHandlers = [
   {
     id: "deploy-all",
     action: async () => {
-      const { getAllShabdas } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const entries = await getAllShabdas();
-
+      const entries = await shabdaRepo.objects.getAll();
       const stagedEntries = entries.filter((s) => s.status === "staged");
       if (stagedEntries.length === 0) {
         console.log("No staged shabdas found.");
@@ -184,17 +169,14 @@ export const commandHandlers = [
       }
 
       for (const entry of stagedEntries) {
-        const approved = {
-          ...entry,
-          status: "approved" as const,
+        await shabdaRepo.objects.update(entry.id, {
+          status: "approved",
           validatedAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
-        };
-        await approveCandidate(approved);
-
-        await storeShabdaAuditLog({
+        });
+        await shabdaRepo.audits.add({
           id: crypto.randomUUID(),
-          shabdaId: entry.id,
+          objectId: entry.id,
           timestamp: new Date().toISOString(),
           action: "approved",
           performedBy: "cli",
@@ -211,10 +193,9 @@ export const commandHandlers = [
   {
     id: "generate-reviews",
     action: async () => {
-      const { getAllCandidateShabdas, getAllReviews } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const candidates = await getAllCandidateShabdas();
+      const candidates = await shabdaRepo.reviews.filter({
+        status: "new",
+      });
 
       console.log("📦 Candidates to review:");
       candidates.slice(0, 10).forEach((c, i) => {
@@ -230,8 +211,8 @@ export const commandHandlers = [
         return;
       }
 
-      const reviews = await getAllReviews();
-      const reviewedIds = new Set(reviews.map((r) => r.shabdaId));
+      const reviews = await shabdaRepo.reviews.getAll();
+      const reviewedIds = new Set(reviews.map((r) => r.objectId));
       const pending = candidates.filter((entry) => !reviewedIds.has(entry.id));
 
       if (!pending.length) {
@@ -248,9 +229,13 @@ export const commandHandlers = [
       for (const entry of pending) {
         console.log(chalk.gray(`→ ${entry.id}`));
         try {
-          const review = await reviewShabda(entry);
-          await storeShabdaReview(review, entry.id);
-          console.log(chalk.green(`✅ Reviewed: ${entry.id}`));
+          const shabda = await shabdaRepo.objects.getById(entry.objectId);
+          if (!shabda) {
+            throw new Error(`Shabda not found: ${entry.objectId}`);
+          }
+          const review = await reviewShabda(shabda);
+          await shabdaRepo.reviews.addReview(review);
+          console.log(chalk.green(`✅ Reviewed: ${shabda.id}`));
         } catch (err) {
           console.error(chalk.red(`❌ Error reviewing ${entry.id}:`), err);
         }
@@ -262,10 +247,7 @@ export const commandHandlers = [
   {
     id: "review-all",
     action: async () => {
-      const { getAllShabdas, getAllReviews } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
-      const allReviews = await getAllReviews();
+      const allReviews = await shabdaRepo.reviews.getAll();
       const pending = allReviews.filter((r) => r.status === "new");
 
       if (pending.length === 0) {
@@ -277,7 +259,7 @@ export const commandHandlers = [
 
       console.log("📦 Reviews to process:");
       pending.slice(0, 10).forEach((r, i) => {
-        console.log(`  ${i + 1}. ${r.shabdaId}`);
+        console.log(`  ${i + 1}. ${r.objectId}`);
       });
       if (pending.length > 10) {
         console.log(`  ...and ${pending.length - 10} more`);
@@ -289,13 +271,13 @@ export const commandHandlers = [
         return;
       }
 
-      const all = await getAllShabdas(); // or use Promise.all with approved + candidates
+      const all = await shabdaRepo.objects.getAll(); // or use Promise.all with approved + candidates
 
       for (const review of pending) {
-        const entry = all.find((c) => c.id === review.shabdaId);
+        const entry = all.find((c) => c.id === review.objectId);
 
         if (!entry) {
-          console.log(`❌ Missing candidate for: ${review.shabdaId}`);
+          console.log(`❌ Missing candidate for: ${review.objectId}`);
           continue;
         }
 
@@ -321,7 +303,9 @@ export const commandHandlers = [
         }
         if (review.suggestions?.length) {
           console.log(chalk.yellow("💡 Suggestions:"));
-          review.suggestions.forEach((s, i) => console.log(`  ${i + 1}. ${s}`));
+          review.suggestions.forEach((s: any, i: number) =>
+            console.log(`  ${i + 1}. ${s}`)
+          );
         }
 
         // Patch diff display logic
@@ -378,11 +362,17 @@ export const commandHandlers = [
 
         await match(action)
           .with("a", async () => {
-            await approveCandidate(entry);
-            await updateReviewStatus(review.id, "applied");
-            await storeShabdaAuditLog({
+            await shabdaRepo.objects.update(entry.id, {
+              status: "staged",
+              updatedAt: new Date().toISOString(),
+            });
+            await shabdaRepo.reviews.updateReview(review.id, {
+              ...review,
+              status: "applied",
+            });
+            await shabdaRepo.audits.add({
               id: crypto.randomUUID(),
-              shabdaId: entry.id,
+              objectId: entry.id,
               timestamp: new Date().toISOString(),
               action: "approved",
               performedBy: "cli",
@@ -391,10 +381,13 @@ export const commandHandlers = [
             console.log("✅ Approved and moved to validated shabdas");
           })
           .with("r", async () => {
-            await updateReviewStatus(review.id, "rejected");
-            await storeShabdaAuditLog({
+            await shabdaRepo.reviews.updateReview(review.id, {
+              ...review,
+              status: "rejected",
+            });
+            await shabdaRepo.audits.add({
               id: crypto.randomUUID(),
-              shabdaId: entry.id,
+              objectId: entry.id,
               timestamp: new Date().toISOString(),
               action: "rejected",
               performedBy: "cli",
@@ -403,15 +396,20 @@ export const commandHandlers = [
             console.log("🗑️ Deleted from candidates");
           })
           .with("p", async () => {
-            const patched = { ...entry, ...review.patch };
-            patched.status = "staged";
-            await approveCandidate(patched);
-            await updateReviewStatus(review.id, "applied");
-            await storeShabdaAuditLog({
+            await shabdaRepo.objects.update(entry.id, {
+              ...review.patch,
+              status: "staged",
+              updatedAt: new Date().toISOString(),
+            });
+            await shabdaRepo.reviews.updateReview(review.id, {
+              ...review,
+              status: "applied",
+            });
+            await shabdaRepo.audits.add({
               id: crypto.randomUUID(),
-              shabdaId: entry.id,
+              objectId: entry.id,
               timestamp: new Date().toISOString(),
-              action: "patch-staged",
+              action: "patch-applied",
               performedBy: "cli",
               reviewId: review.id,
               patch: review.patch,
@@ -419,7 +417,10 @@ export const commandHandlers = [
             console.log("🛠️ Applied patch and staged entry");
           })
           .otherwise(async () => {
-            await updateReviewStatus(review.id, "reviewed");
+            await shabdaRepo.reviews.updateReview(review.id, {
+              ...review,
+              status: "skipped",
+            });
             console.log("⏭️ Skipped");
           });
       }
@@ -431,7 +432,7 @@ export const commandHandlers = [
     id: "list-reviews-for-shabda",
     action: async (args: { shabdaId: string }) => {
       const shabdaId = args.shabdaId;
-      const reviews = await getReviewsByShabdaId(shabdaId);
+      const reviews = await shabdaRepo.reviews.getReviewsFor(shabdaId);
       if (!reviews.length) {
         console.log(chalk.gray("No reviews found."));
         return;
@@ -439,7 +440,7 @@ export const commandHandlers = [
       for (const r of reviews) {
         console.log(
           `${chalk.gray(r.createdAt)} ${chalk.cyan(
-            r.shabdaId ?? ""
+            r.objectId ?? ""
           )} ${chalk.yellow(r.id)} ${chalk.greenBright(
             `${(r.confidence * 100).toFixed(1)}%`
           )} ${r.approved ? chalk.green("✔") : chalk.red("✘")} — ${r.summary}`
@@ -451,13 +452,13 @@ export const commandHandlers = [
     id: "get-review",
     action: async (args: { reviewId: string }) => {
       const reviewId = args.reviewId;
-      const r = await getReviewById(reviewId);
+      const r = await shabdaRepo.reviews.getReviewById(reviewId);
       if (!r) {
         console.log(chalk.red("❌ Review not found."));
         return;
       }
       console.log(chalk.bold(`\n🔍 Review ID: ${r.id}`));
-      console.log(`${chalk.gray("Shabda ID:")} ${r.shabdaId}`);
+      console.log(`${chalk.gray("Shabda ID:")} ${r.objectId}`);
       console.log(
         `${chalk.gray("Confidence:")} ${chalk.greenBright(
           `${(r.confidence * 100).toFixed(1)}%`
@@ -485,16 +486,13 @@ export const commandHandlers = [
     id: "delete-review",
     action: async (args: { reviewId: string }) => {
       const reviewId = args.reviewId;
-      await deleteReviewById(reviewId);
+      await shabdaRepo.reviews.deleteReviewById(reviewId);
       console.log(chalk.red(`🗑️ Review deleted: ${reviewId}`));
     },
   },
   {
     id: "flush-reviews",
     action: async () => {
-      const { flushReviews } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
       const confirmed = await confirmPrompt(
         "Are you sure you want to delete all reviews?"
       );
@@ -509,19 +507,16 @@ export const commandHandlers = [
   {
     id: "list-reviews",
     action: async ({ status = "all" }) => {
-      const { getAllReviews } = await import(
-        "~/core/lib/repositories/shabdaRepository"
-      );
       const reviews = await getAllReviews();
       const filtered = match(status)
         .with("new", () => reviews.filter((r) => r.status === "new"))
-        .with("reviewed", () => reviews.filter((r) => r.status === "reviewed"))
+        .with("reviewed", () => reviews.filter((r) => r.status === "skipped"))
         .with("applied", () => reviews.filter((r) => r.status === "applied"))
         .with("all", () => reviews)
         .otherwise(() => reviews);
 
       for (const r of filtered) {
-        console.log(`${r.createdAt} ${r.shabdaId} ${r.status}`);
+        console.log(`${r.createdAt} ${r.objectId} ${r.status}`);
       }
     },
   },
@@ -540,7 +535,7 @@ export const commandHandlers = [
       }
 
       const review = await reviewShabda(shabda);
-      await storeShabdaReview(review, shabda.id);
+      await shabdaRepo.reviews.addReview(review);
       console.log("🔁 Re-reviewed:", shabda.id);
     },
   },
@@ -623,18 +618,19 @@ export const commandHandlers = [
       reason?: string;
     }) => {
       const now = new Date().toISOString();
-      const request: ShabdaGenerationRequest = {
+      const request: ShabdaRequest = {
         id: `${args.stem}-${args.gender}-${args.nounClass}`.toLowerCase(),
-        root: args.stem,
-        gender: args.gender as "masculine" | "feminine" | "neuter",
-        nounClass: args.nounClass,
-        requestedBy: args.requestedBy ?? "cli",
+        data: {
+          root: args.stem,
+          gender: args.gender as "masculine" | "feminine" | "neuter",
+          nounClass: args.nounClass,
+        },
         reason: args.reason ?? "",
-        createdAt: now,
+        requestedBy: args.requestedBy ?? "cli",
         status: "pending",
+        createdAt: now,
       };
-
-      await addShabdaGenerationRequest(request);
+      await shabdaRepo.requests.add(request);
       console.log(
         chalk.green(`📥 Generation request submitted: ${request.id}`)
       );
@@ -658,7 +654,7 @@ export const commandHandlers = [
         const line = [
           chalk.gray(r.id || "").padEnd(12),
           chalk.gray(r.status || "").padEnd(12),
-          chalk.cyan((r.root || "").padEnd(12)),
+          chalk.cyan((r.data.root || "").padEnd(12)),
         ].join("  ");
         console.log(line);
       }
@@ -676,7 +672,9 @@ export const commandHandlers = [
         "~/core/lib/repositories/shabdaRepository"
       );
 
-      const requests = await getShabdaRequestsByStatus("pending");
+      const requests: ShabdaRequest[] = await shabdaRepo.requests.getByStatus(
+        "pending"
+      );
       if (!requests.length) {
         console.log("No pending generation requests.");
         return;
@@ -687,20 +685,31 @@ export const commandHandlers = [
       for (const req of requests) {
         console.log(`🧠 Generating: ${req.id}`);
         try {
-          const entry = await generateShabda({
-            stem: req.root,
-            gender: req.gender,
-            nounClass: req.nounClass,
-          });
+          const root = req.data.root || "";
+          const gender = req.data.gender || "";
+          const nounClass = req.data.nounClass || "";
 
-          await addCandidateShabda(entry);
-          await updateShabdaRequest(req.id, {
+          if (!root || !gender || !nounClass) {
+            console.log(chalk.red(`❌ Invalid request: ${req.id}`));
+            await shabdaRepo.requests.update(req.id, {
+              status: "error",
+              errorMessage: "Invalid request data",
+            });
+            continue;
+          }
+          const entry = await generateShabda({
+            stem: root,
+            gender,
+            nounClass,
+          });
+          await shabdaRepo.objects.add(entry);
+          await shabdaRepo.requests.update(req.id, {
             status: "generated",
-            generatedShabdaId: entry.id,
+            generatedObjectId: entry.id,
           });
           console.log(chalk.green(`✅ Generated: ${entry.id}`));
         } catch (err) {
-          await updateShabdaRequest(req.id, {
+          await shabdaRepo.requests.update(req.id, {
             status: "error",
             errorMessage: (err as Error).message,
           });

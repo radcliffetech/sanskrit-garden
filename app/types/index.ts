@@ -142,6 +142,7 @@ export interface Feature extends FeatureBase {
 
 export type ShabdaEntry = {
   id: string;
+  status: "candidate" | "staged" | "approved" | "rejected" | "deleted";
   createdAt: string;
   updatedAt: string;
 
@@ -154,7 +155,6 @@ export type ShabdaEntry = {
   meaning: string;
 
   source?: "openai" | "manual" | "imported";
-  status?: "candidate" | "staged" | "approved" | "rejected" | "deleted";
   validatedAt?: string;
   notes?: string;
 
@@ -165,42 +165,6 @@ export type ShabdaEntry = {
       meaning: string;
     };
   };
-};
-
-export type ShabdaReviewResult = {
-  id: string; // UUID
-  shabdaId: string; // UUID of the shabda being reviewed
-  createdAt: string; // ISO date
-  updatedAt?: string;
-
-  confidence: number;
-  summary: string;
-  approved: boolean;
-
-  status?: "new" | "reviewed" | "applied" | "rejected";
-  reviewedBy?: string;
-  notes?: string;
-
-  suggestions?: string[];
-  patch?: Partial<ShabdaEntry>;
-  justification?: string; // Justification for the patch
-};
-
-export type ShabdaAuditEntry = {
-  id: string; // UUID
-  shabdaId: string;
-  timestamp: string;
-  action:
-    | "approved"
-    | "patch-staged"
-    | "patch-applied"
-    | "rejected"
-    | "deleted"
-    | "manual-edit";
-  performedBy: string; // user ID, email, or "cli", "openai"
-  reviewId?: string;
-  patch?: Partial<ShabdaEntry>;
-  reason?: string;
 };
 
 export type CommandParam = {

@@ -1,18 +1,31 @@
 import type {
-  ShabdaAuditEntry,
-  ShabdaEntry,
-  ShabdaGenerationRequest,
-  ShabdaReviewResult,
-} from "~/types";
+  CurationAudit,
+  CurationRequest,
+  CurationReview,
+} from "~/types/curation";
 
+import { CurationRepository } from "~/core/lib/curation/CurationRepository";
+import { ShabdaEntry } from "~/types";
 import { db } from "~/core/lib/firebase/firebase.server";
 import nexusConfig from "~/core/config/nexus.config";
+
+type ShabdaReview = CurationReview<ShabdaEntry>;
+type ShabdaAudit = CurationAudit<ShabdaEntry>;
+type ShabdaRequest = CurationRequest<ShabdaEntry>;
 
 const collectionId = nexusConfig.firestore.collections.shabda;
 const reviewCollectionId = nexusConfig.firestore.collections.shabdaReviews;
 const auditCollectionId = nexusConfig.firestore.collections.shabdaAudit;
 const generationRequestCollectionId =
   nexusConfig.firestore.collections.shabdaRequests;
+
+const repo = new CurationRepository<ShabdaEntry>(
+  db,
+  collectionId,
+  reviewCollectionId,
+  auditCollectionId,
+  generationRequestCollectionId
+);
 
 // Add a new candidate noun shabda
 export async function addCandidateShabda(entry: ShabdaEntry): Promise<void> {
@@ -30,15 +43,6 @@ export async function addCandidateShabda(entry: ShabdaEntry): Promise<void> {
   await db.collection(collectionId).doc(entry.id).set(candidate);
 }
 
-// Fetch all candidate noun shabdas
-export async function getAllCandidateShabdas(): Promise<ShabdaEntry[]> {
-  const snapshot = await db
-    .collection(collectionId)
-    .where("status", "==", "candidate")
-    .get();
-  return snapshot.docs.map((doc) => doc.data() as ShabdaEntry);
-}
-
 // Fetch all approved noun shabdas
 export async function getAllApprovedShabdas(): Promise<ShabdaEntry[]> {
   const snapshot = await db
@@ -48,43 +52,7 @@ export async function getAllApprovedShabdas(): Promise<ShabdaEntry[]> {
   return snapshot.docs.map((doc) => doc.data() as ShabdaEntry);
 }
 
-// Approve a candidate and move it to the main collection
-export async function approveCandidate(entry: ShabdaEntry): Promise<void> {
-  await db
-    .collection(collectionId)
-    .doc(entry.id)
-    .set({
-      ...entry,
-      status: "approved" as const,
-      validatedAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
-}
-
-// Delete a candidate by ID
-export async function deleteCandidate(id: string): Promise<void> {
-  await db.collection(collectionId).doc(id).delete();
-}
-
-export async function deleteShabdaById(id: string): Promise<void> {
-  await db.collection(collectionId).doc(id).delete();
-}
-
-export async function storeShabdaReview(
-  review: ShabdaReviewResult,
-  shabdaId: string
-): Promise<void> {
-  await db
-    .collection(reviewCollectionId)
-    .doc(review.id)
-    .set({
-      ...review,
-      shabdaId,
-      reviewedAt: new Date().toISOString(),
-    });
-}
-
-export async function getAllReviews(): Promise<ShabdaReviewResult[]> {
+export async function getAllReviews(): Promise<ShabdaReview[]> {
   const snapshot = await db
     .collection(reviewCollectionId)
     .orderBy("createdAt", "desc")
@@ -96,25 +64,7 @@ export async function getAllReviews(): Promise<ShabdaReviewResult[]> {
     return [];
   }
 
-  return snapshot.docs.map((doc) => doc.data() as ShabdaReviewResult);
-}
-
-export async function updateReviewStatus(
-  id: string,
-  status: "reviewed" | "applied" | "rejected"
-) {
-  await db.collection(reviewCollectionId).doc(id).update({
-    status,
-    updatedAt: new Date().toISOString(),
-  });
-}
-
-export async function getReviewById(
-  id: string
-): Promise<ShabdaReviewResult | null> {
-  const doc = await db.collection(reviewCollectionId).doc(id).get();
-  if (!doc.exists) return null;
-  return doc.data() as ShabdaReviewResult;
+  return snapshot.docs.map((doc) => doc.data() as ShabdaReview);
 }
 
 export async function flushReviews() {
@@ -128,40 +78,21 @@ export async function flushReviews() {
   await batch.commit();
 }
 
-export async function getReviewsByShabdaId(
-  shabdaId: string
-): Promise<ShabdaReviewResult[]> {
-  const snapshot = await db
-    .collection(reviewCollectionId)
-    .where("shabdaId", "==", shabdaId)
-    .orderBy("createdAt", "desc")
-    .get();
-
-  if (snapshot.empty) {
-    return [];
-  }
-
-  return snapshot.docs.map((doc) => doc.data() as ShabdaReviewResult);
-}
+export const getReviewsByShabdaId = (shabdaId: string) =>
+  repo.reviews.getReviewsFor(shabdaId);
 
 export async function deleteReviewById(id: string): Promise<void> {
   await db.collection(reviewCollectionId).doc(id).delete();
 }
 
-export async function getAllShabdas(): Promise<ShabdaEntry[]> {
-  const snapshot = await db.collection(collectionId).get();
-  return snapshot.docs.map((doc) => doc.data() as ShabdaEntry);
-}
+export const getAllShabdas = () => repo.objects.getAll();
 
-export async function storeShabdaAuditLog(
-  entry: ShabdaAuditEntry
-): Promise<void> {
-  await db.collection(auditCollectionId).doc(entry.id).set(entry);
-}
+export const storeShabdaAuditLog = (entry: ShabdaAudit) =>
+  repo.audits.add(entry);
 
-export async function getAuditLogs(): Promise<ShabdaAuditEntry[]> {
+export async function getAuditLogs(): Promise<ShabdaAudit[]> {
   const snapshot = await db.collection(auditCollectionId).get();
-  return snapshot.docs.map((doc) => doc.data() as ShabdaAuditEntry);
+  return snapshot.docs.map((doc) => doc.data() as ShabdaAudit);
 }
 export async function flushAuditLogs() {
   const snapshot = await db.collection(auditCollectionId).get();
@@ -174,64 +105,42 @@ export async function flushAuditLogs() {
   await batch.commit();
 }
 
-export async function getAuditLogsForShabda(
-  shabdaId: string
-): Promise<ShabdaAuditEntry[]> {
-  const snapshot = await db
-    .collection(auditCollectionId)
-    .where("shabdaId", "==", shabdaId)
-    .orderBy("timestamp", "desc")
-    .get();
-
-  if (snapshot.empty) {
-    return [];
-  }
-
-  return snapshot.docs.map((doc) => doc.data() as ShabdaAuditEntry);
-}
+export const getAuditLogsForShabda = (shabdaId: string) =>
+  repo.audits.getFor(shabdaId);
 
 // --- Shabda Generation Requests Repository ---
 export async function getAllShabdaGenerationRequests(): Promise<
-  ShabdaGenerationRequest[]
+  ShabdaRequest[]
 > {
   const snapshot = await db
     .collection(generationRequestCollectionId)
     .orderBy("createdAt", "desc")
     .get();
 
-  return snapshot.docs.map((doc) => doc.data() as ShabdaGenerationRequest);
+  return snapshot.docs.map((doc) => doc.data() as ShabdaRequest);
 }
 
-// Add a new shabda generation request
-export async function addShabdaGenerationRequest(
-  request: ShabdaGenerationRequest
-): Promise<void> {
-  await db
-    .collection(generationRequestCollectionId)
-    .doc(request.id)
-    .set(request);
-}
+export const addShabdaGenerationRequest = (r: ShabdaRequest) =>
+  repo.requests.add(r);
 
-// Get all requests by status
-export async function getShabdaRequestsByStatus(
-  status: "pending" | "started" | "generated" | "error" | "skipped"
-): Promise<ShabdaGenerationRequest[]> {
-  const snapshot = await db
-    .collection(generationRequestCollectionId)
-    .where("status", "==", status)
-    .orderBy("createdAt", "asc")
-    .get();
-
-  return snapshot.docs.map((doc) => doc.data() as ShabdaGenerationRequest);
-}
+export const getShabdaRequestsByStatus = (s: string) =>
+  repo.requests.getByStatus(s as any);
 
 // Update a shabda generation request by ID
 export async function updateShabdaRequest(
   id: string,
-  data: Partial<ShabdaGenerationRequest>
+  data: Partial<ShabdaRequest>
 ): Promise<void> {
   await db
     .collection(generationRequestCollectionId)
     .doc(id)
     .update({ ...data, updatedAt: new Date().toISOString() });
 }
+
+export const shabdaRepo = new CurationRepository<ShabdaEntry>(
+  db,
+  collectionId,
+  reviewCollectionId,
+  auditCollectionId,
+  generationRequestCollectionId
+);
