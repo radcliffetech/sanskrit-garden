@@ -17,7 +17,7 @@ export function generateBaseActions<T extends CurationObject>(
     reviewer,
   }: {
     repo: CurationRepository<T>;
-    generator: ContentGenerator<T>;
+    generator: ContentGenerator<Partial<T>, T>;
     reviewer: ReviewGenerator<T>;
   },
   options?: {
@@ -44,7 +44,7 @@ export function generateBaseActions<T extends CurationObject>(
       },
     },
     {
-      id: "objects:list-all",
+      id: "objects:list",
       action: async () => {
         const objects = await repo.objects.getAll();
         if (!objects.length) {
@@ -163,7 +163,7 @@ export function generateBaseActions<T extends CurationObject>(
     // ───────────────────────────────────────
 
     {
-      id: "reviews:review-all",
+      id: "reviews:process",
       action: async () => {
         const allReviews = await repo.reviews.getAll();
         const pending = allReviews.filter((r) => r.status === "new");
@@ -425,7 +425,21 @@ export function generateBaseActions<T extends CurationObject>(
       },
     },
     {
-      id: "reviews:list-by-status",
+      id: "objects:flush",
+      action: async () => {
+        const confirmed = await confirmPrompt(
+          "Are you sure you want to delete all objects?"
+        );
+        if (!confirmed) {
+          console.log("Flush cancelled.");
+          return;
+        }
+        await repo.objects.flush();
+        console.log(chalk.red("🗑️ All objects flushed."));
+      },
+    },
+    {
+      id: "reviews:list",
       action: async ({ status = "all" }) => {
         const reviews = await repo.reviews.getAll();
         const filtered = match(status)
@@ -445,7 +459,7 @@ export function generateBaseActions<T extends CurationObject>(
     // 🟢 Audit Logging
     // ───────────────────────────────────────
     {
-      id: "audits:list",
+      id: "audits:list-for-object",
       action: async (args: Record<string, string>) => {
         const { objectId } = args;
         const logs = await repo.audits.getFor(objectId);
@@ -479,7 +493,7 @@ export function generateBaseActions<T extends CurationObject>(
       },
     },
     {
-      id: "audits:list-all",
+      id: "audits:list",
       action: async () => {
         // Use getFor(undefined) or implement getAll if available
         const logs = await repo.audits.getFor(undefined as any);
@@ -524,7 +538,38 @@ export function generateBaseActions<T extends CurationObject>(
         );
       },
     },
-
+    {
+      id: "requests:flush",
+      action: async () => {
+        const confirmed = await confirmPrompt(
+          "Are you sure you want to delete all generation requests?"
+        );
+        if (!confirmed) {
+          console.log("Flush cancelled.");
+          return;
+        }
+        await repo.requests.flush();
+        console.log(chalk.red("🗑️ All generation requests flushed."));
+      },
+    },
+    {
+      id: "requests:create",
+      action: async (args: Record<string, string>) => {
+        const { data } = args;
+        const parsedData = JSON.parse(data);
+        const requestId =
+          options?.generateRequestId?.(parsedData) ?? crypto.randomUUID();
+        await repo.requests.add({
+          id: requestId,
+          data: parsedData,
+          requestedBy: "cli",
+          reason: "manual",
+          createdAt: new Date().toISOString(),
+          status: "pending",
+        });
+        console.log(chalk.green(`✅ Request created: ${requestId}`));
+      },
+    },
     {
       id: "reviews:re-review",
       action: async ({ objectId }: { objectId: string }) => {

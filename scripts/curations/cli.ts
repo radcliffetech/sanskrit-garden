@@ -41,9 +41,12 @@ async function run() {
         const paramList =
           cmd.meta.params?.map((p) => `<${p.name}>`).join(" ") ?? "";
         const label = cmd.meta.label ?? cmd.id;
+
         const description = cmd.meta.description ?? "(no description provided)";
         console.log(
-          `  ${label.padEnd(30)} ${paramList.padEnd(30)} ${description}`
+          `  ${cmd.id.padEnd(30)} ${label.padEnd(30)} ${paramList.padEnd(
+            30
+          )} ${description}`
         );
       }
       console.log();

@@ -5,7 +5,7 @@ import { AlphabetItem } from "~/types";
 import { AlphabetLayout } from "./AlphabetLayout";
 import DisplayGroupMetadata from "./DisplayGroupMetadata";
 import { GroupingSelectForm } from "./GroupingSelectForm";
-import classificationData from "~/data/sanskrit-phoneme-groupings.json";
+import classificationData from "~/data/alphabet/sanskrit-phoneme-groupings.json";
 import { useLocation } from "@remix-run/react";
 import { useNavigate } from "@remix-run/react";
 

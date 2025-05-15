@@ -1,8 +1,16 @@
+import blueprints from "./blueprints";
 import { createMasterBus } from "../lib/curations/toolkit";
-import jokes from "./jokes";
+import mantras from "./mantras";
 import nouns from "./nouns";
 import verbs from "./verbs";
 
-const bus = createMasterBus([nouns, jokes, verbs]);
+const bus = createMasterBus([nouns, verbs, mantras, blueprints]);
 
-export { bus };
+const modules = {
+  mantras,
+  nouns,
+  verbs,
+  blueprints,
+};
+
+export { bus, modules };

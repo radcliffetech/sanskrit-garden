@@ -1,7 +1,6 @@
 import type {
   CommandDefinition,
   ContentGenerator,
-  CurationField,
   CurationObject,
   CurationRepository,
   CurationRequest,
@@ -9,45 +8,68 @@ import type {
 
 import chalk from "chalk";
 
-export function createStandardGenerateAction<T extends CurationObject>({
-  meta,
+export function createStandardGenerateAction<
+  Input,
+  Output extends CurationObject
+>({
+  inputParams,
   generator,
   repo,
+  meta,
+  getId,
 }: {
-  meta: CommandDefinition["meta"];
-  generator: ContentGenerator<T>;
-  repo: CurationRepository<T>;
+  inputParams: CommandDefinition["meta"]["params"];
+  generator: ContentGenerator<Input, Output>;
+  repo: CurationRepository<Output>;
+  meta: Omit<CommandDefinition["meta"], "params">;
+  getId?: (data: Input) => string;
 }): CommandDefinition & { id: "objects:generate" } {
   return {
     id: "objects:generate",
-    meta,
+    meta: {
+      ...meta,
+      kind: "single",
+      group: "Objects",
+      params: inputParams,
+    },
     async action(data) {
-      const entry = await generator.generate(data as Partial<T>);
+      const entry = await generator.generate(data as Input);
+      if (getId) {
+        entry.id = getId(data as Input);
+      }
       await repo.objects.add(entry);
       console.log(chalk.green(`✅ Object generated and stored: ${entry.id}`));
     },
   };
 }
 
-export function createStandardRequestAction<T extends CurationObject>({
+export function createStandardRequestAction<
+  Input,
+  Output extends CurationObject
+>({
+  inputParams,
   meta,
   repo,
-  getId,
 }: {
-  meta: CommandDefinition["meta"];
-  repo: CurationRepository<T>;
-  getId: (data: Record<string, string>) => string;
+  inputParams: CommandDefinition["meta"]["params"];
+  meta: Omit<CommandDefinition["meta"], "params">;
+  repo: CurationRepository<Output>;
 }): CommandDefinition & { id: "requests:create" } {
   return {
     id: "requests:create",
-    meta,
+    meta: {
+      ...meta,
+      kind: "single",
+      group: "Requests",
+      params: inputParams,
+    },
     async action(args: Record<string, string>) {
       const { requestedBy, reason, ...data } = args;
       const now = new Date().toISOString();
-      const id = getId(data);
-      const request: CurationRequest<T> = {
+      const id = crypto.randomUUID();
+      const request: CurationRequest<Output> = {
         id,
-        data: data as Partial<T>,
+        data: data as Partial<Output>,
         reason: reason ?? "",
         requestedBy: requestedBy ?? "cli",
         status: "pending",

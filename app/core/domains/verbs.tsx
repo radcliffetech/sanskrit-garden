@@ -1,17 +1,9 @@
-import {
-  createCuration,
-  createLLMGenerator,
-  createLLMReviewer,
-  createRepoFromConfig,
-  createStandardGenerateAction,
-  createStandardRequestAction,
-} from "~/core/lib/curations/toolkit";
+import tk, { type CurationObject } from "~/core/lib/curations/toolkit";
 
 import chalk from "chalk";
 import nexusConfig from "~/core/config/nexus.config";
 
-type VerbEntry = {
-  id: string;
+export type VerbEntry = CurationObject & {
   root: string;
   class: string;
   voice: "active" | "middle" | "passive";
@@ -24,15 +16,12 @@ type VerbEntry = {
       meaning: string;
     }
   >;
-  createdAt: string;
-  updatedAt?: string;
   source?: string;
-  status: "candidate" | "staged" | "approved";
 };
 
 const { collectionId, version } = nexusConfig.firestore.curations.verbs;
 
-export const repo = createRepoFromConfig<VerbEntry>(collectionId, version);
+export const repo = tk.createRepoFromConfig<VerbEntry>(collectionId, version);
 
 function generatePrompt({
   root,
@@ -63,21 +52,29 @@ function generateReviewPrompt(entry: VerbEntry) {
 You are a Sanskrit grammar assistant reviewing a full verb conjugation.
 
 Check whether all forms are correct based on the root, class, voice, and lakara. Each form includes devanagari, iast, and meaning.
-
+✔ If all forms are correct, return:
+- "approved": true
+- "suggestions": []
+❌ If there are errors:
+- "approved": false
+- list specific issues in "suggestions"
+- include a "patch" with only the corrected keys
+⚠ Do not make stylistic changes.
+⚠ Do not suggest alternate correct spellings.
+⚠ Do not suggest changes unless a form violates grammatical rules.
 Respond in JSON format with:
-- confidence: number (0-1)
-- summary: string
-- approved: boolean
-- suggestions: array of notes or corrections
-- justification: string (optional)
-- patch: partial correction (optional)
-
+- confidence: 0–1 float
+- summary: short assessment
+- approved: true/false
+- suggestions: array of issues or improvements (optional)
+If you detect any errors or improvements, include a patch key that shows a partial corrected version of the input structure.
+If any field is incorrect (iast, devanagari, meaning), include all corrected fields in the patch. Do not leave incorrect parts untouched.
 Input:
 ${JSON.stringify(entry, null, 2)}
 `.trim();
 }
 
-const generator = createLLMGenerator<VerbEntry>({
+const generator = tk.createLLMGenerator<Partial<VerbEntry>, VerbEntry>({
   prompt: generatePrompt,
   parse: (json, input) => {
     const now = new Date().toISOString();
@@ -97,7 +94,7 @@ const generator = createLLMGenerator<VerbEntry>({
   },
 });
 
-const reviewer = createLLMReviewer<VerbEntry>({
+const reviewer = tk.createLLMReviewer<VerbEntry>({
   prompt: generateReviewPrompt,
   parse: (json) => {
     if (Array.isArray(json.suggestions))
@@ -115,7 +112,7 @@ const reviewer = createLLMReviewer<VerbEntry>({
   },
 });
 
-const verbsConfig = createCuration<VerbEntry>({
+const verbsConfig = tk.createCuration<VerbEntry>({
   namespace: "verbs",
   repo,
   generator,
@@ -137,50 +134,44 @@ const verbsConfig = createCuration<VerbEntry>({
     },
   },
   requiredActions: {
-    generate: createStandardGenerateAction({
+    generate: tk.createStandardGenerateAction({
       repo,
       generator,
       meta: {
         label: "Generate Object",
         description: "Generate a new verb entry from inputs.",
-        group: "Objects",
-        kind: "single",
-        params: [
-          { name: "root", label: "Root", type: "string", required: true },
-          { name: "class", label: "Class", type: "string", required: true },
-          { name: "voice", label: "Voice", type: "string", required: true },
-          { name: "lakara", label: "Lakara", type: "string", required: true },
-        ],
       },
+      inputParams: [
+        { name: "root", label: "Root", type: "string", required: true },
+        { name: "class", label: "Class", type: "string", required: true },
+        { name: "voice", label: "Voice", type: "string", required: true },
+        { name: "lakara", label: "Lakara", type: "string", required: true },
+      ],
     }),
-    request: createStandardRequestAction({
+    request: tk.createStandardRequestAction({
       repo,
-      getId: (data) =>
-        `verb-${data.root}-${data.voice}-${data.lakara}`.toLowerCase(),
       meta: {
         label: "Create Generation Request",
-        group: "Requests",
         description: "Create a request to generate a new verb entry.",
-        kind: "single",
-        params: [
-          { name: "root", label: "Root", type: "string", required: true },
-          { name: "class", label: "Class", type: "string", required: true },
-          { name: "voice", label: "Voice", type: "string", required: true },
-          { name: "lakara", label: "Lakara", type: "string", required: true },
-          {
-            name: "requestedBy",
-            label: "Requested By",
-            type: "string",
-            inputHint: "text",
-          },
-          {
-            name: "reason",
-            label: "Reason",
-            type: "string",
-            inputHint: "text",
-          },
-        ],
       },
+      inputParams: [
+        { name: "root", label: "Root", type: "string", required: true },
+        { name: "class", label: "Class", type: "string", required: true },
+        { name: "voice", label: "Voice", type: "string", required: true },
+        { name: "lakara", label: "Lakara", type: "string", required: true },
+        {
+          name: "requestedBy",
+          label: "Requested By",
+          type: "string",
+          inputHint: "text",
+        },
+        {
+          name: "reason",
+          label: "Reason",
+          type: "string",
+          inputHint: "text",
+        },
+      ],
     }),
   },
 });

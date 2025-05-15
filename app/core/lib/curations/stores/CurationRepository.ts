@@ -45,6 +45,15 @@ class CurationObjectStore<T extends CurationObject> {
   async delete(id: string): Promise<void> {
     await this.db.collection(this.collectionId).doc(id).delete();
   }
+
+  async flush(): Promise<void> {
+    const snapshot = await this.db.collection(this.collectionId).get();
+    const batch = this.db.batch();
+    snapshot.docs.forEach((doc) => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
+  }
 }
 
 export class CurationRepository<T extends CurationObject> {
@@ -71,10 +80,9 @@ export class CurationRepository<T extends CurationObject> {
     namespace: string,
     version: string
   ): CurationRepository<T> {
-    const base = `${namespace}_v${version}`;
     return new CurationRepository<T>(
       db,
-      base,
+      `${namespace}_v${version}`,
       `${namespace}_reviews_v${version}`,
       `${namespace}_audit_v${version}`,
       `${namespace}_requests_v${version}`

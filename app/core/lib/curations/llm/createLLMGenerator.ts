@@ -8,17 +8,17 @@ if (!apiKey) {
 
 const openai = new OpenAI({ apiKey });
 
-export function createLLMGenerator<T extends CurationObject>({
+export function createLLMGenerator<Input, Output extends CurationObject>({
   prompt,
   parse,
   model = "gpt-4o",
 }: {
-  prompt: (input: Partial<T>) => string;
-  parse: (json: any, input: Partial<T>) => T;
+  prompt: (input: Input) => string;
+  parse: (json: any, input: Input) => Output;
   model?: string;
-}): ContentGenerator<T> {
+}): ContentGenerator<Input, Output> {
   return {
-    async generate(input: Partial<T>): Promise<T> {
+    async generate(input: Input): Promise<Output> {
       const userPrompt = prompt(input);
       const result = await openai.chat.completions.create({
         model,

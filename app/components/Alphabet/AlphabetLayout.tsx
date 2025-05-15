@@ -1,6 +1,6 @@
 import { AlphabetCardSmall } from "./AlphabetCardSmall";
 import { AlphabetItem } from "~/types";
-import layout from "~/data/alphabet-layout.json";
+import layout from "~/data/alphabet/alphabet-layout.json";
 
 export function AlphabetLayout({
   data,

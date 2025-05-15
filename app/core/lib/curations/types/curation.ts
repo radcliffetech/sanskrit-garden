@@ -50,8 +50,8 @@ export type CurationObject = {
   status: string;
 };
 
-export interface ContentGenerator<T extends CurationObject> {
-  generate(input: Partial<T>): Promise<T>;
+export interface ContentGenerator<Input, Output extends CurationObject> {
+  generate(input: Input): Promise<Output>;
 }
 
 export interface ReviewGenerator<T extends CurationObject> {
@@ -98,4 +98,15 @@ export type CurationField = {
   type: "string" | "number" | "boolean";
   required?: boolean;
   inputHint?: "text" | "textarea" | "select";
+};
+
+export type CurationBlueprint = CurationObject & {
+  namespace: string;
+  label: string;
+  description: string;
+  typeDefinition: string;
+  fields: CurationField[];
+  inputs: CurationField[];
+  qualification?: string;
+  exampleEntry?: Record<string, any>;
 };

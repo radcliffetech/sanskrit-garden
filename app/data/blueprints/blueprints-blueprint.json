@@ -1,0 +1,83 @@
+[
+  {
+    "id": "blueprints-blueprint",
+    "status": "candidate",
+    "createdAt": "2024-06-11T00:00:00.000Z",
+    "updatedAt": "2024-06-11T00:00:00.000Z",
+    "namespace": "blueprints",
+    "label": "CurationBlueprint",
+    "description": "A curation of things that can be blueprinted. Curates new content domains by defining types, prompts, and UI metadata for content generation and review.",
+    "typeDefinition": "type CurationBlueprint = CurationObject & {\n  namespace: string;  \n  label: string;\n  description: string;\n  typeDefinition: string;\n  fields: CurationField[];\n  inputs: CurationField[];\n  qualification?: string; \n  exampleEntry?: Record<string, any>;\n};",
+    "inputs": [
+      {
+        "name": "namespace",
+        "label": "Namespace",
+        "type": "string",
+        "required": true
+      },
+      { "name": "label", "label": "Label", "type": "string", "required": true },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "string",
+        "required": true
+      }
+    ],
+    "fields": [
+      { "name": "id", "label": "ID", "type": "string", "required": true },
+      {
+        "name": "namespace",
+        "label": "Namespace",
+        "type": "string",
+        "required": true
+      },
+      { "name": "label", "label": "Label", "type": "string", "required": true },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "string",
+        "required": true
+      },
+      {
+        "name": "typeDefinition",
+        "label": "Type Definition",
+        "type": "string",
+        "required": true,
+        "inputHint": "textarea"
+      },
+      {
+        "name": "fields",
+        "label": "Fields",
+        "type": "string",
+        "inputHint": "textarea"
+      },
+      {
+        "name": "inputs",
+        "label": "Inputs",
+        "type": "string",
+        "inputHint": "textarea"
+      },
+      {
+        "name": "exampleEntry",
+        "label": "Example Entry",
+        "type": "string",
+        "inputHint": "textarea"
+      }
+    ],
+    "exampleEntry": {
+      "id": "jokes-blueprint",
+      "namespace": "jokes",
+      "label": "JokeEntry",
+      "description": "Curates dad jokes in structured format.",
+      "typeDefinition": "type JokeEntry = CurationObject & {\n  category: string;\n  setup: string;\n  punchline: string;\n};",
+      "fields": [
+        { "name": "category", "label": "Category", "type": "string" },
+        { "name": "setup", "label": "Setup", "type": "string" },
+        { "name": "punchline", "label": "Punchline", "type": "string" }
+      ],
+      "inputs": [{ "name": "category", "label": "Category", "type": "string" }],
+      "qualification": "Must be a dad joke."
+    },
+    "qualification": "Must be curatable. Should be interesting"
+  }
+]

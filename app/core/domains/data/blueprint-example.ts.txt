@@ -1,15 +1,12 @@
 import chalk from "chalk";
 
-import nexusConfig from "~/core/config/nexus.config";
-import {
-  createRepoFromConfig,
-  createCuration,
-  createLLMGenerator,
-  createLLMReviewer,
-  type CurationObject,
-  createStandardGenerateAction,
-  createStandardRequestAction,
-} from "~/core/lib/curations/toolkit";
+import tk, { type CurationObject } from "~/core/lib/curations/toolkit";
+
+const NAMESPACE = "jokes";
+const FIRESTORE_CURATION = {
+  collectionId: "jokes",
+  version: "1",
+};
 
 type DadJokeEntry = CurationObject & {
   jokeSetup: string;
@@ -17,13 +14,22 @@ type DadJokeEntry = CurationObject & {
   jokeCategory: string;
 };
 
-// Firestore collections
-const { collectionId, version } = nexusConfig.firestore.curations.jokes;
+type JokeInput = {
+  jokeCategory: string;
+};
 
-export const repo = createRepoFromConfig<DadJokeEntry>(collectionId, version);
+type JokeRequestInput = JokeInput & {
+  requestedBy?: string;
+  reason?: string;
+};
+
+export const repo = tk.createRepoFromConfig<DadJokeEntry>(
+  FIRESTORE_CURATION.collectionId,
+  FIRESTORE_CURATION.version
+);
 
 // Generator prompt - creates a dad joke based on category
-function generatePrompt({ jokeCategory }: Partial<DadJokeEntry>) {
+function generatePrompt({ jokeCategory }: JokeInput) {
   const exampleEntry = {
     jokeSetup: "Why did the scarecrow win an award?",
     jokePunchline: "Because he was outstanding in his field!",
@@ -71,11 +77,11 @@ ${JSON.stringify(entry, null, 2)}
 `.trim();
 }
 
-const generator = createLLMGenerator<DadJokeEntry>({
+const generator = tk.createLLMGenerator<JokeInput, DadJokeEntry>({
   prompt: generatePrompt,
   parse: (json, input) => {
     const now = new Date().toISOString();
-    const id = `joke-${crypto.randomUUID()}`;
+    const id = `${NAMESPACE}-${crypto.randomUUID()}`;
     return {
       ...json,
       id,
@@ -88,7 +94,7 @@ const generator = createLLMGenerator<DadJokeEntry>({
   },
 });
 
-const reviewer = createLLMReviewer<DadJokeEntry>({
+const reviewer = tk.createLLMReviewer<DadJokeEntry>({
   prompt: generateReviewPrompt,
   parse: (json, input) => {
     if (Array.isArray(json.suggestions))
@@ -106,8 +112,8 @@ const reviewer = createLLMReviewer<DadJokeEntry>({
   },
 });
 
-const jokesConfig = createCuration<DadJokeEntry>({
-  namespace: "jokes",
+const jokesConfig = tk.createCuration<DadJokeEntry>({
+  namespace: NAMESPACE,
   repo,
   generator,
   reviewer,
@@ -149,51 +155,46 @@ const jokesConfig = createCuration<DadJokeEntry>({
     ),
   },
   requiredActions: {
-    generate: createStandardGenerateAction({
+    generate: tk.createStandardGenerateAction<JokeInput, DadJokeEntry>({
       repo,
       generator,
       meta: {
         label: "Generate Joke",
         description: "Generate a new dad joke by category.",
-        group: "Objects",
-        kind: "single",
-        params: [
-          {
-            name: "jokeCategory",
-            type: "string",
-            label: "The category of the joke to generate",
-            required: true,
-          },
-        ],
       },
+      inputParams: [
+        {
+          name: "jokeCategory",
+          type: "string",
+          label: "The category of the joke to generate",
+          required: true,
+        },
+      ],
     }),
-    request: createStandardRequestAction({
+    request: tk.createStandardRequestAction<JokeRequestInput, DadJokeEntry>({
       repo,
-      getId: () => `joke-${crypto.randomUUID()}`,
       meta: {
         label: "Create Joke Request",
-        group: "Requests",
         description: "Create a request to generate a new joke.",
-        kind: "single",
-        params: [
-          {
-            name: "jokeCategory",
-            type: "string",
-            label: "The category of the joke to generate",
-            required: true,
-          },
-          {
-            name: "requestedBy",
-            type: "string",
-            label: "The person requesting the joke",
-          },
-          {
-            name: "reason",
-            type: "string",
-            label: "The reason for the request",
-          },
-        ],
       },
+      inputParams: [
+        {
+          name: "jokeCategory",
+          type: "string",
+          label: "The category of the joke to generate",
+          required: true,
+        },
+        {
+          name: "requestedBy",
+          type: "string",
+          label: "The person requesting the joke",
+        },
+        {
+          name: "reason",
+          type: "string",
+          label: "The reason for the request",
+        },
+      ],
     }),
   },
 });

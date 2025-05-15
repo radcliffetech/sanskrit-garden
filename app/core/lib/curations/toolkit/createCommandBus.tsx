@@ -29,7 +29,7 @@ export function createCommandBus<T extends CurationObject>(
     reviewer,
   }: {
     repo: CurationRepository<T>;
-    generator: ContentGenerator<T>;
+    generator: ContentGenerator<Partial<T>, T>;
     reviewer: ReviewGenerator<T>;
   },
   options?: {

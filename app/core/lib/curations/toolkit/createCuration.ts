@@ -12,7 +12,7 @@ import { createCommandBus } from "~/core/lib/curations/toolkit/createCommandBus"
 interface CreateDomainParams<T extends CurationObject> {
   namespace: string;
   repo: CurationRepository<T>;
-  generator: ContentGenerator<T>;
+  generator: ContentGenerator<any, T>;
   reviewer: ReviewGenerator<T>;
   cli?: {
     printSummary?: (entry: T) => void;

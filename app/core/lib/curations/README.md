@@ -53,7 +53,7 @@ Each curation exposes its own CLI namespace:
 
 ```bash
 pnpm curations myDomain objects:list
-pnpm curations domain2 reviews:review-all
+pnpm curations domain2 reviews:process
 pnpm curations domain2 requests:create ...
 ```
 
@@ -80,7 +80,7 @@ Done.
 1. `requests:create`
 2. `requests:process` → `objects:add`
 3. `reviews:generate`
-4. `reviews:review-all`
+4. `reviews:process`
 5. `objects:deploy`
 6. `audits:list`
 

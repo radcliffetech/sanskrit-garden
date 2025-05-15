@@ -1,21 +1,7 @@
-import {
-  createCuration,
-  createLLMGenerator,
-  createLLMReviewer,
-  createRepoFromConfig,
-  createStandardGenerateAction,
-  createStandardRequestAction,
-} from "~/core/lib/curations/toolkit";
-
+import tk, { type CurationObject } from "~/core/lib/curations/toolkit";
 import chalk from "chalk";
-import nexusConfig from "~/core/config/nexus.config";
 
-type ShabdaEntry = {
-  id: string;
-  status: "candidate" | "staged" | "approved" | "rejected" | "deleted";
-  createdAt: string;
-  updatedAt: string;
-
+type ShabdaEntry = CurationObject & {
   root: string;
   gender: "masculine" | "feminine" | "neuter";
   nounClass: string;
@@ -46,9 +32,9 @@ function NounDetailView({ noun }: { noun: ShabdaEntry }) {
 }
 
 // Firestore collections
-const { collectionId, version } = nexusConfig.firestore.curations.nouns;
+const { collectionId, version } = { collectionId: "nouns", version: "1" };
 
-export const repo = createRepoFromConfig<ShabdaEntry>(collectionId, version);
+export const repo = tk.createRepoFromConfig<ShabdaEntry>(collectionId, version);
 
 // Generator prompt - creates full noun declension tables based on stem, gender, class
 function generatePrompt({ root, gender, nounClass }: Partial<ShabdaEntry>) {
@@ -106,7 +92,7 @@ ${JSON.stringify(entry, null, 2)}
 `.trim();
 }
 
-const generator = createLLMGenerator<ShabdaEntry>({
+const generator = tk.createLLMGenerator<Partial<ShabdaEntry>, ShabdaEntry>({
   prompt: generatePrompt,
   parse: (json, input) => {
     const now = new Date().toISOString();
@@ -126,7 +112,7 @@ const generator = createLLMGenerator<ShabdaEntry>({
   },
 });
 
-const reviewer = createLLMReviewer<ShabdaEntry>({
+const reviewer = tk.createLLMReviewer<ShabdaEntry>({
   prompt: generateReviewPrompt,
   parse: (json, input) => {
     if (Array.isArray(json.suggestions))
@@ -144,7 +130,7 @@ const reviewer = createLLMReviewer<ShabdaEntry>({
   },
 });
 
-const nounsConfig = createCuration<ShabdaEntry>({
+const nounsConfig = tk.createCuration<ShabdaEntry>({
   namespace: "nouns",
   repo,
   generator,
@@ -174,48 +160,45 @@ const nounsConfig = createCuration<ShabdaEntry>({
     renderDetail: (entry) => <NounDetailView noun={entry} />,
   },
   requiredActions: {
-    generate: createStandardGenerateAction({
+    generate: tk.createStandardGenerateAction({
       repo,
       generator,
-      meta: {
-        label: "Generate Object",
-        description: "Generate a new object from inputs.",
-        group: "Objects",
-        kind: "single",
-        params: [
-          { name: "root", label: "Root", type: "string", required: true },
-          { name: "gender", label: "Gender", type: "string", required: true },
-          { name: "nounClass", label: "Class", type: "string", required: true },
-        ],
-      },
-    }),
-    request: createStandardRequestAction({
-      repo,
       getId: (data) =>
         `${data.root}-${data.gender}-${data.nounClass}`.toLowerCase(),
       meta: {
-        label: "Create Generation Request",
-        group: "Requests",
-        description: "Create a request to generate a new object.",
-        kind: "single",
-        params: [
-          { name: "root", label: "Root", type: "string", required: true },
-          { name: "gender", label: "Gender", type: "string", required: true },
-          { name: "nounClass", label: "Class", type: "string", required: true },
-          {
-            name: "requestedBy",
-            label: "Requested By",
-            type: "string",
-            inputHint: "text",
-          },
-          {
-            name: "reason",
-            label: "Reason",
-            type: "string",
-            inputHint: "text",
-          },
-        ],
+        label: "Generate Object",
+        description: "Generate a new object from inputs.",
       },
+      inputParams: [
+        { name: "root", label: "Root", type: "string", required: true },
+        { name: "gender", label: "Gender", type: "string", required: true },
+        { name: "nounClass", label: "Class", type: "string", required: true },
+      ],
+    }),
+    request: tk.createStandardRequestAction({
+      repo,
+
+      meta: {
+        label: "Create Generation Request",
+        description: "Create a request to generate a new object.",
+      },
+      inputParams: [
+        { name: "root", label: "Root", type: "string", required: true },
+        { name: "gender", label: "Gender", type: "string", required: true },
+        { name: "nounClass", label: "Class", type: "string", required: true },
+        {
+          name: "requestedBy",
+          label: "Requested By",
+          type: "string",
+          inputHint: "text",
+        },
+        {
+          name: "reason",
+          label: "Reason",
+          type: "string",
+          inputHint: "text",
+        },
+      ],
     }),
   },
 });

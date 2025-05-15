@@ -32,4 +32,13 @@ export class CurationRequestQueue<T extends CurationObject> {
       .get();
     return snapshot.docs.map((doc) => doc.data() as CurationRequest<T>);
   }
+
+  async flush(): Promise<void> {
+    const snapshot = await this.db.collection(this.requestCollectionId).get();
+    const batch = this.db.batch();
+    snapshot.docs.forEach((doc) => {
+      batch.delete(doc.ref);
+    });
+    await batch.commit();
+  }
 }

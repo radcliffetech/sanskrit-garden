@@ -1,11 +1,9 @@
 import React from "react";
-import groupingMetadata from "~/data/sanskrit-grouping-data.json";
+import groupingMetadata from "~/data/alphabet/sanskrit-grouping-data.json";
 
 interface Props {
   id: string;
 }
-
-
 
 export default function DisplayGroupMetadata({ id }: Props) {
   const metadata = groupingMetadata.find((group) => group.id === id);
