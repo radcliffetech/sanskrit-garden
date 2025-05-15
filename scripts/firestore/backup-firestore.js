@@ -7,7 +7,8 @@ import serviceAccount from "../../serviceAccountKey.json" assert { type: "json" 
 import nexusConfig from "../../app/core/config/nexus.config.js";
 
 const { firestore } = nexusConfig;
-
+const collectionsToBackup = Object.values(firestore.collections);
+const curationsToBackup = Object.values(firestore.curations);
 initializeApp({
   credential: cert(serviceAccount),
 });
@@ -26,15 +27,31 @@ async function backupCollection(collectionName) {
     console.error(`❌ Failed to backup ${collectionName}:`, err.message);
   }
 }
-
-const collectionsToBackup = Object.values(firestore.collections);
-
 async function runBackup() {
   for (const collectionName of collectionsToBackup) {
     await backupCollection(collectionName);
   }
+  console.log("✅ All collections backed up successfully.");
+  for (const { collectionId, version } of curationsToBackup) {
+    await backupCuration(collectionId, version);
+  }
+  console.log("✅ All curations backed up successfully.");
+  console.log("✅ All backups completed successfully.");
+  console.log("✅ Namaste!");
+}
 
-  console.log("✅ All collections backed up successfully. Namaste!");
+async function backupCuration(collectionId, version) {
+  const collectionRefs = [
+    `${collectionId}_v${version}`,
+    `${collectionId}_audit_v${version}`,
+    `${collectionId}_reviews_v${version}`,
+    `${collectionId}_generation_requests_v${version}`,
+  ];
+
+  const collectionPromises = collectionRefs.map((collectionRef) =>
+    backupCollection(collectionRef)
+  );
+  await Promise.all(collectionPromises);
 }
 
 import readline from "readline";

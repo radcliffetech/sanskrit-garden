@@ -3,10 +3,9 @@ import type {
   CurationObject,
   ReviewGenerator,
 } from "~/core/lib/curations/types/curation";
-import { confirmPrompt, promptUser } from "./cli";
+import { confirmPrompt, promptUser } from "./cliHelpers";
 
 import type { CurationRepository } from "../stores/CurationRepository";
-import type { CurationRequest } from "~/core/lib/curations/types/curation";
 import chalk from "chalk";
 import { match } from "ts-pattern";
 
@@ -121,18 +120,18 @@ export function generateBaseActions<T extends CurationObject>(
         const entries = await repo.objects.getAll();
         const stagedEntries = entries.filter((s) => s.status === "staged");
         if (stagedEntries.length === 0) {
-          console.log("No staged objects found.");
+          console.log("No staged objects found.\n");
           return;
         }
 
-        console.log("Staged objects to deploy:");
+        console.log("Staged objects to deploy:\n");
         stagedEntries.forEach((s) => console.log(`  - ${s.id}`));
 
         const confirmed = await confirmPrompt(
-          "Are you sure you want to deploy all staged objects?"
+          "\nAre you sure you want to deploy all staged objects?"
         );
         if (!confirmed) {
-          console.log("🚫 Deployment cancelled.");
+          console.log("🚫 Deployment cancelled.\n");
           return;
         }
 
@@ -151,7 +150,11 @@ export function generateBaseActions<T extends CurationObject>(
           });
         }
 
-        console.log(`🚀 All staged objects deployed.`);
+        console.log(
+          chalk.green(
+            `🚀 ${stagedEntries.length} objects deployed successfully.`
+          )
+        );
       },
     },
 
@@ -170,9 +173,7 @@ export function generateBaseActions<T extends CurationObject>(
           return;
         }
 
-        console.log(`📥 Loaded ${pending.length} unreviewed objects`);
-
-        console.log("📦 Reviews to process:");
+        console.log("📦 Reviews to process:\n");
         pending.slice(0, 10).forEach((r, i) => {
           console.log(`  ${i + 1}. ${r.objectId}`);
         });
@@ -180,7 +181,7 @@ export function generateBaseActions<T extends CurationObject>(
           console.log(`  ...and ${pending.length - 10} more`);
         }
 
-        const confirmStart = await promptUser("Start reviewing? (y/N) ");
+        const confirmStart = await promptUser("\nStart reviewing? (y/N) ");
         if (confirmStart !== "y") {
           console.log("❌ Aborted by user.");
           return;
@@ -220,7 +221,7 @@ export function generateBaseActions<T extends CurationObject>(
           }
 
           // Patch diff display logic
-          if (review.patch) {
+          if (review.patch && Object.keys(review.patch).length > 0) {
             console.log(chalk.blue("🧩 Patch available:"));
             for (const key of Object.keys(review.patch)) {
               const oldVal = (entry as any)[key];
@@ -267,8 +268,11 @@ export function generateBaseActions<T extends CurationObject>(
               }
             }
           }
-          const promptOptions =
-            "[a]pprove  [r]reject  [s]skip  [p]atch+approve > ";
+          const hasPatch = review.patch && Object.keys(review.patch).length > 0;
+
+          const promptOptions = hasPatch
+            ? "\n[a]pprove  [r]reject  [s]skip  [p]atch+approve > "
+            : "\n[a]pprove  [r]reject  [s]kip > ";
           const action = (await promptUser(promptOptions)) || "a";
 
           await match(action)
@@ -387,7 +391,7 @@ export function generateBaseActions<T extends CurationObject>(
             console.log(`  ${i + 1}. ${s}`);
           });
         }
-        if (r.patch) {
+        if (r.patch && Object.keys(r.patch).length > 0) {
           console.log(chalk.blue("\n🧩 Patch:"));
           console.log(chalk.gray(JSON.stringify(r.patch, null, 2)));
         }
@@ -520,37 +524,7 @@ export function generateBaseActions<T extends CurationObject>(
         );
       },
     },
-    {
-      id: "objects:generate",
-      action: async (data: Partial<T>) => {
-        const entry = await generator.generate(data);
-        await repo.objects.add(entry);
-        console.log(chalk.green(`✅ Object generated and stored: ${entry.id}`));
-      },
-    },
-    {
-      id: "requests:create",
-      action: async (args: Record<string, string>) => {
-        const { requestedBy, reason, ...data } = args;
-        const now = new Date().toISOString();
-        const id =
-          options?.generateRequestId?.(data as Partial<T>) ??
-          `request-${crypto.randomUUID()}`;
-        const request: CurationRequest<T> = {
-          id,
-          data: data as Partial<T>,
-          reason: reason ?? "",
-          requestedBy: requestedBy ?? "cli",
-          status: "pending",
-          createdAt: now,
-        };
 
-        await repo.requests.add(request);
-        console.log(
-          chalk.green(`📥 Generation request submitted: ${request.id}`)
-        );
-      },
-    },
     {
       id: "reviews:re-review",
       action: async ({ objectId }: { objectId: string }) => {

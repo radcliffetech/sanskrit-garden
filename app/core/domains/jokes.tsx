@@ -1,0 +1,201 @@
+import chalk from "chalk";
+
+import nexusConfig from "~/core/config/nexus.config";
+import {
+  createRepoFromConfig,
+  createCuration,
+  createLLMGenerator,
+  createLLMReviewer,
+  type CurationObject,
+  createStandardGenerateAction,
+  createStandardRequestAction,
+} from "~/core/lib/curations/toolkit";
+
+type DadJokeEntry = CurationObject & {
+  jokeSetup: string;
+  jokePunchline: string;
+  jokeCategory: string;
+};
+
+// Firestore collections
+const { collectionId, version } = nexusConfig.firestore.curations.jokes;
+
+export const repo = createRepoFromConfig<DadJokeEntry>(collectionId, version);
+
+// Generator prompt - creates a dad joke based on category
+function generatePrompt({ jokeCategory }: Partial<DadJokeEntry>) {
+  const exampleEntry = {
+    jokeSetup: "Why did the scarecrow win an award?",
+    jokePunchline: "Because he was outstanding in his field!",
+    jokeCategory: "farming",
+  };
+
+  return `
+You are a dad joke generator.
+Task:
+Generate a dad joke in JSON format with the following fields:
+- "jokeSetup": the setup line of the joke
+- "jokePunchline": the punchline of the joke
+- "jokeCategory": the category of the joke (use the input category)
+Requirements:
+- Output must be pure JSON (no markdown or explanation)
+- Joke should be family-friendly and lighthearted
+- Bonus points for clever wordplay or puns.
+Joke format:
+${JSON.stringify(exampleEntry, null, 2)}  
+Input Category: "${jokeCategory}"
+`.trim();
+}
+
+// Reviewer prompt - verifies correctness and appropriateness of the joke
+function generateReviewPrompt(entry: DadJokeEntry): string {
+  return `You are a dad joke reviewer.
+Your job is to verify that the joke is appropriate, funny, and fits the given category.
+✔ If the joke is good, return:
+- "approved": true
+- "suggestions": []
+- no patch
+❌ If there are issues:
+- "approved": false
+- list specific issues in "suggestions"
+- include a "patch" with corrections if possible
+⚠ Do not make stylistic changes unrelated to joke quality.
+Respond in JSON format with:
+- confidence: 0–1 float
+- summary: short assessment
+- approved: true/false
+- suggestions: array of issues or improvements (optional)
+If you detect any errors or improvements, include a patch key that shows a partial corrected version of the input structure.
+Here is the Entry to review:
+${JSON.stringify(entry, null, 2)}
+`.trim();
+}
+
+const generator = createLLMGenerator<DadJokeEntry>({
+  prompt: generatePrompt,
+  parse: (json, input) => {
+    const now = new Date().toISOString();
+    const id = `joke-${crypto.randomUUID()}`;
+    return {
+      ...json,
+      id,
+      jokeCategory: input.jokeCategory || json.jokeCategory,
+      createdAt: now,
+      updatedAt: now,
+      source: "openai",
+      status: "candidate",
+    };
+  },
+});
+
+const reviewer = createLLMReviewer<DadJokeEntry>({
+  prompt: generateReviewPrompt,
+  parse: (json, input) => {
+    if (Array.isArray(json.suggestions))
+      json.suggestions = json.suggestions.map((s: any) =>
+        typeof s === "string" ? s : JSON.stringify(s)
+      );
+    return {
+      confidence: json.confidence,
+      summary: json.summary,
+      approved: json.approved,
+      suggestions: json.suggestions ?? [],
+      ...(json.justification ? { justification: json.justification } : {}),
+      ...(json.patch ? { patch: json.patch } : {}),
+    };
+  },
+});
+
+const jokesConfig = createCuration<DadJokeEntry>({
+  namespace: "jokes",
+  repo,
+  generator,
+  reviewer,
+  cli: {
+    printSummary: (entry) => {
+      console.log(
+        `\n${chalk.cyan(entry.jokeSetup)} - ${chalk.yellow(
+          entry.jokePunchline
+        )}\n\ncategory: ${chalk.blue(entry.jokeCategory)}\n`
+      );
+    },
+    printRow: (entry) => {
+      const line = [
+        chalk.gray(entry.id || "").padEnd(16),
+        chalk.gray(entry.status || "").padEnd(12),
+        chalk.cyan((entry.jokeSetup || "").padEnd(30)),
+        chalk.yellow((entry.jokePunchline || "").padEnd(30)),
+        chalk.blue(entry.jokeCategory || "").padEnd(12),
+      ].join("  ");
+      console.log(line);
+    },
+  },
+  ui: {
+    renderRow: (entry) => [
+      <td>{entry.jokeSetup}</td>,
+      <td>{entry.jokePunchline}</td>,
+      <td>{entry.jokeCategory}</td>,
+      <td>{entry.status}</td>,
+    ],
+    renderDetail: (entry) => (
+      <div>
+        <h3>Joke Setup</h3>
+        <p>{entry.jokeSetup}</p>
+        <h3>Joke Punchline</h3>
+        <p>{entry.jokePunchline}</p>
+        <h3>Category</h3>
+        <p>{entry.jokeCategory}</p>
+      </div>
+    ),
+  },
+  requiredActions: {
+    generate: createStandardGenerateAction({
+      repo,
+      generator,
+      meta: {
+        label: "Generate Joke",
+        description: "Generate a new dad joke by category.",
+        group: "Objects",
+        kind: "single",
+        params: [
+          {
+            name: "jokeCategory",
+            type: "string",
+            label: "The category of the joke to generate",
+            required: true,
+          },
+        ],
+      },
+    }),
+    request: createStandardRequestAction({
+      repo,
+      getId: () => `joke-${crypto.randomUUID()}`,
+      meta: {
+        label: "Create Joke Request",
+        group: "Requests",
+        description: "Create a request to generate a new joke.",
+        kind: "single",
+        params: [
+          {
+            name: "jokeCategory",
+            type: "string",
+            label: "The category of the joke to generate",
+            required: true,
+          },
+          {
+            name: "requestedBy",
+            type: "string",
+            label: "The person requesting the joke",
+          },
+          {
+            name: "reason",
+            type: "string",
+            label: "The reason for the request",
+          },
+        ],
+      },
+    }),
+  },
+});
+
+export default jokesConfig;

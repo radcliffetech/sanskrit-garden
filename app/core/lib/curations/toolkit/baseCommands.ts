@@ -2,46 +2,6 @@ import type { CommandDefinition } from "~/core/lib/curations/types/curation";
 
 export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
   {
-    id: "objects:generate",
-    meta: {
-      label: "Generate Object",
-      description: "Generate a new object from inputs.",
-      group: "Objects",
-      kind: "single",
-      params: [
-        { name: "root", label: "Root", type: "string", required: true },
-        { name: "gender", label: "Gender", type: "string", required: true },
-        { name: "nounClass", label: "Class", type: "string", required: true },
-      ],
-    },
-  },
-  {
-    id: "requests:create",
-    meta: {
-      label: "Create Generation Request",
-      group: "Requests",
-      description: "Create a request to generate a new object.",
-      kind: "single",
-      params: [
-        { name: "root", label: "Root", type: "string", required: true },
-        { name: "gender", label: "Gender", type: "string", required: true },
-        { name: "nounClass", label: "Class", type: "string", required: true },
-        {
-          name: "requestedBy",
-          label: "Requested By",
-          type: "string",
-          inputHint: "text",
-        },
-        {
-          name: "reason",
-          label: "Reason",
-          type: "string",
-          inputHint: "text",
-        },
-      ],
-    },
-  },
-  {
     id: "objects:list-all",
     meta: {
       label: "List All Objects",

@@ -91,3 +91,11 @@ export type CommandDefinition = {
   /** React/server-friendly handler that returns data */
   handler?: (args: Record<string, string>) => Promise<any>;
 };
+
+export type CurationField = {
+  name: string;
+  label: string;
+  type: "string" | "number" | "boolean";
+  required?: boolean;
+  inputHint?: "text" | "textarea" | "select";
+};

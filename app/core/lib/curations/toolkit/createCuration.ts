@@ -4,16 +4,16 @@ import type {
   ReviewGenerator,
 } from "~/core/lib/curations/types/curation";
 
+import type { CommandDefinition } from "~/core/lib/curations/types/curation";
 import type { CurationConfig } from "../types/config";
 import { CurationRepository } from "../stores/CurationRepository";
-import { createCurationCommandBus } from "~/core/lib/curations/helpers/createCurationCommandBus";
+import { createCommandBus } from "~/core/lib/curations/toolkit/createCommandBus";
 
 interface CreateDomainParams<T extends CurationObject> {
   namespace: string;
   repo: CurationRepository<T>;
   generator: ContentGenerator<T>;
   reviewer: ReviewGenerator<T>;
-  generateRequestId: (data: Partial<T>) => string;
   cli?: {
     printSummary?: (entry: T) => void;
     printRow?: (entry: T) => void;
@@ -22,13 +22,18 @@ interface CreateDomainParams<T extends CurationObject> {
     renderRow?: (entry: T) => React.ReactNode[];
     renderDetail?: (entry: T) => React.ReactNode;
   };
+  requiredActions: {
+    generate: CommandDefinition & { id: "objects:generate" };
+    request: CommandDefinition & { id: "requests:create" };
+  };
+  extraActions?: CommandDefinition[];
 }
 
 /**
  * Creates a full CurationConfig<T> object for a specific content domain.
  * Used to define CLI, UI, and processing behaviors in one place.
  */
-export function createDomain<T extends CurationObject>(
+export function createCuration<T extends CurationObject>(
   params: CreateDomainParams<T>
 ): CurationConfig<T> {
   const { namespace, repo, generator, reviewer } = params;
@@ -37,7 +42,7 @@ export function createDomain<T extends CurationObject>(
     repo,
     generator,
     reviewer,
-    commandBus: createCurationCommandBus(
+    commandBus: createCommandBus(
       namespace,
       {
         repo,
@@ -47,7 +52,11 @@ export function createDomain<T extends CurationObject>(
       {
         printObjectSummary: params.cli?.printSummary,
         printObjectListRow: params.cli?.printRow,
-        generateRequestId: params.generateRequestId,
+        customActions: [
+          params.requiredActions.generate,
+          params.requiredActions.request,
+          ...(params.extraActions ?? []),
+        ],
       }
     ),
     cli: {
@@ -58,7 +67,6 @@ export function createDomain<T extends CurationObject>(
       renderRow: params.ui?.renderRow,
       renderDetail: params.ui?.renderDetail,
     },
-    generateRequestId: params.generateRequestId,
   };
   return config;
 }

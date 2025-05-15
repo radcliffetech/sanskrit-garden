@@ -1,5 +1,5 @@
 import { CurationAuditTrail } from "./CurationAuditTrail";
-import type { CurationObject } from "~/core/lib/curations/types/curation";
+import type { CurationObject } from "../types/curation";
 import { CurationRequestQueue } from "./CurationRequestQueue";
 import { CurationReviewStore } from "./CurationReviewStore";
 import type { Firestore } from "firebase-admin/firestore";
@@ -64,5 +64,20 @@ export class CurationRepository<T extends CurationObject> {
     this.reviews = new CurationReviewStore<T>(db, reviewCollectionId);
     this.audits = new CurationAuditTrail<T>(db, auditCollectionId);
     this.requests = new CurationRequestQueue<T>(db, requestCollectionId);
+  }
+
+  static fromNamespace<T extends CurationObject>(
+    db: Firestore,
+    namespace: string,
+    version: string
+  ): CurationRepository<T> {
+    const base = `${namespace}_v${version}`;
+    return new CurationRepository<T>(
+      db,
+      base,
+      `${namespace}_reviews_v${version}`,
+      `${namespace}_audit_v${version}`,
+      `${namespace}_requests_v${version}`
+    );
   }
 }
