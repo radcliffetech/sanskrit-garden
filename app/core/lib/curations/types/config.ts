@@ -10,7 +10,7 @@ import { CurationRepository } from "../stores/CurationRepository";
 export type CurationConfig<T extends CurationObject> = {
   namespace: string;
   repo: CurationRepository<T>;
-  generator: ContentGenerator<T>;
+  generator: ContentGenerator<any, T>;
   reviewer: ReviewGenerator<T>;
   commandBus: CommandDefinition[];
   label?: string;

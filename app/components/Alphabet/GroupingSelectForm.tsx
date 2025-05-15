@@ -1,4 +1,4 @@
-import groupingMetadata from "~/data/sanskrit-grouping-data.json";
+import groupingMetadata from "~/data/alphabet/sanskrit-grouping-data.json";
 
 interface Props {
   selected: string;
@@ -16,7 +16,7 @@ export function GroupingSelectForm({ selected, onChange }: Props) {
         >
           {groupingMetadata.map(({ id, name, translation }) => (
             <option key={id} value={id}>
-              {name} ({translation})  
+              {name} ({translation})
             </option>
           ))}
         </select>

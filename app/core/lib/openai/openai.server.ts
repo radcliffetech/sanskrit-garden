@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { defaultStoryProfileJson } from "~/data/storyteller-profiles";
+import { defaultStoryProfileJson } from "~/data/storyteller/storyteller-profiles";
 
 const apiKey = process.env.OPENAI_API_KEY;
 if (!apiKey) {

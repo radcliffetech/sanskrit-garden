@@ -9,11 +9,20 @@ const nexusConfig = {
   firestore: {
     collections: {
       articles: "articles_v1",
-
-      shabda: "shabda_v1",
-      shabdaRequests: "shabda_generation_requests_v1",
-      shabdaAudit: "shabda_audit_v1",
-      shabdaReviews: "shabda_reviews_v1",
+    },
+    curations: {
+      nouns: {
+        collectionId: "nouns",
+        version: "1",
+      },
+      jokes: {
+        collectionId: "jokes",
+        version: "1",
+      },
+      verbs: {
+        collectionId: "verbs",
+        version: "1",
+      },
     },
   },
   adminEmail: "jeffrey.radcliffe@gmail.com",

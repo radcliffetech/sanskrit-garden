@@ -1,46 +1,52 @@
-import { commandBus } from "~/core/lib/curations";
+import { bus } from "~/core/domains";
 
 const [, , namespace, command, ...rest] = process.argv;
 
 async function run() {
   if (!namespace) {
     console.log(
-      `❌ Please specify a namespace: ${Object.keys(commandBus).join(", ")}`
+      `❌ Please specify a namespace: ${Object.keys(bus).join(", ")}`
     );
     return;
   }
 
-  if (!Object.keys(commandBus).includes(namespace)) {
+  if (!Object.keys(bus).includes(namespace)) {
     console.log(
-      `❌ Please specify a valid namespace: ${Object.keys(commandBus).join(
-        ", "
-      )}`
+      `❌ Please specify a valid namespace: ${Object.keys(bus).join(", ")}`
     );
     return;
   }
+
+  const validatedNamespace = namespace as keyof typeof bus;
 
   if (!command) {
+    const commands = bus[validatedNamespace];
+    console.log(
+      `Namespace: ${validatedNamespace} (${commands.length} commands)\n`,
+      commands
+    );
     console.log("🛠 Available Commands:\n");
-
-    const commands = commandBus.nouns;
     const groups = commands.reduce((acc, cmd) => {
       const group = cmd.meta.group || "General";
       acc[group] = acc[group] || [];
       acc[group].push(cmd);
       return acc;
-    }, {} as Record<string, typeof commandBus.nouns>);
+    }, {} as Record<string, typeof commands>);
 
     for (const group of Object.keys(groups).sort()) {
       console.log(`🔹 ${group}`);
       for (const cmd of groups[group].sort((a, b) =>
-        a.id.localeCompare(b.id)
+        a.meta.label.localeCompare(b.meta.label)
       )) {
         const paramList =
           cmd.meta.params?.map((p) => `<${p.name}>`).join(" ") ?? "";
+        const label = cmd.meta.label ?? cmd.id;
+
+        const description = cmd.meta.description ?? "(no description provided)";
         console.log(
-          `  ${cmd.id.padEnd(30)} ${paramList.padEnd(30)} ${
-            cmd.meta.description
-          }`
+          `  ${cmd.id.padEnd(30)} ${label.padEnd(30)} ${paramList.padEnd(
+            30
+          )} ${description}`
         );
       }
       console.log();
@@ -52,7 +58,7 @@ async function run() {
   const fullCommand = command.includes(":")
     ? command
     : `${namespace}:${command}`;
-  const action = commandBus.nouns.find((a) => a.id === fullCommand);
+  const action = bus[validatedNamespace].find((a) => a.id === fullCommand);
   if (!action) {
     console.log(`❌ Unknown command: ${command}`);
     return;

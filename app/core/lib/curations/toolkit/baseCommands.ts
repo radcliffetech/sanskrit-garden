@@ -2,47 +2,7 @@ import type { CommandDefinition } from "~/core/lib/curations/types/curation";
 
 export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
   {
-    id: "objects:generate",
-    meta: {
-      label: "Generate Object",
-      description: "Generate a new object from inputs.",
-      group: "Objects",
-      kind: "single",
-      params: [
-        { name: "root", label: "Root", type: "string", required: true },
-        { name: "gender", label: "Gender", type: "string", required: true },
-        { name: "nounClass", label: "Class", type: "string", required: true },
-      ],
-    },
-  },
-  {
-    id: "requests:create",
-    meta: {
-      label: "Create Generation Request",
-      group: "Requests",
-      description: "Create a request to generate a new object.",
-      kind: "single",
-      params: [
-        { name: "root", label: "Root", type: "string", required: true },
-        { name: "gender", label: "Gender", type: "string", required: true },
-        { name: "nounClass", label: "Class", type: "string", required: true },
-        {
-          name: "requestedBy",
-          label: "Requested By",
-          type: "string",
-          inputHint: "text",
-        },
-        {
-          name: "reason",
-          label: "Reason",
-          type: "string",
-          inputHint: "text",
-        },
-      ],
-    },
-  },
-  {
-    id: "objects:list-all",
+    id: "objects:list",
     meta: {
       label: "List All Objects",
       description: "List all object entries.",
@@ -97,7 +57,7 @@ export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
   },
 
   {
-    id: "reviews:review-all",
+    id: "reviews:process",
     meta: {
       label: "Review All",
       description: "Review all objects with open reviews.",
@@ -115,7 +75,7 @@ export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
     },
   },
   {
-    id: "reviews:list-by-status",
+    id: "reviews:list",
     meta: {
       label: "List Reviews by Status",
       description: "List reviews filtered by review status.",
@@ -195,7 +155,16 @@ export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
     },
   },
   {
-    id: "audits:list",
+    id: "objects:flush",
+    meta: {
+      label: "Flush All Objects",
+      group: "Objects",
+      description: "Delete all objects.",
+      kind: "batch",
+    },
+  },
+  {
+    id: "audits:list-for-object",
     meta: {
       label: "List Audit Logs",
       description: "List all audit logs for an object.",
@@ -213,7 +182,7 @@ export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
     },
   },
   {
-    id: "audits:list-all",
+    id: "audits:list",
     meta: {
       label: "List All Audit Logs",
       group: "Audits",
@@ -236,6 +205,15 @@ export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
       label: "List Generation Requests",
       group: "Requests",
       description: "List all pending generation requests.",
+      kind: "batch",
+    },
+  },
+  {
+    id: "requests:flush",
+    meta: {
+      label: "Flush All Requests",
+      group: "Requests",
+      description: "Delete all generation requests.",
       kind: "batch",
     },
   },

@@ -1,5 +1,5 @@
 import { CurationAuditTrail } from "./CurationAuditTrail";
-import type { CurationObject } from "~/core/lib/curations/types/curation";
+import type { CurationObject } from "../types/curation";
 import { CurationRequestQueue } from "./CurationRequestQueue";
 import { CurationReviewStore } from "./CurationReviewStore";
 import type { Firestore } from "firebase-admin/firestore";
@@ -45,6 +45,21 @@ class CurationObjectStore<T extends CurationObject> {
   async delete(id: string): Promise<void> {
     await this.db.collection(this.collectionId).doc(id).delete();
   }
+
+  async flush(): Promise<void> {
+    const snapshot = await this.db.collection(this.collectionId).get();
+    const docs = snapshot.docs;
+    const chunkSize = 500; // Firestore batch limit
+
+    for (let i = 0; i < docs.length; i += chunkSize) {
+      const batch = this.db.batch();
+      const chunk = docs.slice(i, i + chunkSize);
+      chunk.forEach((doc) => {
+        batch.delete(doc.ref);
+      });
+      await batch.commit();
+    }
+  }
 }
 
 export class CurationRepository<T extends CurationObject> {
@@ -64,5 +79,19 @@ export class CurationRepository<T extends CurationObject> {
     this.reviews = new CurationReviewStore<T>(db, reviewCollectionId);
     this.audits = new CurationAuditTrail<T>(db, auditCollectionId);
     this.requests = new CurationRequestQueue<T>(db, requestCollectionId);
+  }
+
+  static fromNamespace<T extends CurationObject>(
+    db: Firestore,
+    namespace: string,
+    version: string
+  ): CurationRepository<T> {
+    return new CurationRepository<T>(
+      db,
+      `${namespace}_v${version}`,
+      `${namespace}_reviews_v${version}`,
+      `${namespace}_audit_v${version}`,
+      `${namespace}_requests_v${version}`
+    );
   }
 }
