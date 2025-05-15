@@ -139,3 +139,43 @@ export interface Feature extends FeatureBase {
   isPublic?: boolean; // Whether the feature is public or private
   parentFeature?: Feature; // ID of the parent feature, if applicable
 }
+
+export type ShabdaEntry = {
+  id: string;
+  status: "candidate" | "staged" | "approved" | "rejected" | "deleted";
+  createdAt: string;
+  updatedAt: string;
+
+  root: string;
+  gender: "masculine" | "feminine" | "neuter";
+  nounClass: string;
+
+  iast: string;
+  devanagari: string;
+  meaning: string;
+
+  source?: "openai" | "manual" | "imported";
+  validatedAt?: string;
+  notes?: string;
+
+  forms: {
+    [key: string]: {
+      devanagari: string;
+      iast: string;
+      meaning: string;
+    };
+  };
+};
+
+export type ShabdaGenerationRequest = {
+  id: string;
+  root: string;
+  gender: "masculine" | "feminine" | "neuter";
+  nounClass: string;
+  requestedBy?: string; // "cli", user email, or "import-batch"
+  reason?: string; // e.g. "missing from known texts"
+  createdAt: string;
+  status: "pending" | "started" | "generated" | "error" | "skipped";
+  errorMessage?: string;
+  generatedShabdaId?: string; // when done, points to the resulting shabda
+};

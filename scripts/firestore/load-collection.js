@@ -3,7 +3,7 @@ import { cert, initializeApp } from "firebase-admin/app";
 import { getFirestore } from "firebase-admin/firestore";
 import { readFile } from "fs/promises";
 import path from "path";
-import serviceAccount from "../serviceAccountKey.json" assert { type: "json" };
+import serviceAccount from "../../serviceAccountKey.json" assert { type: "json" };
 
 const [, , collectionName, jsonFilePath] = process.argv;
 const isDryRun = process.argv.includes("--dry-run");
