@@ -35,10 +35,14 @@ export class CurationRequestQueue<T extends CurationObject> {
 
   async flush(): Promise<void> {
     const snapshot = await this.db.collection(this.requestCollectionId).get();
-    const batch = this.db.batch();
-    snapshot.docs.forEach((doc) => {
-      batch.delete(doc.ref);
-    });
-    await batch.commit();
+    const CHUNK_SIZE = 500;
+    for (let i = 0; i < snapshot.docs.length; i += CHUNK_SIZE) {
+      const batch = this.db.batch();
+      const chunk = snapshot.docs.slice(i, i + CHUNK_SIZE);
+      chunk.forEach((doc) => {
+        batch.delete(doc.ref);
+      });
+      await batch.commit();
+    }
   }
 }
