@@ -167,41 +167,6 @@ export type ShabdaEntry = {
   };
 };
 
-export type CommandParam = {
-  name: string;
-  label: string;
-  type: "string" | "number" | "boolean";
-  required?: boolean;
-  inputHint?: "text" | "textarea" | "select";
-};
-export type CommandGroup =
-  | "Objects"
-  | "Reviews"
-  | "Audits"
-  | "Requests"
-  | "General";
-
-export type CommandDefinition = {
-  id: string;
-
-  meta: {
-    label: string;
-    description: string;
-    group?: CommandGroup;
-    icon?: string;
-    kind?: "single" | "batch" | "data";
-    params?: CommandParam[];
-    visibleTo?: string[];
-    returns?: "json" | "table" | "text";
-  };
-
-  /** CLI-friendly function for stdout-style behavior */
-  action?: (args: Record<string, string>) => Promise<void>;
-
-  /** React/server-friendly handler that returns data */
-  handler?: (args: Record<string, string>) => Promise<any>;
-};
-
 export type ShabdaGenerationRequest = {
   id: string;
   root: string;

@@ -1,6 +1,6 @@
-import type { CommandDefinition } from "~/types";
+import type { CommandDefinition } from "~/core/lib/curations/types/curation";
 
-export const nounsCommands: Pick<CommandDefinition, "id" | "meta">[] = [
+export const baseCommands: Pick<CommandDefinition, "id" | "meta">[] = [
   {
     id: "objects:generate",
     meta: {

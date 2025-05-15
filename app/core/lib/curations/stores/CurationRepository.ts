@@ -1,5 +1,5 @@
 import { CurationAuditTrail } from "./CurationAuditTrail";
-import type { CurationObject } from "~/types/curation";
+import type { CurationObject } from "~/core/lib/curations/types/curation";
 import { CurationRequestQueue } from "./CurationRequestQueue";
 import { CurationReviewStore } from "./CurationReviewStore";
 import type { Firestore } from "firebase-admin/firestore";

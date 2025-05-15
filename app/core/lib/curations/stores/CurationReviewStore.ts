@@ -1,4 +1,7 @@
-import type { CurationObject, CurationReview } from "~/types/curation";
+import type {
+  CurationObject,
+  CurationReview,
+} from "~/core/lib/curations/types/curation";
 
 import type { Firestore } from "firebase-admin/firestore";
 

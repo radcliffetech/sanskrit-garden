@@ -1,6 +1,9 @@
-import type { CurationReview } from "~/types/curation";
+import type {
+  CurationReview,
+  ReviewGenerator,
+} from "~/core/lib/curations/types/curation";
+
 import OpenAI from "openai";
-import type { ReviewGenerator } from "~/core/lib/curations/interfaces";
 import type { ShabdaEntry } from "~/types";
 
 const apiKey = process.env.OPENAI_API_KEY;

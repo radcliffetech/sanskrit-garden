@@ -1,22 +1,34 @@
-import { commandBus } from "~/core/lib/curations/commandBus";
+import { commandBus } from "~/core/lib/curations";
 
 const [, , namespace, command, ...rest] = process.argv;
 
 async function run() {
-  if (namespace !== "nouns") {
-    console.log("❌ Please specify a valid namespace: nouns");
+  if (!namespace) {
+    console.log(
+      `❌ Please specify a namespace: ${Object.keys(commandBus).join(", ")}`
+    );
+    return;
+  }
+
+  if (!Object.keys(commandBus).includes(namespace)) {
+    console.log(
+      `❌ Please specify a valid namespace: ${Object.keys(commandBus).join(
+        ", "
+      )}`
+    );
     return;
   }
 
   if (!command) {
     console.log("🛠 Available Commands:\n");
 
-    const groups = commandBus.reduce((acc, cmd) => {
+    const commands = commandBus.nouns;
+    const groups = commands.reduce((acc, cmd) => {
       const group = cmd.meta.group || "General";
       acc[group] = acc[group] || [];
       acc[group].push(cmd);
       return acc;
-    }, {} as Record<string, typeof commandBus>);
+    }, {} as Record<string, typeof commandBus.nouns>);
 
     for (const group of Object.keys(groups).sort()) {
       console.log(`🔹 ${group}`);
@@ -40,7 +52,7 @@ async function run() {
   const fullCommand = command.includes(":")
     ? command
     : `${namespace}:${command}`;
-  const action = commandBus.find((a) => a.id === fullCommand);
+  const action = commandBus.nouns.find((a) => a.id === fullCommand);
   if (!action) {
     console.log(`❌ Unknown command: ${command}`);
     return;

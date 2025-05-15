@@ -1,4 +1,4 @@
-import type { ContentGenerator } from "~/core/lib/curations/interfaces";
+import type { ContentGenerator } from "~/core/lib/curations/types/curation";
 import OpenAI from "openai";
 import type { ShabdaEntry } from "~/types";
 
