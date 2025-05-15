@@ -48,11 +48,17 @@ class CurationObjectStore<T extends CurationObject> {
 
   async flush(): Promise<void> {
     const snapshot = await this.db.collection(this.collectionId).get();
-    const batch = this.db.batch();
-    snapshot.docs.forEach((doc) => {
-      batch.delete(doc.ref);
-    });
-    await batch.commit();
+    const docs = snapshot.docs;
+    const chunkSize = 500; // Firestore batch limit
+
+    for (let i = 0; i < docs.length; i += chunkSize) {
+      const batch = this.db.batch();
+      const chunk = docs.slice(i, i + chunkSize);
+      chunk.forEach((doc) => {
+        batch.delete(doc.ref);
+      });
+      await batch.commit();
+    }
   }
 }
 
