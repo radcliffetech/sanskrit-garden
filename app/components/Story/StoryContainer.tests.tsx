@@ -1,8 +1,9 @@
+import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 import StorytellerContainer from "./StoryContainer";
 
-jest.mock("~/hooks/useStoryteller", () => ({
+vi.mock("~/hooks/useStoryteller", () => ({
   useStoryteller: () => ({
     segments: [],
     questions: [],
@@ -12,12 +13,12 @@ jest.mock("~/hooks/useStoryteller", () => ({
     isStoryStarted: false,
     isStoryOver: false,
     selectedContinuation: null,
-    setSelectedTopic: jest.fn(),
-    setIsStoryOver: jest.fn(),
-    handleStartStory: jest.fn(),
-    handleContinue: jest.fn(),
-    handleRestart: jest.fn(),
-    handleDownload: jest.fn(),
+    setSelectedTopic: vi.fn(),
+    setIsStoryOver: vi.fn(),
+    handleStartStory: vi.fn(),
+    handleContinue: vi.fn(),
+    handleRestart: vi.fn(),
+    handleDownload: vi.fn(),
   }),
   getDefaultTopics: () => ["truth", "wisdom", "compassion"],
 }));

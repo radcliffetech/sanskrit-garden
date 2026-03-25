@@ -3,17 +3,16 @@ import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 import { createUserSession } from "~/core/lib/session.server";
 import { getAuth } from "firebase/auth";
-import { json } from "@remix-run/node";
 import { useAuth } from "~/ui/auth/AuthProvider";
 import { useState } from "react";
-import { useSubmit } from "@remix-run/react";
+import { useSubmit } from "react-router";
 
 export const action = async ({ request }: { request: Request }) => {
   const formData = await request.formData();
   const idToken = formData.get("idToken");
 
   if (!idToken || typeof idToken !== "string") {
-    return json({ error: "Missing ID token" }, { status: 400 });
+    return Response.json({ error: "Missing ID token" }, { status: 400 });
   }
 
   return createUserSession(idToken, "/admin");

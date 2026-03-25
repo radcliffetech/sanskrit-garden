@@ -1,7 +1,7 @@
 import { destroyUserSession, getUserSession } from "~/core/lib/session.server";
 
 import { adminAuth } from "~/core/lib/firebase/firebase.server";
-import { redirect } from "@remix-run/node";
+import { redirect } from "react-router";
 
 export async function requireAdminUser(request: Request) {
   const session = await getUserSession(request);

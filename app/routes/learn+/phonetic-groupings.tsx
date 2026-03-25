@@ -1,11 +1,11 @@
 import { AlphabetItem } from "~/types";
 import LexicalTreasuryContainer from "~/components/Alphabet/LexicalTreasuryContainer";
-import type { LoaderFunction } from "@remix-run/node";
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction } from "react-router";
+import type { MetaFunction } from "react-router";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 import { getAlphabetRepository } from "~/core/lib/repositories/alphabetRepository";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export const meta: MetaFunction = () => {
   return [{ title: "Alphabet" }, { name: "description", content: "Alphabet!" }];

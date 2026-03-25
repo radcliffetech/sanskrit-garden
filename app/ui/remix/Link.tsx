@@ -1,4 +1,4 @@
-import { Link as RemixLink } from "@remix-run/react";
+import { Link as RemixLink } from "react-router";
 
 const Link = RemixLink;
 export { Link };

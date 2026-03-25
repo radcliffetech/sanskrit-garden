@@ -1,4 +1,4 @@
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { LoaderFunctionArgs } from "react-router";
 import { handleLogout } from "~/core/lib/firebase/auth.server";
 import { useAuth } from "~/ui/auth/AuthProvider";
 import { useEffect } from "react";

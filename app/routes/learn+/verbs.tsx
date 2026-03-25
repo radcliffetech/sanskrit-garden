@@ -1,11 +1,11 @@
-import { LoaderFunctionArgs, json } from "@remix-run/node";
+import { LoaderFunctionArgs } from "react-router";
 
 import { PageFrame } from '~/ui/layout/PageFrame';
 import { PageHeader } from '~/ui/layout/PageHeader';
 import type { VerbShabda } from "~/types";
 import { VerbsContainer } from "~/components/Verbs/VerbsContainer";
 import sampleShabdas from "~/data/verbs/verb-data.json";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export function loader({}: LoaderFunctionArgs) {
   const verbs: VerbShabda[] = sampleShabdas.map((shabda) => ({

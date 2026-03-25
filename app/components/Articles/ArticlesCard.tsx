@@ -1,5 +1,5 @@
 import type { Article } from "~/types";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 export function ArticleCard({ article }: { article: Article }) {
   return (

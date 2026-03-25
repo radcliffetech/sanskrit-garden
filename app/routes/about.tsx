@@ -1,5 +1,5 @@
 import AboutContainer from "~/components/About/AboutContainer";
-import type { MetaFunction } from "@remix-run/node";
+import type { MetaFunction } from "react-router";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 

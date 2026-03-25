@@ -1,4 +1,4 @@
-import { createCookieSessionStorage, redirect } from "@remix-run/node";
+import { createCookieSessionStorage, redirect } from "react-router";
 
 const sessionStorage = createCookieSessionStorage({
   cookie: {
