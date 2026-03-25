@@ -1,10 +1,10 @@
-import { LoaderFunctionArgs } from "@remix-run/node";
+import { LoaderFunctionArgs } from "react-router";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 import type { Shabda } from "~/types";
 import { ShabdaContainer } from "~/components/Shabda/ShabdaContainer";
 import sampleShabdas from "~/data/nouns/masculine-a-stem.json";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export function loader({}: LoaderFunctionArgs) {
   const shabdas: Shabda[] = sampleShabdas;

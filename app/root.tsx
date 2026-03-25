@@ -7,7 +7,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
+} from "react-router";
 
 import { AppFooter } from "~/ui/layout/AppFooter";
 import { AuthProvider } from "~/ui/auth/AuthProvider";

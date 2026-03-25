@@ -1,11 +1,12 @@
+import { vi, describe, it, expect } from "vitest";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 
 import ExplainerContainer from "./ExplainerContainer";
 
-jest.mock("~/core/hooks/useConceptExplainer", () => ({
+vi.mock("~/core/hooks/useConceptExplainer", () => ({
   useConceptExplainer: () => ({
     exampleSet: ["karma", "dharma", "moksha"],
-    explainConceptRequest: jest.fn(() => {
+    explainConceptRequest: vi.fn(() => {
       return Promise.resolve({
         article: "This is an explanation of the concept.",
       });
@@ -25,7 +26,7 @@ describe("ExplainerContainer", () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText("This is an explanation of the concept.")
+        screen.getByText("This is an explanation of the concept."),
       ).toBeInTheDocument();
     });
   });

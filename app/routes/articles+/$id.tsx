@@ -1,5 +1,5 @@
-import { type LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { type LoaderFunctionArgs } from "react-router";
+import { useLoaderData } from "react-router";
 import { ArticleDetailContainer } from "~/components/Articles/ArticleDetailContainer";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { getArticleById } from "~/core/lib/repositories/articlesRepository";

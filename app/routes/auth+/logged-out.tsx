@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { PageFrame } from "~/ui/layout/PageFrame";
 
 export default function LogoutRoute() {

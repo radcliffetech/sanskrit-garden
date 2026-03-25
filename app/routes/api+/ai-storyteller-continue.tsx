@@ -1,4 +1,4 @@
-import { json, type ActionFunction } from "@remix-run/node";
+import { type ActionFunction } from "react-router";
 import { continueStory } from "~/core/lib/openai/openai.server";
 
 export const action: ActionFunction = async ({ request }) => {
@@ -13,7 +13,7 @@ export const action: ActionFunction = async ({ request }) => {
       typeof question !== "string" ||
       typeof branchSegment !== "string"
     ) {
-      return json(
+      return Response.json(
         { error: "Invalid input provided for story continuation." },
         { status: 400 }
       );
@@ -22,9 +22,9 @@ export const action: ActionFunction = async ({ request }) => {
     const { title, story, questions, branches, reference } =
       await continueStory(baseStory, question, branchSegment);
 
-    return json({ title, story, questions, branches, reference });
+    return Response.json({ title, story, questions, branches, reference });
   } catch (error) {
     console.error("[Server] Error continuing story:", error);
-    return json({ error: "An unexpected error occurred." }, { status: 500 });
+    return Response.json({ error: "An unexpected error occurred." }, { status: 500 });
   }
 };

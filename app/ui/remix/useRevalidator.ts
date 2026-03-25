@@ -1,4 +1,4 @@
-import { useRevalidator as remixUseRevalidator } from "@remix-run/react";
+import { useRevalidator as remixUseRevalidator } from "react-router";
 
 const useRevalidator = remixUseRevalidator;
 

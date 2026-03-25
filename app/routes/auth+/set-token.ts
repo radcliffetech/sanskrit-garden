@@ -1,4 +1,4 @@
-import { json, type ActionFunctionArgs } from "@remix-run/node";
+import { type ActionFunctionArgs } from "react-router";
 import { getAuth } from "firebase-admin/auth";
 import { adminApp } from "~/core/lib/firebase/firebase.server";
 import { createUserSession } from "~/core/lib/session.server";
@@ -8,7 +8,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
   const token = authHeader?.replace("Bearer ", "");
 
   if (!token) {
-    return json({ error: "No token provided" }, { status: 401 });
+    return Response.json({ error: "No token provided" }, { status: 401 });
   }
 
   try {
@@ -16,6 +16,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     return createUserSession(token, "/");
   } catch (err) {
     console.error("Token verification failed:", err);
-    return json({ error: "Invalid or expired token" }, { status: 401 });
+    return Response.json({ error: "Invalid or expired token" }, { status: 401 });
   }
 };

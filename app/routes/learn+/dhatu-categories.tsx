@@ -1,14 +1,13 @@
 import { DhatuCatalogContainer } from "~/components/DhatuTree/DhatuCategoriesContainer";
 import type { DhatuCatalogEntry } from "~/types";
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "react-router";
 import { PageFrame } from "~/ui/layout/PageFrame";
 import { PageHeader } from "~/ui/layout/PageHeader";
 import dhatuIndex from "~/data/verbs/dhatu-index.json";
-import { json } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData } from "react-router";
 
 export function loader({}: LoaderFunctionArgs) {
-  return json(dhatuIndex as DhatuCatalogEntry[]);
+  return Response.json(dhatuIndex as DhatuCatalogEntry[]);
 }
 
 export default function DhatuCatalogRoute() {

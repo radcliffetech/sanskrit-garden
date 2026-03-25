@@ -1,7 +1,7 @@
-import { Outlet, useLoaderData } from "@remix-run/react";
+import { Outlet, useLoaderData } from "react-router";
 
 import { AdminProvider } from "~/ui/auth/AdminContext";
-import type { LoaderFunctionArgs } from "@remix-run/node";
+import type { LoaderFunctionArgs } from "react-router";
 import { requireAdminUser } from "~/core/lib/firebase/auth.server";
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {

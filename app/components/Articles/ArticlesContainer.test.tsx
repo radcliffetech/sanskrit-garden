@@ -1,14 +1,14 @@
+import { vi, describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 
 import { Article } from "~/types";
 import ArticlesContainer from "./ArticlesContainer";
 
-// Mock Remix Link to avoid ESM import errors in tests
-jest.mock("@remix-run/react", () => ({
+vi.mock("react-router", () => ({
   Link: ({ to, children }: any) => <a href={to}>{children}</a>,
 }));
 
-jest.mock("./ArticlesCard", () => ({
+vi.mock("./ArticlesCard", () => ({
   ArticleCard: ({ article }: { article: Article }) => (
     <div data-testid="mock-article-card">{article.title}</div>
   ),
@@ -40,10 +40,9 @@ const mockArticles: Article[] = [
 ];
 
 describe("ArticlesContainer", () => {
-  it("renders AI Explainer link and article cards", () => {
+  it("renders article cards", () => {
     render(<ArticlesContainer data={mockArticles} />);
 
-    // Article cards check
     const cards = screen.getAllByTestId("mock-article-card");
     expect(cards).toHaveLength(2);
     expect(cards[0]).toHaveTextContent("Article One");

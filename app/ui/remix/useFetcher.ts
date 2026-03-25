@@ -1,4 +1,4 @@
-import { useFetcher as remixUseFetcher } from "@remix-run/react";
+import { useFetcher as remixUseFetcher } from "react-router";
 
 const useFetcher = remixUseFetcher;
 
